@@ -24,6 +24,7 @@ import (
 	"github.com/sirupsen/logrus"
 	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/accesscontrol/namespace"
 	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/accesscontrol/rbac"
+	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/accesscontrol/tolerations"
 	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/common"
 	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/identifiers"
 	"github.com/test-network-function/cnf-certification-test/cnf-certification-test/results"
@@ -147,6 +148,11 @@ var _ = ginkgo.Describe(common.AccessControlTestKey, func() {
 	ginkgo.It(testID, ginkgo.Label(testID), func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Pods)
 		TestSysPtraceCapability(&env)
+	})
+	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestPodTolerationBypassIdentifier)
+	ginkgo.It(testID, ginkgo.Label(testID), func() {
+		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Pods)
+		TestPodTolerationBypass(&env)
 	})
 })
 
@@ -527,6 +533,26 @@ func TestSysPtraceCapability(env *provider.TestEnvironment) {
 
 	if n := len(podsWithoutSysPtrace); n > 0 {
 		errMsg := fmt.Sprintf("Number of pods with process namespace sharing enabled for which none of their containers allows the SYS_PTRACE capability: %d", n)
+		tnf.ClaimFilePrintf(errMsg)
+		ginkgo.Fail(errMsg)
+	}
+}
+
+func TestPodTolerationBypass(env *provider.TestEnvironment) {
+	var podsWithRestrictedTolerationsNotDefault []string
+
+	for _, put := range env.Pods {
+		for _, t := range put.Data.Spec.Tolerations {
+			// Check if the tolerations fall outside the 'default' and are modified versions
+			if tolerations.IsTolerationModified(t) {
+				podsWithRestrictedTolerationsNotDefault = append(podsWithRestrictedTolerationsNotDefault, put.String())
+				logrus.Debugf("Pod: %s has been found with non-default %s toleration %s which is not allowed.", string(t.Effect), put.String(), t.Effect)
+			}
+		}
+	}
+
+	if n := len(podsWithRestrictedTolerationsNotDefault); n > 0 {
+		errMsg := fmt.Sprintf("Number of pods found with non-compliant tolerations: %d", n)
 		tnf.ClaimFilePrintf(errMsg)
 		ginkgo.Fail(errMsg)
 	}
