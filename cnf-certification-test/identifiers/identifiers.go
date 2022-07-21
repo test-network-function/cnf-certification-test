@@ -924,6 +924,7 @@ that there are no changes to the following directories:
 		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 2.7.4",
 		ExceptionProcess:      NoDocumentedProcess,
 	},
+<<<<<<< HEAD
 	TestSysPtraceCapabilityIdentifier: {
 		Identifier:            TestSysPtraceCapabilityIdentifier,
 		Type:                  informativeResult,
@@ -932,6 +933,8 @@ that there are no changes to the following directories:
 		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 2.7.5",
 		ExceptionProcess:      NoDocumentedProcess,
 	},
+=======
+>>>>>>> 07af93e (Add test for requests and limits for containers)
 	TestPodRequestsAndLimitsIdentifier: {
 		Identifier:            TestPodRequestsAndLimitsIdentifier,
 		Type:                  informativeResult,
