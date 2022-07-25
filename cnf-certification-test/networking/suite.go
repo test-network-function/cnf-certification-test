@@ -63,25 +63,25 @@ var _ = ginkgo.Describe(common.NetworkingTestKey, func() {
 	testID := identifiers.XformToGinkgoItIdentifier(identifiers.TestICMPv4ConnectivityIdentifier)
 	ginkgo.It(testID, ginkgo.Label(testID), func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Containers, env.Pods)
-		testNetworkConnectivity(&env, netcommons.IPv4, netcommons.DEFAULT)
+		testNetworkConnectivity(&env, defaultNumPings, netcommons.IPv4, netcommons.DEFAULT)
 	})
 	// Multus interfaces ICMP IPv4 test case
 	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestICMPv4ConnectivityMultusIdentifier)
 	ginkgo.It(testID, ginkgo.Label(testID), func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Containers, env.Pods)
-		testNetworkConnectivity(&env, netcommons.IPv4, netcommons.MULTUS)
+		testNetworkConnectivity(&env, defaultNumPings, netcommons.IPv4, netcommons.MULTUS)
 	})
 	// Default interface ICMP IPv6 test case
 	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestICMPv6ConnectivityIdentifier)
 	ginkgo.It(testID, ginkgo.Label(testID), func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Containers, env.Pods)
-		testNetworkConnectivity(&env, netcommons.IPv6, netcommons.DEFAULT)
+		testNetworkConnectivity(&env, defaultNumPings, netcommons.IPv6, netcommons.DEFAULT)
 	})
 	// Multus interfaces ICMP IPv6 test case
 	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestICMPv6ConnectivityMultusIdentifier)
 	ginkgo.It(testID, ginkgo.Label(testID), func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Containers, env.Pods)
-		testNetworkConnectivity(&env, netcommons.IPv6, netcommons.MULTUS)
+		testNetworkConnectivity(&env, defaultNumPings, netcommons.IPv6, netcommons.MULTUS)
 	})
 	// Default interface ICMP IPv6 test case
 	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestUndeclaredContainerPortsUsage)
@@ -164,11 +164,11 @@ func testNodePort(env *provider.TestEnvironment) {
 }
 
 // testDefaultNetworkConnectivity test the connectivity between the default interfaces of containers under test
-func testNetworkConnectivity(env *provider.TestEnvironment, aIPVersion netcommons.IPVersion, aType netcommons.IFType) {
+func testNetworkConnectivity(env *provider.TestEnvironment, count int, aIPVersion netcommons.IPVersion, aType netcommons.IFType) {
 	netsUnderTest, claimsLog := icmp.BuildNetTestContext(env.Pods, aIPVersion, aType)
 	// Saving  curated logs to claims file
 	tnf.ClaimFilePrintf("%s", claimsLog.GetLogLines())
-	badNets, claimsLog, skip := icmp.RunNetworkingTests(netsUnderTest, defaultNumPings, aIPVersion)
+	badNets, claimsLog, skip := icmp.RunNetworkingTests(netsUnderTest, count, aIPVersion)
 	// Saving curated logs to claims file
 	tnf.ClaimFilePrintf("%s", claimsLog.GetLogLines())
 	if skip {
