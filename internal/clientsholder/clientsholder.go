@@ -93,6 +93,10 @@ func GetTestClientsHolder(k8sMockObjects []runtime.Object, filenames ...string) 
 			k8sClientObjects = append(k8sClientObjects, v)
 		case *appsv1.Deployment:
 			k8sClientObjects = append(k8sClientObjects, v)
+		case *corev1.LimitRange:
+			k8sClientObjects = append(k8sClientObjects, v)
+		case *corev1.ResourceQuota:
+			k8sClientObjects = append(k8sClientObjects, v)
 
 		// K8s Extension Client Objects
 		case *apiextv1c.CustomResourceDefinition:

@@ -337,6 +337,14 @@ var (
 		Url:     formTestURL(common.AccessControlTestKey, "requests-and-limits"),
 		Version: versionOne,
 	}
+	TestNamespaceResourceQuotaIdentifier = claim.Identifier{
+		Url:     formTestURL(common.AccessControlTestKey, "namespace-resource-quota"),
+		Version: versionOne,
+	}
+	TestNamespaceLimitRangeIdentifier = claim.Identifier{
+		Url:     formTestURL(common.AccessControlTestKey, "namespace-limit-range"),
+		Version: versionOne,
+	}
 )
 
 func formDescription(identifier claim.Identifier, description string) string {
@@ -924,7 +932,6 @@ that there are no changes to the following directories:
 		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 2.7.4",
 		ExceptionProcess:      NoDocumentedProcess,
 	},
-<<<<<<< HEAD
 	TestSysPtraceCapabilityIdentifier: {
 		Identifier:            TestSysPtraceCapabilityIdentifier,
 		Type:                  informativeResult,
@@ -933,13 +940,25 @@ that there are no changes to the following directories:
 		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 2.7.5",
 		ExceptionProcess:      NoDocumentedProcess,
 	},
-=======
->>>>>>> 07af93e (Add test for requests and limits for containers)
 	TestPodRequestsAndLimitsIdentifier: {
 		Identifier:            TestPodRequestsAndLimitsIdentifier,
 		Type:                  informativeResult,
 		Description:           formDescription(TestPodRequestsAndLimitsIdentifier, `Check that containers have resource requests and limits specified in their spec.`),
 		Remediation:           RequestsAndLimitsRemediation,
 		BestPracticeReference: bestPracticeDocV1dot4URL + " Section 4.6.11",
+	},
+	TestNamespaceResourceQuotaIdentifier: {
+		Identifier:            TestNamespaceResourceQuotaIdentifier,
+		Type:                  informativeResult,
+		Description:           formDescription(TestNamespaceResourceQuotaIdentifier, `Checks to see if CNF workload pods are running in namespaces that have resource quotas applied.`),
+		Remediation:           NamespaceResourceQuotaRemediation,
+		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 4.6.8", // TODO Change this to v1.4 when available
+	},
+	TestNamespaceLimitRangeIdentifier: {
+		Identifier:            TestNamespaceLimitRangeIdentifier,
+		Type:                  informativeResult,
+		Description:           formDescription(TestNamespaceLimitRangeIdentifier, `Checks to see if CNF workload pods are running in namespaces that have limit ranges applied.`),
+		Remediation:           NamespaceLimitRangeRemediation,
+		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 4.6.8", // TODO Change this to v1.4 when available
 	},
 }

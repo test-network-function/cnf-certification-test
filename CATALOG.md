@@ -46,6 +46,32 @@ Result Type|normative
 Suggested Remediation|Ensure that your CNF utilizes namespaces declared in the yaml config file. Additionally, 	the namespaces should not start with "default, openshift-, istio- or aspenmesh-", except in rare cases.
 Best Practice Reference|https://connect.redhat.com/sites/default/files/2022-05/Cloud%20Native%20Network%20Function%20Requirements%201-3.pdf Section 5.2, 16.3.8 and 16.3.9
 Exception Process|There is no documented exception process for this.
+#### namespace-limit-range
+
+Property|Description
+---|---
+Test Case Name|namespace-limit-range
+Test Case Label|access-control-namespace-limit-range
+Unique ID|http://test-network-function.com/testcases/access-control/namespace-limit-range
+Version|v1.0.0
+Description|http://test-network-function.com/testcases/access-control/namespace-limit-range Checks to see if CNF workload pods are running in namespaces that have limit ranges applied.
+Result Type|informative
+Suggested Remediation|Apply a LimitRange to the namespace your CNF is running in
+Best Practice Reference|https://connect.redhat.com/sites/default/files/2022-05/Cloud%20Native%20Network%20Function%20Requirements%201-3.pdf Section 4.6.8
+Exception Process|
+#### namespace-resource-quota
+
+Property|Description
+---|---
+Test Case Name|namespace-resource-quota
+Test Case Label|access-control-namespace-resource-quota
+Unique ID|http://test-network-function.com/testcases/access-control/namespace-resource-quota
+Version|v1.0.0
+Description|http://test-network-function.com/testcases/access-control/namespace-resource-quota Checks to see if CNF workload pods are running in namespaces that have resource quotas applied.
+Result Type|informative
+Suggested Remediation|Apply a ResourceQuota to the namespace your CNF is running in
+Best Practice Reference|https://connect.redhat.com/sites/default/files/2022-05/Cloud%20Native%20Network%20Function%20Requirements%201-3.pdf Section 4.6.8
+Exception Process|
 #### one-process-per-container
 
 Property|Description
