@@ -48,23 +48,25 @@ const (
 )
 
 type DiscoveredTestData struct {
-	Env               configuration.TestParameters
-	TestData          configuration.TestConfiguration
-	Pods              []corev1.Pod
-	DebugPods         []corev1.Pod
-	Crds              []*apiextv1.CustomResourceDefinition
-	Namespaces        []string
-	Csvs              []olmv1Alpha.ClusterServiceVersion
-	Deployments       []appsv1.Deployment
-	StatefulSet       []appsv1.StatefulSet
-	Hpas              map[string]*scalingv1.HorizontalPodAutoscaler
-	Subscriptions     []olmv1Alpha.Subscription
-	HelmChartReleases map[string][]*release.Release
-	K8sVersion        string
-	OpenshiftVersion  string
-	OCPStatus         string
-	Nodes             *corev1.NodeList
-	Istio             bool
+	Env                configuration.TestParameters
+	TestData           configuration.TestConfiguration
+	Pods               []corev1.Pod
+	DebugPods          []corev1.Pod
+	LimitRangeItems    []corev1.LimitRange
+	ResourceQuotaItems []corev1.ResourceQuota
+	Crds               []*apiextv1.CustomResourceDefinition
+	Namespaces         []string
+	Csvs               []olmv1Alpha.ClusterServiceVersion
+	Deployments        []appsv1.Deployment
+	StatefulSet        []appsv1.StatefulSet
+	Hpas               map[string]*scalingv1.HorizontalPodAutoscaler
+	Subscriptions      []olmv1Alpha.Subscription
+	HelmChartReleases  map[string][]*release.Release
+	K8sVersion         string
+	OpenshiftVersion   string
+	OCPStatus          string
+	Nodes              *corev1.NodeList
+	Istio              bool
 }
 
 var data = DiscoveredTestData{}
@@ -107,6 +109,14 @@ func DoAutoDiscover() DiscoveredTestData {
 	debugLabels := []configuration.Label{debugLabel}
 	debugNS := []string{defaultNamespace}
 	data.DebugPods = findPodsByLabel(oc.K8sClient.CoreV1(), debugLabels, debugNS)
+	data.LimitRangeItems, err = getLimitRanges(oc.K8sClient.CoreV1())
+	if err != nil {
+		logrus.Fatalln("Cannot get limit ranges")
+	}
+	data.ResourceQuotaItems, err = getResourceQuotas(oc.K8sClient.CoreV1())
+	if err != nil {
+		logrus.Fatalln("Cannot get resource quotas")
+	}
 	data.Crds = FindTestCrdNames(data.TestData.CrdFilters)
 	data.Csvs = findOperatorsByLabel(oc.OlmClient, []configuration.Label{{Name: tnfCsvTargetLabelName, Prefix: tnfLabelPrefix, Value: tnfCsvTargetLabelValue}}, data.TestData.TargetNameSpaces)
 	data.Subscriptions = findSubscriptions(oc.OlmClient, data.Namespaces)

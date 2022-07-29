@@ -148,6 +148,11 @@ var _ = ginkgo.Describe(common.AccessControlTestKey, func() {
 		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Pods)
 		TestSysPtraceCapability(&env)
 	})
+	testID = identifiers.XformToGinkgoItIdentifier(identifiers.TestNamespaceResourceQuotaIdentifier)
+	ginkgo.It(testID, ginkgo.Label(testID), func() {
+		testhelper.SkipIfEmptyAny(ginkgo.Skip, env.Pods)
+		TestNamespaceResourceQuota(&env)
+	})
 })
 
 // TestSecConCapabilities verifies that non compliant capabilities are not present
@@ -527,6 +532,70 @@ func TestSysPtraceCapability(env *provider.TestEnvironment) {
 
 	if n := len(podsWithoutSysPtrace); n > 0 {
 		errMsg := fmt.Sprintf("Number of pods with process namespace sharing enabled for which none of their containers allows the SYS_PTRACE capability: %d", n)
+		tnf.ClaimFilePrintf(errMsg)
+		ginkgo.Fail(errMsg)
+	}
+}
+
+//nolint:dupl
+func TestNamespaceLimitRanges(env *provider.TestEnvironment) {
+	var namespacesMissingLimitRanges []string
+	ginkgo.By("Testing namespace limit ranges")
+
+	for _, put := range env.Pods {
+		// Look through all of the pods and compare their namespace to any potential
+		// limit ranges that exist for a certain namespace.
+		foundPodNamespaceLimit := false
+		for index := range env.LimitRanges {
+			// We are just checking for the existence of the limit range as of right now.
+			// Read more about the limit range object here:
+			// https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
+			if put.Data.Namespace == env.LimitRanges[index].Namespace {
+				foundPodNamespaceLimit = true
+				break
+			}
+		}
+
+		if !foundPodNamespaceLimit {
+			namespacesMissingLimitRanges = append(namespacesMissingLimitRanges, put.String())
+			logrus.Debugf("Pod %s is running in a namespace that does not have a LimitRange applied.", put.String())
+		}
+	}
+
+	if n := len(namespacesMissingLimitRanges); n > 0 {
+		errMsg := fmt.Sprintf("Number of pods running in namespaces that do not have a LimitRange applied: %d", n)
+		tnf.ClaimFilePrintf(errMsg)
+		ginkgo.Fail(errMsg)
+	}
+}
+
+//nolint:dupl
+func TestNamespaceResourceQuota(env *provider.TestEnvironment) {
+	var namespacesMissingQuotas []string
+	ginkgo.By("Testing namespace resource quotas")
+
+	for _, put := range env.Pods {
+		// Look through all of the pods and compare their namespace to any potential
+		// limit ranges that exist for a certain namespace.
+		foundPodNamespaceLimit := false
+		for index := range env.ResourceQuotas {
+			// We are just checking for the existence of the limit range as of right now.
+			// Read more about the limit range object here:
+			// https://kubernetes.io/docs/tasks/administer-cluster/manage-resources/memory-default-namespace/
+			if put.Data.Namespace == env.ResourceQuotas[index].Namespace {
+				foundPodNamespaceLimit = true
+				break
+			}
+		}
+
+		if !foundPodNamespaceLimit {
+			namespacesMissingQuotas = append(namespacesMissingQuotas, put.String())
+			logrus.Debugf("Pod %s is running in a namespace that does not have a ResourceQuota applied.", put.String())
+		}
+	}
+
+	if n := len(namespacesMissingQuotas); n > 0 {
+		errMsg := fmt.Sprintf("Number of pods running in namespaces that do not have a ResourceQuota applied: %d", n)
 		tnf.ClaimFilePrintf(errMsg)
 		ginkgo.Fail(errMsg)
 	}
