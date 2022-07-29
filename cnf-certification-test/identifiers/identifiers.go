@@ -337,6 +337,10 @@ var (
 		Url:     formTestURL(common.AccessControlTestKey, "requests-and-limits"),
 		Version: versionOne,
 	}
+	TestPodTolerationBypassIdentifier = claim.Identifier{
+		Url:     formTestURL(common.AccessControlTestKey, "pod-toleration-bypass"),
+		Version: versionOne,
+	}
 )
 
 func formDescription(identifier claim.Identifier, description string) string {
@@ -938,5 +942,12 @@ that there are no changes to the following directories:
 		Description:           formDescription(TestPodRequestsAndLimitsIdentifier, `Check that containers have resource requests and limits specified in their spec.`),
 		Remediation:           RequestsAndLimitsRemediation,
 		BestPracticeReference: bestPracticeDocV1dot4URL + " Section 4.6.11",
+	},
+	TestPodTolerationBypassIdentifier: {
+		Identifier:            TestPodTolerationBypassIdentifier,
+		Type:                  informativeResult,
+		Description:           formDescription(TestPodTolerationBypassIdentifier, `Check that pods do not have NoExecute, PreferNoSchedule, or NoSchedule tolerations that have been modified from the default.`),
+		Remediation:           PodTolerationBypassRemediation,
+		BestPracticeReference: bestPracticeDocV1dot3URL + " Section 10.6",
 	},
 }

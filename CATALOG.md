@@ -162,6 +162,18 @@ Description|http://test-network-function.com/testcases/access-control/requests-a
 Result Type|informative
 Suggested Remediation|Add requests and limits to your container spec.  See: https://kubernetes.io/docs/concepts/configuration/manage-resources-containers/#requests-and-limits
 Best Practice Reference|https://TODO Section 4.6.11
+#### pod-toleration-bypass
+
+Property|Description
+---|---
+Test Case Name|pod-toleration-bypass
+Test Case Label|access-control-pod-toleration-bypass
+Unique ID|http://test-network-function.com/testcases/access-control/pod-toleration-bypass
+Version|v1.0.0
+Description|http://test-network-function.com/testcases/access-control/pod-toleration-bypass Check that pods do not have NoExecute, PreferNoSchedule, or NoSchedule tolerations that have been modified from the default.
+Result Type|informative
+Suggested Remediation|Do not allow pods to bypass the NoExecute, PreferNoSchedule, or NoSchedule tolerations that are default applied by Kubernetes.
+Best Practice Reference|https://connect.redhat.com/sites/default/files/2022-05/Cloud%20Native%20Network%20Function%20Requirements%201-3.pdf Section 10.6
 Exception Process|
 #### security-context-capabilities-check
 
