@@ -1,167 +1,6 @@
 {
   "data": [
     {
-      "_id": "609aaf44e2b160d361d250f8",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/triggermesh/aws-event-sources-operator-bundle@sha256:b9d8f05aa217db6847aed2b06cff677777bbdd5606191b832ff53000dea489cd",
-      "bundle_path_digest": "sha256:b9d8f05aa217db6847aed2b06cff677777bbdd5606191b832ff53000dea489cd",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-05-11T16:22:28.734000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "aws-sources-operator.v0.2.2",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-04-16T17:10:15.640000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "aws-event-sources-operator-certified",
-      "provided_apis": [
-        {
-          "group": "sources.triggermesh.com",
-          "kind": "AwsEventSources",
-          "plural": "awseventsources",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "0.2.2",
-      "version_original": "0.2.2"
-    },
-    {
-      "_id": "609aaf4856933b164fe21208",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/zabbix/zabbixoperator-certified-bundle@sha256:7d7874dc07cdf9fa61a6377e87e836e63629e404415fd8bc98ce3fe88d3932ca",
-      "bundle_path_digest": "sha256:7d7874dc07cdf9fa61a6377e87e836e63629e404415fd8bc98ce3fe88d3932ca",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "lts",
-      "creation_date": "2021-05-11T16:22:32.189000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "zabbix-operator-certified.v0.0.1",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-04-16T17:19:47.694000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "zabbix-operator-certified",
-      "provided_apis": [
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixFull",
-          "plural": "zabbixfulls",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixProxyMysql",
-          "plural": "zabbixproxymysqls",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixProxySqlite",
-          "plural": "zabbixproxysqlites",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixServer",
-          "plural": "zabbixservers",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixAgent",
-          "plural": "zabbixagents",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "kubernetes.zabbix.com",
-          "kind": "ZabbixAppliance",
-          "plural": "zabbixappliances",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "0.0.1",
-      "version_original": "0.0.1"
-    },
-    {
-      "_id": "609aaf49e2b160d361d250fa",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/ibm-edge/data-explorer-operator-bundle@sha256:16f043d2f31f879b1aa6cf2385ca873b45850f238c32370b661f2c8ebc7668be",
-      "bundle_path_digest": "sha256:16f043d2f31f879b1aa6cf2385ca873b45850f238c32370b661f2c8ebc7668be",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-05-11T16:22:33.273000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "data-explorer-operator.v0.1.1",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-04-16T17:17:20.673000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "data-explorer-operator-certified",
-      "provided_apis": [
-        {
-          "group": "data-explorer.com",
-          "kind": "DashboardWithJupyterHub",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "0.1.1",
-      "version_original": "0.1.1"
-    },
-    {
       "_id": "609aaf49d04af0e74bb0581f",
       "alm_examples": [],
       "annotations": {
@@ -8937,9 +8776,152 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
       "version": "0.0.5",
       "version_original": "0.0.5"
+    },
+    {
+      "_id": "609aaff9e2b160d361d25164",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/ibm-edge/data-explorer-operator-bundle@sha256:2098ab48bafee24a19a6bd6592a2b177b5d863e9c1d2519bf095325dcd4476e1",
+      "bundle_path_digest": "sha256:2098ab48bafee24a19a6bd6592a2b177b5d863e9c1d2519bf095325dcd4476e1",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-05-11T16:25:29.770000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "data-explorer-operator.v0.1.4",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": true,
+      "last_update_date": "2022-04-16T17:07:13.436000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "data-explorer-operator-certified",
+      "provided_apis": [
+        {
+          "group": "data-explorer.com",
+          "kind": "DashboardWithJupyterHub",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": null,
+      "skip_range": null,
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "0.1.4",
+      "version_original": "0.1.4"
+    },
+    {
+      "_id": "609aafff3048c1ac9a6feaf7",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/memsql/operator-bundle@sha256:43d4b83cd44b220ff97974e49f5a451f93058bbf5ed52ef8a650f199bdc0ebdb",
+      "bundle_path_digest": "sha256:43d4b83cd44b220ff97974e49f5a451f93058bbf5ed52ef8a650f199bdc0ebdb",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-05-11T16:25:35.586000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "memsql-operator.v0.0.3",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": true,
+      "last_update_date": "2022-04-16T17:27:17.483000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "memql-certified",
+      "provided_apis": [
+        {
+          "group": "memsql.com",
+          "kind": "MemsqlCluster",
+          "plural": "memsqlclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": null,
+      "skip_range": null,
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "0.0.3",
+      "version_original": "0.0.3"
+    },
+    {
+      "_id": "609ab0063048c1ac9a6feafa",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/seldonio/seldon-core-operator-bundle@sha256:c380d43717df7db52058bcf261ece6ceb0e0ce779b0576d31d25d8a3c9c70e55",
+      "bundle_path_digest": "sha256:c380d43717df7db52058bcf261ece6ceb0e0ce779b0576d31d25d8a3c9c70e55",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-05-11T16:25:42.312000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "seldon-operator.v1.1.0",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": false,
+      "last_update_date": "2022-04-16T17:09:03.750000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "seldon-operator-certified",
+      "provided_apis": [
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1alpha3"
+        },
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1"
+        },
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1alpha2"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": null,
+      "skip_range": null,
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.1.0",
+      "version_original": "1.1.0"
     }
   ],
   "page": 8,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

@@ -1,236 +1,6 @@
 {
   "data": [
     {
-      "_id": "5ff5f0bf8634b82517526305",
-      "alm_examples": [
-        {
-          "api_version": "core.libopenstorage.org/v1",
-          "kind": "StorageCluster",
-          "metadata": {
-            "annotations": {
-              "portworx.io/is-openshift": "true"
-            },
-            "name": "portworx",
-            "namespace": "test-operator"
-          },
-          "spec": {
-            "autopilot": {
-              "enabled": false
-            }
-          }
-        },
-        {
-          "api_version": "core.libopenstorage.org/v1",
-          "kind": "StorageNode",
-          "metadata": {
-            "name": "example",
-            "namespace": "test-operator"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/portworx/portworx-certified-bundle@sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
-      "bundle_path_digest": "sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
-      "capabilities": [
-        "Auto Pilot"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-01-06T17:17:51.529000+00:00",
-      "csv_description": "Portworx-Enterprise is the most widely-used and reliable cloud-native\nstorage solution for production workloads and provides high-availability,\ndata protection and security for containerized applications.\n\nPortworx Enterprise enables you to migrate entire applications, including\ndata, between clusters in a single data center or cloud, or between clouds,\nwith a single kubectl command.\n\nThe cloud native storage and data management platform that enterprises trust\nto manage data in containers now has an operator which simplifies the install,\nconfiguration, upgrades and manages the Portworx Enterprise cluster lifecycle.\n\nLearn more about the Portworx Enterprise\n[the data platform for Kubernetes](https://portworx.com/products/introduction)\n\nTo learn more about the platform features, please visit our\n[product features page](https://portworx.com/products/features)\n\n### About Portworx\n\nPortworx is the solution for running stateful containers in production,\ndesigned with DevOps in mind. With Portworx, users can manage any database\nor stateful service on any infrastructure using any container scheduler,\nincluding Kubernetes, Mesosphere DC/OS, and Docker Swarm. Portworx solves\nthe five most common problems DevOps teams encounter when running stateful\nservices in production: persistence, high availability, data automation,\nsecurity, and support for multiple data stores and infrastructure.\n\n### How to install StorageCluster\n\nTo customize your cluster's configuration (specification), use the\n[Spec Generator](https://central.portworx.com/) from PX-Central.\n\n### Prerequisite\n\nEnsure ports 17001-17020 on worker nodes are reachable from master and other worker nodes.\n\n### Tutorials\n\n* [Portworx Enterprise on Openshift](https://portworx.com/openshift)\n\n* [Stateful applications on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes/application-install-with-kubernetes)\n\n* [Portworx Enterprise on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes)\n\n* [Kafka on Kubernetes](https://portworx.com/kafka-kubernetes)\n\n* [Elastisearch on Kubernetes](https://portworx.com/elasticsearch-kubernetes)\n\n* [PostgreSQL on Kubernetes](https://portworx.com/postgres-kubernetes/)\n\n* [MongoDB on Kubernetes](https://portworx.com/mongodb-kubernetes/)\n\n* [Cassandra on Kubernetes](https://portworx.com/cassandra-kubernetes/)\n\n* [Kubernetes backup and recovery](https://portworx.com/kubernetes-backup/)\n\n* [Disaster Recovery for Kubernetes](https://portworx.com/kubernetes-disaster-recovery/)\n\n### Uninstall\n\nDeleting the StorageCluster object for Portworx cluster does not stop Portworx\nservice running on the nodes, to avoid application downtime.\n\nTo uninstall Portworx completely without wiping the data, you should add the\nfollowing delete strategy to the StorageCluster spec:\n```\nspec:\n  deleteStrategy:\n    type: Uninstall\n```\n**Caution:** To uninstall Portworx and **wipe all the data**, you should use the following\ndelete strategy:\n```\nspec:\n  deleteStrategy:\n    type: UninstallAndWipe\n```\n",
-      "csv_display_name": "Portworx Enterprise",
-      "csv_metadata_description": "Cloud native storage solution for production workloads",
-      "csv_name": "portworx-operator.v1.4.2",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": true,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-06-17T01:26:03.014000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "portworx-certified",
-      "provided_apis": [
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageNode",
-          "plural": "storagenodes",
-          "version": "v1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageNode",
-          "plural": "storagenodes",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageCluster",
-          "plural": "storageclusters",
-          "version": "v1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageCluster",
-          "plural": "storageclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "name": "openstorage-operator-1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd-annotation"
-        },
-        {
-          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "name": "portworx-operator"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.4.2",
-      "version_original": "1.4.2"
-    },
-    {
-      "_id": "5ff5f0c08634b82517526306",
-      "alm_examples": [
-        {
-          "api_version": "core.libopenstorage.org/v1",
-          "kind": "StorageCluster",
-          "metadata": {
-            "annotations": {
-              "portworx.io/is-openshift": "true"
-            },
-            "name": "portworx",
-            "namespace": "test-operator"
-          },
-          "spec": {
-            "autopilot": {
-              "enabled": false
-            }
-          }
-        },
-        {
-          "api_version": "core.libopenstorage.org/v1",
-          "kind": "StorageNode",
-          "metadata": {
-            "name": "example",
-            "namespace": "test-operator"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/portworx/portworx-certified-bundle@sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
-      "bundle_path_digest": "sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
-      "capabilities": [
-        "Auto Pilot"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2021-01-06T17:17:52.402000+00:00",
-      "csv_description": "Portworx-Enterprise is the most widely-used and reliable cloud-native\nstorage solution for production workloads and provides high-availability,\ndata protection and security for containerized applications.\n\nPortworx Enterprise enables you to migrate entire applications, including\ndata, between clusters in a single data center or cloud, or between clouds,\nwith a single kubectl command.\n\nThe cloud native storage and data management platform that enterprises trust\nto manage data in containers now has an operator which simplifies the install,\nconfiguration, upgrades and manages the Portworx Enterprise cluster lifecycle.\n\nLearn more about the Portworx Enterprise\n[the data platform for Kubernetes](https://portworx.com/products/introduction)\n\nTo learn more about the platform features, please visit our\n[product features page](https://portworx.com/products/features)\n\n### About Portworx\n\nPortworx is the solution for running stateful containers in production,\ndesigned with DevOps in mind. With Portworx, users can manage any database\nor stateful service on any infrastructure using any container scheduler,\nincluding Kubernetes, Mesosphere DC/OS, and Docker Swarm. Portworx solves\nthe five most common problems DevOps teams encounter when running stateful\nservices in production: persistence, high availability, data automation,\nsecurity, and support for multiple data stores and infrastructure.\n\n### How to install StorageCluster\n\nTo customize your cluster's configuration (specification), use the\n[Spec Generator](https://central.portworx.com/) from PX-Central.\n\n### Prerequisite\n\nEnsure ports 17001-17020 on worker nodes are reachable from master and other worker nodes.\n\n### Tutorials\n\n* [Portworx Enterprise on Openshift](https://portworx.com/openshift)\n\n* [Stateful applications on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes/application-install-with-kubernetes)\n\n* [Portworx Enterprise on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes)\n\n* [Kafka on Kubernetes](https://portworx.com/kafka-kubernetes)\n\n* [Elastisearch on Kubernetes](https://portworx.com/elasticsearch-kubernetes)\n\n* [PostgreSQL on Kubernetes](https://portworx.com/postgres-kubernetes/)\n\n* [MongoDB on Kubernetes](https://portworx.com/mongodb-kubernetes/)\n\n* [Cassandra on Kubernetes](https://portworx.com/cassandra-kubernetes/)\n\n* [Kubernetes backup and recovery](https://portworx.com/kubernetes-backup/)\n\n* [Disaster Recovery for Kubernetes](https://portworx.com/kubernetes-disaster-recovery/)\n\n### Uninstall\n\nDeleting the StorageCluster object for Portworx cluster does not stop Portworx\nservice running on the nodes, to avoid application downtime.\n\nTo uninstall Portworx completely without wiping the data, you should add the\nfollowing delete strategy to the StorageCluster spec:\n```\nspec:\n  deleteStrategy:\n    type: Uninstall\n```\n**Caution:** To uninstall Portworx and **wipe all the data**, you should use the following\ndelete strategy:\n```\nspec:\n  deleteStrategy:\n    type: UninstallAndWipe\n```\n",
-      "csv_display_name": "Portworx Enterprise",
-      "csv_metadata_description": "Cloud native storage solution for production workloads",
-      "csv_name": "portworx-operator.v1.4.2",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": true,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:24:02.242000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "portworx-certified",
-      "provided_apis": [
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageNode",
-          "plural": "storagenodes",
-          "version": "v1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageNode",
-          "plural": "storagenodes",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageCluster",
-          "plural": "storageclusters",
-          "version": "v1"
-        },
-        {
-          "group": "core.libopenstorage.org",
-          "kind": "StorageCluster",
-          "plural": "storageclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "name": "openstorage-operator-1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd-annotation"
-        },
-        {
-          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
-          "name": "portworx-operator"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.4.2",
-      "version_original": "1.4.2"
-    },
-    {
       "_id": "5ff5f0c50c023d07361b8310",
       "alm_examples": [
         {
@@ -14447,9 +14217,332 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
       "version": "0.1.7",
       "version_original": "0.1.7"
+    },
+    {
+      "_id": "6034a53408f2098193f9118c",
+      "alm_examples": [
+        {
+          "api_version": "densify.com/v1",
+          "kind": "Densify",
+          "metadata": {
+            "name": "densify"
+          },
+          "spec": {
+            "affinity": {},
+            "config": {
+              "cronJob": {
+                "schedule": "0 * * * *"
+              },
+              "debug": false,
+              "densify": {
+                "epassword": "<encrypted densify user password>",
+                "hostname": "<instance>.densify.com",
+                "port": 443,
+                "protocol": "https",
+                "user": "<densify user>"
+              },
+              "prometheus": {
+                "hostname": "<prometheus hostname>",
+                "port": "<prometheus port>",
+                "protocol": "http"
+              },
+              "zipEnabled": true,
+              "zipname": "data/<zip name>"
+            },
+            "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
+            "nodeSelector": {},
+            "pullPolicy": "Always",
+            "replicaCount": 1,
+            "resources": {}
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [
+        "amd64"
+      ],
+      "bundle_path": "registry.connect.redhat.com/densify/densify-operator-bundle@sha256:6c37c211385ffad721637ea1a6bcda46e4aa9aa46efdbeec6f75e9b9bd7ff75d",
+      "bundle_path_digest": "sha256:6c37c211385ffad721637ea1a6bcda46e4aa9aa46efdbeec6f75e9b9bd7ff75d",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "v1.0",
+      "creation_date": "2021-02-23T06:48:20.199000+00:00",
+      "csv_description": "The Densify-Operator deploys the Densify Container Data Collection utility, which collects data from a Prometheus server and sends it to a Densify instance for analysis. \n\n# Prerequisites\n\n- Densify account, which is provided with a Densify subscription or through a free trial (https://www.densify.com/service/signup)\n- Prometheus (https://prometheus.io/)\n- Kube-state-metrics (https://github.com/kubernetes/kube-state-metrics)\n\n# Installing\n\n## Basic Install\nThe instruction below deploys the basic Densify Container Data Collection with minimal configuration.\n1. update the Densify hostname, user and encrypted password, Prometheus hostname and port, and zip filename:\n```\napiVersion: densify.com/v1\nkind: Densify\nmetadata:\n  name: densify\nspec:\n  config:\n    densify:\n      hostname: <instance>.densify.com\n      port: 443\n      protocol: https\n      user: <densify user>\n      epassword: <encrypted densify user password>\n    prometheus:\n      hostname: <prometheus hostname>\n      port: <prometheus port>\n      protocol: http\n    zipname: data/<zip name>\n```\n\n## Install Using a Secret for User and Password\nThe instructions below deploy the Densify Container Data Collection using a secret to store the username and encrypted password.\n1. Create a secret that contains the username and epassword keys.\n```\noc -n \"<namespace deploying operator into>\" create secret generic densify-secret \\\n  --from-literal=username=\"<densify username>\" \\\n  --from-literal=epassword=\"<encrypted password>\" \\\n```\n2. Update the Densify hostname, Prometheus hostname and port, and zip filename:\n```\napiVersion: densify.com/v1\nkind: Densify\nmetadata:\n  name: densify\nspec:\n  config:\n    densify:\n      hostname: <instance>.densify.com\n      port: 443\n      protocol: https\n      UserSecretName: densify-secret\n    prometheus:\n      hostname: <prometheus hostname>\n      port: <prometheus port>\n      protocol: http\n    zipname: data/<zip name>\n```\n# Configuration\n \nThe configuration parameters are the same set as the [Densify Forwarder](https://github.com/densify-dev/helm-charts/tree/master/charts/container-optimization-data-forwarder#configuration) helm chart:\n\n| Parameter        | Description           | Default |\n| ------------- |-------------|--------|\n| `config.densify.hostname` | Specify the Densify instance hostname. You may need to specify a fully qualified domain name. | `<instance>.densify.com` |\n| `config.densify.protocol` | Specify the Densify connection protocol: http or https. | `<http/https>` |\n| `config.densify.port` | Specify the Densify connection port number. | `443` |\n| `config.densify.user` | Specify the Densify user account. You must specify either a password or an epassword along with this parameter. This user must already exist in your Densify instance and have API access privileges. Alternatively, you can use config.densify.UserSecretName for authentication instead of user/(e)password combination (see UserSecretName below). | `nil` |\n| `config.densify.password` | Specify the password for the Densify user. Only specify a password or an encrypted password (not both). | `nil` |\n| `config.densify.epassword` | Specify the encrypted password for the Densify User. If you specify an encrypted password, then disable the config.densify.password paramter. | `nil` |\n| `config.densify.UserSecretName` | Specify the secret name used to store the Densify user and epassword (keys must contain username and epassword). If this parameter is used, then config.densify.username\\password\\epassword parameters must be disabled. | `nil` |\n| `config.prometheus.hostname` | Specify the Prometheus address. Using the internal service name is recommended (i.e. `<service name>.<namespace>.svc`). | `nil` |\n| `config.prometheus.protocol` | Specify the Prometheus connection protocol: http or https. | `<http/https>` |\n| `config.prometheus.port` | Specify the Prometheus service connection port. | `9090` |\n| `config.prometheus.clustername` | Specify the name to identify the cluster in the Densify UI. If this parameter is disabled, then the specified Prometheus hostname is used to identify the cluster in the Densify UI. | `nil` |\n| `config.zipname` | Specify the name of the zipfile to send to Densify. | `data/nil` |\n| `rbac.create` | This flag indicates if RBAC resources are created and used. This flag must be \"true\" for API access to Prometheus in a secured cluster. | `true` |\n| `serviceAccount.create` | Specify \"true\" to create a Service Account with the name specified by the serviceAccount.name parameter (see below). | `true` |\n| `serviceAccount.name` | Specify the name of the Service Account. If this parameter is disabled, then the Helm chart name is used as the Service Account name. You can specify an existing Service Account name to use, if serviceAccount.create == \"false\". | `nil` |\n\nRefer to the [Densify Forwarder](https://github.com/densify-dev/helm-charts/tree/master/charts/container-optimization-data-forwarder#configuration) helm chart for the full list of parameters.\n\n# Limitation\n* OS Support: Linux\n* Architecture: AMD64\n\n# Documentation\n* [Densify Feature Description and Reference Guide](https://www.densify.com/docs/Content/Welcome.htm)\n\n# License\nApache 2 Licensed. See [LICENSE](LICENSE) for full details.",
+      "csv_display_name": "Densify Operator",
+      "csv_metadata_description": "Densify Container Resource Management works to identify better supply (resource) allocations for your underlying containers based on key technical, business and cost criteria.  Any infrastructure changes recommended by Densify can be moderated through your existing ITSM framework / processes.",
+      "csv_name": "densify-operator.v1.0.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:49:50.550000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "densify-operator",
+      "provided_apis": [
+        {
+          "group": "densify.com",
+          "kind": "Densify",
+          "plural": "densifies",
+          "version": "v1"
+        },
+        {
+          "group": "densify.com",
+          "kind": "Densify",
+          "plural": "densifies",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
+          "image": "registry.connect.redhat.com/densify/densify-operator@sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
+          "name": "densify-operator-47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada-annotation"
+        },
+        {
+          "digest": "sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
+          "image": "registry.connect.redhat.com/densify/densify-operator@sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
+          "name": "densify-operator"
+        },
+        {
+          "digest": "sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
+          "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
+          "name": "densify"
+        },
+        {
+          "digest": "sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
+          "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
+          "name": "container-data-collection-forwarder-d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": ">=0.0.2 <1.0.0",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.0.0",
+      "version_original": "1.0.0"
+    },
+    {
+      "_id": "6034a54108f2098193f9118d",
+      "alm_examples": [
+        {
+          "api_version": "nvidia.com/v1",
+          "kind": "ClusterPolicy",
+          "metadata": {
+            "name": "gpu-cluster-policy"
+          },
+          "spec": {
+            "dcgmExporter": {
+              "affinity": {},
+              "image": "dcgm-exporter",
+              "imagePullSecrets": [],
+              "nodeSelector": {},
+              "podSecurityContext": {},
+              "repository": "nvcr.io/nvidia/k8s",
+              "resources": {},
+              "securityContext": {},
+              "tolerations": [],
+              "version": "sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88"
+            },
+            "devicePlugin": {
+              "affinity": {},
+              "args": [
+                "--mig-strategy=single",
+                "--pass-device-specs=false",
+                "--fail-on-init-error=true",
+                "--device-list-strategy=envvar",
+                "--nvidia-driver-root=/run/nvidia/driver"
+              ],
+              "image": "k8s-device-plugin",
+              "imagePullSecrets": [],
+              "nodeSelector": {},
+              "podSecurityContext": {},
+              "repository": "nvcr.io/nvidia",
+              "resources": {},
+              "securityContext": {},
+              "tolerations": [],
+              "version": "sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625"
+            },
+            "driver": {
+              "affinity": {},
+              "image": "driver",
+              "imagePullSecrets": [],
+              "nodeSelector": {},
+              "podSecurityContext": {},
+              "repoConfig": {
+                "configMapName": "",
+                "destinationDir": ""
+              },
+              "repository": "nvcr.io/nvidia",
+              "resources": {},
+              "securityContext": {},
+              "tolerations": [],
+              "version": "sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934"
+            },
+            "gfd": {
+              "affinity": {},
+              "image": "gpu-feature-discovery",
+              "imagePullSecrets": [],
+              "migStrategy": "single",
+              "nodeSelector": {},
+              "podSecurityContext": {},
+              "repository": "nvcr.io/nvidia",
+              "resources": {},
+              "securityContext": {},
+              "sleepInterval": "60s",
+              "tolerations": [],
+              "version": "sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14"
+            },
+            "operator": {
+              "defaultRuntime": "crio",
+              "deployGFD": true,
+              "validator": {
+                "image": "cuda-sample",
+                "imagePullSecrets": [],
+                "repository": "nvcr.io/nvidia/k8s",
+                "version": "sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2"
+              }
+            },
+            "toolkit": {
+              "affinity": {},
+              "image": "container-toolkit",
+              "imagePullSecrets": [],
+              "nodeSelector": {},
+              "podSecurityContext": {},
+              "repository": "nvcr.io/nvidia/k8s",
+              "resources": {},
+              "securityContext": {},
+              "tolerations": [],
+              "version": "sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd"
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [
+          "Disconnected"
+        ],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/nvidia/gpu-operator-bundle@sha256:3a944050b7ba261b5451e639165eb230f1afbc3be7624a7d6039f138b09cb19f",
+      "bundle_path_digest": "sha256:3a944050b7ba261b5451e639165eb230f1afbc3be7624a7d6039f138b09cb19f",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2021-02-23T06:48:33.418000+00:00",
+      "csv_description": "Kubernetes provides access to special hardware resources such as NVIDIA GPUs, NICs, Infiniband adapters and other devices through the [device plugin framework](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/). However, configuring and managing nodes with these hardware resources requires configuration of multiple software components such as drivers, container runtimes or other libraries which are difficult and prone to errors.\nThe NVIDIA GPU Operator uses the [operator framework](https://coreos.com/blog/introducing-operator-framework) within Kubernetes to automate the management of all NVIDIA software components needed to provision and monitor GPUs. These components include the NVIDIA drivers (to enable CUDA), Kubernetes device plugin for GPUs, the NVIDIA Container Runtime, automatic node labelling and NVIDIA DCGM exporter.\nVisit the official site of the [GPU Operator](https://github.com/NVIDIA/gpu-operator) for more information. For getting started with using the GPU Operator with OpenShift, see the instructions [here](https://docs.nvidia.com/datacenter/kubernetes/openshift-on-gpu-install-guide/index.html).\n",
+      "csv_display_name": "NVIDIA GPU Operator",
+      "csv_metadata_description": "Automate the management and monitoring of NVIDIA GPUs.",
+      "csv_name": "gpu-operator-certified.v1.5.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": false,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": false,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": true,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T02:06:13.746000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "gpu-operator-certified",
+      "provided_apis": [
+        {
+          "group": "nvidia.com",
+          "kind": "ClusterPolicy",
+          "plural": "clusterpolicies",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:679fea62eb2c207d26354ac088fbe4625457a329dee080d90479a411603eb694",
+          "image": "nvcr.io/nvidia/gpu-operator@sha256:679fea62eb2c207d26354ac088fbe4625457a329dee080d90479a411603eb694",
+          "name": "gpu-operator-image"
+        },
+        {
+          "digest": "sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88",
+          "image": "nvcr.io/nvidia/k8s/dcgm-exporter@sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88",
+          "name": "dcgm-exporter-image"
+        },
+        {
+          "digest": "sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd",
+          "image": "nvcr.io/nvidia/k8s/container-toolkit@sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd",
+          "name": "container-toolkit-image"
+        },
+        {
+          "digest": "sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934",
+          "image": "nvcr.io/nvidia/driver@sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934",
+          "name": "driver-image"
+        },
+        {
+          "digest": "sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625",
+          "image": "nvcr.io/nvidia/k8s-device-plugin@sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625",
+          "name": "device-plugin-image"
+        },
+        {
+          "digest": "sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14",
+          "image": "nvcr.io/nvidia/gpu-feature-discovery@sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14",
+          "name": "gpu-feature-discovery-image"
+        },
+        {
+          "digest": "sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2",
+          "image": "nvcr.io/nvidia/k8s/cuda-sample@sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2",
+          "name": "cuda-sample-image"
+        },
+        {
+          "digest": "sha256:ed723a1339cddd75eb9f2be2f3476edf497a1b189c10c9bf9eb8da4a16a51a59",
+          "image": "nvcr.io/nvidia/cuda@sha256:ed723a1339cddd75eb9f2be2f3476edf497a1b189c10c9bf9eb8da4a16a51a59",
+          "name": "dcgm-init-container-image"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.5.2",
+      "version_original": "1.5.2"
     }
   ],
   "page": 3,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

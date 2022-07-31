@@ -1,294 +1,6 @@
 {
   "data": [
     {
-      "_id": "62211f575c46c6464085fd22",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
-      "bundle_path_digest": "sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "6.2.10",
-      "creation_date": "2022-03-03T20:04:39.960000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "redis-enterprise-operator.v6.0.6-6",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": false,
-      "last_update_date": "2022-04-16T17:36:29.354000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "redis-enterprise-operator-cert",
-      "provided_apis": [
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "6.0.6-6",
-      "version_original": "6.0.6-6"
-    },
-    {
-      "_id": "62211f591a79457bc0d51242",
-      "alm_examples": [
-        {
-          "kind": "RedisEnterpriseCluster",
-          "metadata": {
-            "name": "rec"
-          },
-          "spec": {
-            "nodes": 3,
-            "persistentSpec": {
-              "enabled": true
-            },
-            "redisEnterpriseImageSpec": {
-              "imagePullPolicy": "IfNotPresent",
-              "repository": "redislabs/redis",
-              "versionTag": "6.0.20-69.rhel7-openshift"
-            },
-            "redisEnterpriseNodeResources": {
-              "limits": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              },
-              "requests": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              }
-            },
-            "uiServiceType": "ClusterIP",
-            "username": "demo@redislabs.com"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
-      "bundle_path_digest": "sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
-      "capabilities": [
-        "Deep Insights"
-      ],
-      "channel_name": "6.2.10",
-      "creation_date": "2022-03-03T20:04:41.556000+00:00",
-      "csv_description": "Redis Enterprise Software is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Software extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.\nRedis Enterprise provides a flexible and cost-effective data platform so developers can focus on rapid, high-quality development for sophisticated use cases that meet the needs of a modern digital enterprise. With Redis Enterprise, you can:\n* Enjoy high performance and record-setting low latencies with minimal operational overhead\n* Develop highly scalable microservices-based and Kubernetes-orchestrated applications\n* Use versatile data structures for a variety of use cases, such as high-speed transactions, user session management, real-time analytics, caching and many more\n* Leverage enterprise-grade operational controls for high availability, security and seamless scale\n* Automate operational best practices for deploying and managing the Redis Enterprise data platform with built-in Kubernetes Operator support\n* Deploy, manage and move applications to and from any cloud for seamless portability\n\n### Core capabilities\n* **Speed application development and time to market** - Unburden developers from the complexity of infrastructure operations and empower them to manage data with maximum flexibility. This helps them build modern applications quickly, make changes rapidly and support a variety of different data structures, models, relationships and use cases.\n* **Ensure business continuity with always-on data service** - Maintain service uptime and ensure failsafe high availability, instant failover and automatic recovery to protect your applications against unplanned downtime, outages and data loss.\n* **Design for performance and unmatched user experience** - Deliver the highest level of responsiveness and interactive customer experiences with best-in-class exceptional linear scaling high performance through a shared-nothing architecture and in-memory processing.\n* **Simplify operations with automated lifecycle management and layered orchestration** - Automate database provisioning, management and maintenance, and abstract away the complexities of high availability, seamless scale and zero-downtime upgrades with built-in support for Kubernetes and Operators.\n* **Enjoy multi-level robust security** - Provide granular control to meet self-imposed and regulatory compliance regulations and standards with built-in finegrained security controls and data encryption.\n* **Gain platform independence with flexible deployment options** - Ensure portability with multiple deployment options across any cloud of choice for multicloud and hybrid deployments and on-premises.\n* **Ensure success** - Leverage 24x7 enterprise-grade support backed by expertise in managing and scaling hundreds of thousands of Redis databases for thousands of enterprise customers worldwide.\n* **Future proof investments** - Use the most popular database amongst developers, built on open source innovation and entrenched firmly in the application landscape with over 1B downloads on Docker. Redis preserves your investment for years with easy extensibility and versatility through its Modules and support for over 50 different programming languages\n\n#### Prerequisites\nA minimum of 3 nodes which support the following requirements:\n* RAM - At least 3GB with 4GB recommended\n* Persistent Storage - At least 10GB of free space with 20GB recommended.\n* A kubernetes version of 1.9 or higher\n\n#### Recommendations/known issues\n\nChanging the name of the Redis Enterprise Cluster in the spec from the\ndefault requires running a command to grant permissions to the pods:\n\n\n> *oc adm policy add-scc-to-group redis-enterprise-scc\nsystem:serviceaccounts:my-project*\n\n\nReplace my-project with the actual name of the project/namespace.",
-      "csv_display_name": "Redis Enterprise Operator",
-      "csv_metadata_description": "",
-      "csv_name": "redis-enterprise-operator.v6.0.20-4",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-04-05T11:17:15.982000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "redis-enterprise-operator-cert",
-      "provided_apis": [
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "name": "redis-enterprise-operator-3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f-annotation"
-        },
-        {
-          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "name": "redis-enterprise-operator"
-        }
-      ],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "6.0.20-4",
-      "version_original": "6.0.20-4"
-    },
-    {
-      "_id": "62211f5b1a79457bc0d51243",
-      "alm_examples": [
-        {
-          "kind": "RedisEnterpriseCluster",
-          "metadata": {
-            "name": "rec"
-          },
-          "spec": {
-            "nodes": 3,
-            "persistentSpec": {
-              "enabled": true
-            },
-            "redisEnterpriseImageSpec": {
-              "imagePullPolicy": "IfNotPresent",
-              "repository": "redislabs/redis",
-              "versionTag": "6.2.8-41.rhel7-openshift"
-            },
-            "redisEnterpriseNodeResources": {
-              "limits": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              },
-              "requests": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              }
-            },
-            "uiServiceType": "ClusterIP",
-            "username": "demo@redislabs.com"
-          }
-        },
-        {
-          "kind": "RedisEnterpriseDatabase",
-          "metadata": {
-            "name": "redb"
-          },
-          "spec": {
-            "redisEnterpriseCluster": {
-              "name": "rec"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:cf89cfbb1c39ac9a7fd925f1e8b5bec94535e4eb64dd6e2da102e9f7b44f9f5e",
-      "bundle_path_digest": "sha256:cf89cfbb1c39ac9a7fd925f1e8b5bec94535e4eb64dd6e2da102e9f7b44f9f5e",
-      "capabilities": [
-        "Deep Insights"
-      ],
-      "channel_name": "6.2.10",
-      "creation_date": "2022-03-03T20:04:43.166000+00:00",
-      "csv_description": "Redis Enterprise Software is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis.\nRedis Enterprise Software extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.\nRedis Enterprise provides a flexible and cost-effective data platform so developers can focus on rapid, high-quality development for sophisticated use cases that meet the needs of a modern digital enterprise. With Redis Enterprise, you can:\n* Enjoy high performance and record-setting low latencies with minimal operational overhead\n* Develop highly scalable microservices-based and Kubernetes-orchestrated applications\n* Use versatile data structures for a variety of use cases, such as high-speed transactions, user session management, real-time analytics, caching and many more\n* Leverage enterprise-grade operational controls for high availability, security and seamless scale\n* Automate operational best practices for deploying and managing the Redis Enterprise data platform with built-in Kubernetes Operator support\n* Deploy, manage and move applications to and from any cloud for seamless portability\n\n### Core capabilities\n* **Speed application development and time to market** - Unburden developers from the complexity of infrastructure operations and empower them to manage data with maximum flexibility. This helps them build modern applications quickly, make changes rapidly and support a variety of different data structures, models, relationships and use cases.\n* **Ensure business continuity with always-on data service** - Maintain service uptime and ensure failsafe high availability, instant failover and automatic recovery to protect your applications against unplanned downtime, outages and data loss.\n* **Design for performance and unmatched user experience** - Deliver the highest level of responsiveness and interactive customer experiences with best-in-class exceptional linear scaling high performance through a shared-nothing architecture and in-memory processing.\n* **Simplify operations with automated lifecycle management and layered orchestration** - Automate database provisioning, management and maintenance, and abstract away the complexities of high availability, seamless scale and zero-downtime upgrades with built-in support for Kubernetes and Operators.\n* **Enjoy multi-level robust security** - Provide granular control to meet self-imposed and regulatory compliance regulations and standards with built-in finegrained security controls and data encryption.\n* **Gain platform independence with flexible deployment options** - Ensure portability with multiple deployment options across any cloud of choice for multicloud and hybrid deployments and on-premises.\n* **Ensure success** - Leverage 24x7 enterprise-grade support backed by expertise in managing and scaling hundreds of thousands of Redis databases for thousands of enterprise customers worldwide.\n* **Future proof investments** - Use the most popular database amongst developers, built on open source innovation and entrenched firmly in the application landscape with over 1B downloads on Docker. Redis preserves your investment for years with easy extensibility and versatility through its Modules and support for over 50 different programming languages\n\n#### Prerequisites\nA minimum of 3 nodes which support the following requirements:\n* RAM - At least 3GB with 4GB recommended\n* Persistent Storage - At least 10GB of free space with 20GB recommended.\n* A kubernetes version of 1.9 or higher\n\n#### Recommendations/known issues\nChanging the name of the Redis Enterprise Cluster in the spec from the\ndefault requires running a command to grant permissions to the pods:\n\n> *oc adm policy add-scc-to-group redis-enterprise-scc\nsystem:serviceaccounts:my-project*\n\nReplace my-project with the actual name of the project/namespace.",
-      "csv_display_name": "Redis Enterprise Operator",
-      "csv_metadata_description": "",
-      "csv_name": "redis-enterprise-operator.v6.2.8-2",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-04-05T11:19:41.561000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "redis-enterprise-operator-cert",
-      "provided_apis": [
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseDatabase",
-          "plural": "redisenterprisedatabases",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "name": "redis-enterprise-operator-f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353-annotation"
-        },
-        {
-          "digest": "sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "name": "redis-enterprise-operator"
-        },
-        {
-          "digest": "sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:f1540374d0f4a6e4a7a2520004cf61eb769b65aa89c7da2cd858946e74b45353",
-          "name": "admission"
-        }
-      ],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "6.2.8-2",
-      "version_original": "6.2.8-2"
-    },
-    {
       "_id": "62211f5c1a79457bc0d51244",
       "alm_examples": [
         {
@@ -18707,9 +18419,937 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
       "version": "1.0.2",
       "version_original": "1.0.2"
+    },
+    {
+      "_id": "62345fbe5593ce895a7b5358",
+      "alm_examples": [
+        {
+          "api_version": "apm.neuvector.com/v1alpha1",
+          "kind": "Neuvector",
+          "metadata": {
+            "name": "neuvector"
+          },
+          "spec": {
+            "admissionwebhook": {
+              "type": "ClusterIP"
+            },
+            "bottlerocket": {
+              "enabled": false,
+              "runtimePath": "/run/dockershim.sock"
+            },
+            "containerd": {
+              "enabled": false,
+              "path": "/var/run/containerd/containerd.sock"
+            },
+            "controller": {
+              "apisvc": {
+                "annotations": {},
+                "route": {
+                  "enabled": false,
+                  "host": "",
+                  "termination": "passthrough"
+                },
+                "type": ""
+              },
+              "azureFileShare": {
+                "enabled": false,
+                "secretName": "",
+                "shareName": ""
+              },
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "configmap": {
+                "data": "",
+                "enabled": false
+              },
+              "disruptionbudget": 0,
+              "enabled": true,
+              "federation": {
+                "managedsvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                },
+                "mastersvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                }
+              },
+              "image": "registry.connect.redhat.com/neuvector/controller",
+              "ingress": {
+                "annotations": {
+                  "ingress.kubernetes.io/protocol": "https"
+                },
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "pvc": {
+                "accessModes": [
+                  "ReadWriteMany"
+                ],
+                "capacity": "",
+                "enabled": false,
+                "storageClass": ""
+              },
+              "replicas": 3,
+              "resources": {},
+              "strategy": {
+                "rollingUpdate": {
+                  "maxSurge": 1,
+                  "maxUnavailable": 0
+                },
+                "type": "RollingUpdate"
+              }
+            },
+            "crdwebhook": {
+              "enabled": true,
+              "type": "ClusterIP"
+            },
+            "crio": {
+              "enabled": true,
+              "path": "/var/run/crio/crio.sock"
+            },
+            "cve": {
+              "scanner": {
+                "dockerPath": "",
+                "enabled": true,
+                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+                "priorityClassName": "",
+                "replicas": 3,
+                "resources": {},
+                "strategy": {
+                  "rollingUpdate": {
+                    "maxSurge": 1,
+                    "maxUnavailable": 0
+                  },
+                  "type": "RollingUpdate"
+                }
+              },
+              "updater": {
+                "enabled": true,
+                "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+                "priorityClassName": "",
+                "schedule": "0 0 * * *"
+              }
+            },
+            "docker": {
+              "enabled": false,
+              "path": "/var/run/docker.sock"
+            },
+            "enforcer": {
+              "enabled": true,
+              "image": "registry.connect.redhat.com/neuvector/enforcer",
+              "priorityClassName": "",
+              "resources": {},
+              "tolerations": [
+                {
+                  "effect": "NoSchedule",
+                  "key": "node-role.kubernetes.io/master"
+                }
+              ]
+            },
+            "k3s": {
+              "enabled": false,
+              "runtimePath": "/run/k3s/containerd/containerd.sock"
+            },
+            "manager": {
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "enabled": true,
+              "env": {
+                "ssl": true
+              },
+              "image": "registry.connect.redhat.com/neuvector/manager",
+              "ingress": {
+                "annotations": {},
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "resources": {},
+              "route": {
+                "enabled": true,
+                "host": "",
+                "termination": "passthrough"
+              },
+              "svc": {
+                "annotations": {},
+                "loadBalancerIP": "",
+                "type": "NodePort"
+              }
+            },
+            "openshift": true,
+            "psp": false,
+            "resources": {},
+            "serviceAccount": "default"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
+      "bundle_path_digest": "sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "beta",
+      "creation_date": "2022-03-18T10:32:30.756000+00:00",
+      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.2.8 of the NeuVector Certified Operator deploys version 4.3.1 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         NAME                              ROLE                                          AGE     USERS   GROUPS   SERVICEACCOUNTS\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
+      "csv_display_name": "NeuVector Operator",
+      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
+      "csv_name": "neuvector-operator.v1.2.8",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:45:48.581000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.11",
+      "organization": "certified-operators",
+      "package": "neuvector-certified-operator",
+      "provided_apis": [
+        {
+          "group": "apm.neuvector.com",
+          "kind": "Neuvector",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "name": "neuvector-operator-9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72-annotation"
+        },
+        {
+          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "name": "neuvector-operator"
+        },
+        {
+          "digest": "sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "image": "registry.connect.redhat.com/neuvector/controller@sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "name": "controller"
+        },
+        {
+          "digest": "sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "name": "enforcer"
+        },
+        {
+          "digest": "sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "image": "registry.connect.redhat.com/neuvector/manager@sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner"
+        },
+        {
+          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "name": "updater"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner-a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06-annotation"
+        },
+        {
+          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "name": "ubi8-091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
+      "version": "1.2.8",
+      "version_original": "1.2.8"
+    },
+    {
+      "_id": "62345fc1314381d2b0756b37",
+      "alm_examples": [
+        {
+          "api_version": "apm.neuvector.com/v1alpha1",
+          "kind": "Neuvector",
+          "metadata": {
+            "name": "neuvector"
+          },
+          "spec": {
+            "admissionwebhook": {
+              "type": "ClusterIP"
+            },
+            "bottlerocket": {
+              "enabled": false,
+              "runtimePath": "/run/dockershim.sock"
+            },
+            "containerd": {
+              "enabled": false,
+              "path": "/var/run/containerd/containerd.sock"
+            },
+            "controller": {
+              "apisvc": {
+                "annotations": {},
+                "route": {
+                  "enabled": false,
+                  "host": "",
+                  "termination": "passthrough"
+                },
+                "type": ""
+              },
+              "azureFileShare": {
+                "enabled": false,
+                "secretName": "",
+                "shareName": ""
+              },
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "configmap": {
+                "data": "",
+                "enabled": false
+              },
+              "disruptionbudget": 0,
+              "enabled": true,
+              "federation": {
+                "managedsvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                },
+                "mastersvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                }
+              },
+              "image": "registry.connect.redhat.com/neuvector/controller",
+              "ingress": {
+                "annotations": {
+                  "ingress.kubernetes.io/protocol": "https"
+                },
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "pvc": {
+                "accessModes": [
+                  "ReadWriteMany"
+                ],
+                "capacity": "",
+                "enabled": false,
+                "storageClass": ""
+              },
+              "replicas": 3,
+              "resources": {},
+              "schedulerName": "",
+              "strategy": {
+                "rollingUpdate": {
+                  "maxSurge": 1,
+                  "maxUnavailable": 0
+                },
+                "type": "RollingUpdate"
+              }
+            },
+            "crdwebhook": {
+              "enabled": true,
+              "type": "ClusterIP"
+            },
+            "crio": {
+              "enabled": true,
+              "path": "/var/run/crio/crio.sock"
+            },
+            "cve": {
+              "scanner": {
+                "dockerPath": "",
+                "enabled": true,
+                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+                "priorityClassName": "",
+                "replicas": 3,
+                "resources": {},
+                "strategy": {
+                  "rollingUpdate": {
+                    "maxSurge": 1,
+                    "maxUnavailable": 0
+                  },
+                  "type": "RollingUpdate"
+                }
+              },
+              "updater": {
+                "enabled": true,
+                "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+                "priorityClassName": "",
+                "schedule": "0 0 * * *",
+                "secure": false
+              }
+            },
+            "docker": {
+              "enabled": false,
+              "path": "/var/run/docker.sock"
+            },
+            "enforcer": {
+              "enabled": true,
+              "image": "registry.connect.redhat.com/neuvector/enforcer",
+              "priorityClassName": "",
+              "resources": {},
+              "tolerations": [
+                {
+                  "effect": "NoSchedule",
+                  "key": "node-role.kubernetes.io/master"
+                }
+              ]
+            },
+            "k3s": {
+              "enabled": false,
+              "runtimePath": "/run/k3s/containerd/containerd.sock"
+            },
+            "manager": {
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "enabled": true,
+              "env": {
+                "ssl": true
+              },
+              "image": "registry.connect.redhat.com/neuvector/manager",
+              "ingress": {
+                "annotations": {},
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "resources": {},
+              "route": {
+                "enabled": true,
+                "host": "",
+                "termination": "passthrough"
+              },
+              "svc": {
+                "annotations": {},
+                "loadBalancerIP": "",
+                "type": "NodePort"
+              }
+            },
+            "openshift": true,
+            "psp": false,
+            "resources": {},
+            "serviceAccount": "default"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:29996196f2eba8f7662bdf1efeaac3a0ccf56bdfb2e522b340d9a239f7ca51e4",
+      "bundle_path_digest": "sha256:29996196f2eba8f7662bdf1efeaac3a0ccf56bdfb2e522b340d9a239f7ca51e4",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "beta",
+      "creation_date": "2022-03-18T10:32:33.444000+00:00",
+      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.2.9 of the NeuVector Certified Operator deploys version 4.3.1 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         NAME                              ROLE                                          AGE     USERS   GROUPS   SERVICEACCOUNTS\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
+      "csv_display_name": "NeuVector Operator",
+      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
+      "csv_name": "neuvector-operator.v1.2.9",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:45:22.259000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.11",
+      "organization": "certified-operators",
+      "package": "neuvector-certified-operator",
+      "provided_apis": [
+        {
+          "group": "apm.neuvector.com",
+          "kind": "Neuvector",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "name": "neuvector-operator-487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1-annotation"
+        },
+        {
+          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "name": "neuvector-operator"
+        },
+        {
+          "digest": "sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "image": "registry.connect.redhat.com/neuvector/controller@sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "name": "controller"
+        },
+        {
+          "digest": "sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "name": "enforcer"
+        },
+        {
+          "digest": "sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "image": "registry.connect.redhat.com/neuvector/manager@sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner"
+        },
+        {
+          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "name": "updater"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner-a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06-annotation"
+        },
+        {
+          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "name": "ubi8-910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
+      "version": "1.2.9",
+      "version_original": "1.2.9"
+    },
+    {
+      "_id": "62345fc406c5dada0193e07a",
+      "alm_examples": [
+        {
+          "api_version": "apm.neuvector.com/v1alpha1",
+          "kind": "Neuvector",
+          "metadata": {
+            "name": "neuvector"
+          },
+          "spec": {
+            "admissionwebhook": {
+              "type": "ClusterIP"
+            },
+            "bottlerocket": {
+              "enabled": false,
+              "runtimePath": "/run/dockershim.sock"
+            },
+            "containerd": {
+              "enabled": false,
+              "path": "/var/run/containerd/containerd.sock"
+            },
+            "controller": {
+              "apisvc": {
+                "annotations": {},
+                "route": {
+                  "enabled": false,
+                  "host": "",
+                  "termination": "passthrough"
+                },
+                "type": ""
+              },
+              "azureFileShare": {
+                "enabled": false,
+                "secretName": "",
+                "shareName": ""
+              },
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "configmap": {
+                "data": "",
+                "enabled": false
+              },
+              "disruptionbudget": 0,
+              "enabled": true,
+              "federation": {
+                "managedsvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                },
+                "mastersvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                }
+              },
+              "image": "registry.connect.redhat.com/neuvector/controller",
+              "ingress": {
+                "annotations": {
+                  "ingress.kubernetes.io/protocol": "https"
+                },
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "pvc": {
+                "accessModes": [
+                  "ReadWriteMany"
+                ],
+                "capacity": "",
+                "enabled": false,
+                "storageClass": ""
+              },
+              "replicas": 3,
+              "resources": {},
+              "schedulerName": "",
+              "strategy": {
+                "rollingUpdate": {
+                  "maxSurge": 1,
+                  "maxUnavailable": 0
+                },
+                "type": "RollingUpdate"
+              }
+            },
+            "crdwebhook": {
+              "enabled": true,
+              "type": "ClusterIP"
+            },
+            "crio": {
+              "enabled": true,
+              "path": "/var/run/crio/crio.sock"
+            },
+            "cve": {
+              "scanner": {
+                "dockerPath": "",
+                "enabled": true,
+                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
+                "priorityClassName": "",
+                "replicas": 3,
+                "resources": {},
+                "strategy": {
+                  "rollingUpdate": {
+                    "maxSurge": 1,
+                    "maxUnavailable": 0
+                  },
+                  "type": "RollingUpdate"
+                }
+              },
+              "updater": {
+                "enabled": true,
+                "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+                "priorityClassName": "",
+                "schedule": "0 0 * * *",
+                "secure": false
+              }
+            },
+            "docker": {
+              "enabled": false,
+              "path": "/var/run/docker.sock"
+            },
+            "enforcer": {
+              "enabled": true,
+              "image": "registry.connect.redhat.com/neuvector/enforcer",
+              "priorityClassName": "",
+              "resources": {},
+              "tolerations": [
+                {
+                  "effect": "NoSchedule",
+                  "key": "node-role.kubernetes.io/master"
+                }
+              ]
+            },
+            "k3s": {
+              "enabled": false,
+              "runtimePath": "/run/k3s/containerd/containerd.sock"
+            },
+            "manager": {
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "enabled": true,
+              "env": {
+                "ssl": true
+              },
+              "image": "registry.connect.redhat.com/neuvector/manager",
+              "ingress": {
+                "annotations": {},
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "resources": {},
+              "route": {
+                "enabled": true,
+                "host": "",
+                "termination": "passthrough"
+              },
+              "svc": {
+                "annotations": {},
+                "loadBalancerIP": "",
+                "type": "NodePort"
+              }
+            },
+            "openshift": true,
+            "psp": false,
+            "resources": {},
+            "serviceAccount": "default"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:38e93c5f551f7ebfc1736a58cf2f07a793974fdd04f59af1c15df20e38e195da",
+      "bundle_path_digest": "sha256:38e93c5f551f7ebfc1736a58cf2f07a793974fdd04f59af1c15df20e38e195da",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "beta",
+      "creation_date": "2022-03-18T10:32:36.255000+00:00",
+      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.3.0 of the NeuVector Certified Operator deploys version 4.3.2 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
+      "csv_display_name": "NeuVector Operator",
+      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
+      "csv_name": "neuvector-operator.v1.3.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:45:26.420000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.11",
+      "organization": "certified-operators",
+      "package": "neuvector-certified-operator",
+      "provided_apis": [
+        {
+          "group": "apm.neuvector.com",
+          "kind": "Neuvector",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "name": "neuvector-operator-487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1-annotation"
+        },
+        {
+          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
+          "name": "neuvector-operator"
+        },
+        {
+          "digest": "sha256:a748a22eff64576a89b15a0f70b0d50d781bc0bff809029e78cdcd19c105e6ff",
+          "image": "registry.connect.redhat.com/neuvector/controller@sha256:a748a22eff64576a89b15a0f70b0d50d781bc0bff809029e78cdcd19c105e6ff",
+          "name": "controller"
+        },
+        {
+          "digest": "sha256:45c5e78ed5a72944dfdd3123623d71376fea8ef329e2980e162c633c58c049f2",
+          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:45c5e78ed5a72944dfdd3123623d71376fea8ef329e2980e162c633c58c049f2",
+          "name": "enforcer"
+        },
+        {
+          "digest": "sha256:a7139cddaf9f7e53494cd9ad553331473466973f151489cb92bd6ffee864a56a",
+          "image": "registry.connect.redhat.com/neuvector/manager@sha256:a7139cddaf9f7e53494cd9ad553331473466973f151489cb92bd6ffee864a56a",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
+          "name": "scanner"
+        },
+        {
+          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "name": "updater"
+        },
+        {
+          "digest": "sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
+          "name": "scanner-5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00-annotation"
+        },
+        {
+          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
+          "name": "ubi8-910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
+      "version": "1.3.0",
+      "version_original": "1.3.0"
     }
   ],
   "page": 22,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

@@ -1,934 +1,6 @@
 {
   "data": [
     {
-      "_id": "62345fbe5593ce895a7b5358",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "host": "",
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "disruptionbudget": 0,
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "enabled": true,
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-                "priorityClassName": "",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
-                "priorityClassName": "",
-                "schedule": "0 0 * * *"
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer",
-              "priorityClassName": "",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "resources": {},
-              "route": {
-                "enabled": true,
-                "host": "",
-                "termination": "passthrough"
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "psp": false,
-            "resources": {},
-            "serviceAccount": "default"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
-      "bundle_path_digest": "sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2022-03-18T10:32:30.756000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.2.8 of the NeuVector Certified Operator deploys version 4.3.1 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         NAME                              ROLE                                          AGE     USERS   GROUPS   SERVICEACCOUNTS\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "NeuVector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.2.8",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:45:48.581000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.11",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
-          "name": "neuvector-operator-9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72-annotation"
-        },
-        {
-          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
-          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "name": "scanner-a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06-annotation"
-        },
-        {
-          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
-          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
-          "name": "ubi8-091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
-      "version": "1.2.8",
-      "version_original": "1.2.8"
-    },
-    {
-      "_id": "62345fc1314381d2b0756b37",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "host": "",
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "disruptionbudget": 0,
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "schedulerName": "",
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "enabled": true,
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-                "priorityClassName": "",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-                "priorityClassName": "",
-                "schedule": "0 0 * * *",
-                "secure": false
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer",
-              "priorityClassName": "",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "resources": {},
-              "route": {
-                "enabled": true,
-                "host": "",
-                "termination": "passthrough"
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "psp": false,
-            "resources": {},
-            "serviceAccount": "default"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:29996196f2eba8f7662bdf1efeaac3a0ccf56bdfb2e522b340d9a239f7ca51e4",
-      "bundle_path_digest": "sha256:29996196f2eba8f7662bdf1efeaac3a0ccf56bdfb2e522b340d9a239f7ca51e4",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2022-03-18T10:32:33.444000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.2.9 of the NeuVector Certified Operator deploys version 4.3.1 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         NAME                              ROLE                                          AGE     USERS   GROUPS   SERVICEACCOUNTS\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "NeuVector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.2.9",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:45:22.259000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.11",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "name": "neuvector-operator-487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1-annotation"
-        },
-        {
-          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
-          "name": "scanner-a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06-annotation"
-        },
-        {
-          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "name": "ubi8-910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
-      "version": "1.2.9",
-      "version_original": "1.2.9"
-    },
-    {
-      "_id": "62345fc406c5dada0193e07a",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "host": "",
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "disruptionbudget": 0,
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "ingress": {
-                    "annotations": {
-                      "ingress.kubernetes.io/protocol": "https"
-                    },
-                    "enabled": false,
-                    "host": "",
-                    "path": "/",
-                    "secretName": "",
-                    "tls": false
-                  },
-                  "route": {
-                    "enabled": false,
-                    "host": "",
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "schedulerName": "",
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "enabled": true,
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
-                "priorityClassName": "",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-                "priorityClassName": "",
-                "schedule": "0 0 * * *",
-                "secure": false
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer",
-              "priorityClassName": "",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "priorityClassName": "",
-              "resources": {},
-              "route": {
-                "enabled": true,
-                "host": "",
-                "termination": "passthrough"
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "psp": false,
-            "resources": {},
-            "serviceAccount": "default"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:38e93c5f551f7ebfc1736a58cf2f07a793974fdd04f59af1c15df20e38e195da",
-      "bundle_path_digest": "sha256:38e93c5f551f7ebfc1736a58cf2f07a793974fdd04f59af1c15df20e38e195da",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2022-03-18T10:32:36.255000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.3.0 of the NeuVector Certified Operator deploys version 4.3.2 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "NeuVector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.3.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:45:26.420000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.11",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "name": "neuvector-operator-487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1-annotation"
-        },
-        {
-          "digest": "sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:487e2d6e817b7e006fb90cf1d5da2964de665424acada7bc63b4fa7b642b64f1",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:a748a22eff64576a89b15a0f70b0d50d781bc0bff809029e78cdcd19c105e6ff",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:a748a22eff64576a89b15a0f70b0d50d781bc0bff809029e78cdcd19c105e6ff",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:45c5e78ed5a72944dfdd3123623d71376fea8ef329e2980e162c633c58c049f2",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:45c5e78ed5a72944dfdd3123623d71376fea8ef329e2980e162c633c58c049f2",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:a7139cddaf9f7e53494cd9ad553331473466973f151489cb92bd6ffee864a56a",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:a7139cddaf9f7e53494cd9ad553331473466973f151489cb92bd6ffee864a56a",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00",
-          "name": "scanner-5f2d23d20f9ea5d1d3bc56b758ddc3f3b4f57a9db47c7cc95e74f6d7a4072e00-annotation"
-        },
-        {
-          "digest": "sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "image": "registry.access.redhat.com/ubi8@sha256:910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7",
-          "name": "ubi8-910f6bc0b5ae9b555eb91b88d28d568099b060088616eba2867b07ab6ea457c7-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
-      "version": "1.3.0",
-      "version_original": "1.3.0"
-    },
-    {
       "_id": "62345fc5314381d2b0756b38",
       "alm_examples": [
         {
@@ -18793,9 +17865,495 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.11",
       "version": "1.2.4",
       "version_original": "1.2.4"
+    },
+    {
+      "_id": "624ca3e72793d604991edea2",
+      "alm_examples": [
+        {
+          "api_version": "conjur.cyberark.com/v1",
+          "kind": "ConjurFollower",
+          "metadata": {
+            "labels": {
+              "app": "conjur-follower"
+            },
+            "name": "conjur-follower-operator-my-conjur-follower",
+            "namespace": "conjur-follower-operator-system"
+          },
+          "spec": {
+            "images": {
+              "configurator": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+              "conjur": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+              "info": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+              "nginx": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+              "postgres": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+              "syslogNg": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458g"
+            },
+            "master": {
+              "account": "my-company",
+              "authenticatorID": "conjur-openshift-follower",
+              "authnLogin": "host/conjur-openshift-follower",
+              "caCertificateFrom": {
+                "configMapKeyRef": {
+                  "key": "conjur.master-cert",
+                  "name": "follower"
+                }
+              },
+              "hostname": "conjur.my-company.net"
+            },
+            "replicas": 1
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator-bundle@sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "bundle_path_digest": "sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "preview",
+      "creation_date": "2022-04-05T20:17:43.648000+00:00",
+      "csv_description": "Use this Operator for managing Conjur Followers in an OpenShift cluster.\n\nCyberArk products secure your most sensitive and high-value assets\u2014and supporting your Identity Security goals is our top priority. We offer 24/7 service for high priority issues to all customers with resources across ten countries and in all continents.\n\nCyberArk Conjur makes secrets management simple. Conjur provides a seamless open source interface to securely authenticate, control, and audit non-human access across tools, applications, containers, and cloud environments via robust secrets management.",
+      "csv_display_name": "Conjur Enterprise Follower Operator",
+      "csv_metadata_description": "",
+      "csv_name": "conjur-follower-operator.v2.1.3",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": false,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T00:47:50.591000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "conjur-follower-operator",
+      "provided_apis": [
+        {
+          "group": "conjur.cyberark.com",
+          "kind": "ConjurFollower",
+          "plural": "conjurfollowers",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-openshift-follower-operator"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres"
+        },
+        {
+          "digest": "sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "name": "conjur-openshift-follower-syslog-ng"
+        },
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-follower-operator"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres-2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8-annotation"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx-eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2-annotation"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info-002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1-annotation"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur-130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c-annotation"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator-a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "2.1.3",
+      "version_original": "2.1.3"
+    },
+    {
+      "_id": "624ca3e81bf4f81c51bc8a0e",
+      "alm_examples": [
+        {
+          "api_version": "conjur.cyberark.com/v1",
+          "kind": "ConjurFollower",
+          "metadata": {
+            "labels": {
+              "app": "conjur-follower"
+            },
+            "name": "conjur-follower-operator-my-conjur-follower",
+            "namespace": "conjur-follower-operator-system"
+          },
+          "spec": {
+            "images": {
+              "configurator": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+              "conjur": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+              "info": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+              "nginx": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+              "postgres": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+              "syslogNg": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458g"
+            },
+            "master": {
+              "account": "my-company",
+              "authenticatorID": "conjur-openshift-follower",
+              "authnLogin": "host/conjur-openshift-follower",
+              "caCertificateFrom": {
+                "configMapKeyRef": {
+                  "key": "conjur.master-cert",
+                  "name": "follower"
+                }
+              },
+              "hostname": "conjur.my-company.net"
+            },
+            "replicas": 1
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator-bundle@sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "bundle_path_digest": "sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-04-05T20:17:44.982000+00:00",
+      "csv_description": "Use this Operator for managing Conjur Followers in an OpenShift cluster.\n\nCyberArk products secure your most sensitive and high-value assets\u2014and supporting your Identity Security goals is our top priority. We offer 24/7 service for high priority issues to all customers with resources across ten countries and in all continents.\n\nCyberArk Conjur makes secrets management simple. Conjur provides a seamless open source interface to securely authenticate, control, and audit non-human access across tools, applications, containers, and cloud environments via robust secrets management.",
+      "csv_display_name": "Conjur Enterprise Follower Operator",
+      "csv_metadata_description": "",
+      "csv_name": "conjur-follower-operator.v2.1.3",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": false,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:47:54.515000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "conjur-follower-operator",
+      "provided_apis": [
+        {
+          "group": "conjur.cyberark.com",
+          "kind": "ConjurFollower",
+          "plural": "conjurfollowers",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-openshift-follower-operator"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres"
+        },
+        {
+          "digest": "sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "name": "conjur-openshift-follower-syslog-ng"
+        },
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-follower-operator"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres-2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8-annotation"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx-eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2-annotation"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info-002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1-annotation"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur-130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c-annotation"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator-a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "2.1.3",
+      "version_original": "2.1.3"
+    },
+    {
+      "_id": "624ca95e2793d604991edf80",
+      "alm_examples": [
+        {
+          "api_version": "conjur.cyberark.com/v1",
+          "kind": "ConjurFollower",
+          "metadata": {
+            "labels": {
+              "app": "conjur-follower"
+            },
+            "name": "conjur-follower-operator-my-conjur-follower",
+            "namespace": "conjur-follower-operator-system"
+          },
+          "spec": {
+            "images": {
+              "configurator": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+              "conjur": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+              "info": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+              "nginx": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+              "postgres": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+              "syslogNg": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458g"
+            },
+            "master": {
+              "account": "my-company",
+              "authenticatorID": "conjur-openshift-follower",
+              "authnLogin": "host/conjur-openshift-follower",
+              "caCertificateFrom": {
+                "configMapKeyRef": {
+                  "key": "conjur.master-cert",
+                  "name": "follower"
+                }
+              },
+              "hostname": "conjur.my-company.net"
+            },
+            "replicas": 1
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator-bundle@sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "bundle_path_digest": "sha256:562fc5add33589e0557ccf746398622723de670751a584cd0f9cae4417eb66d3",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "preview",
+      "creation_date": "2022-04-05T20:41:02.265000+00:00",
+      "csv_description": "Use this Operator for managing Conjur Followers in an OpenShift cluster.\n\nCyberArk products secure your most sensitive and high-value assets\u2014and supporting your Identity Security goals is our top priority. We offer 24/7 service for high priority issues to all customers with resources across ten countries and in all continents.\n\nCyberArk Conjur makes secrets management simple. Conjur provides a seamless open source interface to securely authenticate, control, and audit non-human access across tools, applications, containers, and cloud environments via robust secrets management.",
+      "csv_display_name": "Conjur Enterprise Follower Operator",
+      "csv_metadata_description": "",
+      "csv_name": "conjur-follower-operator.v2.1.3",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": false,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T01:47:52.119000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "conjur-follower-operator",
+      "provided_apis": [
+        {
+          "group": "conjur.cyberark.com",
+          "kind": "ConjurFollower",
+          "plural": "conjurfollowers",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-openshift-follower-operator"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres"
+        },
+        {
+          "digest": "sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-syslog-ng@sha256:0204750baa3fe62f6a425a99e94736de9b9572ee0b07409781d8c14c07fb4458",
+          "name": "conjur-openshift-follower-syslog-ng"
+        },
+        {
+          "digest": "sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-operator@sha256:30adbe09eba661c3e461db3340bcbdf512a1da5fae6a2730cda8494b1b9a7cf9",
+          "name": "conjur-follower-operator"
+        },
+        {
+          "digest": "sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-postgres@sha256:2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8",
+          "name": "conjur-openshift-follower-postgres-2ae3802d92a23af4d3bc15bf412a03627608448aeefe02379519b838bc5fc2b8-annotation"
+        },
+        {
+          "digest": "sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-nginx@sha256:eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2",
+          "name": "conjur-openshift-follower-nginx-eb977c3ae7754ab664f8f371d2a361427e1b5e64151869c5196d621c152607f2-annotation"
+        },
+        {
+          "digest": "sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-info@sha256:002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1",
+          "name": "conjur-openshift-follower-info-002dfbf5d182e46127edcb3df7da00663caa7eb51d7f89218a8f082f16fc97f1-annotation"
+        },
+        {
+          "digest": "sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-conjur@sha256:130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c",
+          "name": "conjur-openshift-follower-conjur-130f67535c1143917233452303b4dd5b6001cadb46ef757cd50f8b6e3e9a0d6c-annotation"
+        },
+        {
+          "digest": "sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "image": "registry.connect.redhat.com/cyberark/conjur-openshift-follower-configurator@sha256:a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530",
+          "name": "conjur-openshift-follower-configurator-a3aa1d77ac021a76ea420c7bb3eff8f8ca476d27bc3f544449913df38d63e530-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "2.1.3",
+      "version_original": "2.1.3"
     }
   ],
   "page": 23,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

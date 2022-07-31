@@ -1,615 +1,6 @@
 {
   "data": [
     {
-      "_id": "61b3bb3039aedd4833bb11b4",
-      "alm_examples": [
-        {
-          "api_version": "operator.tigera.io/v1",
-          "kind": "Installation",
-          "metadata": {
-            "name": "default"
-          },
-          "spec": {
-            "variant": "Calico"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
-      "bundle_path_digest": "sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "release-v1.23",
-      "creation_date": "2021-12-10T20:40:16.981000+00:00",
-      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
-      "csv_display_name": "Tigera Operator",
-      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
-      "csv_name": "tigera-operator.v1.23.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-06-17T02:03:53.289000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "tigera-operator",
-      "provided_apis": [
-        {
-          "group": "operator.tigera.io",
-          "kind": "TigeraStatus",
-          "plural": "tigerastatuses",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMBlock",
-          "plural": "ipamblocks",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "ImageSet",
-          "plural": "imagesets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMHandle",
-          "plural": "ipamhandles",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPConfiguration",
-          "plural": "bgpconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPReservation",
-          "plural": "ipreservations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "CalicoNodeStatus",
-          "plural": "caliconodestatuses",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "Installation",
-          "plural": "installations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BlockAffinity",
-          "plural": "blockaffinities",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMConfig",
-          "plural": "ipamconfigs",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "FelixConfiguration",
-          "plural": "felixconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkPolicy",
-          "plural": "networkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkSet",
-          "plural": "networksets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPPeer",
-          "plural": "bgppeers",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "ClusterInformation",
-          "plural": "clusterinformations",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "APIServer",
-          "plural": "apiservers",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkSet",
-          "plural": "globalnetworksets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPPool",
-          "plural": "ippools",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "HostEndpoint",
-          "plural": "hostendpoints",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkPolicy",
-          "plural": "globalnetworkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "KubeControllersConfiguration",
-          "plural": "kubecontrollersconfigurations",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "name": "tigera-operator"
-        },
-        {
-          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "name": "operator-df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "<1.23.1",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "1.23.1",
-      "version_original": "1.23.1"
-    },
-    {
-      "_id": "61b3bb8960a98527f7695a5f",
-      "alm_examples": [
-        {
-          "api_version": "operator.tigera.io/v1",
-          "kind": "Installation",
-          "metadata": {
-            "name": "default"
-          },
-          "spec": {
-            "variant": "Calico"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
-      "bundle_path_digest": "sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "release-v1.23",
-      "creation_date": "2021-12-10T20:41:45.677000+00:00",
-      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
-      "csv_display_name": "Tigera Operator",
-      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
-      "csv_name": "tigera-operator.v1.23.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-06-17T01:51:25.112000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "tigera-operator",
-      "provided_apis": [
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPReservation",
-          "plural": "ipreservations",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "Installation",
-          "plural": "installations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "HostEndpoint",
-          "plural": "hostendpoints",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "APIServer",
-          "plural": "apiservers",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "CalicoNodeStatus",
-          "plural": "caliconodestatuses",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkSet",
-          "plural": "globalnetworksets",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "TigeraStatus",
-          "plural": "tigerastatuses",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "ImageSet",
-          "plural": "imagesets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "FelixConfiguration",
-          "plural": "felixconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkPolicy",
-          "plural": "globalnetworkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "KubeControllersConfiguration",
-          "plural": "kubecontrollersconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BlockAffinity",
-          "plural": "blockaffinities",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMHandle",
-          "plural": "ipamhandles",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkSet",
-          "plural": "networksets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMBlock",
-          "plural": "ipamblocks",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPPool",
-          "plural": "ippools",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkPolicy",
-          "plural": "networkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPPeer",
-          "plural": "bgppeers",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMConfig",
-          "plural": "ipamconfigs",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPConfiguration",
-          "plural": "bgpconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "ClusterInformation",
-          "plural": "clusterinformations",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "name": "tigera-operator"
-        },
-        {
-          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
-          "name": "operator-df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "<1.23.1",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "1.23.1",
-      "version_original": "1.23.1"
-    },
-    {
-      "_id": "61b40a549e4335b6d1b1d8c5",
-      "alm_examples": [
-        {
-          "api_version": "operator.tigera.io/v1",
-          "kind": "Installation",
-          "metadata": {
-            "name": "default"
-          },
-          "spec": {
-            "variant": "Calico"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:85bb416b033fdeee5af37e48ac5ef16ae8d586c6a4305946e2f335713b021193",
-      "bundle_path_digest": "sha256:85bb416b033fdeee5af37e48ac5ef16ae8d586c6a4305946e2f335713b021193",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "release-v1.23",
-      "creation_date": "2021-12-11T02:17:56.638000+00:00",
-      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
-      "csv_display_name": "Tigera Operator",
-      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
-      "csv_name": "tigera-operator.v1.23.2",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-06-17T01:22:12.917000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "tigera-operator",
-      "provided_apis": [
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BlockAffinity",
-          "plural": "blockaffinities",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMConfig",
-          "plural": "ipamconfigs",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMBlock",
-          "plural": "ipamblocks",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "FelixConfiguration",
-          "plural": "felixconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPReservation",
-          "plural": "ipreservations",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "APIServer",
-          "plural": "apiservers",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "Installation",
-          "plural": "installations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "ClusterInformation",
-          "plural": "clusterinformations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "HostEndpoint",
-          "plural": "hostendpoints",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "KubeControllersConfiguration",
-          "plural": "kubecontrollersconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "CalicoNodeStatus",
-          "plural": "caliconodestatuses",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkSet",
-          "plural": "networksets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkSet",
-          "plural": "globalnetworksets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPAMHandle",
-          "plural": "ipamhandles",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "NetworkPolicy",
-          "plural": "networkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "GlobalNetworkPolicy",
-          "plural": "globalnetworkpolicies",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPConfiguration",
-          "plural": "bgpconfigurations",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "TigeraStatus",
-          "plural": "tigerastatuses",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "IPPool",
-          "plural": "ippools",
-          "version": "v1"
-        },
-        {
-          "group": "operator.tigera.io",
-          "kind": "ImageSet",
-          "plural": "imagesets",
-          "version": "v1"
-        },
-        {
-          "group": "crd.projectcalico.org",
-          "kind": "BGPPeer",
-          "plural": "bgppeers",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
-          "image": "quay.io/tigera/operator@sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
-          "name": "tigera-operator"
-        },
-        {
-          "digest": "sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
-          "image": "quay.io/tigera/operator@sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
-          "name": "operator-a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "<1.23.2",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "1.23.2",
-      "version_original": "1.23.2"
-    },
-    {
       "_id": "61b40aa59e4335b6d1b1d8c6",
       "alm_examples": [
         {
@@ -17837,9 +17228,304 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
       "version": "1.12.43",
       "version_original": "1.12.43"
+    },
+    {
+      "_id": "61e84f27a864921968a3da20",
+      "alm_examples": [
+        {
+          "api_version": "sysdig.com/v1",
+          "kind": "SysdigAgent",
+          "metadata": {
+            "name": "sysdigagent-sample"
+          },
+          "spec": {
+            "sysdig": {
+              "accessKey": "REPLACE ME",
+              "disableCaptures": false,
+              "existingAccessKeySecret": "",
+              "settings": {}
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "node-role.kubernetes.io/master"
+              }
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/sysdig/sysdig-operator-bundle@sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "bundle_path_digest": "sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-01-19T17:49:27.726000+00:00",
+      "csv_description": "[Sysdig](https://www.sysdig.com/) is a unified platform for container and\nmicroservices monitoring, troubleshooting, security and forensics. Sysdig\nplatform has been built on top of\n[Sysdig tool](https://sysdig.com/opensource/sysdig/) and\n[Sysdig Inspect](https://sysdig.com/blog/sysdig-inspect/) open-source\ntechnologies.\nThis operator installs the Sysdig Agent for\n[Sysdig Monitor](https://sysdig.com/product/monitor/) and\n[Sysdig Secure](https://sysdig.com/product/secure/) to all nodes in your\ncluster via a DaemonSet.\n## Settings\nThis operator, uses the same options than the\n[Helm Chart](https://hub.helm.sh/charts/stable/sysdig), please take a look\nto all the options in the following table:\n| Parameter                         | Description                                                            | Default                                     |\n| ---                               | ---                                                                    | ---                                         |\n| `image.registry`                  | Sysdig agent image registry                                            | `docker.io`                                 |\n| `image.repository`                | The image repository to pull from                                      | `sysdig/agent`                              |\n| `image.tag`                       | The image tag to pull                                                  | `REPLACE_AGENT_VERSION`                                     |\n| `image.pullPolicy`                | The Image pull policy                                                  | `IfNotPresent`                              |\n| `image.pullSecrets`               | Image pull secrets                                                     | `nil`                                       |\n| `resources.requests.cpu`          | CPU requested for being run in a node                                  | `600m`                                      |\n| `resources.requests.memory`       | Memory requested for being run in a node                               | `512Mi`                                     |\n| `resources.limits.cpu`            | CPU limit                                                              | `2000m`                                     |\n| `resources.limits.memory`         | Memory limit                                                           | `1536Mi`                                    |\n| `rbac.create`                     | If true, create & use RBAC resources                                   | `true`                                      |\n| `serviceAccount.create`           | Create serviceAccount                                                  | `true`                                      |\n| `serviceAccount.name`             | Use this value as serviceAccountName                                   | ` `                                         |\n| `daemonset.updateStrategy.type`   | The updateStrategy for updating the daemonset                          | `RollingUpdate`                             |\n| `daemonset.affinity`              | Node affinities                                                        | `nil`                                       |\n| `daemonset.annotations`           | Custom annotations for daemonset                                       | `{}`                                        |\n| `slim.enabled`                    | Use the slim based Sysdig Agent image                                  | `false`                                     |\n| `slim.kmoduleImage.repository`    | The kernel module image builder repository to pull from                | `sysdig/agent-kmodule`                      |\n| `slim.resources.requests.cpu`     | CPU requested for building the kernel module                           | `1000m`                                     |\n| `slim.resources.requests.memory`  | Memory requested for building the kernel module                        | `348Mi`                                     |\n| `slim.resources.limits.memory`    | Memory limit for building the kernel module                            | `512Mi`                                     |\n| `ebpf.enabled`                    | Enable eBPF support for Sysdig instead of `sysdig-probe` kernel module | `false`                                     |\n| `ebpf.settings.mountEtcVolume`    | Needed to detect which kernel version are running in Google COS        | `true`                                      |\n| `sysdig.accessKey`                | Your Sysdig Monitor Access Key                                         | `Nil` You must provide your own key         |\n| `sysdig.settings`                 | Settings for agent's configuration file                                | ` `                                         |\n| `secure.enabled`                  | Enable Sysdig Secure                                                   | `true`                                      |\n| `auditLog.enabled`                | Enable K8s audit log support for Sysdig Secure                         | `false`                                     |\n| `auditLog.auditServerUrl`         | The URL where Sysdig Agent listens for K8s audit log events            | `0.0.0.0`                                   |\n| `auditLog.auditServerPort`        | Port where Sysdig Agent listens for K8s audit log events               | `7765`                                      |\n| `auditLog.dynamicBackend.enabled` | Deploy the Audit Sink where Sysdig listens for K8s audit log events    | `false`                                     |\n| `customAppChecks`                 | The custom app checks deployed with your agent                         | `{}`                                        |\n| `tolerations`                     | The tolerations for scheduling                                         | `node-role.kubernetes.io/master:NoSchedule` |\n| `scc.create`                      | Create OpenShift's Security Context Constraint                         | `false`                                     |\nFor example, if you want to deploy a DaemonSet with eBPF and with Sysdig Secure\nenabled:\n```yaml\napiVersion: sysdig.com/v1\nkind: SysdigAgent\nmetadata:\n  name: agent-with-ebpf-and-secure\nspec:\n  ebpf:\n    enabled: true\n  daemonset:\n    annotations:\n      productID: SysdigSecureDevopsPlatform\n      productName: Sysdig Secure DevOps Platform\n      productVersion: REPLACE_VERSION\n  scc:\n    create: true\n  sysdig:\n    accessKey: XXX\n```\nPlease, notice that `sysdig.accessKey` is **mandatory**. Once you have provided\nthe accessKey, you can apply this file with `kubectl apply -f`\n## Getting your Access Key\nTo retrieve the key and use it in the agent:\n1. Log in to Sysdig Monitor or Sysdig Secure (maybe as administrator) and\n   select **Settings**.\n2. Choose Agent Installation.\n3. Use the Copy button to copy the access key at the top of the page.\nIf you need more help, you can read more about this process in the [Agent Installation: Overview and Key](\nhttps://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/213352719/Agent+Installation+Overview+and+Key)\ndocumentation page.\n## Verify Metrics in Sysdig Monitor UI\nOnce you have deployed the Sysdig Agent, it's time to verify that everything is\nworking as expected. So, we are going to log in Sysdig Monitor to do the check.\n1. Access Sysdig Monitor:\n   **SaaS**: https://app.sysdigcloud.com\n   Log in with your Sysdig user name and password.\n2. Select the **Explore** tab to see if metrics are displayed.\n3. To verify that kube state metrics and cluster name are working correctly:\n   Select the **Explore tab** and create a grouping by `kubernetes.cluster.name` and `kubernetes.pod.name`.\n4. Select an individual container or pod to see details.\nDon't rush about getting Kubernetes metadata. Pods, deployments ... appear a\nminute or two later than the nodes/containers themselves; if pod names do not\nappear immediately, wait and retry the Explore view.\nYou can read more about verification in the [Verify Metrics in Sysdig Monitor UI section](https://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/256475257/GKE+Installation+Steps#GKEInstallationSteps-VerifyMetricsinSysdigMonitorUI)\nin the documentation pages.",
+      "csv_display_name": "Sysdig Agent Operator",
+      "csv_metadata_description": "Sysdig is a unified platform for container and microservices monitoring, troubleshooting, security and forensics. Sysdig platform has been built on top of Sysdig tool and Sysdig Inspect open-source technologies.\n",
+      "csv_name": "sysdig-certified.v1.12.43",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:00:47.761000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "sysdig-certified",
+      "provided_apis": [
+        {
+          "group": "sysdig.com",
+          "kind": "SysdigAgent",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "sysdig-operator-f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d-annotation"
+        },
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "name": "kube-rbac-proxy"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "1.12.43",
+      "version_original": "1.12.43"
+    },
+    {
+      "_id": "61e84fd1cd79f05770030cc4",
+      "alm_examples": [
+        {
+          "api_version": "sysdig.com/v1",
+          "kind": "SysdigAgent",
+          "metadata": {
+            "name": "sysdigagent-sample"
+          },
+          "spec": {
+            "sysdig": {
+              "accessKey": "REPLACE ME",
+              "disableCaptures": false,
+              "existingAccessKeySecret": "",
+              "settings": {}
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "node-role.kubernetes.io/master"
+              }
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/sysdig/sysdig-operator-bundle@sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "bundle_path_digest": "sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-01-19T17:52:17.417000+00:00",
+      "csv_description": "[Sysdig](https://www.sysdig.com/) is a unified platform for container and\nmicroservices monitoring, troubleshooting, security and forensics. Sysdig\nplatform has been built on top of\n[Sysdig tool](https://sysdig.com/opensource/sysdig/) and\n[Sysdig Inspect](https://sysdig.com/blog/sysdig-inspect/) open-source\ntechnologies.\nThis operator installs the Sysdig Agent for\n[Sysdig Monitor](https://sysdig.com/product/monitor/) and\n[Sysdig Secure](https://sysdig.com/product/secure/) to all nodes in your\ncluster via a DaemonSet.\n## Settings\nThis operator, uses the same options than the\n[Helm Chart](https://hub.helm.sh/charts/stable/sysdig), please take a look\nto all the options in the following table:\n| Parameter                         | Description                                                            | Default                                     |\n| ---                               | ---                                                                    | ---                                         |\n| `image.registry`                  | Sysdig agent image registry                                            | `docker.io`                                 |\n| `image.repository`                | The image repository to pull from                                      | `sysdig/agent`                              |\n| `image.tag`                       | The image tag to pull                                                  | `REPLACE_AGENT_VERSION`                                     |\n| `image.pullPolicy`                | The Image pull policy                                                  | `IfNotPresent`                              |\n| `image.pullSecrets`               | Image pull secrets                                                     | `nil`                                       |\n| `resources.requests.cpu`          | CPU requested for being run in a node                                  | `600m`                                      |\n| `resources.requests.memory`       | Memory requested for being run in a node                               | `512Mi`                                     |\n| `resources.limits.cpu`            | CPU limit                                                              | `2000m`                                     |\n| `resources.limits.memory`         | Memory limit                                                           | `1536Mi`                                    |\n| `rbac.create`                     | If true, create & use RBAC resources                                   | `true`                                      |\n| `serviceAccount.create`           | Create serviceAccount                                                  | `true`                                      |\n| `serviceAccount.name`             | Use this value as serviceAccountName                                   | ` `                                         |\n| `daemonset.updateStrategy.type`   | The updateStrategy for updating the daemonset                          | `RollingUpdate`                             |\n| `daemonset.affinity`              | Node affinities                                                        | `nil`                                       |\n| `daemonset.annotations`           | Custom annotations for daemonset                                       | `{}`                                        |\n| `slim.enabled`                    | Use the slim based Sysdig Agent image                                  | `false`                                     |\n| `slim.kmoduleImage.repository`    | The kernel module image builder repository to pull from                | `sysdig/agent-kmodule`                      |\n| `slim.resources.requests.cpu`     | CPU requested for building the kernel module                           | `1000m`                                     |\n| `slim.resources.requests.memory`  | Memory requested for building the kernel module                        | `348Mi`                                     |\n| `slim.resources.limits.memory`    | Memory limit for building the kernel module                            | `512Mi`                                     |\n| `ebpf.enabled`                    | Enable eBPF support for Sysdig instead of `sysdig-probe` kernel module | `false`                                     |\n| `ebpf.settings.mountEtcVolume`    | Needed to detect which kernel version are running in Google COS        | `true`                                      |\n| `sysdig.accessKey`                | Your Sysdig Monitor Access Key                                         | `Nil` You must provide your own key         |\n| `sysdig.settings`                 | Settings for agent's configuration file                                | ` `                                         |\n| `secure.enabled`                  | Enable Sysdig Secure                                                   | `true`                                      |\n| `auditLog.enabled`                | Enable K8s audit log support for Sysdig Secure                         | `false`                                     |\n| `auditLog.auditServerUrl`         | The URL where Sysdig Agent listens for K8s audit log events            | `0.0.0.0`                                   |\n| `auditLog.auditServerPort`        | Port where Sysdig Agent listens for K8s audit log events               | `7765`                                      |\n| `auditLog.dynamicBackend.enabled` | Deploy the Audit Sink where Sysdig listens for K8s audit log events    | `false`                                     |\n| `customAppChecks`                 | The custom app checks deployed with your agent                         | `{}`                                        |\n| `tolerations`                     | The tolerations for scheduling                                         | `node-role.kubernetes.io/master:NoSchedule` |\n| `scc.create`                      | Create OpenShift's Security Context Constraint                         | `false`                                     |\nFor example, if you want to deploy a DaemonSet with eBPF and with Sysdig Secure\nenabled:\n```yaml\napiVersion: sysdig.com/v1\nkind: SysdigAgent\nmetadata:\n  name: agent-with-ebpf-and-secure\nspec:\n  ebpf:\n    enabled: true\n  daemonset:\n    annotations:\n      productID: SysdigSecureDevopsPlatform\n      productName: Sysdig Secure DevOps Platform\n      productVersion: REPLACE_VERSION\n  scc:\n    create: true\n  sysdig:\n    accessKey: XXX\n```\nPlease, notice that `sysdig.accessKey` is **mandatory**. Once you have provided\nthe accessKey, you can apply this file with `kubectl apply -f`\n## Getting your Access Key\nTo retrieve the key and use it in the agent:\n1. Log in to Sysdig Monitor or Sysdig Secure (maybe as administrator) and\n   select **Settings**.\n2. Choose Agent Installation.\n3. Use the Copy button to copy the access key at the top of the page.\nIf you need more help, you can read more about this process in the [Agent Installation: Overview and Key](\nhttps://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/213352719/Agent+Installation+Overview+and+Key)\ndocumentation page.\n## Verify Metrics in Sysdig Monitor UI\nOnce you have deployed the Sysdig Agent, it's time to verify that everything is\nworking as expected. So, we are going to log in Sysdig Monitor to do the check.\n1. Access Sysdig Monitor:\n   **SaaS**: https://app.sysdigcloud.com\n   Log in with your Sysdig user name and password.\n2. Select the **Explore** tab to see if metrics are displayed.\n3. To verify that kube state metrics and cluster name are working correctly:\n   Select the **Explore tab** and create a grouping by `kubernetes.cluster.name` and `kubernetes.pod.name`.\n4. Select an individual container or pod to see details.\nDon't rush about getting Kubernetes metadata. Pods, deployments ... appear a\nminute or two later than the nodes/containers themselves; if pod names do not\nappear immediately, wait and retry the Explore view.\nYou can read more about verification in the [Verify Metrics in Sysdig Monitor UI section](https://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/256475257/GKE+Installation+Steps#GKEInstallationSteps-VerifyMetricsinSysdigMonitorUI)\nin the documentation pages.",
+      "csv_display_name": "Sysdig Agent Operator",
+      "csv_metadata_description": "Sysdig is a unified platform for container and microservices monitoring, troubleshooting, security and forensics. Sysdig platform has been built on top of Sysdig tool and Sysdig Inspect open-source technologies.\n",
+      "csv_name": "sysdig-certified.v1.12.43",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:07:30.485000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "sysdig-certified",
+      "provided_apis": [
+        {
+          "group": "sysdig.com",
+          "kind": "SysdigAgent",
+          "plural": "sysdigagents",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "sysdig-operator-f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d-annotation"
+        },
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "name": "kube-rbac-proxy"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.12.43",
+      "version_original": "1.12.43"
+    },
+    {
+      "_id": "61e85277cd79f05770030cc7",
+      "alm_examples": [
+        {
+          "api_version": "sysdig.com/v1",
+          "kind": "SysdigAgent",
+          "metadata": {
+            "name": "sysdigagent-sample"
+          },
+          "spec": {
+            "sysdig": {
+              "accessKey": "REPLACE ME",
+              "disableCaptures": false,
+              "existingAccessKeySecret": "",
+              "settings": {}
+            },
+            "tolerations": [
+              {
+                "effect": "NoSchedule",
+                "key": "node-role.kubernetes.io/master"
+              }
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/sysdig/sysdig-operator-bundle@sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "bundle_path_digest": "sha256:4f4f1bf24be82a2879596c353daf28425bdaccb2323869412fecb4eef2086d2f",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-01-19T18:03:35.389000+00:00",
+      "csv_description": "[Sysdig](https://www.sysdig.com/) is a unified platform for container and\nmicroservices monitoring, troubleshooting, security and forensics. Sysdig\nplatform has been built on top of\n[Sysdig tool](https://sysdig.com/opensource/sysdig/) and\n[Sysdig Inspect](https://sysdig.com/blog/sysdig-inspect/) open-source\ntechnologies.\nThis operator installs the Sysdig Agent for\n[Sysdig Monitor](https://sysdig.com/product/monitor/) and\n[Sysdig Secure](https://sysdig.com/product/secure/) to all nodes in your\ncluster via a DaemonSet.\n## Settings\nThis operator, uses the same options than the\n[Helm Chart](https://hub.helm.sh/charts/stable/sysdig), please take a look\nto all the options in the following table:\n| Parameter                         | Description                                                            | Default                                     |\n| ---                               | ---                                                                    | ---                                         |\n| `image.registry`                  | Sysdig agent image registry                                            | `docker.io`                                 |\n| `image.repository`                | The image repository to pull from                                      | `sysdig/agent`                              |\n| `image.tag`                       | The image tag to pull                                                  | `REPLACE_AGENT_VERSION`                                     |\n| `image.pullPolicy`                | The Image pull policy                                                  | `IfNotPresent`                              |\n| `image.pullSecrets`               | Image pull secrets                                                     | `nil`                                       |\n| `resources.requests.cpu`          | CPU requested for being run in a node                                  | `600m`                                      |\n| `resources.requests.memory`       | Memory requested for being run in a node                               | `512Mi`                                     |\n| `resources.limits.cpu`            | CPU limit                                                              | `2000m`                                     |\n| `resources.limits.memory`         | Memory limit                                                           | `1536Mi`                                    |\n| `rbac.create`                     | If true, create & use RBAC resources                                   | `true`                                      |\n| `serviceAccount.create`           | Create serviceAccount                                                  | `true`                                      |\n| `serviceAccount.name`             | Use this value as serviceAccountName                                   | ` `                                         |\n| `daemonset.updateStrategy.type`   | The updateStrategy for updating the daemonset                          | `RollingUpdate`                             |\n| `daemonset.affinity`              | Node affinities                                                        | `nil`                                       |\n| `daemonset.annotations`           | Custom annotations for daemonset                                       | `{}`                                        |\n| `slim.enabled`                    | Use the slim based Sysdig Agent image                                  | `false`                                     |\n| `slim.kmoduleImage.repository`    | The kernel module image builder repository to pull from                | `sysdig/agent-kmodule`                      |\n| `slim.resources.requests.cpu`     | CPU requested for building the kernel module                           | `1000m`                                     |\n| `slim.resources.requests.memory`  | Memory requested for building the kernel module                        | `348Mi`                                     |\n| `slim.resources.limits.memory`    | Memory limit for building the kernel module                            | `512Mi`                                     |\n| `ebpf.enabled`                    | Enable eBPF support for Sysdig instead of `sysdig-probe` kernel module | `false`                                     |\n| `ebpf.settings.mountEtcVolume`    | Needed to detect which kernel version are running in Google COS        | `true`                                      |\n| `sysdig.accessKey`                | Your Sysdig Monitor Access Key                                         | `Nil` You must provide your own key         |\n| `sysdig.settings`                 | Settings for agent's configuration file                                | ` `                                         |\n| `secure.enabled`                  | Enable Sysdig Secure                                                   | `true`                                      |\n| `auditLog.enabled`                | Enable K8s audit log support for Sysdig Secure                         | `false`                                     |\n| `auditLog.auditServerUrl`         | The URL where Sysdig Agent listens for K8s audit log events            | `0.0.0.0`                                   |\n| `auditLog.auditServerPort`        | Port where Sysdig Agent listens for K8s audit log events               | `7765`                                      |\n| `auditLog.dynamicBackend.enabled` | Deploy the Audit Sink where Sysdig listens for K8s audit log events    | `false`                                     |\n| `customAppChecks`                 | The custom app checks deployed with your agent                         | `{}`                                        |\n| `tolerations`                     | The tolerations for scheduling                                         | `node-role.kubernetes.io/master:NoSchedule` |\n| `scc.create`                      | Create OpenShift's Security Context Constraint                         | `false`                                     |\nFor example, if you want to deploy a DaemonSet with eBPF and with Sysdig Secure\nenabled:\n```yaml\napiVersion: sysdig.com/v1\nkind: SysdigAgent\nmetadata:\n  name: agent-with-ebpf-and-secure\nspec:\n  ebpf:\n    enabled: true\n  daemonset:\n    annotations:\n      productID: SysdigSecureDevopsPlatform\n      productName: Sysdig Secure DevOps Platform\n      productVersion: REPLACE_VERSION\n  scc:\n    create: true\n  sysdig:\n    accessKey: XXX\n```\nPlease, notice that `sysdig.accessKey` is **mandatory**. Once you have provided\nthe accessKey, you can apply this file with `kubectl apply -f`\n## Getting your Access Key\nTo retrieve the key and use it in the agent:\n1. Log in to Sysdig Monitor or Sysdig Secure (maybe as administrator) and\n   select **Settings**.\n2. Choose Agent Installation.\n3. Use the Copy button to copy the access key at the top of the page.\nIf you need more help, you can read more about this process in the [Agent Installation: Overview and Key](\nhttps://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/213352719/Agent+Installation+Overview+and+Key)\ndocumentation page.\n## Verify Metrics in Sysdig Monitor UI\nOnce you have deployed the Sysdig Agent, it's time to verify that everything is\nworking as expected. So, we are going to log in Sysdig Monitor to do the check.\n1. Access Sysdig Monitor:\n   **SaaS**: https://app.sysdigcloud.com\n   Log in with your Sysdig user name and password.\n2. Select the **Explore** tab to see if metrics are displayed.\n3. To verify that kube state metrics and cluster name are working correctly:\n   Select the **Explore tab** and create a grouping by `kubernetes.cluster.name` and `kubernetes.pod.name`.\n4. Select an individual container or pod to see details.\nDon't rush about getting Kubernetes metadata. Pods, deployments ... appear a\nminute or two later than the nodes/containers themselves; if pod names do not\nappear immediately, wait and retry the Explore view.\nYou can read more about verification in the [Verify Metrics in Sysdig Monitor UI section](https://sysdigdocs.atlassian.net/wiki/spaces/Platform/pages/256475257/GKE+Installation+Steps#GKEInstallationSteps-VerifyMetricsinSysdigMonitorUI)\nin the documentation pages.",
+      "csv_display_name": "Sysdig Agent Operator",
+      "csv_metadata_description": "Sysdig is a unified platform for container and microservices monitoring, troubleshooting, security and forensics. Sysdig platform has been built on top of Sysdig tool and Sysdig Inspect open-source technologies.\n",
+      "csv_name": "sysdig-certified.v1.12.43",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:58:23.870000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "sysdig-certified",
+      "provided_apis": [
+        {
+          "group": "sysdig.com",
+          "kind": "SysdigAgent",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "sysdig-operator-f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d-annotation"
+        },
+        {
+          "digest": "sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "image": "registry.connect.redhat.com/sysdig/sysdig-operator@sha256:f367e4888fa2094bd3815e204dbf1a179a06e44b9be2863df339573e8dc6299d",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:8b4f814c112d7b91dc5e7904d4f3c684f3d77227344d2b553a84d4a1bc2829d3",
+          "name": "kube-rbac-proxy"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "1.12.43",
+      "version_original": "1.12.43"
     }
   ],
   "page": 19,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

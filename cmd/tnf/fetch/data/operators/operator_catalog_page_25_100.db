@@ -1,149 +1,6 @@
 {
   "data": [
     {
-      "_id": "6262a733834f257293b60f9f",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/mongodb/enterprise-operator-bundle@sha256:92f5f489e8ad0cc7e7b10bd474a86810b352b5cc95db7347ce46a676cc4dbb7e",
-      "bundle_path_digest": "sha256:92f5f489e8ad0cc7e7b10bd474a86810b352b5cc95db7347ce46a676cc4dbb7e",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "stable",
-      "creation_date": "2022-04-22T13:01:39.911000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "mongodb-enterprise.v1.4.4",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:19:20.555000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "mongodb-enterprise",
-      "provided_apis": [],
-      "provider": null,
-      "related_images": [],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.4.4",
-      "version_original": "1.4.4"
-    },
-    {
-      "_id": "6262a744cde83e2b177c20e8",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/mongodb/enterprise-operator-bundle@sha256:e426e5dad74e713683d535e97a4e586cb898da891e9e61177eefb2db5742398d",
-      "bundle_path_digest": "sha256:e426e5dad74e713683d535e97a4e586cb898da891e9e61177eefb2db5742398d",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "stable",
-      "creation_date": "2022-04-22T13:01:56.061000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "mongodb-enterprise.v1.5.5",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:24:41.307000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "mongodb-enterprise",
-      "provided_apis": [],
-      "provider": null,
-      "related_images": [],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.5.5",
-      "version_original": "1.5.5"
-    },
-    {
-      "_id": "6262a746834f257293b60fa0",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/ibm-edge/growth-stack-operator-bundle@sha256:04327840791db3cd6e2ffa48084a515dc763f2119ca678f9d63cf7a11b2f4c82",
-      "bundle_path_digest": "sha256:04327840791db3cd6e2ffa48084a515dc763f2119ca678f9d63cf7a11b2f4c82",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2022-04-22T13:01:58.907000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "growth-stack-operator.v1.0.0",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:46:26.261000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "growth-stack-operator-certified",
-      "provided_apis": [
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "GenerateKey",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "GrowthStackSuite",
-          "plural": "growthstacksuites",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "StoreForwardMetric",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "AirgappedDeployment",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "AnalyticsProxy",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "growth-stack.operator.com",
-          "kind": "DeleteCluster",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "1.0.0",
-      "version_original": "1.0.0"
-    },
-    {
       "_id": "6262a74a84481d5f52299966",
       "alm_examples": [],
       "annotations": {
@@ -4884,9 +4741,177 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
       "version": "0.0.2",
       "version_original": "0.0.2"
+    },
+    {
+      "_id": "6262a9ae834f257293b60ff4",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/ibm-edge/data-explorer-operator-bundle@sha256:252eb0f3b3cf70b199f209a8ec03ff0d1c99c4cc0a60af18687238944b6e5140",
+      "bundle_path_digest": "sha256:252eb0f3b3cf70b199f209a8ec03ff0d1c99c4cc0a60af18687238944b6e5140",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2022-04-22T13:12:14.628000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "data-explorer-operator.v0.0.7",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:02:29.567000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "data-explorer-operator-certified",
+      "provided_apis": [
+        {
+          "group": "data-explorer.com",
+          "kind": "DashboardWithJupyterHub",
+          "plural": "dashboardwithjupyterhubs",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "0.0.7",
+      "version_original": "0.0.7"
+    },
+    {
+      "_id": "6262a9bd84481d5f522999b0",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:7e0a5c64a34ebad4b0b156b07e1b53b7fa6cc9ed9c456ff0a33523d6e4313e18",
+      "bundle_path_digest": "sha256:7e0a5c64a34ebad4b0b156b07e1b53b7fa6cc9ed9c456ff0a33523d6e4313e18",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "beta",
+      "creation_date": "2022-04-22T13:12:29.656000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "neuvector-operator.v1.0.0",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:57:14.440000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "neuvector-certified-operator",
+      "provided_apis": [
+        {
+          "group": "apm.neuvector.com",
+          "kind": "Neuvector",
+          "plural": "neuvectors",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "1.0.0",
+      "version_original": "1.0.0"
+    },
+    {
+      "_id": "6262a9be834f257293b60ff5",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/ibm/couchdb-operator-certified-bundle@sha256:ac3d5a0fc91bf7a6b2b06f6a19e42c219bb304681dc3f50c3aaa3d9a206ab1c8",
+      "bundle_path_digest": "sha256:ac3d5a0fc91bf7a6b2b06f6a19e42c219bb304681dc3f50c3aaa3d9a206ab1c8",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "v1.4",
+      "creation_date": "2022-04-22T13:12:30.109000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "couchdb-operator.v1.4.0",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T02:15:16.212000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "couchdb-operator-certified",
+      "provided_apis": [
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "RecipeTemplate",
+          "plural": "recipetemplates",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Backup",
+          "plural": "backups",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Bucket",
+          "plural": "buckets",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "CouchDBCluster",
+          "plural": "couchdbclusters",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "FormationLock",
+          "plural": "formationlocks",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Formation",
+          "plural": "formations",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Recipe",
+          "plural": "recipes",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": "",
+      "skip_range": ">=1.0.0 <1.4.0",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.4.0",
+      "version_original": "1.4.0"
     }
   ],
   "page": 25,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

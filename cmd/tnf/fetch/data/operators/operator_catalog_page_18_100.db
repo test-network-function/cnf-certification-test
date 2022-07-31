@@ -1,252 +1,6 @@
 {
   "data": [
     {
-      "_id": "619ffae327e166330707d776",
-      "alm_examples": [],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
-      "bundle_path_digest": "sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
-      "capabilities": [
-        ""
-      ],
-      "channel_name": "6.2.8",
-      "creation_date": "2021-11-25T21:06:43.724000+00:00",
-      "csv_description": "",
-      "csv_display_name": "",
-      "csv_metadata_description": "",
-      "csv_name": "redis-enterprise-operator.v6.0.6-6",
-      "in_index_img": true,
-      "install_modes": [],
-      "is_default_channel": false,
-      "last_update_date": "2022-04-16T16:58:46.004000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "redis-enterprise-operator-cert",
-      "provided_apis": [
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "6.0.6-6",
-      "version_original": "6.0.6-6"
-    },
-    {
-      "_id": "619ffbd63e9240fca360f337",
-      "alm_examples": [
-        {
-          "kind": "RedisEnterpriseCluster",
-          "metadata": {
-            "name": "rec"
-          },
-          "spec": {
-            "nodes": 3,
-            "persistentSpec": {
-              "enabled": true
-            },
-            "redisEnterpriseImageSpec": {
-              "imagePullPolicy": "IfNotPresent",
-              "repository": "redislabs/redis",
-              "versionTag": "6.0.20-69.rhel7-openshift"
-            },
-            "redisEnterpriseNodeResources": {
-              "limits": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              },
-              "requests": {
-                "cpu": "4000m",
-                "memory": "4Gi"
-              }
-            },
-            "uiServiceType": "ClusterIP",
-            "username": "demo@redislabs.com"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
-      "bundle_path_digest": "sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
-      "capabilities": [
-        "Deep Insights"
-      ],
-      "channel_name": "6.2.8",
-      "creation_date": "2021-11-25T21:10:46.121000+00:00",
-      "csv_description": "Redis Enterprise Software is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Software extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.\nRedis Enterprise provides a flexible and cost-effective data platform so developers can focus on rapid, high-quality development for sophisticated use cases that meet the needs of a modern digital enterprise. With Redis Enterprise, you can:\n* Enjoy high performance and record-setting low latencies with minimal operational overhead\n* Develop highly scalable microservices-based and Kubernetes-orchestrated applications\n* Use versatile data structures for a variety of use cases, such as high-speed transactions, user session management, real-time analytics, caching and many more\n* Leverage enterprise-grade operational controls for high availability, security and seamless scale\n* Automate operational best practices for deploying and managing the Redis Enterprise data platform with built-in Kubernetes Operator support\n* Deploy, manage and move applications to and from any cloud for seamless portability\n\n### Core capabilities\n* **Speed application development and time to market** - Unburden developers from the complexity of infrastructure operations and empower them to manage data with maximum flexibility. This helps them build modern applications quickly, make changes rapidly and support a variety of different data structures, models, relationships and use cases.\n* **Ensure business continuity with always-on data service** - Maintain service uptime and ensure failsafe high availability, instant failover and automatic recovery to protect your applications against unplanned downtime, outages and data loss.\n* **Design for performance and unmatched user experience** - Deliver the highest level of responsiveness and interactive customer experiences with best-in-class exceptional linear scaling high performance through a shared-nothing architecture and in-memory processing.\n* **Simplify operations with automated lifecycle management and layered orchestration** - Automate database provisioning, management and maintenance, and abstract away the complexities of high availability, seamless scale and zero-downtime upgrades with built-in support for Kubernetes and Operators.\n* **Enjoy multi-level robust security** - Provide granular control to meet self-imposed and regulatory compliance regulations and standards with built-in finegrained security controls and data encryption.\n* **Gain platform independence with flexible deployment options** - Ensure portability with multiple deployment options across any cloud of choice for multicloud and hybrid deployments and on-premises.\n* **Ensure success** - Leverage 24x7 enterprise-grade support backed by expertise in managing and scaling hundreds of thousands of Redis databases for thousands of enterprise customers worldwide.\n* **Future proof investments** - Use the most popular database amongst developers, built on open source innovation and entrenched firmly in the application landscape with over 1B downloads on Docker. Redis preserves your investment for years with easy extensibility and versatility through its Modules and support for over 50 different programming languages\n\n#### Prerequisites\nA minimum of 3 nodes which support the following requirements:\n* RAM - At least 3GB with 4GB recommended\n* Persistent Storage - At least 10GB of free space with 20GB recommended.\n* A kubernetes version of 1.9 or higher\n\n#### Recommendations/known issues\n\nChanging the name of the Redis Enterprise Cluster in the spec from the\ndefault requires running a command to grant permissions to the pods:\n\n\n> *oc adm policy add-scc-to-group redis-enterprise-scc\nsystem:serviceaccounts:my-project*\n\n\nReplace my-project with the actual name of the project/namespace.",
-      "csv_display_name": "Redis Enterprise Operator",
-      "csv_metadata_description": "",
-      "csv_name": "redis-enterprise-operator.v6.0.20-4",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-04-05T11:11:46.882000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "redis-enterprise-operator-cert",
-      "provided_apis": [
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1"
-        },
-        {
-          "group": "app.redislabs.com",
-          "kind": "RedisEnterpriseCluster",
-          "plural": "redisenterpriseclusters",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "name": "redis-enterprise-operator-3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f-annotation"
-        },
-        {
-          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
-          "name": "redis-enterprise-operator"
-        }
-      ],
-      "replaces": null,
-      "skip_range": null,
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "6.0.20-4",
-      "version_original": "6.0.20-4"
-    },
-    {
-      "_id": "619ffc0b27e166330707d779",
-      "alm_examples": [
-        {
-          "api_version": "app.joget.com/v1alpha1",
-          "kind": "JogetDX",
-          "metadata": {
-            "name": "example-joget"
-          },
-          "spec": {
-            "size": 1
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/joget/joget-dx-operator-bundle@sha256:d778e1d70bee8e4a17cac2ea9b04c82c747fd1d1f3859e846626f581f58f1ae3",
-      "bundle_path_digest": "sha256:d778e1d70bee8e4a17cac2ea9b04c82c747fd1d1f3859e846626f581f58f1ae3",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-11-25T21:11:39.626000+00:00",
-      "csv_description": "Joget DX is the next generation open source no-code / low-code application platform that combines the best of Rapid Application Development, Business Process Automation and Workflow Management. \nJoget DX empowers business users, non-coders or coders with a single platform to easily build, deliver, monitor and maintain enterprise applications.\n\nThis operator installs a Joget DX cluster running on JBoss EAP 7.\n\n### Features\n* Build full-fledged apps e.g. CRM, HR, Healthcare, etc\n* Drag and drop forms, lists, UI\n* Add workflow to automate processes\n* Extend via plugins\n* Apps are mobile optimized and cloud ready\n* Download ready-made apps from the Joget Marketplace\n\n### Before You Start\nDeploy a [MySQL](https://docs.openshift.com/online/pro/using_images/db_images/mysql.html) or [MariaDB](https://docs.openshift.com/online/pro/using_images/db_images/mariadb.html) database.\n\n### Post Deployment\nAccess the service URL and complete the one-time [Database Setup](https://dev.joget.org/community/display/DX7/Setting+Up+Database)\n\n### More Information\nMore information about Joget DX on JBoss EAP 7 is available in the [Joget Knowledge Base](https://dev.joget.org/community/display/DX7/Automated+Deployment+on+Red+Hat+OpenShift+with+the+Joget+Operator)\n",
-      "csv_display_name": "Joget DX Operator",
-      "csv_metadata_description": "No-code/low-code application platform to visually build, run and maintain apps",
-      "csv_name": "joget-dx-openshift-operator.v0.0.22",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:21:13.980000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "joget-dx-operator",
-      "provided_apis": [
-        {
-          "group": "app.joget.com",
-          "kind": "JogetDX",
-          "plural": "jogetdx",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
-          "image": "registry.connect.redhat.com/joget/joget-dx-operator@sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
-          "name": "joget-dx-operator-79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749-annotation"
-        },
-        {
-          "digest": "sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
-          "image": "registry.connect.redhat.com/joget/joget-dx-operator@sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
-          "name": "operator"
-        },
-        {
-          "digest": "sha256:f839152251e021fe0ae1d4bd9e5374c2a2fb3c01da4381ba4c01afcbaadbf8bd",
-          "image": "registry.connect.redhat.com/joget/joget-dx7-eap7@sha256:f839152251e021fe0ae1d4bd9e5374c2a2fb3c01da4381ba4c01afcbaadbf8bd",
-          "name": "joget"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "0.0.22",
-      "version_original": "0.0.22"
-    },
-    {
       "_id": "619ffc98c17162a20c1c65f4",
       "alm_examples": [
         {
@@ -18358,9 +18112,618 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
       "version": "1.23.1",
       "version_original": "1.23.1"
+    },
+    {
+      "_id": "61b3bb3039aedd4833bb11b4",
+      "alm_examples": [
+        {
+          "api_version": "operator.tigera.io/v1",
+          "kind": "Installation",
+          "metadata": {
+            "name": "default"
+          },
+          "spec": {
+            "variant": "Calico"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
+      "bundle_path_digest": "sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "release-v1.23",
+      "creation_date": "2021-12-10T20:40:16.981000+00:00",
+      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
+      "csv_display_name": "Tigera Operator",
+      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
+      "csv_name": "tigera-operator.v1.23.1",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T02:03:53.289000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "tigera-operator",
+      "provided_apis": [
+        {
+          "group": "operator.tigera.io",
+          "kind": "TigeraStatus",
+          "plural": "tigerastatuses",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMBlock",
+          "plural": "ipamblocks",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "ImageSet",
+          "plural": "imagesets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMHandle",
+          "plural": "ipamhandles",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPConfiguration",
+          "plural": "bgpconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPReservation",
+          "plural": "ipreservations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "CalicoNodeStatus",
+          "plural": "caliconodestatuses",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "Installation",
+          "plural": "installations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BlockAffinity",
+          "plural": "blockaffinities",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMConfig",
+          "plural": "ipamconfigs",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "FelixConfiguration",
+          "plural": "felixconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkPolicy",
+          "plural": "networkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkSet",
+          "plural": "networksets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPPeer",
+          "plural": "bgppeers",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "ClusterInformation",
+          "plural": "clusterinformations",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "APIServer",
+          "plural": "apiservers",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkSet",
+          "plural": "globalnetworksets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPPool",
+          "plural": "ippools",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "HostEndpoint",
+          "plural": "hostendpoints",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkPolicy",
+          "plural": "globalnetworkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "KubeControllersConfiguration",
+          "plural": "kubecontrollersconfigurations",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "name": "tigera-operator"
+        },
+        {
+          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "name": "operator-df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "<1.23.1",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "1.23.1",
+      "version_original": "1.23.1"
+    },
+    {
+      "_id": "61b3bb8960a98527f7695a5f",
+      "alm_examples": [
+        {
+          "api_version": "operator.tigera.io/v1",
+          "kind": "Installation",
+          "metadata": {
+            "name": "default"
+          },
+          "spec": {
+            "variant": "Calico"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
+      "bundle_path_digest": "sha256:55c18554ceac30fc13b0bd91b2374e2f95045605f80d94c861cd185adfa0e1b4",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "release-v1.23",
+      "creation_date": "2021-12-10T20:41:45.677000+00:00",
+      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
+      "csv_display_name": "Tigera Operator",
+      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
+      "csv_name": "tigera-operator.v1.23.1",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T01:51:25.112000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "tigera-operator",
+      "provided_apis": [
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPReservation",
+          "plural": "ipreservations",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "Installation",
+          "plural": "installations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "HostEndpoint",
+          "plural": "hostendpoints",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "APIServer",
+          "plural": "apiservers",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "CalicoNodeStatus",
+          "plural": "caliconodestatuses",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkSet",
+          "plural": "globalnetworksets",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "TigeraStatus",
+          "plural": "tigerastatuses",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "ImageSet",
+          "plural": "imagesets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "FelixConfiguration",
+          "plural": "felixconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkPolicy",
+          "plural": "globalnetworkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "KubeControllersConfiguration",
+          "plural": "kubecontrollersconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BlockAffinity",
+          "plural": "blockaffinities",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMHandle",
+          "plural": "ipamhandles",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkSet",
+          "plural": "networksets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMBlock",
+          "plural": "ipamblocks",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPPool",
+          "plural": "ippools",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkPolicy",
+          "plural": "networkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPPeer",
+          "plural": "bgppeers",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMConfig",
+          "plural": "ipamconfigs",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPConfiguration",
+          "plural": "bgpconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "ClusterInformation",
+          "plural": "clusterinformations",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "name": "tigera-operator"
+        },
+        {
+          "digest": "sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "image": "quay.io/tigera/operator@sha256:df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65",
+          "name": "operator-df959774a8c3b2a870b42772d11dc0844c5bc4430a973c92a592be0b1012df65-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "<1.23.1",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "1.23.1",
+      "version_original": "1.23.1"
+    },
+    {
+      "_id": "61b40a549e4335b6d1b1d8c5",
+      "alm_examples": [
+        {
+          "api_version": "operator.tigera.io/v1",
+          "kind": "Installation",
+          "metadata": {
+            "name": "default"
+          },
+          "spec": {
+            "variant": "Calico"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/tigera/operator@sha256:85bb416b033fdeee5af37e48ac5ef16ae8d586c6a4305946e2f335713b021193",
+      "bundle_path_digest": "sha256:85bb416b033fdeee5af37e48ac5ef16ae8d586c6a4305946e2f335713b021193",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "release-v1.23",
+      "creation_date": "2021-12-11T02:17:56.638000+00:00",
+      "csv_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift. Its goal is to make installation, upgrades, and ongoing lifecycle management of Calico and Calico Enterprise as simple and reliable as possible. **Important**: this operator should only be installed if the cluster was already provisioned with Calico.",
+      "csv_display_name": "Tigera Operator",
+      "csv_metadata_description": "An operator which manages the lifecycle of a Calico or Calico Enterprise installation on Kubernetes or OpenShift.",
+      "csv_name": "tigera-operator.v1.23.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T01:22:12.917000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "tigera-operator",
+      "provided_apis": [
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BlockAffinity",
+          "plural": "blockaffinities",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMConfig",
+          "plural": "ipamconfigs",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMBlock",
+          "plural": "ipamblocks",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "FelixConfiguration",
+          "plural": "felixconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPReservation",
+          "plural": "ipreservations",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "APIServer",
+          "plural": "apiservers",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "Installation",
+          "plural": "installations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "ClusterInformation",
+          "plural": "clusterinformations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "HostEndpoint",
+          "plural": "hostendpoints",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "KubeControllersConfiguration",
+          "plural": "kubecontrollersconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "CalicoNodeStatus",
+          "plural": "caliconodestatuses",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkSet",
+          "plural": "networksets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkSet",
+          "plural": "globalnetworksets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPAMHandle",
+          "plural": "ipamhandles",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "NetworkPolicy",
+          "plural": "networkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "GlobalNetworkPolicy",
+          "plural": "globalnetworkpolicies",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPConfiguration",
+          "plural": "bgpconfigurations",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "TigeraStatus",
+          "plural": "tigerastatuses",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "IPPool",
+          "plural": "ippools",
+          "version": "v1"
+        },
+        {
+          "group": "operator.tigera.io",
+          "kind": "ImageSet",
+          "plural": "imagesets",
+          "version": "v1"
+        },
+        {
+          "group": "crd.projectcalico.org",
+          "kind": "BGPPeer",
+          "plural": "bgppeers",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
+          "image": "quay.io/tigera/operator@sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
+          "name": "tigera-operator"
+        },
+        {
+          "digest": "sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
+          "image": "quay.io/tigera/operator@sha256:a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a",
+          "name": "operator-a370072cbe39ee8afe03d843e803d91e41e8573a7385654138e31207a9b44d9a-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "<1.23.2",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "1.23.2",
+      "version_original": "1.23.2"
     }
   ],
   "page": 18,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

@@ -1,469 +1,6 @@
 {
   "data": [
     {
-      "_id": "606fd5c06920d86efa1125e1",
-      "alm_examples": [
-        {
-          "api_version": "cortex.cognitivescale.com/v1",
-          "kind": "Certifai",
-          "metadata": {
-            "name": "default-certifai"
-          },
-          "spec": {
-            "console": {
-              "authorization-type": "none",
-              "azure": {
-                "account-key": "your account key",
-                "account-name": "your account name",
-                "sas-token": "your SAS token"
-              },
-              "create-ingress": true,
-              "gcs": {
-                "application-credentials": "{\n  \"type\": \"\",\n  \"project_id\": \"\",\n  \"private_key_id\": \"\",\n  \"private_key\": \"\",\n  \"client_email\": \"\",\n  \"client_id\": \"\",\n  \"auth_uri\": \"\",\n  \"token_uri\": \"\",\n  \"auth_provider_x509_cert_url\": \"\",\n  \"client_x509_cert_url\": \"\"\n}\n"
-              },
-              "replicas": 1,
-              "route-type": "none",
-              "s3": {
-                "access-key": "your access key",
-                "endpoint": "https://s3.amazonaws.com",
-                "secret-key": "your secret key",
-                "verify-cert": false
-              },
-              "scan-dir": ""
-            },
-            "deployment-type": "openshift",
-            "dex": {
-              "connector": {
-                "add-config": "orgs:\n- name: my-org\n",
-                "client-id": "clientid",
-                "client-secret": "clientsecret",
-                "name": "Github",
-                "type": "github"
-              },
-              "create-ingress": true,
-              "enabled": false,
-              "replicas": 1
-            },
-            "policy": {
-              "authorization-type": "none",
-              "azure": {
-                "account-key": "your account key",
-                "account-name": "your account name",
-                "sas-token": "your SAS token"
-              },
-              "create-ingress": true,
-              "enabled": false,
-              "gcs": {
-                "application-credentials": "{\n  \"type\": \"\",\n  \"project_id\": \"\",\n  \"private_key_id\": \"\",\n  \"private_key\": \"\",\n  \"client_email\": \"\",\n  \"client_id\": \"\",\n  \"auth_uri\": \"\",\n  \"token_uri\": \"\",\n  \"auth_provider_x509_cert_url\": \"\",\n  \"client_x509_cert_url\": \"\"\n}\n"
-              },
-              "questionnaire-dir": "",
-              "replicas": 1,
-              "route-type": "none",
-              "s3": {
-                "access-key": "your access key",
-                "endpoint": "https://s3.amazonaws.com",
-                "secret-key": "your secret key",
-                "verify-cert": false
-              }
-            },
-            "reference-model": {
-              "enabled": true
-            },
-            "reporting": {
-              "db-conn-str": "postgresql://user:password@service:port/db",
-              "enabled": true,
-              "period": "*/15 * * * *"
-            }
-          }
-        },
-        {
-          "api_version": "cortex.cognitivescale.com/v1",
-          "kind": "CertifaiScan",
-          "metadata": {
-            "name": "example-certifai-scan",
-            "namespace": "certifai"
-          },
-          "spec": {
-            "scanconfig": {
-              "concurrency": 4,
-              "requests": {
-                "cpu": "800m",
-                "memory": "800Mi"
-              },
-              "scanargs": "command line args here",
-              "scandef": "definition file text here"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/c12e/cortex-certifai-operator-bundle@sha256:7beaacb9261b0ab823443b4f7c3f3c3bff8250caee7f1ca68887e2457e8f963b",
-      "bundle_path_digest": "sha256:7beaacb9261b0ab823443b4f7c3f3c3bff8250caee7f1ca68887e2457e8f963b",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2021-04-09T04:19:12.961000+00:00",
-      "csv_description": "Cortex Certifai empowers enterprises to identify and mitigate risk and vulnerabilities within AI and deploy trusted AI systems into production. It evaluates AI models and allows users to compare different models or model versions for the following qualities.\n* **Robustness:** measures how well models retain an outcome given changes to the data feature values. The more robust a model is, the greater the changes required to alter the outcome.\n* **Fairness by group:** measures the difference required to change the outcome for different groups implicit in a feature given the same model and dataset. For example, implicit groups male, female, and nonbinary belong to the feature, \u201cgender\u201d. A fair model shows that all 3 groups require a similar amount of change to alter the results.\n* **Explainability:** measures the average simplicity of counterfactual explanations provided for each model. An explanation that requires a single changed feature will score 100%. Explanations that require more changed features will score lower.\n* **Explanations:** display the prediction provided through the generation of counterfactuals for the change that must occur in a dataset with given restrictions to obtain a different outcome. Users can explore the entire dataset one observation at a time to understand what features changed and by how much to obtain a different result.\nSee our [documentation](https://cognitivescale.github.io/cortex-certifai/) for information about how to deploy the Certifai Operator and how to get started using our toolkit.\n## License Copyright 2020 Cognitive Scale, Inc. All Rights Reserved.\nBy downloading you agree to the terms of CognitiveScale's [End User License Agreement](https://www.cognitivescale.com/legal-information/).\n",
-      "csv_display_name": "Cortex Certifai Operator",
-      "csv_metadata_description": "Cortex Certifai empowers enterprises to identify and mitigate risk and vulnerabilities within AI and deploy trusted AI systems into production.",
-      "csv_name": "cortex-certifai-operator.v1.3.10",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:27:43.986000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "cortex-certifai-operator",
-      "provided_apis": [],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-operator@sha256:4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879",
-          "name": "cortex-certifai-operator-4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879-annotation"
-        },
-        {
-          "digest": "sha256:082cf0c8e1289a7e08bb324b512a737e0ea3f618ea5b6fd8cecbb415ff07a230",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-operator@sha256:082cf0c8e1289a7e08bb324b512a737e0ea3f618ea5b6fd8cecbb415ff07a230",
-          "name": "cortex-certifai-operator"
-        },
-        {
-          "digest": "sha256:e0b34632bffe7d9ea186e7412030e404d081adb4216145f676cddda46a8746fa",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-reference-model-server@sha256:e0b34632bffe7d9ea186e7412030e404d081adb4216145f676cddda46a8746fa",
-          "name": "refmodel"
-        },
-        {
-          "digest": "sha256:97209356148d10f8e1621ac5246c13ef7f4a6ccb62479e8bbfa3151a768f4f90",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-console@sha256:97209356148d10f8e1621ac5246c13ef7f4a6ccb62479e8bbfa3151a768f4f90",
-          "name": "console"
-        },
-        {
-          "digest": "sha256:f54857468f12e918d3b31144d9e63e3c497a408cd4b545c5ef2d60cd74c9a3ba",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-policy-chooser@sha256:f54857468f12e918d3b31144d9e63e3c497a408cd4b545c5ef2d60cd74c9a3ba",
-          "name": "policy_chooser"
-        },
-        {
-          "digest": "sha256:3e554f5baf161ec2297a452316045d20e628fd935c4a6584ba05043be574bf37",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-scanner@sha256:3e554f5baf161ec2297a452316045d20e628fd935c4a6584ba05043be574bf37",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:88d0caeac7265cc1553c7f443cd7f8afddd8cfbb01c916381f8c1e8447a17497",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-reporting-etl@sha256:88d0caeac7265cc1553c7f443cd7f8afddd8cfbb01c916381f8c1e8447a17497",
-          "name": "reporting_etl"
-        },
-        {
-          "digest": "sha256:a6e75a40feea7b838071c4fcb7933eec29955bf5fe7d874400d6a00e2709031f",
-          "image": "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:a6e75a40feea7b838071c4fcb7933eec29955bf5fe7d874400d6a00e2709031f",
-          "name": "oauth_proxy"
-        },
-        {
-          "digest": "sha256:091e3df91531223aac50435fabc384b1d900aaaf2c5ce639a3e141e2fcb3eb8d",
-          "image": "registry.connect.redhat.com/c12e/cortex-certifai-scan-manager@sha256:091e3df91531223aac50435fabc384b1d900aaaf2c5ce639a3e141e2fcb3eb8d",
-          "name": "scan_manager"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.3.10",
-      "version_original": "1.3.10"
-    },
-    {
-      "_id": "60708cae14979904df57ba97",
-      "alm_examples": [
-        {
-          "api_version": "example.com/v1alpha1",
-          "kind": "jtrac",
-          "metadata": {
-            "name": "jtrac-sample"
-          },
-          "spec": {
-            "affinity": {},
-            "autoscaling": {
-              "enabled": false,
-              "maxReplicas": 100,
-              "minReplicas": 1,
-              "targetCPUUtilizationPercentage": 80
-            },
-            "fullnameOverride": "",
-            "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-            "imagePullSecrets": [],
-            "ingress": {
-              "annotations": {},
-              "enabled": false,
-              "hosts": [
-                {
-                  "host": "chart-example.local",
-                  "paths": []
-                }
-              ],
-              "tls": []
-            },
-            "nameOverride": "",
-            "nodeSelector": {},
-            "podAnnotations": {},
-            "podSecurityContext": {},
-            "replicaCount": 1,
-            "resources": {},
-            "securityContext": {},
-            "service": {
-              "port": 8080,
-              "type": "LoadBalancer"
-            },
-            "serviceAccount": {
-              "annotations": {},
-              "create": false,
-              "name": ""
-            },
-            "tolerations": []
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/corentrepo/corent-operator-bundle@sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
-      "bundle_path_digest": "sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-04-09T17:19:42.245000+00:00",
-      "csv_description": "This Operator will deploy the Jtrac Application",
-      "csv_display_name": "Jtrac-APP Operator",
-      "csv_metadata_description": "This is a Operator bundle image that can be used to deploy Jtrac application for testing",
-      "csv_name": "jtrac-app-operator.v0.0.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:16:30.023000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "jtrac-app-operator",
-      "provided_apis": [
-        {
-          "group": "example.com",
-          "kind": "jtrac",
-          "plural": "jtracs",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "name": "corent-jtrac-operator-938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535-annotation"
-        },
-        {
-          "digest": "sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
-          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
-          "name": "kube-rbac-proxy"
-        },
-        {
-          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "name": "app"
-        },
-        {
-          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "name": "corent-jtrac-application-8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "0.0.1",
-      "version_original": "0.0.1"
-    },
-    {
-      "_id": "6070b3440833afe1fb722e4e",
-      "alm_examples": [
-        {
-          "api_version": "example.com/v1alpha1",
-          "kind": "jtrac",
-          "metadata": {
-            "name": "jtrac-sample"
-          },
-          "spec": {
-            "affinity": {},
-            "autoscaling": {
-              "enabled": false,
-              "maxReplicas": 100,
-              "minReplicas": 1,
-              "targetCPUUtilizationPercentage": 80
-            },
-            "fullnameOverride": "",
-            "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-            "imagePullSecrets": [],
-            "ingress": {
-              "annotations": {},
-              "enabled": false,
-              "hosts": [
-                {
-                  "host": "chart-example.local",
-                  "paths": []
-                }
-              ],
-              "tls": []
-            },
-            "nameOverride": "",
-            "nodeSelector": {},
-            "podAnnotations": {},
-            "podSecurityContext": {},
-            "replicaCount": 1,
-            "resources": {},
-            "securityContext": {},
-            "service": {
-              "port": 8080,
-              "type": "LoadBalancer"
-            },
-            "serviceAccount": {
-              "annotations": {},
-              "create": false,
-              "name": ""
-            },
-            "tolerations": []
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/corentrepo/corent-operator-bundle@sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
-      "bundle_path_digest": "sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-04-09T20:04:20.199000+00:00",
-      "csv_description": "This Operator will deploy the Jtrac Application",
-      "csv_display_name": "Jtrac-APP Operator",
-      "csv_metadata_description": "This is a Operator bundle image that can be used to deploy Jtrac application for testing",
-      "csv_name": "jtrac-app-operator.v0.0.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:09:13.282000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "jtrac-app-operator",
-      "provided_apis": [
-        {
-          "group": "example.com",
-          "kind": "jtrac",
-          "plural": "jtracs",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "name": "corent-jtrac-operator-938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535-annotation"
-        },
-        {
-          "digest": "sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
-          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
-          "name": "kube-rbac-proxy"
-        },
-        {
-          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "name": "app"
-        },
-        {
-          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
-          "name": "corent-jtrac-application-8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "0.0.1",
-      "version_original": "0.0.1"
-    },
-    {
       "_id": "607550a98268040ea70534a0",
       "alm_examples": [
         {
@@ -18357,9 +17894,715 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
       "version": "6.0.6-24",
       "version_original": "6.0.6-24"
+    },
+    {
+      "_id": "609aae72d04af0e74bb05795",
+      "alm_examples": [
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "CouchDBCluster",
+          "metadata": {
+            "name": "example-couchdbcluster"
+          },
+          "spec": {
+            "cpu": "1",
+            "disk": "1Gi",
+            "environment": {
+              "adminPassword": "changeme"
+            },
+            "memory": "1Gi",
+            "size": 3,
+            "storageClass": ""
+          }
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "FormationLock",
+          "metadata": {
+            "name": "example-formationlock"
+          },
+          "spec": {}
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "Recipe",
+          "metadata": {
+            "name": "example-recipe"
+          },
+          "spec": {}
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "RecipeTemplate",
+          "metadata": {
+            "name": "example-recipetemplate"
+          },
+          "spec": {}
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "Backup",
+          "metadata": {
+            "name": "example-backup"
+          },
+          "spec": {}
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "Bucket",
+          "metadata": {
+            "name": "example-bucket"
+          },
+          "spec": {}
+        },
+        {
+          "api_version": "couchdb.databases.cloud.ibm.com/v1",
+          "kind": "Formation",
+          "metadata": {
+            "name": "example-formation"
+          },
+          "spec": {}
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/ibm/couchdb-operator-certified-bundle@sha256:ac3d5a0fc91bf7a6b2b06f6a19e42c219bb304681dc3f50c3aaa3d9a206ab1c8",
+      "bundle_path_digest": "sha256:ac3d5a0fc91bf7a6b2b06f6a19e42c219bb304681dc3f50c3aaa3d9a206ab1c8",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "v1.4",
+      "creation_date": "2021-05-11T16:18:58.006000+00:00",
+      "csv_description": "Apache CouchDB lets you access your data where you need it. The [Couch Replication Protocol](http://docs.couchdb.org/en/master/replication/protocol.html) is implemented in a variety of projects and products that span every imaginable computing environment from globally distributed server-clusters, over mobile phones to web browsers.\n\nStore your data safely, on your own servers, or with any leading cloud provider. Your web- and native applications love CouchDB, because it speaks JSON natively and supports binary data for all your data storage needs.\n\nThe [Couch Replication Protocol](http://docs.couchdb.org/en/master/replication/protocol.html) lets your data flow seamlessly between server clusters to mobile phones and web browsers, enabling a compelling [offline-first](http://offlinefirst.org/) user-experience while maintaining high performance and strong reliability. CouchDB comes with a developer-friendly query language, and optionally MapReduce for simple, efficient, and comprehensive data retrieval.\n\n### Operator for Apache CouchDB Features\n* Fully automated deployment and configuration of Apache CouchDB clusters.\n* Support single, multiple, or all namespace install modes.\n\n#### Security\n* TLS - TLS  is supported using Red Hat Service certificates or user-provided certificates.\n* Authentication - The parameter `require_valid_user` defaults to `true`, which means that no requests are allowed from anonymous users. Every request must be authenticated.\n* Authorization - Databases are initially accessible by Apache CouchDB admins only.\n\n#### High Availability\n* Nodes - Each database node in an Apache CouchDB cluster requires its own Kubernetes node. It's recommended that you run it with a minimum of three nodes for any production deployment.\n* Zones - The Apache CouchDB cluster database nodes are spread across available Kubernetes fault zones where available.\n* Replicas - The default configuration for each database is two shards (Q=2) and three shard copies (N=3), where each shard copy is deployed on a separate node in the cluster.\n\n### Reading and writing to Apache CouchDB\n\nThe Operator for Apache CouchDB automatically generates a Service. This can be accessed using port-forwarding e.g. `kubectl port-forward svc/my-couchdb-cluster 443:443 -u admin:mypassword`. Alternatively, configure an OpenShift Route to expose the service externally.\n\n[Read the complete guide to using the Operator for Apache CouchDB](https://cloud.ibm.com/docs/services/Cloudant?topic=cloudant-apache-couchdb-operator)\n",
+      "csv_display_name": "Operator for Apache CouchDB",
+      "csv_metadata_description": "Apache CouchDB is a highly available NOSQL database for web and mobile applications\n",
+      "csv_name": "couchdb-operator.v1.4.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": true,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T02:16:22.148000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "couchdb-operator-certified",
+      "provided_apis": [
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Backup",
+          "plural": "backups",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Bucket",
+          "plural": "buckets",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "CouchDBCluster",
+          "plural": "couchdbclusters",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "FormationLock",
+          "plural": "formationlocks",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Formation",
+          "plural": "formations",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "Recipe",
+          "plural": "recipes",
+          "version": "v1"
+        },
+        {
+          "group": "couchdb.databases.cloud.ibm.com",
+          "kind": "RecipeTemplate",
+          "plural": "recipetemplates",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:f84aa68359c6123758df762af819b6b7ef2fd784df64bd165f2a144895e747a7",
+          "image": "registry.connect.redhat.com/ibm/couchdb-operator@sha256:f84aa68359c6123758df762af819b6b7ef2fd784df64bd165f2a144895e747a7",
+          "name": "couchdb-operator-f84aa68359c6123758df762af819b6b7ef2fd784df64bd165f2a144895e747a7-annotation"
+        },
+        {
+          "digest": "sha256:f84aa68359c6123758df762af819b6b7ef2fd784df64bd165f2a144895e747a7",
+          "image": "registry.connect.redhat.com/ibm/couchdb-operator@sha256:f84aa68359c6123758df762af819b6b7ef2fd784df64bd165f2a144895e747a7",
+          "name": "couchdb-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": ">=1.0.0 <1.4.0",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "1.4.0",
+      "version_original": "1.4.0"
+    },
+    {
+      "_id": "609aae733048c1ac9a6fea10",
+      "alm_examples": [
+        {
+          "api_version": "pxc.percona.com/v1-8-0",
+          "kind": "PerconaXtraDBCluster",
+          "metadata": {
+            "finalizers": [
+              "delete-pxc-pods-in-order"
+            ],
+            "name": "cluster1"
+          },
+          "spec": {
+            "allowUnsafeConfigurations": false,
+            "backup": {
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674",
+              "pitr": {
+                "enabled": false,
+                "storageName": "STORAGE-NAME-HERE",
+                "timeBetweenUploads": 60
+              },
+              "schedule": [
+                {
+                  "keep": 3,
+                  "name": "sat-night-backup",
+                  "schedule": "0 0 * * 6",
+                  "storageName": "s3-us-west"
+                },
+                {
+                  "keep": 5,
+                  "name": "daily-backup",
+                  "schedule": "0 0 * * *",
+                  "storageName": "fs-pvc"
+                }
+              ],
+              "storages": {
+                "fs-pvc": {
+                  "type": "filesystem",
+                  "volume": {
+                    "persistentVolumeClaim": {
+                      "accessModes": [
+                        "ReadWriteOnce"
+                      ],
+                      "resources": {
+                        "requests": {
+                          "storage": "6G"
+                        }
+                      }
+                    }
+                  }
+                },
+                "s3-us-west": {
+                  "s3": {
+                    "bucket": "S3-BACKUP-BUCKET-NAME-HERE",
+                    "credentialsSecret": "my-cluster-name-backup-s3",
+                    "region": "us-west-2"
+                  },
+                  "type": "s3"
+                }
+              }
+            },
+            "crVersion": "1.8.0",
+            "haproxy": {
+              "affinity": {
+                "antiAffinityTopologyKey": "kubernetes.io/hostname"
+              },
+              "enabled": true,
+              "gracePeriod": 30,
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0",
+              "podDisruptionBudget": {
+                "maxUnavailable": 1
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "600m",
+                  "memory": "1G"
+                }
+              },
+              "size": 3
+            },
+            "logCollectorSecretName": "my-log-collector-secrets",
+            "logcollector": {
+              "enabled": true,
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0"
+            },
+            "pmm": {
+              "enabled": false,
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5",
+              "serverHost": "monitoring-service",
+              "serverUser": "admin"
+            },
+            "proxysql": {
+              "affinity": {
+                "antiAffinityTopologyKey": "kubernetes.io/hostname"
+              },
+              "enabled": false,
+              "gracePeriod": 30,
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813",
+              "podDisruptionBudget": {
+                "maxUnavailable": 1
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "600m",
+                  "memory": "1G"
+                }
+              },
+              "size": 3,
+              "volumeSpec": {
+                "persistentVolumeClaim": {
+                  "resources": {
+                    "requests": {
+                      "storage": "2G"
+                    }
+                  }
+                }
+              }
+            },
+            "pxc": {
+              "affinity": {
+                "antiAffinityTopologyKey": "kubernetes.io/hostname"
+              },
+              "autoRecovery": true,
+              "gracePeriod": 600,
+              "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e",
+              "podDisruptionBudget": {
+                "maxUnavailable": 1
+              },
+              "resources": {
+                "requests": {
+                  "cpu": "600m",
+                  "memory": "1G"
+                }
+              },
+              "size": 3,
+              "volumeSpec": {
+                "persistentVolumeClaim": {
+                  "resources": {
+                    "requests": {
+                      "storage": "6G"
+                    }
+                  }
+                }
+              }
+            },
+            "secretsName": "my-cluster-secrets",
+            "sslInternalSecretName": "my-cluster-ssl-internal",
+            "sslSecretName": "my-cluster-ssl",
+            "updateStrategy": "SmartUpdate",
+            "upgradeOptions": {
+              "apply": "disabled",
+              "schedule": "0 4 * * *",
+              "versionServiceEndpoint": "https://check.percona.com"
+            },
+            "vaultSecretName": "keyring-secret-vault"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1",
+          "kind": "PerconaXtraDBClusterBackup",
+          "metadata": {
+            "name": "backup1"
+          },
+          "spec": {
+            "pxcCluster": "cluster1",
+            "storageName": "fs-pvc"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1alpha1",
+          "kind": "PerconaXtraDBBackup",
+          "metadata": {
+            "name": "backup1"
+          },
+          "spec": {
+            "pxcCluster": "cluster1",
+            "storageName": "s3-us-west"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1",
+          "kind": "PerconaXtraDBClusterRestore",
+          "metadata": {
+            "name": "restore1"
+          },
+          "spec": {
+            "backupName": "backup1",
+            "pxcCluster": "cluster1"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1",
+          "kind": "PerconaXtraDBClusterBackup",
+          "metadata": {
+            "name": "backup1"
+          },
+          "spec": {
+            "pxcCluster": "cluster1",
+            "storageName": "fs-pvc"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1alpha1",
+          "kind": "PerconaXtraDBBackup",
+          "metadata": {
+            "name": "backup1"
+          },
+          "spec": {
+            "pxcCluster": "cluster1",
+            "storageName": "s3-us-west"
+          }
+        },
+        {
+          "api_version": "pxc.percona.com/v1",
+          "kind": "PerconaXtraDBClusterRestore",
+          "metadata": {
+            "name": "restore1"
+          },
+          "spec": {
+            "backupName": "backup1",
+            "pxcCluster": "cluster1"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-bundle@sha256:a280b29739d410d14616edde83066cad0f63d2e1a191ee1434636e25448d4e56",
+      "bundle_path_digest": "sha256:a280b29739d410d14616edde83066cad0f63d2e1a191ee1434636e25448d4e56",
+      "capabilities": [
+        "Deep Insights"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2021-05-11T16:18:59.858000+00:00",
+      "csv_description": "\n## Percona is Cloud Native\n\nThe Percona Kubernetes Operator for Percona XtraDB Cluster automates the creation, alteration, or deletion of nodes in your cluster environment. It can be used to instantiate a new database cluster or to scale an existing database cluster. The Operator contains all necessary Kubernetes settings to provide a proper and consistent Percona XtraDB Cluster instance.\n\nConsult the [documentation](https://percona.github.io/percona-xtradb-cluster-operator/) on the Percona Kubernetes Operator for Percona XtraDB Cluster for complete details on capabilities and options.\n\n### Supported Features\n\n* **Scale Your Cluster**  change the `size` parameter to [add or remove members](https://percona.github.io/percona-xtradb-cluster-operator/install/scaling) of the cluster. Three is the minimum recommended size for a functioning cluster.\n\n* **Manage Your Users**  [add, remove, or change](https://percona.github.io/percona-xtradb-cluster-operator/configure/users) the privileges of database users\n\n* **Automate Your Backups**  [configure cluster backups](https://percona.github.io/percona-xtradb-cluster-operator/configure/operator) to run on a scheduled basis. Backups are stored on a persistent volume.\n\n### Common Configurations\n\n* **Set Resource Limits** - set limitation on requests to CPU and memory resources.\n\n* **Customize Storage** - set the desired Storage Class and Access Mode for your database cluster data.\n\n* **Control Scheduling** - define how your PXC Pods are scheduled onto the K8S cluster with tolerations, pod disruption budgets, node selector and affinity settings.\n* Automatic synchronization of MySQL users with ProxySQL\n* HAProxy Support\n* Fully automated minor version updates (Smart Update)\n* Update Reader members before Writer member at cluster upgrades\n* Support multiple PXC minor versions by the Operator\n### Before You Start\n\nAdd the PXC user `Secret` to Kubernetes. User information must be placed in the data section of the `secrets.yaml`\nfile with Base64-encoded logins and passwords for the user accounts.\n\nBelow is a sample `secrets.yaml` file for the correct formatting.\n\n```\napiVersion: v1\nkind: Secret\nmetadata:\n  name: my-cluster-secrets\ntype: Opaque\ndata:\n  root: cm9vdF9wYXNzd29yZA==\n  xtrabackup: YmFja3VwX3Bhc3N3b3Jk\n  monitor: bW9uaXRvcg==\n  clustercheck: Y2x1c3RlcmNoZWNrcGFzc3dvcmQ=\n  proxyadmin: YWRtaW5fcGFzc3dvcmQ=\n  pmmserver: c3VwYXxefHBheno=\n  operator: b3BlcmF0b3JhZG1pbg==\n```\n\n\n\n\n\n\n\n\n###  New Features\n* Support for custom sidecar containers to extend the Operator capabilities\n* Allow the cluster scale in and scale out with the kubectl scale command or Horizontal Pod Autoscaler\n* Operator can now automatically recover Percona XtraDB Cluster after the network partitioning\n### Improvements\n* The Operator can now automatically remove old backups from S3 storage if the retention period is set (thanks to Davi S Evangelista for reporting this issue)\n* Add namespace support in the script used to copy backups from remote storage to a local machine\n* Point-in-time recovery uploader now chooses the Pod with the oldest binary log in the cluster to ensure log consistency\n* Add debug symbols from the percona-xtradb-cluster-server-debuginfo package to the Percona XtraDB Cluster debug docker image to simplify troubleshooting\n* It is now possible to recover databases up to a specific transaction with the Point-in-time Recovery feature. Previously the user could only recover to specific date and time\n* Point-in-time recovery feature now works with compressed backups\n* It is now possible to explicitly set the version of Percona XtraDB Cluster for newly provisioned clusters. Before that, all new clusters were started with the latest PXC version if Version Service was enabled\n* Add support for the runtimeClassName Kubernetes feature for selecting the container runtime\n* Various improvements of Operator log messages\n#### Known Issues and Limitations\nScheduled backups are not compatible with Kubernetes 1.20 in cluster-wide mode.\n\n\n\n",
+      "csv_display_name": "Percona XtraDB Cluster Operator",
+      "csv_metadata_description": "Percona XtraDB Cluster Operator manages the lifecycle of Percona XtraDB cluster instances.",
+      "csv_name": "percona-xtradb-cluster-operator.v1.8.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:55:09.110000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "percona-xtradb-cluster-operator-certified",
+      "provided_apis": [
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBBackup",
+          "plural": "perconaxtradbbackups",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBClusterBackup",
+          "plural": "perconaxtradbclusterbackups",
+          "version": "v1"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBClusterRestore",
+          "plural": "perconaxtradbclusterrestores",
+          "version": "v1"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-8-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-6-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-5-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-4-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-3-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-1-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1-2-0"
+        },
+        {
+          "group": "pxc.percona.com",
+          "kind": "PerconaXtraDBCluster",
+          "plural": "perconaxtradbclusters",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator@sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "name": "percona-xtradb-cluster-operator-8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2-annotation"
+        },
+        {
+          "digest": "sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator@sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "name": "percona-xtradb-cluster-operator"
+        },
+        {
+          "digest": "sha256:593ee306e46dd8be094354e0f435c5d6f2699e3caa5fe5f786290a8e5bfbdaee",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:593ee306e46dd8be094354e0f435c5d6f2699e3caa5fe5f786290a8e5bfbdaee",
+          "name": "pxc_57"
+        },
+        {
+          "digest": "sha256:6b7e69d6207af0de3cda1718f130742d1661c896e765a1927fd7af72ee0d2b91",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:6b7e69d6207af0de3cda1718f130742d1661c896e765a1927fd7af72ee0d2b91",
+          "name": "pxc_57_backup"
+        },
+        {
+          "digest": "sha256:3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e",
+          "name": "pxc_80"
+        },
+        {
+          "digest": "sha256:4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674",
+          "name": "pxc_80_backup"
+        },
+        {
+          "digest": "sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator@sha256:8ae74434882f19f3b7bc324d1ba1cb62ab405b63f654147b559c86571fd184e2",
+          "name": "operator"
+        },
+        {
+          "digest": "sha256:4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0",
+          "name": "haproxy"
+        },
+        {
+          "digest": "sha256:c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813",
+          "name": "proxysql"
+        },
+        {
+          "digest": "sha256:bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0",
+          "name": "logcollector"
+        },
+        {
+          "digest": "sha256:f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5",
+          "name": "pmm_client"
+        },
+        {
+          "digest": "sha256:4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674",
+          "name": "percona-xtradb-cluster-operator-containers-4c06c63bb5a20707c30e06768dea866e7879d716269f52f9eb35c3278ec05674-annotation"
+        },
+        {
+          "digest": "sha256:f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5",
+          "name": "percona-xtradb-cluster-operator-containers-f17a473b92bc68851ff09244e23819af5d0f6add7ac81d021abce8d44a53b0d5-annotation"
+        },
+        {
+          "digest": "sha256:bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0",
+          "name": "percona-xtradb-cluster-operator-containers-bbac6fc1c48c5c2ff6e79a0214603817ec98d601a4d226ed355ae13c55ac4cf0-annotation"
+        },
+        {
+          "digest": "sha256:c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813",
+          "name": "percona-xtradb-cluster-operator-containers-c482264d8abfdd3a8543fa843922ff77787c544bf6f147740c96fddb1bcf2813-annotation"
+        },
+        {
+          "digest": "sha256:4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0",
+          "name": "percona-xtradb-cluster-operator-containers-4be0482a6282c610a2beb6bd1bd57d5a48b96858d07cbc0b2df046c2e16ac7f0-annotation"
+        },
+        {
+          "digest": "sha256:3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e",
+          "image": "registry.connect.redhat.com/percona/percona-xtradb-cluster-operator-containers@sha256:3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e",
+          "name": "percona-xtradb-cluster-operator-containers-3d5b59ee9d25d46fc152034d7885061851866ddc0b277ad18676cb318f50c88e-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "1.8.0",
+      "version_original": "1.8.0"
+    },
+    {
+      "_id": "609aae74e2b160d361d25078",
+      "alm_examples": [
+        {
+          "api_version": "memsql.com/v1alpha1",
+          "kind": "MemsqlCluster",
+          "metadata": {
+            "name": "memsql-cluster"
+          },
+          "spec": {
+            "adminHashedPassword": "*FABE5482D5AADF36D028AC443D117BE1180B9725",
+            "aggregatorSpec": {
+              "count": 3,
+              "height": 0.5,
+              "storageClass": "standard",
+              "storageGB": 256
+            },
+            "leafSpec": {
+              "count": 1,
+              "height": 1,
+              "storageClass": "standard",
+              "storageGB": 1024
+            },
+            "license": "BDVhNDg5OWFjNTc3OTQxODRhOTVlMWVlZWY1YTFlNTlkAAAAAAAAAAAEAAAAAAAAAAwwNgIZAPXaOk16AZMCIzdmkvvO0VH57SIhkshiMAIZAJYHyL5vkNE4Sohz8BDqMuikVj9lNLvy4w==",
+            "redundancyLevel": 1,
+            "releaseID": "722ce44d-6f95-4855-b093-9802a9ae7cc9"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/memsql/operator-bundle@sha256:1a400322ed8279e6ded73c7fd89c3cc5df2f74ebede9d192017268166a2bb97e",
+      "bundle_path_digest": "sha256:1a400322ed8279e6ded73c7fd89c3cc5df2f74ebede9d192017268166a2bb97e",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-05-11T16:19:00.730000+00:00",
+      "csv_description": "This package contains everything you need to run the MemSQL Kubernetes Operator\nin your own Kubernetes cluster.\n\n# Getting Started\n\n* Install RBAC resources\n    ```bash\n    kubectl create -f rbac.yaml\n    ```\n* Install the MemSQL Cluster CRD\n    ```bash\n    kubectl create -f memsql-cluster-crd.yaml\n    ```\n* Deploy the Operator\n    ```bash\n    kubectl create -f deployment.yaml\n    kubectl get deployments\n    kubectl get pods\n    ```\n\n# Creating a cluster\n\n* Edit the memsql-cluster.yaml file for your MemSQL cluster\n    * name -> cluster name of your choice\n    * license -> license key from portal.memsql.com\n    * releaseID -> use \"722ce44d-6f95-4855-b093-9802a9ae7cc9\" (MemSQL v6.7.14)\n    * adminHashedPassword -> `HASHED_PASSWORD`\n        * see below Python script to convert your password, include the leading `*`\n\n    * Python function to hash your password:\n        ```python\n        from hashlib import sha1\n        print(\"*\" + sha1(sha1('mypassword').digest()).hexdigest().upper())\n        ```\n\n    * redundancyLevel -> 1 or 2\n    * units -> number of nodes. Leaf nodes will automatically be doubled if redundancyLevel=2\n    * height -> height=1 corresponds to one MemSQL License Unit (8vCPU/32GB RAM)\n    * storageGB -> size of the persistent volume claim in GB\n    * storageClass -> name of the Kubernetes storage class for the\n      persistent volume claim\n    * NOTE: the minimum production config should be:\n        * 1 leaf unit @ height 1\n        * 3 aggregator units @ height 0.5\n        * redundancyLevel = 2\n\n* Create the cluster.\n    ```bash\n    kubectl create -f memsql-cluster.yaml\n    ```\n\n* To get logs for operator (or any MemSQL node), run the following after looking\n  up the PODNAME using `kubectl get pods`:\n    ```bash\n    kubectl logs PODNAME\n    ```\n\n* To get info about all MemSQL clusters running, use these commands. -oyaml will expose the DDL/DML endpoints for MemSQL.\n    ```bash\n    kubectl get memsql\n    kubectl describe memsql\n    ```\n\n* To see all the pods, services, stateful sets, & resources used by the MemSQL cluster, run:\n    ```bash\n    kubectl get all\n    ```\n\n* Connect to the MemSQL cluster.\n  Use the DDL endpoint for creating tables.\n  DML endpoint (load balancer amongst other aggregators) can be used for read/write\n  workload. Use the user called \"admin\" with the password you defined during\n  cluster creation.\n    ```bash\n    mysql -u admin -h <hostname> -P <port> -p<password>\n    ```\n\n* Notes on editing a MemSQL cluster:\n    * The MemSQL operator supports scaling and changing certain parts of the spec. Currently you can change:\n        * units\n        * height\n        * releaseID\n        * adminHashedPassword\n        * license\n        * redundancyLevel\n\n* To delete the MemSQL cluster:\n    ```bash\n    kubectl delete -f memsql-cluster.yaml\n    ```\n",
+      "csv_display_name": "MemSQL",
+      "csv_metadata_description": "Install a MemSQL Cluster",
+      "csv_name": "memsql-operator.v0.0.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:04:40.153000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "memql-certified",
+      "provided_apis": [
+        {
+          "group": "memsql.com",
+          "kind": "MemsqlCluster",
+          "plural": "memsqlclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:7f4631fe156e28958c4f8f8c319ce514dffd40b6a06d45272061f2ad02db0ab9",
+          "image": "registry.connect.redhat.com/memsql/operator@sha256:7f4631fe156e28958c4f8f8c319ce514dffd40b6a06d45272061f2ad02db0ab9",
+          "name": "operator-7f4631fe156e28958c4f8f8c319ce514dffd40b6a06d45272061f2ad02db0ab9-annotation"
+        },
+        {
+          "digest": "sha256:7f4631fe156e28958c4f8f8c319ce514dffd40b6a06d45272061f2ad02db0ab9",
+          "image": "registry.connect.redhat.com/memsql/operator@sha256:7f4631fe156e28958c4f8f8c319ce514dffd40b6a06d45272061f2ad02db0ab9",
+          "name": "memsql-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "0.0.2",
+      "version_original": "0.0.2"
     }
   ],
   "page": 6,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }
