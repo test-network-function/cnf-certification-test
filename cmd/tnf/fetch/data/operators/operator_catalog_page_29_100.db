@@ -1,1409 +1,6 @@
 {
   "data": [
     {
-      "_id": "627c6a51228d5769c56927b4",
-      "alm_examples": [
-        {
-          "api_version": "charts.helm.k8s.io/v1",
-          "kind": "Kubeturbo",
-          "metadata": {
-            "name": "kubeturbo-release"
-          },
-          "spec": {
-            "serverMeta": {
-              "turboServer": "https://Turbo_server_URL"
-            },
-            "targetConfig": {
-              "targetName": "Cluster_Name"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/turbonomic/kubeturbo-operator-bundle@sha256:e5bf556da7ffdcd3e2e9c6e543d8ef7f1844216774e703dfec53e466e609d854",
-      "bundle_path_digest": "sha256:e5bf556da7ffdcd3e2e9c6e543d8ef7f1844216774e703dfec53e466e609d854",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2022-05-12T02:00:49.403000+00:00",
-      "csv_description": "### Application Resource Management for Kubernetes\nTurbonomic AI-powered Application Resource Management simultaneously optimizes performance, compliance, and cost in real time.\nSoftware manages the complete application stack, automatically. Applications are continually resourced to perform while satisfying business constraints.\n\nTurbonomic makes workloads smart \u2014 enabling them to self-manage and determines the specific actions that will drive continuous health:\n\n* Continuous placement for Pods (rescheduling)\n* Continuous scaling for applications and  the underlying cluster.\n\nIt assures application performance by giving workloads the resources they need when they need them.\n\n### How does it work?\nTurbonomic uses a container \u2014 KubeTurbo \u2014 that runs in your Kubernetes or Red Hat OpenShift cluster to discover and monitor your environment.\nKubeTurbo runs together with the default scheduler and sends this data back to the Turbonomic analytics engine.\nTurbonomic determines the right actions that drive continuous health, including continuous placement for Pods and continuous scaling for applications and the underlying cluster.",
-      "csv_display_name": "Kubeturbo Operator",
-      "csv_metadata_description": "Turbonomic Workload Automation for Multicloud simultaneously optimizes performance, compliance, and cost in real-time. Workloads are precisely resourced, automatically, to perform while satisfying business constraints.",
-      "csv_name": "kubeturbo-operator.v8.5.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:00:15.895000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "kubeturbo-certified",
-      "provided_apis": [
-        {
-          "group": "charts.helm.k8s.io",
-          "kind": "Kubeturbo",
-          "plural": "kubeturbos",
-          "version": "v1"
-        },
-        {
-          "group": "charts.helm.k8s.io",
-          "kind": "Kubeturbo",
-          "plural": "kubeturbos",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:e5cdbdeeaf639afe9782fceb9bf32c5e06e2b6ed4ded41e06abe8f49bda7ac47",
-          "image": "registry.connect.redhat.com/turbonomic/kubeturbo-operator@sha256:e5cdbdeeaf639afe9782fceb9bf32c5e06e2b6ed4ded41e06abe8f49bda7ac47",
-          "name": "kubeturbo-operator-e5cdbdeeaf639afe9782fceb9bf32c5e06e2b6ed4ded41e06abe8f49bda7ac47-annotation"
-        },
-        {
-          "digest": "sha256:e5cdbdeeaf639afe9782fceb9bf32c5e06e2b6ed4ded41e06abe8f49bda7ac47",
-          "image": "registry.connect.redhat.com/turbonomic/kubeturbo-operator@sha256:e5cdbdeeaf639afe9782fceb9bf32c5e06e2b6ed4ded41e06abe8f49bda7ac47",
-          "name": "kubeturbo-operator"
-        },
-        {
-          "digest": "sha256:f78525afc39849d143c7fbe8992b95a26cb0d3443bc6a8fe7fbe49145887c8d7",
-          "image": "registry.connect.redhat.com/turbonomic/kubeturbo@sha256:f78525afc39849d143c7fbe8992b95a26cb0d3443bc6a8fe7fbe49145887c8d7",
-          "name": "kubeturbo"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "8.5.1",
-      "version_original": "8.5.1"
-    },
-    {
-      "_id": "627c6a5b228d5769c56927b8",
-      "alm_examples": [
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "ClusterMaster",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "clustermaster-sample"
-          },
-          "spec": {}
-        },
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "IndexerCluster",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "indexercluster-sample"
-          },
-          "spec": {}
-        },
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "LicenseMaster",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "licensemaster-sample"
-          },
-          "spec": {}
-        },
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "MonitoringConsole",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "monitoringconsole-sample"
-          },
-          "spec": {}
-        },
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "SearchHeadCluster",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "searchheadcluster-sample"
-          },
-          "spec": {}
-        },
-        {
-          "api_version": "enterprise.splunk.com/v3",
-          "kind": "Standalone",
-          "metadata": {
-            "finalizers": [
-              "enterprise.splunk.com/delete-pvc"
-            ],
-            "name": "standalone-sample"
-          },
-          "spec": {}
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/61b0dd9a4841f1221d73cdba/splunk-operator@sha256:72a0d007e387c1b8c6506ef6500f59014100c0f0fb53c6c710ebea917dd89da0",
-      "bundle_path_digest": "sha256:72a0d007e387c1b8c6506ef6500f59014100c0f0fb53c6c710ebea917dd89da0",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2022-05-12T02:00:59.214000+00:00",
-      "csv_description": "K8 Operator for Splunk Enterprise Deployments",
-      "csv_display_name": "Splunk Operator",
-      "csv_metadata_description": "",
-      "csv_name": "splunk-operator.v1.1.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": false,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:11:05.752000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "splunk-operator",
-      "provided_apis": [
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v1beta3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v1beta1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v1beta1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v1beta2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "MonitoringConsole",
-          "plural": "monitoringconsoles",
-          "version": "v3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v1beta2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v1beta3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v1beta1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v1beta2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v1beta1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v1beta3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v1beta3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v1beta2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v1beta3"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "SearchHeadCluster",
-          "plural": "searchheadclusters",
-          "version": "v2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "IndexerCluster",
-          "plural": "indexerclusters",
-          "version": "v2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "LicenseMaster",
-          "plural": "licensemasters",
-          "version": "v2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v1beta2"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "ClusterMaster",
-          "plural": "clustermasters",
-          "version": "v1beta1"
-        },
-        {
-          "group": "enterprise.splunk.com",
-          "kind": "Standalone",
-          "plural": "standalones",
-          "version": "v3"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:db06cc4c084dd0253134f156dddaaf53ef1c3fb3cc809e5d81711baa4029ea4c",
-          "image": "gcr.io/kubebuilder/kube-rbac-proxy@sha256:db06cc4c084dd0253134f156dddaaf53ef1c3fb3cc809e5d81711baa4029ea4c",
-          "name": "kube-rbac-proxy"
-        },
-        {
-          "digest": "sha256:caf3bb58d7e8b0e17ccf3a580a368f9321fbdbf748d8e1ad05aef8720c1a168e",
-          "image": "splunk/splunk-operator@sha256:caf3bb58d7e8b0e17ccf3a580a368f9321fbdbf748d8e1ad05aef8720c1a168e",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:e343936f31820045a773b9b5373c2105ee559481ad1d1a18bad45c706b48ea3c",
-          "image": "docker.io/splunk/splunk@sha256:e343936f31820045a773b9b5373c2105ee559481ad1d1a18bad45c706b48ea3c",
-          "name": "splunk_enterprise"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "1.1.0",
-      "version_original": "1.1.0"
-    },
-    {
-      "_id": "627c6aa84be4723d90ee6b8d",
-      "alm_examples": [
-        {
-          "api_version": "crdb.cockroachlabs.com/v1alpha1",
-          "kind": "CrdbCluster",
-          "metadata": {
-            "name": "crdb-tls-example",
-            "namespace": "placeholder"
-          },
-          "spec": {
-            "cockroachDBVersion": "v21.2.8",
-            "dataStore": {
-              "pvc": {
-                "spec": {
-                  "accessModes": [
-                    "ReadWriteOnce"
-                  ],
-                  "resources": {
-                    "requests": {
-                      "storage": "10Gi"
-                    }
-                  },
-                  "volumeMode": "Filesystem"
-                }
-              }
-            },
-            "nodes": 3,
-            "tlsEnabled": true
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/cockroachdb/cockroachdb-operator-bundle@sha256:1d2acb999ac3e8b1a664ddd4de8bec2db072cb5575f61c15eb5a31e575c051ac",
-      "bundle_path_digest": "sha256:1d2acb999ac3e8b1a664ddd4de8bec2db072cb5575f61c15eb5a31e575c051ac",
-      "capabilities": [
-        "Full Lifecycle"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2022-05-12T02:02:16.476000+00:00",
-      "csv_description": "This operator launches and manages a 3+ node cluster of CockroachDB.",
-      "csv_display_name": "CockroachDB Operator",
-      "csv_metadata_description": "CockroachDB Operator",
-      "csv_name": "cockroach-operator.v2.6.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": true,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T00:47:34.566000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.9",
-      "organization": "certified-operators",
-      "package": "cockroachdb-certified",
-      "provided_apis": [
-        {
-          "group": "crdb.cockroachlabs.com",
-          "kind": "CrdbCluster",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:288ae92ebdfc848540ff80ef682b74e50809e9742cafce22b028112326d66b65",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:288ae92ebdfc848540ff80ef682b74e50809e9742cafce22b028112326d66b65",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_4"
-        },
-        {
-          "digest": "sha256:87dcdbdc07904b217880e70484582c9d87dde7e4071e01cf9e2e6da43111190e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:87dcdbdc07904b217880e70484582c9d87dde7e4071e01cf9e2e6da43111190e",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_5"
-        },
-        {
-          "digest": "sha256:6667919a41d304d5d4ade3ded4f11b42d722a995a4283e11e15320529f7f9abf",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:6667919a41d304d5d4ade3ded4f11b42d722a995a4283e11e15320529f7f9abf",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_8"
-        },
-        {
-          "digest": "sha256:cdab9fc62e07dd349703ae394adb48ab3d2281610df35e081f4b76e208b38c8e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:cdab9fc62e07dd349703ae394adb48ab3d2281610df35e081f4b76e208b38c8e",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_11"
-        },
-        {
-          "digest": "sha256:c1a07a8686bbadcb8c68ffba4e40e1285e581e24d43e5811f38a22d57fb9cc56",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:c1a07a8686bbadcb8c68ffba4e40e1285e581e24d43e5811f38a22d57fb9cc56",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_12"
-        },
-        {
-          "digest": "sha256:b02549e5c3673b8154441990afa05a478d1ecc2bd0a70af64fd693cb6b469cb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:b02549e5c3673b8154441990afa05a478d1ecc2bd0a70af64fd693cb6b469cb0",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_13"
-        },
-        {
-          "digest": "sha256:25791b76b0d4b7220dadab3a405b3fdc330ba264ef6c9fbfdfb924c154c4bb5e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:25791b76b0d4b7220dadab3a405b3fdc330ba264ef6c9fbfdfb924c154c4bb5e",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_15"
-        },
-        {
-          "digest": "sha256:49421968126f9c98499bc0cf0c65729370ab566da3fbd1588c100b20052b972e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:49421968126f9c98499bc0cf0c65729370ab566da3fbd1588c100b20052b972e",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_16"
-        },
-        {
-          "digest": "sha256:e39bce1d9b08a7d62eb05d53e29fabc668bf6a4e4ae3eb9994eebf5b642ff6cf",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e39bce1d9b08a7d62eb05d53e29fabc668bf6a4e4ae3eb9994eebf5b642ff6cf",
-          "name": "RELATED_IMAGE_COCKROACH_v20_1_17"
-        },
-        {
-          "digest": "sha256:e67299fc0e79cff5b6caf9c0df154180dbaedc57b84f072acf68b7b2c958668d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e67299fc0e79cff5b6caf9c0df154180dbaedc57b84f072acf68b7b2c958668d",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_0"
-        },
-        {
-          "digest": "sha256:fec6b0f56f2b94f141c8553a63b2e08b9494d4e6c5dc109d73268621ca445c56",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:fec6b0f56f2b94f141c8553a63b2e08b9494d4e6c5dc109d73268621ca445c56",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_1"
-        },
-        {
-          "digest": "sha256:3edda46eccce8350440a0ea78dad2e41a3eaa0838fe57945ad5318739e968516",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:3edda46eccce8350440a0ea78dad2e41a3eaa0838fe57945ad5318739e968516",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_2"
-        },
-        {
-          "digest": "sha256:ba9da9aa9d662c0fa9fd16a40551eedf100869b008cf9c0c09cbb87a09fda697",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ba9da9aa9d662c0fa9fd16a40551eedf100869b008cf9c0c09cbb87a09fda697",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_3"
-        },
-        {
-          "digest": "sha256:a5414e54c4c513c7877f925b09eadc4c28eb592d3e120bcf9c65ab10e07cd607",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:a5414e54c4c513c7877f925b09eadc4c28eb592d3e120bcf9c65ab10e07cd607",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_4"
-        },
-        {
-          "digest": "sha256:2664d78fbe88c368927ddbf80704f430e6ca2ce1f72cb4b7e1906dfe72be7cd0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:2664d78fbe88c368927ddbf80704f430e6ca2ce1f72cb4b7e1906dfe72be7cd0",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_5"
-        },
-        {
-          "digest": "sha256:867c46bb4d8ca3f2fb8dc94063facc99758344c7b9d04f10e50932023ef5d262",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:867c46bb4d8ca3f2fb8dc94063facc99758344c7b9d04f10e50932023ef5d262",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_6"
-        },
-        {
-          "digest": "sha256:fe0c615b4d1ef4ec6e089e85deae2b6bd85410be8ed525e2317c759669417f47",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:fe0c615b4d1ef4ec6e089e85deae2b6bd85410be8ed525e2317c759669417f47",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_8"
-        },
-        {
-          "digest": "sha256:ec1672ce8091b677689a31cf09dbde5d1697f4caddae0151040b0fb156722e9d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ec1672ce8091b677689a31cf09dbde5d1697f4caddae0151040b0fb156722e9d",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_9"
-        },
-        {
-          "digest": "sha256:de94036e9cc8618e0493313512d880ae145e94d3bff54ed51b0de66a88da1319",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:de94036e9cc8618e0493313512d880ae145e94d3bff54ed51b0de66a88da1319",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_10"
-        },
-        {
-          "digest": "sha256:98b76cf63aabc39d026317905d6ba72eec3f0d35c0f770ebb8b789c3fa0709ee",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:98b76cf63aabc39d026317905d6ba72eec3f0d35c0f770ebb8b789c3fa0709ee",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_11"
-        },
-        {
-          "digest": "sha256:1ed18af1d3ffc65c24946c817d7d04d5f01025d3fb6c9eb78940e343b989bed0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1ed18af1d3ffc65c24946c817d7d04d5f01025d3fb6c9eb78940e343b989bed0",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_12"
-        },
-        {
-          "digest": "sha256:bcf3f976437c4ee52e922aa5d7e382a86a031d780b711c08c6c158dbf2d26cfa",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:bcf3f976437c4ee52e922aa5d7e382a86a031d780b711c08c6c158dbf2d26cfa",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_13"
-        },
-        {
-          "digest": "sha256:c56f980b87a066d1e65ac8cff3d75040af9bd13093494cf4b4d30b5234d56edc",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:c56f980b87a066d1e65ac8cff3d75040af9bd13093494cf4b4d30b5234d56edc",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_14"
-        },
-        {
-          "digest": "sha256:d290099496d070f135b5cc1e6bd59607512524d399df81698f11cfa09b8dca4a",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d290099496d070f135b5cc1e6bd59607512524d399df81698f11cfa09b8dca4a",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_15"
-        },
-        {
-          "digest": "sha256:d9a756df2ed2536b938d7c24fbf3de149cd1a0f44a3a1a0cc5d042fe8980362e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d9a756df2ed2536b938d7c24fbf3de149cd1a0f44a3a1a0cc5d042fe8980362e",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_16"
-        },
-        {
-          "digest": "sha256:de4abe26a8c7c1a7e668bda0c462bee7cfc65bb826d8ffedebdf51fa00892719",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:de4abe26a8c7c1a7e668bda0c462bee7cfc65bb826d8ffedebdf51fa00892719",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_17"
-        },
-        {
-          "digest": "sha256:3eba3d1781879cac726cda2435fbf1965dcdb7f1d73c78824d9666bc4ec4d8d3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:3eba3d1781879cac726cda2435fbf1965dcdb7f1d73c78824d9666bc4ec4d8d3",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_18"
-        },
-        {
-          "digest": "sha256:bbe57aa4d8d5c9e162f9fcef4bd25f954ad81c0d79546033d202a1fc10a591ec",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:bbe57aa4d8d5c9e162f9fcef4bd25f954ad81c0d79546033d202a1fc10a591ec",
-          "name": "RELATED_IMAGE_COCKROACH_v20_2_19"
-        },
-        {
-          "digest": "sha256:0ef0234b6fd42977b8a9eda2c59ca8194cc1c8cf6425b99d7bf8fde8feb826c5",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0ef0234b6fd42977b8a9eda2c59ca8194cc1c8cf6425b99d7bf8fde8feb826c5",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_0"
-        },
-        {
-          "digest": "sha256:162a356cc8b423926634f83a1372b6321104d8de7a2c5b9b7b2681c769a88cc7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:162a356cc8b423926634f83a1372b6321104d8de7a2c5b9b7b2681c769a88cc7",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_1"
-        },
-        {
-          "digest": "sha256:27ef61d9f320a52ee9617f2ab8a1d1a1eacc576a0add2d85d99f9413912b651f",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:27ef61d9f320a52ee9617f2ab8a1d1a1eacc576a0add2d85d99f9413912b651f",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_2"
-        },
-        {
-          "digest": "sha256:5eb59093ee81f8115d82ec6a8a1c35eefad055cbb3a175978cef7afe9196e6a0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:5eb59093ee81f8115d82ec6a8a1c35eefad055cbb3a175978cef7afe9196e6a0",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_3"
-        },
-        {
-          "digest": "sha256:38e940144e34b69dfb7d1cf31456e7a0016c5dd40d5626baa346446c7678ceb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:38e940144e34b69dfb7d1cf31456e7a0016c5dd40d5626baa346446c7678ceb0",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_4"
-        },
-        {
-          "digest": "sha256:0bd22d69db5ac570f30d3379afc67f6c2e46fc5b027c8aab42c3f562085d4672",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0bd22d69db5ac570f30d3379afc67f6c2e46fc5b027c8aab42c3f562085d4672",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_5"
-        },
-        {
-          "digest": "sha256:9f5dfcde260804cd2d6976a6b3544ddabdd899365be2104210dc78ba13755ec3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:9f5dfcde260804cd2d6976a6b3544ddabdd899365be2104210dc78ba13755ec3",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_6"
-        },
-        {
-          "digest": "sha256:ab47ddd22328e0a1564814f049616c3e3569d24c0a290abee9308392c6a0de23",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ab47ddd22328e0a1564814f049616c3e3569d24c0a290abee9308392c6a0de23",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_7"
-        },
-        {
-          "digest": "sha256:1b56420753eac1126039b8ad4be82ddb59c89a4ec72fb7b6198cea88a10f3a91",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1b56420753eac1126039b8ad4be82ddb59c89a4ec72fb7b6198cea88a10f3a91",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_9"
-        },
-        {
-          "digest": "sha256:1cea12847a0d236437f7fc28fba476fe512c343cd020d21bb50316e50da6ffd6",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1cea12847a0d236437f7fc28fba476fe512c343cd020d21bb50316e50da6ffd6",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_10"
-        },
-        {
-          "digest": "sha256:42f5bed89af3b6922f7f0350af30674315a62ed161b507b927844cefd4735ecb",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:42f5bed89af3b6922f7f0350af30674315a62ed161b507b927844cefd4735ecb",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_11"
-        },
-        {
-          "digest": "sha256:93fb606e63afa594a0de378f58e5d4bcd4790d00bff656c613f6f83a7c872821",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:93fb606e63afa594a0de378f58e5d4bcd4790d00bff656c613f6f83a7c872821",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_12"
-        },
-        {
-          "digest": "sha256:401b850906b83968c053a1c304307673bfb4dcdac1dd1c1aa5a202d3800a4cc1",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:401b850906b83968c053a1c304307673bfb4dcdac1dd1c1aa5a202d3800a4cc1",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_13"
-        },
-        {
-          "digest": "sha256:51a3e1b10e1db50540a751297450e2b03470d4034cf35fd3ac025f98295ffbd6",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:51a3e1b10e1db50540a751297450e2b03470d4034cf35fd3ac025f98295ffbd6",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_14"
-        },
-        {
-          "digest": "sha256:96aea5ba06d60beb664664e3ce63bb4a672c647e601ef89104f0b86e09e431e7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:96aea5ba06d60beb664664e3ce63bb4a672c647e601ef89104f0b86e09e431e7",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_15"
-        },
-        {
-          "digest": "sha256:e8d4ba274b20a8b6e07b0de2e48855a68fe0113c4d1d53b985761edfcdb88743",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e8d4ba274b20a8b6e07b0de2e48855a68fe0113c4d1d53b985761edfcdb88743",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_16"
-        },
-        {
-          "digest": "sha256:0f66894081dbf518fc8819286dc0bbfe0c92ed6cb8206c939ca9e25e4ce88d11",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0f66894081dbf518fc8819286dc0bbfe0c92ed6cb8206c939ca9e25e4ce88d11",
-          "name": "RELATED_IMAGE_COCKROACH_v21_1_17"
-        },
-        {
-          "digest": "sha256:e5814748c5ab229a1dea5662a007063c0df06fbbfcfe041fd9a6df9ef67e07cc",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e5814748c5ab229a1dea5662a007063c0df06fbbfcfe041fd9a6df9ef67e07cc",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_0"
-        },
-        {
-          "digest": "sha256:7bf36dab9b3257a4bba24d986f1451fc51a3a37023fbb988281f1941fd3faedd",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:7bf36dab9b3257a4bba24d986f1451fc51a3a37023fbb988281f1941fd3faedd",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_1"
-        },
-        {
-          "digest": "sha256:5b3de46526d169fcd1318354545b3a18861843fa2022a23ed04d795493825287",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:5b3de46526d169fcd1318354545b3a18861843fa2022a23ed04d795493825287",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_2"
-        },
-        {
-          "digest": "sha256:50393ad005fed19618d04f0716c6d55e2f1afce651e785c396638e852cac83b3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:50393ad005fed19618d04f0716c6d55e2f1afce651e785c396638e852cac83b3",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_3"
-        },
-        {
-          "digest": "sha256:d978678b3c254abd52f69f226b0aacc4b02c2aaca328c54ef10f6f9bb453582d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d978678b3c254abd52f69f226b0aacc4b02c2aaca328c54ef10f6f9bb453582d",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_4"
-        },
-        {
-          "digest": "sha256:9b5a2e0c006eb4be8e1444734a98743551f278a24e81c20bebc96f0f3b631eb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:9b5a2e0c006eb4be8e1444734a98743551f278a24e81c20bebc96f0f3b631eb0",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_5"
-        },
-        {
-          "digest": "sha256:6ca927f137be28481e3a226e6c6bcb7c5ac27664984f17ffc6c1419cd7d08eb7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:6ca927f137be28481e3a226e6c6bcb7c5ac27664984f17ffc6c1419cd7d08eb7",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_7"
-        },
-        {
-          "digest": "sha256:32fdca575c334822e4356aab36a7ed97b685c065925fe85f1b8ba8425c57159b",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:32fdca575c334822e4356aab36a7ed97b685c065925fe85f1b8ba8425c57159b",
-          "name": "RELATED_IMAGE_COCKROACH_v21_2_8"
-        },
-        {
-          "digest": "sha256:c1f39b8f4df5065f948d38d434ad699d518d22aa121935fcc57e0733bd57abc8",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroachdb-operator@sha256:c1f39b8f4df5065f948d38d434ad699d518d22aa121935fcc57e0733bd57abc8",
-          "name": "cockroachdb-operator-c1f39b8f4df5065f948d38d434ad699d518d22aa121935fcc57e0733bd57abc8-annotation"
-        },
-        {
-          "digest": "sha256:c1f39b8f4df5065f948d38d434ad699d518d22aa121935fcc57e0733bd57abc8",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroachdb-operator@sha256:c1f39b8f4df5065f948d38d434ad699d518d22aa121935fcc57e0733bd57abc8",
-          "name": "cockroach-operator"
-        },
-        {
-          "digest": "sha256:288ae92ebdfc848540ff80ef682b74e50809e9742cafce22b028112326d66b65",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:288ae92ebdfc848540ff80ef682b74e50809e9742cafce22b028112326d66b65",
-          "name": "cockroach_v20_1_4"
-        },
-        {
-          "digest": "sha256:87dcdbdc07904b217880e70484582c9d87dde7e4071e01cf9e2e6da43111190e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:87dcdbdc07904b217880e70484582c9d87dde7e4071e01cf9e2e6da43111190e",
-          "name": "cockroach_v20_1_5"
-        },
-        {
-          "digest": "sha256:6667919a41d304d5d4ade3ded4f11b42d722a995a4283e11e15320529f7f9abf",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:6667919a41d304d5d4ade3ded4f11b42d722a995a4283e11e15320529f7f9abf",
-          "name": "cockroach_v20_1_8"
-        },
-        {
-          "digest": "sha256:cdab9fc62e07dd349703ae394adb48ab3d2281610df35e081f4b76e208b38c8e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:cdab9fc62e07dd349703ae394adb48ab3d2281610df35e081f4b76e208b38c8e",
-          "name": "cockroach_v20_1_11"
-        },
-        {
-          "digest": "sha256:c1a07a8686bbadcb8c68ffba4e40e1285e581e24d43e5811f38a22d57fb9cc56",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:c1a07a8686bbadcb8c68ffba4e40e1285e581e24d43e5811f38a22d57fb9cc56",
-          "name": "cockroach_v20_1_12"
-        },
-        {
-          "digest": "sha256:b02549e5c3673b8154441990afa05a478d1ecc2bd0a70af64fd693cb6b469cb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:b02549e5c3673b8154441990afa05a478d1ecc2bd0a70af64fd693cb6b469cb0",
-          "name": "cockroach_v20_1_13"
-        },
-        {
-          "digest": "sha256:25791b76b0d4b7220dadab3a405b3fdc330ba264ef6c9fbfdfb924c154c4bb5e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:25791b76b0d4b7220dadab3a405b3fdc330ba264ef6c9fbfdfb924c154c4bb5e",
-          "name": "cockroach_v20_1_15"
-        },
-        {
-          "digest": "sha256:49421968126f9c98499bc0cf0c65729370ab566da3fbd1588c100b20052b972e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:49421968126f9c98499bc0cf0c65729370ab566da3fbd1588c100b20052b972e",
-          "name": "cockroach_v20_1_16"
-        },
-        {
-          "digest": "sha256:e39bce1d9b08a7d62eb05d53e29fabc668bf6a4e4ae3eb9994eebf5b642ff6cf",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e39bce1d9b08a7d62eb05d53e29fabc668bf6a4e4ae3eb9994eebf5b642ff6cf",
-          "name": "cockroach_v20_1_17"
-        },
-        {
-          "digest": "sha256:e67299fc0e79cff5b6caf9c0df154180dbaedc57b84f072acf68b7b2c958668d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e67299fc0e79cff5b6caf9c0df154180dbaedc57b84f072acf68b7b2c958668d",
-          "name": "cockroach_v20_2_0"
-        },
-        {
-          "digest": "sha256:fec6b0f56f2b94f141c8553a63b2e08b9494d4e6c5dc109d73268621ca445c56",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:fec6b0f56f2b94f141c8553a63b2e08b9494d4e6c5dc109d73268621ca445c56",
-          "name": "cockroach_v20_2_1"
-        },
-        {
-          "digest": "sha256:3edda46eccce8350440a0ea78dad2e41a3eaa0838fe57945ad5318739e968516",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:3edda46eccce8350440a0ea78dad2e41a3eaa0838fe57945ad5318739e968516",
-          "name": "cockroach_v20_2_2"
-        },
-        {
-          "digest": "sha256:ba9da9aa9d662c0fa9fd16a40551eedf100869b008cf9c0c09cbb87a09fda697",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ba9da9aa9d662c0fa9fd16a40551eedf100869b008cf9c0c09cbb87a09fda697",
-          "name": "cockroach_v20_2_3"
-        },
-        {
-          "digest": "sha256:a5414e54c4c513c7877f925b09eadc4c28eb592d3e120bcf9c65ab10e07cd607",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:a5414e54c4c513c7877f925b09eadc4c28eb592d3e120bcf9c65ab10e07cd607",
-          "name": "cockroach_v20_2_4"
-        },
-        {
-          "digest": "sha256:2664d78fbe88c368927ddbf80704f430e6ca2ce1f72cb4b7e1906dfe72be7cd0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:2664d78fbe88c368927ddbf80704f430e6ca2ce1f72cb4b7e1906dfe72be7cd0",
-          "name": "cockroach_v20_2_5"
-        },
-        {
-          "digest": "sha256:867c46bb4d8ca3f2fb8dc94063facc99758344c7b9d04f10e50932023ef5d262",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:867c46bb4d8ca3f2fb8dc94063facc99758344c7b9d04f10e50932023ef5d262",
-          "name": "cockroach_v20_2_6"
-        },
-        {
-          "digest": "sha256:fe0c615b4d1ef4ec6e089e85deae2b6bd85410be8ed525e2317c759669417f47",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:fe0c615b4d1ef4ec6e089e85deae2b6bd85410be8ed525e2317c759669417f47",
-          "name": "cockroach_v20_2_8"
-        },
-        {
-          "digest": "sha256:ec1672ce8091b677689a31cf09dbde5d1697f4caddae0151040b0fb156722e9d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ec1672ce8091b677689a31cf09dbde5d1697f4caddae0151040b0fb156722e9d",
-          "name": "cockroach_v20_2_9"
-        },
-        {
-          "digest": "sha256:de94036e9cc8618e0493313512d880ae145e94d3bff54ed51b0de66a88da1319",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:de94036e9cc8618e0493313512d880ae145e94d3bff54ed51b0de66a88da1319",
-          "name": "cockroach_v20_2_10"
-        },
-        {
-          "digest": "sha256:98b76cf63aabc39d026317905d6ba72eec3f0d35c0f770ebb8b789c3fa0709ee",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:98b76cf63aabc39d026317905d6ba72eec3f0d35c0f770ebb8b789c3fa0709ee",
-          "name": "cockroach_v20_2_11"
-        },
-        {
-          "digest": "sha256:1ed18af1d3ffc65c24946c817d7d04d5f01025d3fb6c9eb78940e343b989bed0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1ed18af1d3ffc65c24946c817d7d04d5f01025d3fb6c9eb78940e343b989bed0",
-          "name": "cockroach_v20_2_12"
-        },
-        {
-          "digest": "sha256:bcf3f976437c4ee52e922aa5d7e382a86a031d780b711c08c6c158dbf2d26cfa",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:bcf3f976437c4ee52e922aa5d7e382a86a031d780b711c08c6c158dbf2d26cfa",
-          "name": "cockroach_v20_2_13"
-        },
-        {
-          "digest": "sha256:c56f980b87a066d1e65ac8cff3d75040af9bd13093494cf4b4d30b5234d56edc",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:c56f980b87a066d1e65ac8cff3d75040af9bd13093494cf4b4d30b5234d56edc",
-          "name": "cockroach_v20_2_14"
-        },
-        {
-          "digest": "sha256:d290099496d070f135b5cc1e6bd59607512524d399df81698f11cfa09b8dca4a",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d290099496d070f135b5cc1e6bd59607512524d399df81698f11cfa09b8dca4a",
-          "name": "cockroach_v20_2_15"
-        },
-        {
-          "digest": "sha256:d9a756df2ed2536b938d7c24fbf3de149cd1a0f44a3a1a0cc5d042fe8980362e",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d9a756df2ed2536b938d7c24fbf3de149cd1a0f44a3a1a0cc5d042fe8980362e",
-          "name": "cockroach_v20_2_16"
-        },
-        {
-          "digest": "sha256:de4abe26a8c7c1a7e668bda0c462bee7cfc65bb826d8ffedebdf51fa00892719",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:de4abe26a8c7c1a7e668bda0c462bee7cfc65bb826d8ffedebdf51fa00892719",
-          "name": "cockroach_v20_2_17"
-        },
-        {
-          "digest": "sha256:3eba3d1781879cac726cda2435fbf1965dcdb7f1d73c78824d9666bc4ec4d8d3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:3eba3d1781879cac726cda2435fbf1965dcdb7f1d73c78824d9666bc4ec4d8d3",
-          "name": "cockroach_v20_2_18"
-        },
-        {
-          "digest": "sha256:bbe57aa4d8d5c9e162f9fcef4bd25f954ad81c0d79546033d202a1fc10a591ec",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:bbe57aa4d8d5c9e162f9fcef4bd25f954ad81c0d79546033d202a1fc10a591ec",
-          "name": "cockroach_v20_2_19"
-        },
-        {
-          "digest": "sha256:0ef0234b6fd42977b8a9eda2c59ca8194cc1c8cf6425b99d7bf8fde8feb826c5",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0ef0234b6fd42977b8a9eda2c59ca8194cc1c8cf6425b99d7bf8fde8feb826c5",
-          "name": "cockroach_v21_1_0"
-        },
-        {
-          "digest": "sha256:162a356cc8b423926634f83a1372b6321104d8de7a2c5b9b7b2681c769a88cc7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:162a356cc8b423926634f83a1372b6321104d8de7a2c5b9b7b2681c769a88cc7",
-          "name": "cockroach_v21_1_1"
-        },
-        {
-          "digest": "sha256:27ef61d9f320a52ee9617f2ab8a1d1a1eacc576a0add2d85d99f9413912b651f",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:27ef61d9f320a52ee9617f2ab8a1d1a1eacc576a0add2d85d99f9413912b651f",
-          "name": "cockroach_v21_1_2"
-        },
-        {
-          "digest": "sha256:5eb59093ee81f8115d82ec6a8a1c35eefad055cbb3a175978cef7afe9196e6a0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:5eb59093ee81f8115d82ec6a8a1c35eefad055cbb3a175978cef7afe9196e6a0",
-          "name": "cockroach_v21_1_3"
-        },
-        {
-          "digest": "sha256:38e940144e34b69dfb7d1cf31456e7a0016c5dd40d5626baa346446c7678ceb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:38e940144e34b69dfb7d1cf31456e7a0016c5dd40d5626baa346446c7678ceb0",
-          "name": "cockroach_v21_1_4"
-        },
-        {
-          "digest": "sha256:0bd22d69db5ac570f30d3379afc67f6c2e46fc5b027c8aab42c3f562085d4672",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0bd22d69db5ac570f30d3379afc67f6c2e46fc5b027c8aab42c3f562085d4672",
-          "name": "cockroach_v21_1_5"
-        },
-        {
-          "digest": "sha256:9f5dfcde260804cd2d6976a6b3544ddabdd899365be2104210dc78ba13755ec3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:9f5dfcde260804cd2d6976a6b3544ddabdd899365be2104210dc78ba13755ec3",
-          "name": "cockroach_v21_1_6"
-        },
-        {
-          "digest": "sha256:ab47ddd22328e0a1564814f049616c3e3569d24c0a290abee9308392c6a0de23",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:ab47ddd22328e0a1564814f049616c3e3569d24c0a290abee9308392c6a0de23",
-          "name": "cockroach_v21_1_7"
-        },
-        {
-          "digest": "sha256:1b56420753eac1126039b8ad4be82ddb59c89a4ec72fb7b6198cea88a10f3a91",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1b56420753eac1126039b8ad4be82ddb59c89a4ec72fb7b6198cea88a10f3a91",
-          "name": "cockroach_v21_1_9"
-        },
-        {
-          "digest": "sha256:1cea12847a0d236437f7fc28fba476fe512c343cd020d21bb50316e50da6ffd6",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:1cea12847a0d236437f7fc28fba476fe512c343cd020d21bb50316e50da6ffd6",
-          "name": "cockroach_v21_1_10"
-        },
-        {
-          "digest": "sha256:42f5bed89af3b6922f7f0350af30674315a62ed161b507b927844cefd4735ecb",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:42f5bed89af3b6922f7f0350af30674315a62ed161b507b927844cefd4735ecb",
-          "name": "cockroach_v21_1_11"
-        },
-        {
-          "digest": "sha256:93fb606e63afa594a0de378f58e5d4bcd4790d00bff656c613f6f83a7c872821",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:93fb606e63afa594a0de378f58e5d4bcd4790d00bff656c613f6f83a7c872821",
-          "name": "cockroach_v21_1_12"
-        },
-        {
-          "digest": "sha256:401b850906b83968c053a1c304307673bfb4dcdac1dd1c1aa5a202d3800a4cc1",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:401b850906b83968c053a1c304307673bfb4dcdac1dd1c1aa5a202d3800a4cc1",
-          "name": "cockroach_v21_1_13"
-        },
-        {
-          "digest": "sha256:51a3e1b10e1db50540a751297450e2b03470d4034cf35fd3ac025f98295ffbd6",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:51a3e1b10e1db50540a751297450e2b03470d4034cf35fd3ac025f98295ffbd6",
-          "name": "cockroach_v21_1_14"
-        },
-        {
-          "digest": "sha256:96aea5ba06d60beb664664e3ce63bb4a672c647e601ef89104f0b86e09e431e7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:96aea5ba06d60beb664664e3ce63bb4a672c647e601ef89104f0b86e09e431e7",
-          "name": "cockroach_v21_1_15"
-        },
-        {
-          "digest": "sha256:e8d4ba274b20a8b6e07b0de2e48855a68fe0113c4d1d53b985761edfcdb88743",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e8d4ba274b20a8b6e07b0de2e48855a68fe0113c4d1d53b985761edfcdb88743",
-          "name": "cockroach_v21_1_16"
-        },
-        {
-          "digest": "sha256:0f66894081dbf518fc8819286dc0bbfe0c92ed6cb8206c939ca9e25e4ce88d11",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:0f66894081dbf518fc8819286dc0bbfe0c92ed6cb8206c939ca9e25e4ce88d11",
-          "name": "cockroach_v21_1_17"
-        },
-        {
-          "digest": "sha256:e5814748c5ab229a1dea5662a007063c0df06fbbfcfe041fd9a6df9ef67e07cc",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:e5814748c5ab229a1dea5662a007063c0df06fbbfcfe041fd9a6df9ef67e07cc",
-          "name": "cockroach_v21_2_0"
-        },
-        {
-          "digest": "sha256:7bf36dab9b3257a4bba24d986f1451fc51a3a37023fbb988281f1941fd3faedd",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:7bf36dab9b3257a4bba24d986f1451fc51a3a37023fbb988281f1941fd3faedd",
-          "name": "cockroach_v21_2_1"
-        },
-        {
-          "digest": "sha256:5b3de46526d169fcd1318354545b3a18861843fa2022a23ed04d795493825287",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:5b3de46526d169fcd1318354545b3a18861843fa2022a23ed04d795493825287",
-          "name": "cockroach_v21_2_2"
-        },
-        {
-          "digest": "sha256:50393ad005fed19618d04f0716c6d55e2f1afce651e785c396638e852cac83b3",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:50393ad005fed19618d04f0716c6d55e2f1afce651e785c396638e852cac83b3",
-          "name": "cockroach_v21_2_3"
-        },
-        {
-          "digest": "sha256:d978678b3c254abd52f69f226b0aacc4b02c2aaca328c54ef10f6f9bb453582d",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:d978678b3c254abd52f69f226b0aacc4b02c2aaca328c54ef10f6f9bb453582d",
-          "name": "cockroach_v21_2_4"
-        },
-        {
-          "digest": "sha256:9b5a2e0c006eb4be8e1444734a98743551f278a24e81c20bebc96f0f3b631eb0",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:9b5a2e0c006eb4be8e1444734a98743551f278a24e81c20bebc96f0f3b631eb0",
-          "name": "cockroach_v21_2_5"
-        },
-        {
-          "digest": "sha256:6ca927f137be28481e3a226e6c6bcb7c5ac27664984f17ffc6c1419cd7d08eb7",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:6ca927f137be28481e3a226e6c6bcb7c5ac27664984f17ffc6c1419cd7d08eb7",
-          "name": "cockroach_v21_2_7"
-        },
-        {
-          "digest": "sha256:32fdca575c334822e4356aab36a7ed97b685c065925fe85f1b8ba8425c57159b",
-          "image": "registry.connect.redhat.com/cockroachdb/cockroach@sha256:32fdca575c334822e4356aab36a7ed97b685c065925fe85f1b8ba8425c57159b",
-          "name": "cockroach_v21_2_8"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
-      "version": "2.6.0",
-      "version_original": "2.6.0"
-    },
-    {
-      "_id": "627c6aad4be4723d90ee6b90",
-      "alm_examples": [
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "Zookeeper",
-          "metadata": {
-            "name": "zookeeper"
-          },
-          "spec": {
-            "dataVolumeCapacity": "10Gi",
-            "image": {
-              "application": "confluentinc/cp-zookeeper@sha256:254266ab0730cdacc49a57b7e98b23865942aa251c676c15297d70a3003b45e1",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "logVolumeCapacity": "10Gi",
-            "replicas": 3
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "Kafka",
-          "metadata": {
-            "name": "kafka"
-          },
-          "spec": {
-            "dataVolumeCapacity": "10Gi",
-            "image": {
-              "application": "confluentinc/cp-server@sha256:a590245bf3269c05a88e99d56a1e869c07f7d3fb76fa76370b8faaa673b0c8b1",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "metricReporter": {
-              "enabled": true
-            },
-            "replicas": 3
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "KafkaRestProxy",
-          "metadata": {
-            "name": "kafkarestproxy"
-          },
-          "spec": {
-            "image": {
-              "application": "confluentinc/cp-kafka-rest@sha256:80a3d41cc8a6989e556a0283e4ae31f7c80880f97bd235db4929f4df40dabb8f",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "metricReporter": {
-              "enabled": true
-            },
-            "replicas": 3
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "Connect",
-          "metadata": {
-            "name": "connect"
-          },
-          "spec": {
-            "dependencies": {
-              "kafka": {
-                "bootstrapEndpoint": "kafka:9071"
-              }
-            },
-            "image": {
-              "application": "confluentinc/cp-server-connect@sha256:bb847350302c636fb499509c29f355f77a6299c2b1d31a445882a74e0292463c",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "replicas": 1
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "KsqlDB",
-          "metadata": {
-            "name": "ksqldb"
-          },
-          "spec": {
-            "dataVolumeCapacity": "10Gi",
-            "image": {
-              "application": "confluentinc/cp-ksqldb-server@sha256:20b6ac87de3b00ff77f590118cbc9877d97c54d270a4846b60d165cdde2b0427",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "replicas": 1
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "ControlCenter",
-          "metadata": {
-            "name": "controlcenter"
-          },
-          "spec": {
-            "dataVolumeCapacity": "10Gi",
-            "dependencies": {
-              "connect": [
-                {
-                  "name": "connect",
-                  "url": "http://connect.confluent.svc.cluster.local:8083"
-                }
-              ],
-              "ksqldb": [
-                {
-                  "name": "ksqldb",
-                  "url": "http://ksqldb.confluent.svc.cluster.local:8088"
-                }
-              ],
-              "schemaRegistry": {
-                "url": "http://schemaregistry.confluent.svc.cluster.local:8081"
-              }
-            },
-            "image": {
-              "application": "confluentinc/cp-enterprise-control-center@sha256:eb2e977d41585dc3c6474d71af2bfb76fe885b4a6eb5a02cb3a18a5485db8d6a",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "replicas": 1
-          }
-        },
-        {
-          "api_version": "platform.confluent.io/v1beta1",
-          "kind": "SchemaRegistry",
-          "metadata": {
-            "name": "schemaregistry"
-          },
-          "spec": {
-            "image": {
-              "application": "confluentinc/cp-schema-registry@sha256:c9c2528585d192f68e268521074964d37c14fca16f3bab568c57c68aca01b978",
-              "init": "confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d"
-            },
-            "replicas": 1
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [
-          "disconnected"
-        ],
-        "valid_subscription": [
-          "Confluent Platform License"
-        ]
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/confluentinc/confluent-for-kubernetes-v2@sha256:6fe6c0d639e1b0c2a6c701bedecb3cef0b30702fb9bc38544338bb73a287c5d2",
-      "bundle_path_digest": "sha256:6fe6c0d639e1b0c2a6c701bedecb3cef0b30702fb9bc38544338bb73a287c5d2",
-      "capabilities": [
-        "Auto Pilot"
-      ],
-      "channel_name": "2.1",
-      "creation_date": "2022-05-12T02:02:21.973000+00:00",
-      "csv_description": "Confluent for Kubernetes (CFK) is a cloud-native control plane for deploying and managing Confluent in your private cloud environment. It provides standard and simple interface to customize, deploy, and manage Confluent Platform through declarative API.\nConfluent for Kubernetes runs on Kubernetes, the runtime for private cloud architectures.",
-      "csv_display_name": "Confluent for Kubernetes",
-      "csv_metadata_description": "",
-      "csv_name": "confluent-for-kubernetes.v2.1.1",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": true,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-05-12T02:02:21.973000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.9",
-      "organization": "certified-operators",
-      "package": "confluent-for-kubernetes",
-      "provided_apis": [
-        {
-          "group": "platform.confluent.io",
-          "kind": "KafkaRestProxy",
-          "plural": "kafkarestproxies",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "Kafka",
-          "plural": "kafkas",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "Zookeeper",
-          "plural": "zookeepers",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "Connector",
-          "plural": "connectors",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "Connect",
-          "plural": "connects",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "KafkaTopic",
-          "plural": "kafkatopics",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "Schema",
-          "plural": "schemas",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "ControlCenter",
-          "plural": "controlcenters",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "KsqlDB",
-          "plural": "ksqldbs",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "ConfluentRolebinding",
-          "plural": "confluentrolebindings",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "MigrationJob",
-          "plural": "migrationjobs",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "KafkaRestClass",
-          "plural": "kafkarestclasses",
-          "version": "v1beta1"
-        },
-        {
-          "group": "platform.confluent.io",
-          "kind": "SchemaRegistry",
-          "plural": "schemaregistries",
-          "version": "v1beta1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:633dc1b217c2cfbb216781f5fa9b40a4170145273e89df85a27a7f0206090f5f",
-          "image": "docker.io/confluentinc/confluent-operator@sha256:633dc1b217c2cfbb216781f5fa9b40a4170145273e89df85a27a7f0206090f5f",
-          "name": "confluent-operator"
-        },
-        {
-          "digest": "sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d",
-          "image": "docker.io/confluentinc/confluent-init-container@sha256:a7978b1796f4b7f01ea6ccc56615a2195190de6eaf41a4e538e325dd2406f26d",
-          "name": "confluent-init-container"
-        },
-        {
-          "digest": "sha256:254266ab0730cdacc49a57b7e98b23865942aa251c676c15297d70a3003b45e1",
-          "image": "docker.io/confluentinc/cp-zookeeper@sha256:254266ab0730cdacc49a57b7e98b23865942aa251c676c15297d70a3003b45e1",
-          "name": "cp-zookeeper"
-        },
-        {
-          "digest": "sha256:a590245bf3269c05a88e99d56a1e869c07f7d3fb76fa76370b8faaa673b0c8b1",
-          "image": "docker.io/confluentinc/cp-server@sha256:a590245bf3269c05a88e99d56a1e869c07f7d3fb76fa76370b8faaa673b0c8b1",
-          "name": "cp-server"
-        },
-        {
-          "digest": "sha256:80a3d41cc8a6989e556a0283e4ae31f7c80880f97bd235db4929f4df40dabb8f",
-          "image": "docker.io/confluentinc/cp-kafka-rest@sha256:80a3d41cc8a6989e556a0283e4ae31f7c80880f97bd235db4929f4df40dabb8f",
-          "name": "cp-kafka-rest"
-        },
-        {
-          "digest": "sha256:20b6ac87de3b00ff77f590118cbc9877d97c54d270a4846b60d165cdde2b0427",
-          "image": "docker.io/confluentinc/cp-ksqldb-server@sha256:20b6ac87de3b00ff77f590118cbc9877d97c54d270a4846b60d165cdde2b0427",
-          "name": "cp-ksqldb-server"
-        },
-        {
-          "digest": "sha256:c9c2528585d192f68e268521074964d37c14fca16f3bab568c57c68aca01b978",
-          "image": "docker.io/confluentinc/cp-schema-registry@sha256:c9c2528585d192f68e268521074964d37c14fca16f3bab568c57c68aca01b978",
-          "name": "cp-schema-registry"
-        },
-        {
-          "digest": "sha256:bb847350302c636fb499509c29f355f77a6299c2b1d31a445882a74e0292463c",
-          "image": "docker.io/confluentinc/cp-server-connect@sha256:bb847350302c636fb499509c29f355f77a6299c2b1d31a445882a74e0292463c",
-          "name": "cp-server-connect"
-        },
-        {
-          "digest": "sha256:eb2e977d41585dc3c6474d71af2bfb76fe885b4a6eb5a02cb3a18a5485db8d6a",
-          "image": "docker.io/confluentinc/cp-enterprise-control-center@sha256:eb2e977d41585dc3c6474d71af2bfb76fe885b4a6eb5a02cb3a18a5485db8d6a",
-          "name": "cp-enterprise-control-center"
-        },
-        {
-          "digest": "sha256:633dc1b217c2cfbb216781f5fa9b40a4170145273e89df85a27a7f0206090f5f",
-          "image": "docker.io/confluentinc/confluent-operator@sha256:633dc1b217c2cfbb216781f5fa9b40a4170145273e89df85a27a7f0206090f5f",
-          "name": "confluent-operator-633dc1b217c2cfbb216781f5fa9b40a4170145273e89df85a27a7f0206090f5f-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": ">=2.0.3 <2.1.1",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
-      "version": "2.1.1",
-      "version_original": "2.1.1"
-    },
-    {
       "_id": "627c6aed4be4723d90ee6ba3",
       "alm_examples": [
         {
@@ -19287,9 +17884,379 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
       "version": "6.2.4-1",
       "version_original": "6.2.4-1"
+    },
+    {
+      "_id": "627c6ef09b28cbab99bd1185",
+      "alm_examples": [
+        {
+          "api_version": "charts.helm.k8s.io/v1",
+          "kind": "Xl",
+          "metadata": {
+            "name": "xl-release"
+          },
+          "spec": {
+            "global": {
+              "customImageNames": false,
+              "repository": "registry.connect.redhat.com/turbonomic",
+              "tag": "8.5.1"
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/turbonomic/t8c-operator-bundle@sha256:73f1f2b6eed8d8653314178f809f6c8028aa4b470d1a441c90b68589abb0d0e7",
+      "bundle_path_digest": "sha256:73f1f2b6eed8d8653314178f809f6c8028aa4b470d1a441c90b68589abb0d0e7",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-05-12T02:20:32.090000+00:00",
+      "csv_description": "### Realtime Decision Automation for Multicloud Applications\nTurbonomic Workload Automation for Multicloud simultaneously optimizes performance, compliance, and cost in real-time. Workloads are precisely resourced, automatically, to perform while satisfying business constraints:\n* Continuous placement of workload across multiple clouds both on-prem and public clouds providers.\n* Continuous scaling for applications and the underlying infrastructure.\n\nIt assures application performance by giving workloads the resources they need when they need them.\n\n### How does it work?\nTurbonomic uses a public APIs already exposed by application and infrastructure instrumentation to discover and monitor your environment.\nTurbonomic determines the right actions that drive continuous health, including continuous placement and continuous scaling for applications and the underlying cluster.\nTurbonomic leverages the built-on orchestration provided by the application and infrastructure deployment tools and automates the execution of these actions to continiously meet the respective service level objective of each application service.",
+      "csv_display_name": "Turbonomic Platform Operator",
+      "csv_metadata_description": "Turbonomic Workload Automation for Multicloud simultaneously optimizes performance, compliance, and cost in real-time. Workloads are precisely resourced, automatically, to perform while satisfying business constraints.",
+      "csv_name": "t8c-operator.v42.9.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:01:03.554000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "t8c-certified",
+      "provided_apis": [
+        {
+          "group": "charts.helm.k8s.io",
+          "kind": "Xl",
+          "plural": "xls",
+          "version": "v1"
+        },
+        {
+          "group": "charts.helm.k8s.io",
+          "kind": "Xl",
+          "plural": "xls",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:11a147d1e8e869a066180dffdcdd629610be81c419c3fda90ab6f3f4fa84453f",
+          "image": "registry.connect.redhat.com/turbonomic/t8c-operator@sha256:11a147d1e8e869a066180dffdcdd629610be81c419c3fda90ab6f3f4fa84453f",
+          "name": "t8c-operator-11a147d1e8e869a066180dffdcdd629610be81c419c3fda90ab6f3f4fa84453f-annotation"
+        },
+        {
+          "digest": "sha256:11a147d1e8e869a066180dffdcdd629610be81c419c3fda90ab6f3f4fa84453f",
+          "image": "registry.connect.redhat.com/turbonomic/t8c-operator@sha256:11a147d1e8e869a066180dffdcdd629610be81c419c3fda90ab6f3f4fa84453f",
+          "name": "t8c-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "42.9.0",
+      "version_original": "42.9.0"
+    },
+    {
+      "_id": "627c6f034be4723d90ee7023",
+      "alm_examples": [
+        {
+          "api_version": "dynatrace.com/v1beta1",
+          "kind": "DynaKube",
+          "metadata": {
+            "name": "dynakube",
+            "namespace": "dynatrace"
+          },
+          "spec": {
+            "activeGate": {
+              "capabilities": [
+                "routing",
+                "kubernetes-monitoring",
+                "metrics-ingest",
+                "dynatrace-api"
+              ],
+              "image": "",
+              "resources": {
+                "limits": {
+                  "cpu": "1000m",
+                  "memory": "1.5Gi"
+                },
+                "requests": {
+                  "cpu": "500m",
+                  "memory": "512Mi"
+                }
+              }
+            },
+            "apiUrl": "https://ENVIRONMENTID.live.dynatrace.com/api",
+            "oneAgent": {
+              "classicFullStack": {
+                "image": "",
+                "tolerations": [
+                  {
+                    "effect": "NoSchedule",
+                    "key": "node-role.kubernetes.io/master",
+                    "operator": "Exists"
+                  }
+                ]
+              }
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/dynatrace/dynatrace-operator-bundle@sha256:fb88d5cac69b1617cd532922f3472228511973d6a0a144470feec05491a9a6cf",
+      "bundle_path_digest": "sha256:fb88d5cac69b1617cd532922f3472228511973d6a0a144470feec05491a9a6cf",
+      "capabilities": [
+        "Deep Insights"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2022-05-12T02:20:51.792000+00:00",
+      "csv_description": "The Dynatrace Operator supports rollout and lifecycle management of various Dynatrace components in Kubernetes and OpenShift.\n\nCurrently the Dynatrace Operator supports the following capabilities:\n\n### OneAgent\n  * `classicFullStack` rolls out one OneAgent pod per node to monitor its pods and the node itself\n  * `applicationMonitoring` is a webhook based injection mechanism for automatic app-only injection\n  * `hostMonitoring` monitors only the hosts, i.e., the nodes, in the cluster without app-only injection\n### ActiveGate\n  * `routing` routes OneAgent traffic through the ActiveGate\n  * `kubernetes-monitoring` allows monitoring the Kubernetes API\n  * `metrics-ingest` routes enriched metrics through an ActiveGate\n\nFor more information please refer to [our DynaKube Custom Resource examples](https://dt-url.net/dynakube-samples).\n\n### Installation\nOnce you've installed the Dynatrace Operator, you can create a DynaKube custom resource.\n\nFirst, please add a Secret within the Project you've deployed the Dynatrace Operator to, which would contain your API and PaaS tokens. Create tokens of type *Dynatrace API* (`API_TOKEN`) and *Platform as a Service* (`PAAS_TOKEN`) and use their values in the following commands respectively.\n\nFor assistance please refer to [Create user-generated access tokens](https://www.dynatrace.com/support/help/shortlink/token#create-user-generated-access-tokens).\n\n``` $ oc -n <project> create secret generic dynakube --from-literal=\"apiToken=API_TOKEN\" --from-literal=\"paasToken=PAAS_TOKEN\" ```\n\nYou may update this Secret at any time to rotate the tokens.\n\nAfter creation of the secret add the DynaKube object in the project where the Dynatrace Operator has been deployed, configured to your needs.\n\n### Required Parameters\n* `apiUrl` - provide the URL to the API of your Dynatrace environment. In Dynatrace SaaS it will look like `https://<ENVIRONMENTID>.live.dynatrace.com/api` . In Dynatrace Managed like `https://<YourDynatraceServerURL>/e/<ENVIRONMENTID>/api` .\n\n### Advanced Options\n* **Disable Certificate Checking** - disable any certificate validation that may interact poorly with proxies with in your cluster\n* **Image Override** - use a copy of the ActiveGate container image from a registry other than Docker's or Red Hat's\n\nFor a complete list of supported parameters please consult the [Operator Deploy Guide](https://www.dynatrace.com/support/help/shortlink/openshift-deploy).\n\n### Help\nYou can find more about our instructions in our [documentation](https://www.dynatrace.com/support/help/shortlink/openshift-deploy#install-dynatrace-operator).\n",
+      "csv_display_name": "Dynatrace Operator",
+      "csv_metadata_description": "",
+      "csv_name": "dynatrace-operator.v0.6.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": false,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": false,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:14:22.689000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "dynatrace-operator",
+      "provided_apis": [
+        {
+          "group": "dynatrace.com",
+          "kind": "DynaKube",
+          "plural": "dynakubes",
+          "version": "v1beta1"
+        },
+        {
+          "group": "dynatrace.com",
+          "kind": "DynaKube",
+          "plural": "dynakubes",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "image": "registry.connect.redhat.com/dynatrace/dynatrace-operator@sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "name": "dynatrace-operator"
+        },
+        {
+          "digest": "sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "image": "registry.connect.redhat.com/dynatrace/dynatrace-operator@sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "name": "dynatrace-operator-f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c-annotation"
+        },
+        {
+          "digest": "sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "image": "registry.connect.redhat.com/dynatrace/dynatrace-operator@sha256:f444bf52a3ec20983a08c1442a3953d2b067fbd3f4dc5c172717c41d2c28865c",
+          "name": "webhook"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "0.6.0",
+      "version_original": "0.6.0"
+    },
+    {
+      "_id": "627c6f079b28cbab99bd11e8",
+      "alm_examples": [
+        {
+          "api_version": "charts.helm.k8s.io/v1",
+          "kind": "Prometurbo",
+          "metadata": {
+            "name": "prometurbo-release"
+          },
+          "spec": {
+            "serverMeta": {
+              "turboServer": "https://Turbo_server_URL"
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/turbonomic/prometurbo-operator-bundle@sha256:7c4c96013c3541dbe92d1fa6b26c14e80a8b5b5987c5fddb80b8eab0f86209c0",
+      "bundle_path_digest": "sha256:7c4c96013c3541dbe92d1fa6b26c14e80a8b5b5987c5fddb80b8eab0f86209c0",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2022-05-12T02:20:55.418000+00:00",
+      "csv_description": "### Application Resource Management for Kubernetes\nTurbonomic AI-powered Application Resource Management simultaneously optimizes performance, compliance, and cost in real time.\nSoftware manages the complete application stack, automatically. Applications are continually resourced to perform while satisfying business constraints.\n\nTurbonomic makes workloads smart \u2014 enabling them to self-manage and determines the specific actions that will drive continuous health:\n\n* Continuous placement for Pods (rescheduling)\n* Continuous scaling for applications and  the underlying cluster.\n\nIt assures application performance by giving workloads the resources they need when they need them.\n\n### How does it work?\nTurbonomic uses a container \u2014 PromeTurbo \u2014 that runs next to your Prometheus sever, which monitors your environment.\nPromeTurbo sends application and infrastructure monitoring data back to the Turbonomic analytics engine.\nTurbonomic determines the right actions that drive continuous health, including continuous placement for Pods and continuous scaling for applications and the underlying cluster.",
+      "csv_display_name": "Prometurbo Operator",
+      "csv_metadata_description": "Turbonomic Workload Automation for Multicloud simultaneously optimizes performance, compliance, and cost in real-time. Workloads are precisely resourced, automatically, to perform while satisfying business constraints.",
+      "csv_name": "prometurbo-operator.v8.5.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-07-27T16:49:45.687000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "prometurbo-certified",
+      "provided_apis": [
+        {
+          "group": "charts.helm.k8s.io",
+          "kind": "Prometurbo",
+          "plural": "prometurbos",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "charts.helm.k8s.io",
+          "kind": "Prometurbo",
+          "plural": "prometurbos",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:e18b019309edfa73a6975be007f634b55979877757c08ae1b7326210e0992e15",
+          "image": "registry.connect.redhat.com/turbonomic/prometurbo-operator@sha256:e18b019309edfa73a6975be007f634b55979877757c08ae1b7326210e0992e15",
+          "name": "prometurbo-operator-e18b019309edfa73a6975be007f634b55979877757c08ae1b7326210e0992e15-annotation"
+        },
+        {
+          "digest": "sha256:e18b019309edfa73a6975be007f634b55979877757c08ae1b7326210e0992e15",
+          "image": "registry.connect.redhat.com/turbonomic/prometurbo-operator@sha256:e18b019309edfa73a6975be007f634b55979877757c08ae1b7326210e0992e15",
+          "name": "prometurbo-operator"
+        },
+        {
+          "digest": "sha256:a0710012974c53e798afe1e6acee44e1c516fc1809538cddd13d5051cd50c662",
+          "image": "registry.connect.redhat.com/turbonomic/prometurbo@sha256:a0710012974c53e798afe1e6acee44e1c516fc1809538cddd13d5051cd50c662",
+          "name": "prometurbo"
+        },
+        {
+          "digest": "sha256:73ebc150427af91870f2fa93231ab6c79fe646167612a2c57be237c869c618cf",
+          "image": "registry.connect.redhat.com/turbonomic/turbodif@sha256:73ebc150427af91870f2fa93231ab6c79fe646167612a2c57be237c869c618cf",
+          "name": "turbodif"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "8.5.0",
+      "version_original": "8.5.0"
+    },
+    {
+      "_id": "627c6f0a9b28cbab99bd11f6",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
+      "bundle_path_digest": "sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "6.2.4",
+      "creation_date": "2022-05-12T02:20:58.597000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "redis-enterprise-operator.v6.0.6-6",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": false,
+      "last_update_date": "2022-05-12T02:20:58.597000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "redis-enterprise-operator-cert",
+      "provided_apis": [
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1"
+        },
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "6.0.6-6",
+      "version_original": "6.0.6-6"
     }
   ],
   "page": 29,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

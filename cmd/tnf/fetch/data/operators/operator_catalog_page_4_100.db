@@ -1,329 +1,6 @@
 {
   "data": [
     {
-      "_id": "6034a53408f2098193f9118c",
-      "alm_examples": [
-        {
-          "api_version": "densify.com/v1",
-          "kind": "Densify",
-          "metadata": {
-            "name": "densify"
-          },
-          "spec": {
-            "affinity": {},
-            "config": {
-              "cronJob": {
-                "schedule": "0 * * * *"
-              },
-              "debug": false,
-              "densify": {
-                "epassword": "<encrypted densify user password>",
-                "hostname": "<instance>.densify.com",
-                "port": 443,
-                "protocol": "https",
-                "user": "<densify user>"
-              },
-              "prometheus": {
-                "hostname": "<prometheus hostname>",
-                "port": "<prometheus port>",
-                "protocol": "http"
-              },
-              "zipEnabled": true,
-              "zipname": "data/<zip name>"
-            },
-            "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
-            "nodeSelector": {},
-            "pullPolicy": "Always",
-            "replicaCount": 1,
-            "resources": {}
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [
-        "amd64"
-      ],
-      "bundle_path": "registry.connect.redhat.com/densify/densify-operator-bundle@sha256:6c37c211385ffad721637ea1a6bcda46e4aa9aa46efdbeec6f75e9b9bd7ff75d",
-      "bundle_path_digest": "sha256:6c37c211385ffad721637ea1a6bcda46e4aa9aa46efdbeec6f75e9b9bd7ff75d",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "v1.0",
-      "creation_date": "2021-02-23T06:48:20.199000+00:00",
-      "csv_description": "The Densify-Operator deploys the Densify Container Data Collection utility, which collects data from a Prometheus server and sends it to a Densify instance for analysis. \n\n# Prerequisites\n\n- Densify account, which is provided with a Densify subscription or through a free trial (https://www.densify.com/service/signup)\n- Prometheus (https://prometheus.io/)\n- Kube-state-metrics (https://github.com/kubernetes/kube-state-metrics)\n\n# Installing\n\n## Basic Install\nThe instruction below deploys the basic Densify Container Data Collection with minimal configuration.\n1. update the Densify hostname, user and encrypted password, Prometheus hostname and port, and zip filename:\n```\napiVersion: densify.com/v1\nkind: Densify\nmetadata:\n  name: densify\nspec:\n  config:\n    densify:\n      hostname: <instance>.densify.com\n      port: 443\n      protocol: https\n      user: <densify user>\n      epassword: <encrypted densify user password>\n    prometheus:\n      hostname: <prometheus hostname>\n      port: <prometheus port>\n      protocol: http\n    zipname: data/<zip name>\n```\n\n## Install Using a Secret for User and Password\nThe instructions below deploy the Densify Container Data Collection using a secret to store the username and encrypted password.\n1. Create a secret that contains the username and epassword keys.\n```\noc -n \"<namespace deploying operator into>\" create secret generic densify-secret \\\n  --from-literal=username=\"<densify username>\" \\\n  --from-literal=epassword=\"<encrypted password>\" \\\n```\n2. Update the Densify hostname, Prometheus hostname and port, and zip filename:\n```\napiVersion: densify.com/v1\nkind: Densify\nmetadata:\n  name: densify\nspec:\n  config:\n    densify:\n      hostname: <instance>.densify.com\n      port: 443\n      protocol: https\n      UserSecretName: densify-secret\n    prometheus:\n      hostname: <prometheus hostname>\n      port: <prometheus port>\n      protocol: http\n    zipname: data/<zip name>\n```\n# Configuration\n \nThe configuration parameters are the same set as the [Densify Forwarder](https://github.com/densify-dev/helm-charts/tree/master/charts/container-optimization-data-forwarder#configuration) helm chart:\n\n| Parameter        | Description           | Default |\n| ------------- |-------------|--------|\n| `config.densify.hostname` | Specify the Densify instance hostname. You may need to specify a fully qualified domain name. | `<instance>.densify.com` |\n| `config.densify.protocol` | Specify the Densify connection protocol: http or https. | `<http/https>` |\n| `config.densify.port` | Specify the Densify connection port number. | `443` |\n| `config.densify.user` | Specify the Densify user account. You must specify either a password or an epassword along with this parameter. This user must already exist in your Densify instance and have API access privileges. Alternatively, you can use config.densify.UserSecretName for authentication instead of user/(e)password combination (see UserSecretName below). | `nil` |\n| `config.densify.password` | Specify the password for the Densify user. Only specify a password or an encrypted password (not both). | `nil` |\n| `config.densify.epassword` | Specify the encrypted password for the Densify User. If you specify an encrypted password, then disable the config.densify.password paramter. | `nil` |\n| `config.densify.UserSecretName` | Specify the secret name used to store the Densify user and epassword (keys must contain username and epassword). If this parameter is used, then config.densify.username\\password\\epassword parameters must be disabled. | `nil` |\n| `config.prometheus.hostname` | Specify the Prometheus address. Using the internal service name is recommended (i.e. `<service name>.<namespace>.svc`). | `nil` |\n| `config.prometheus.protocol` | Specify the Prometheus connection protocol: http or https. | `<http/https>` |\n| `config.prometheus.port` | Specify the Prometheus service connection port. | `9090` |\n| `config.prometheus.clustername` | Specify the name to identify the cluster in the Densify UI. If this parameter is disabled, then the specified Prometheus hostname is used to identify the cluster in the Densify UI. | `nil` |\n| `config.zipname` | Specify the name of the zipfile to send to Densify. | `data/nil` |\n| `rbac.create` | This flag indicates if RBAC resources are created and used. This flag must be \"true\" for API access to Prometheus in a secured cluster. | `true` |\n| `serviceAccount.create` | Specify \"true\" to create a Service Account with the name specified by the serviceAccount.name parameter (see below). | `true` |\n| `serviceAccount.name` | Specify the name of the Service Account. If this parameter is disabled, then the Helm chart name is used as the Service Account name. You can specify an existing Service Account name to use, if serviceAccount.create == \"false\". | `nil` |\n\nRefer to the [Densify Forwarder](https://github.com/densify-dev/helm-charts/tree/master/charts/container-optimization-data-forwarder#configuration) helm chart for the full list of parameters.\n\n# Limitation\n* OS Support: Linux\n* Architecture: AMD64\n\n# Documentation\n* [Densify Feature Description and Reference Guide](https://www.densify.com/docs/Content/Welcome.htm)\n\n# License\nApache 2 Licensed. See [LICENSE](LICENSE) for full details.",
-      "csv_display_name": "Densify Operator",
-      "csv_metadata_description": "Densify Container Resource Management works to identify better supply (resource) allocations for your underlying containers based on key technical, business and cost criteria.  Any infrastructure changes recommended by Densify can be moderated through your existing ITSM framework / processes.",
-      "csv_name": "densify-operator.v1.0.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:49:50.550000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "densify-operator",
-      "provided_apis": [
-        {
-          "group": "densify.com",
-          "kind": "Densify",
-          "plural": "densifies",
-          "version": "v1"
-        },
-        {
-          "group": "densify.com",
-          "kind": "Densify",
-          "plural": "densifies",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
-          "image": "registry.connect.redhat.com/densify/densify-operator@sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
-          "name": "densify-operator-47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada-annotation"
-        },
-        {
-          "digest": "sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
-          "image": "registry.connect.redhat.com/densify/densify-operator@sha256:47582660364156ea36279dd9fdcc43bdad7092f07ab8d79101fd6eca7da73ada",
-          "name": "densify-operator"
-        },
-        {
-          "digest": "sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
-          "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
-          "name": "densify"
-        },
-        {
-          "digest": "sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
-          "image": "registry.connect.redhat.com/densify/container-data-collection-forwarder@sha256:d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a",
-          "name": "container-data-collection-forwarder-d99a1bc9213554cdf70202fa73e135c68fdd77a4b4972f591997dd2b94fde50a-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": ">=0.0.2 <1.0.0",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "1.0.0",
-      "version_original": "1.0.0"
-    },
-    {
-      "_id": "6034a54108f2098193f9118d",
-      "alm_examples": [
-        {
-          "api_version": "nvidia.com/v1",
-          "kind": "ClusterPolicy",
-          "metadata": {
-            "name": "gpu-cluster-policy"
-          },
-          "spec": {
-            "dcgmExporter": {
-              "affinity": {},
-              "image": "dcgm-exporter",
-              "imagePullSecrets": [],
-              "nodeSelector": {},
-              "podSecurityContext": {},
-              "repository": "nvcr.io/nvidia/k8s",
-              "resources": {},
-              "securityContext": {},
-              "tolerations": [],
-              "version": "sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88"
-            },
-            "devicePlugin": {
-              "affinity": {},
-              "args": [
-                "--mig-strategy=single",
-                "--pass-device-specs=false",
-                "--fail-on-init-error=true",
-                "--device-list-strategy=envvar",
-                "--nvidia-driver-root=/run/nvidia/driver"
-              ],
-              "image": "k8s-device-plugin",
-              "imagePullSecrets": [],
-              "nodeSelector": {},
-              "podSecurityContext": {},
-              "repository": "nvcr.io/nvidia",
-              "resources": {},
-              "securityContext": {},
-              "tolerations": [],
-              "version": "sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625"
-            },
-            "driver": {
-              "affinity": {},
-              "image": "driver",
-              "imagePullSecrets": [],
-              "nodeSelector": {},
-              "podSecurityContext": {},
-              "repoConfig": {
-                "configMapName": "",
-                "destinationDir": ""
-              },
-              "repository": "nvcr.io/nvidia",
-              "resources": {},
-              "securityContext": {},
-              "tolerations": [],
-              "version": "sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934"
-            },
-            "gfd": {
-              "affinity": {},
-              "image": "gpu-feature-discovery",
-              "imagePullSecrets": [],
-              "migStrategy": "single",
-              "nodeSelector": {},
-              "podSecurityContext": {},
-              "repository": "nvcr.io/nvidia",
-              "resources": {},
-              "securityContext": {},
-              "sleepInterval": "60s",
-              "tolerations": [],
-              "version": "sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14"
-            },
-            "operator": {
-              "defaultRuntime": "crio",
-              "deployGFD": true,
-              "validator": {
-                "image": "cuda-sample",
-                "imagePullSecrets": [],
-                "repository": "nvcr.io/nvidia/k8s",
-                "version": "sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2"
-              }
-            },
-            "toolkit": {
-              "affinity": {},
-              "image": "container-toolkit",
-              "imagePullSecrets": [],
-              "nodeSelector": {},
-              "podSecurityContext": {},
-              "repository": "nvcr.io/nvidia/k8s",
-              "resources": {},
-              "securityContext": {},
-              "tolerations": [],
-              "version": "sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [
-          "Disconnected"
-        ],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/nvidia/gpu-operator-bundle@sha256:3a944050b7ba261b5451e639165eb230f1afbc3be7624a7d6039f138b09cb19f",
-      "bundle_path_digest": "sha256:3a944050b7ba261b5451e639165eb230f1afbc3be7624a7d6039f138b09cb19f",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2021-02-23T06:48:33.418000+00:00",
-      "csv_description": "Kubernetes provides access to special hardware resources such as NVIDIA GPUs, NICs, Infiniband adapters and other devices through the [device plugin framework](https://kubernetes.io/docs/concepts/extend-kubernetes/compute-storage-net/device-plugins/). However, configuring and managing nodes with these hardware resources requires configuration of multiple software components such as drivers, container runtimes or other libraries which are difficult and prone to errors.\nThe NVIDIA GPU Operator uses the [operator framework](https://coreos.com/blog/introducing-operator-framework) within Kubernetes to automate the management of all NVIDIA software components needed to provision and monitor GPUs. These components include the NVIDIA drivers (to enable CUDA), Kubernetes device plugin for GPUs, the NVIDIA Container Runtime, automatic node labelling and NVIDIA DCGM exporter.\nVisit the official site of the [GPU Operator](https://github.com/NVIDIA/gpu-operator) for more information. For getting started with using the GPU Operator with OpenShift, see the instructions [here](https://docs.nvidia.com/datacenter/kubernetes/openshift-on-gpu-install-guide/index.html).\n",
-      "csv_display_name": "NVIDIA GPU Operator",
-      "csv_metadata_description": "Automate the management and monitoring of NVIDIA GPUs.",
-      "csv_name": "gpu-operator-certified.v1.5.2",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": false,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": false,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": true,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": false,
-      "last_update_date": "2022-06-17T02:06:13.746000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "gpu-operator-certified",
-      "provided_apis": [
-        {
-          "group": "nvidia.com",
-          "kind": "ClusterPolicy",
-          "plural": "clusterpolicies",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:679fea62eb2c207d26354ac088fbe4625457a329dee080d90479a411603eb694",
-          "image": "nvcr.io/nvidia/gpu-operator@sha256:679fea62eb2c207d26354ac088fbe4625457a329dee080d90479a411603eb694",
-          "name": "gpu-operator-image"
-        },
-        {
-          "digest": "sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88",
-          "image": "nvcr.io/nvidia/k8s/dcgm-exporter@sha256:85016e39f73749ef9769a083ceb849cae80c31c5a7f22485b3ba4aa590ec7b88",
-          "name": "dcgm-exporter-image"
-        },
-        {
-          "digest": "sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd",
-          "image": "nvcr.io/nvidia/k8s/container-toolkit@sha256:81295a9eca36cbe5d94b80732210b8dc7276c6ef08d5a60d12e50479b9e542cd",
-          "name": "container-toolkit-image"
-        },
-        {
-          "digest": "sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934",
-          "image": "nvcr.io/nvidia/driver@sha256:324e9dc265dec320207206aa94226b0c8735fd93ce19b36a415478c95826d934",
-          "name": "driver-image"
-        },
-        {
-          "digest": "sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625",
-          "image": "nvcr.io/nvidia/k8s-device-plugin@sha256:f7bf5955a689fee4c1c74dc7928220862627adc97e00a4b585f9c31965e79625",
-          "name": "device-plugin-image"
-        },
-        {
-          "digest": "sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14",
-          "image": "nvcr.io/nvidia/gpu-feature-discovery@sha256:8d068b7b2e3c0b00061bbff07f4207bd49be7d5bfbff51fdf247bc91e3f27a14",
-          "name": "gpu-feature-discovery-image"
-        },
-        {
-          "digest": "sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2",
-          "image": "nvcr.io/nvidia/k8s/cuda-sample@sha256:2a30fe7e23067bc2c3f8f62a6867702a016af2b80b9f6ce861f3fea4dfd85bc2",
-          "name": "cuda-sample-image"
-        },
-        {
-          "digest": "sha256:ed723a1339cddd75eb9f2be2f3476edf497a1b189c10c9bf9eb8da4a16a51a59",
-          "image": "nvcr.io/nvidia/cuda@sha256:ed723a1339cddd75eb9f2be2f3476edf497a1b189c10c9bf9eb8da4a16a51a59",
-          "name": "dcgm-init-container-image"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "1.5.2",
-      "version_original": "1.5.2"
-    },
-    {
       "_id": "6034a543aedf82a5c34e0fe5",
       "alm_examples": [
         {
@@ -12114,181 +11791,6 @@
       "version_original": "1.0.0"
     },
     {
-      "_id": "6047084f122bd89307e01062",
-      "alm_examples": [
-        {
-          "api_version": "mlops.cnvrg.io/v1",
-          "kind": "CnvrgApp",
-          "metadata": {
-            "name": "cnvrg-app"
-          },
-          "spec": {
-            "clusterDomain": "change.me.to.your.ocp.domain",
-            "cnvrgApp": {
-              "customAgentTag": "coreoc",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-              "port": "3000"
-            },
-            "es": {
-              "enabled": "true",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-              "patchEsNodes": "false"
-            },
-            "fluentd": {
-              "enabled": "false"
-            },
-            "ingressType": "openshift",
-            "istio": {
-              "enabled": "false"
-            },
-            "kibana": {
-              "enabled": "false"
-            },
-            "minio": {
-              "enabled": "true",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d"
-            },
-            "nvidiadp": {
-              "enabled": "false"
-            },
-            "pg": {
-              "enabled": "true",
-              "image": "registry.redhat.io/rhscl/postgresql-12-rhel7@sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c"
-            },
-            "prometheus": {
-              "enabled": "false"
-            },
-            "redis": {
-              "enabled": "true",
-              "image": "registry.redhat.io/rhscl/redis-32-rhel7@sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0"
-            },
-            "securityMode": "ocp",
-            "seeder": {
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator-bundle@sha256:56f6c78611a26e4ed42e8228067ae4851799224f80d965bb034d7fe36f32b65f",
-      "bundle_path_digest": "sha256:56f6c78611a26e4ed42e8228067ae4851799224f80d965bb034d7fe36f32b65f",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-03-09T05:31:59.269000+00:00",
-      "csv_description": "#### cnvrg.io is an AI OS for machine learning, transforming the way enterprises manage, scale and accelerate AI and data science development from research to production.\n#### The cnvrg Operator runs within a Kubernetes cluster, and provides a means to deploy and manage the cnvrg cluster components\n* Cnvrg server (webapp + sidekiq)\n* Postgres DB\n* Redis DB\n* Minio Object storage\n* ElasticSearch DB\n\n#### **Before you begin**\n\n#### CnvrgApp have to be deployed into `cnvrg` namespace, thus please create a new project, also make sure you are selecting `cnvrg` project in OCP console when you are deploying CnvrgApp CR.\n```\noc new-project cnvrg\n```\n\n#### Set the `vm.max_map_count` to `262144` on K8S nodes for running [ElasticSearch instace](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) either by updating K8S workers nodes\n```\nsysctl -w vm.max_map_count=262144\n```\nor allow `cnvrg-operator` to do it for you\n```\noc adm policy add-scc-to-user privileged system:serviceaccount:cnvrg:cnvrg-privileged\n```\n#### **Installation**\n#### Update `CnvrgApp` CR (use OpenShift Operators YAML View) and set clusterDomain for your deployment. Usually `clusterDomain` should be set to the default OpenShift Route host. For example: `apps.your.openshift.cluster.com`\n```\napiVersion: mlops.cnvrg.io/v1\nkind: CnvrgApp\nmetadata:\n  name: cnvrg-app\nspec:\n  clusterDomain: \"apps.your.openshift.cluster.com\"\n...\n```",
-      "csv_display_name": "cnvrg-operator",
-      "csv_metadata_description": "Operator for deploying Cnvrg AI OS",
-      "csv_name": "cnvrg-operator.v0.352.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:02:40.893000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "cnvrg-operator-marketplace",
-      "provided_apis": [
-        {
-          "group": "mlops.cnvrg.io",
-          "kind": "CnvrgApp",
-          "plural": "cnvrgapps",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator@sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "name": "cnvrgio-operator-24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a-annotation"
-        },
-        {
-          "digest": "sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator@sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "name": "cnvrg_app"
-        },
-        {
-          "digest": "sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "name": "cnvrgio_seeder"
-        },
-        {
-          "digest": "sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "name": "cnvrg_es"
-        },
-        {
-          "digest": "sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "name": "cnvrg_minios"
-        },
-        {
-          "digest": "sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "name": "cnvrg-minios-c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d-annotation"
-        },
-        {
-          "digest": "sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "name": "cnvrg-es-06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943-annotation"
-        },
-        {
-          "digest": "sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c",
-          "image": "registry.redhat.io/rhscl/postgresql-12-rhel7@sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c",
-          "name": "postgresql-12-rhel7-1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c-annotation"
-        },
-        {
-          "digest": "sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0",
-          "image": "registry.redhat.io/rhscl/redis-32-rhel7@sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0",
-          "name": "redis-32-rhel7-2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0-annotation"
-        },
-        {
-          "digest": "sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "name": "cnvrgio-seeder-998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b-annotation"
-        },
-        {
-          "digest": "sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "name": "cnvrg-app-1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "0.352.0",
-      "version_original": "0.352.0"
-    },
-    {
       "_id": "60470852dbb14c0b8248bac3",
       "alm_examples": [
         {
@@ -17100,9 +16602,358 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
       "version": "1.0.0",
       "version_original": "1.0.0"
+    },
+    {
+      "_id": "6047168edbb14c0b8248bae5",
+      "alm_examples": [
+        {
+          "api_version": "tufin.io/v1alpha1",
+          "kind": "Orca",
+          "metadata": {
+            "name": "orca"
+          },
+          "spec": {
+            "components": {
+              "conntrack": true,
+              "dns": false,
+              "istio": false,
+              "kube-network-policy": true,
+              "pusher": true,
+              "syslog": false,
+              "watcher": true
+            },
+            "domain": "generic-bank",
+            "endpoints": {
+              "guru": "guru.tufin.io:443",
+              "orca": "https://securecloud.tufin.io",
+              "registry": "registry.tufin.io"
+            },
+            "ignored_config_maps": [
+              "kube-system/ingress-gce-lock",
+              "istio-system/istio-ingress-controller-leader-istio"
+            ],
+            "images": {
+              "kite": "registry.connect.redhat.com/tufin/kite",
+              "monitor": "registry.connect.redhat.com/tufin/monitor"
+            },
+            "kube_platform": "Openshift",
+            "namespace": "tufin-system",
+            "project": "openshift4"
+          }
+        },
+        {
+          "api_version": "networking.tufin.io/v1",
+          "kind": "Policy",
+          "metadata": {
+            "name": "orca",
+            "namespace": "placeholder"
+          },
+          "spec": {
+            "mode": "learning",
+            "networkPolicyAllowAll": true,
+            "rules": []
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/tufin/orca-operator-bundle@sha256:3ea67ab24efcb9b693d57ba2624de6c9dd5745c788d669dff0562c4b283d447b",
+      "bundle_path_digest": "sha256:3ea67ab24efcb9b693d57ba2624de6c9dd5745c788d669dff0562c4b283d447b",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "beta",
+      "creation_date": "2021-03-09T06:32:46.951000+00:00",
+      "csv_description": "Tufin SecureCloud is a cloud-based security monitoring and enforcement platform for Kubernetes clusters, containers and microservices.\nThe SecureCloud Operator installs SecureCloud resources into your cluster. These work with the SecureCloud cloud application to give the following functionality:\n* Monitor the cluster configuration: namespaces, containers, pods, services, network policies etc.\n* Learn and visualize the cluster connectivity\n* Build a connectivity policy (whitelist)\n* Generate audit reports\n* Alert on unauthorized connections\n* Enforce the connectivity policy in the cluster and on enterprise firewalls surrounding the cluster\n* Integrate into the CI/CD pipeline to learn and update the policy continuously\n* Scan images for vulnerabilities\n## Deploying the agent\n* Sign up to SecureCloud [here] (https://www.tufin.com/tufin-orchestration-suite/securecloud)\n* You will be sent an email containing your deployment parameters\n* Complete the deployment following the instructions for generating the agent's secret [here] (https://github.com/Tufin/orca-operator/blob/master/docs/install_securecloud_operator.md)",
+      "csv_display_name": "Tufin SecureCloud Operator",
+      "csv_metadata_description": "Installs the SecureCloud Agent on the cluster. SecureCloud is a cloud-based security monitoring and enforcement platform for Kubernetes.",
+      "csv_name": "orca-operator.v1.0.197",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:13:36.634000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "orca",
+      "provided_apis": [
+        {
+          "group": "tufin.io",
+          "kind": "Orca",
+          "plural": "orcas",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "networking.tufin.io",
+          "kind": "Policy",
+          "plural": "policies",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
+          "image": "registry.connect.redhat.com/tufin/orca-operator@sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
+          "name": "orca-operator-dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f-annotation"
+        },
+        {
+          "digest": "sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
+          "image": "registry.connect.redhat.com/tufin/orca-operator@sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
+          "name": "orca-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "1.0.197",
+      "version_original": "1.0.197"
+    },
+    {
+      "_id": "6047168f5a00810ecaf7c442",
+      "alm_examples": [
+        {
+          "api_version": "perceptilabs.com/v1",
+          "kind": "PerceptiLabs",
+          "metadata": {
+            "name": "example-perceptilabs"
+          },
+          "spec": {
+            "coreGpus": 0,
+            "corePvc": "perceptilabs-pvc",
+            "license_name": "demo",
+            "license_value": "demo",
+            "ryggPvc": "perceptilabs-pvc"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator-bundle@sha256:ac9d7ca9b4ca142bd5c983e541cc687fea3143446b79d7d853f7dd654a3001ef",
+      "bundle_path_digest": "sha256:ac9d7ca9b4ca142bd5c983e541cc687fea3143446b79d7d853f7dd654a3001ef",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2021-03-09T06:32:47.953000+00:00",
+      "csv_description": "The PerceptiLabs operator creates and maintains PerceptiLabs, a visual tool for machine learning at warp speed.\n\nPerceptiLabs visual modeling tool provides a GUI for building,\ntraining, and assessing your models, while also enabling deeper\ndevelopment with code. You get faster iterations and better\nexplainability of your results.\n\nFor more information visit [http://perceptilabs.com](http://perceptilabs.com).\n\n# Features\n\n**Fast modeling**  \nMake changes, debug, and tune your model through the GUI of custom code\neditor where every component/layer is reprogrammable. Choose from\nmultiple neural network models as well as classical AI methods.\n\n\n**Transparency of Model Performance and Results**  \nGet instant feedback about your model's performance through the\nvisualization of the architecture, to better review and understand the\nresults. See real-time analytics in every operation and variable, and\ngranular previews of output from each model component.\n\n\n**Flexibility**  \nCustomize your environment and statistics dashboard. Use high-level\nabstractions or low-level code. Execute any custom Python code or export\na fully trained TensorFlow model to perform inference in your projects.\n\n\n\n# Installation Instructions  \nFor your convenience, we've included an example quickstart for running PerceptiLabs in demo mode.\n\n## Prepare your namespace  \nChoose or create the namespace into which you'd like install PerceptiLabs. For example:  \n```\noc create namespace REPLACE_NAMESPACE\n```\n\n## Prepare storage for your data\n\nYou'll need to have a place on your cluster for storing training data and models.\n\nHere's an example configuration for creating storage on a cluster hosted on AWS that you can tailor to your needs:\n\n```\nkind: StorageClass\napiVersion: storage.k8s.io/v1\nmetadata:\n  name: perceptilabs-example-sc\n  annotations:\n    description: Example Storage for PerceptiLabs\nprovisioner: kubernetes.io/aws-ebs\nparameters:\n  fsType: ext4\n  type: gp2\nreclaimPolicy: Delete\nvolumeBindingMode: Immediate\n---\nkind: PersistentVolumeClaim\napiVersion: v1\nmetadata:\n  name: REPLACE_PVC_NAME\n  namespace: REPLACE_NAMESPACE\nspec:\n  storageClassName: perceptilabs-example-sc\n  volumeMode: Filesystem\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 50Gi\n```\n\n## Subscribe to the PerceptiLabs operator in your namespace\n\nIf you're using the OpenShift console webpage, just click the Install button on this operator. If not, you can customize and apply this configuration:\n\n```\napiVersion: operators.coreos.com/v1\nkind: OperatorGroup\nmetadata:\n  name: REPLACE_NAMESPACE-operatorgroup\n  namespace: REPLACE_NAMESPACE\nspec:\n  targetNamespaces:\n  - REPLACE_NAMESPACE\n---\napiVersion: operators.coreos.com/v1alpha1\nkind: Subscription\nmetadata:\n  name: perceptilabs-operator\n  namespace: REPLACE_NAMESPACE\nspec:\n  channel: stable\n  name: perceptilabs-operator-package\n  source: perceptilabs-operators\n  sourceNamespace: openshift-marketplace\n  namespace: REPLACE_NAMESPACE\n```\n\nAfter this, you should see a `perceptilabs-operator` pod start up in your namespace. In that pod, the log for the `operator` container should eventually say \"starting to serve\".\n\n## Start a copy of PerceptiLabs\n\nThis is where you connect your storage and service account to a PerceptiLabs instance and run it. You can customize and apply the following configuration:\n\n```\napiVersion: perceptilabs.com/v1\nkind: PerceptiLabs\nmetadata:\n  name: example-perceptilabs\n  namespace: REPLACE_NAMESPACE\nspec:\n  corePvc: REPLACE_PVC_NAME\n  ryggPvc: REPLACE_PVC_NAME\n```\n\nAt this point two pods named 'perceptilabs-core-...' and 'perceptilabs-frontend-...` will start up in your namespace.\n\n## Copy data files to your cluster\n\nIf you've used the persistent storage configuration from above, then you have a read-write volume mounted in the pod at `/mnt/plabs`. Copy your files there:\n\n```\noc cp REPLACE_FILENAME --namespace=REPLACE_NAMESPACE REPLACE_CORE_POD_NAME:/mnt/plabs --container=core\n```\n\n## Get the URL of your PerceptiLabs\n\nOnce everything is up and running, you'll have two new routes in your namespace. Go to the routes for your namespace and follow the link named `perceptilabs-frontend`. Your browser will be connected to your instance of PerceptiLabs! Alternatively, you can get the URL from the command line:\n\n```\noc get routes --namespace REPLACE_NAMESPACE perceptilabs-frontend\n```",
+      "csv_display_name": "PerceptiLabs Operator",
+      "csv_metadata_description": "AI platform which lets you Build, Train and Analyze",
+      "csv_name": "perceptilabs-operator.v1.0.21",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:50:23.586000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "perceptilabs-operator-package",
+      "provided_apis": [
+        {
+          "group": "perceptilabs.com",
+          "kind": "PerceptiLabs",
+          "plural": "perceptilabs",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "perceptilabs.com",
+          "kind": "PerceptiLabs",
+          "plural": "perceptilabs",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "name": "perceptilabs-operator-520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8-annotation"
+        },
+        {
+          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "name": "ansible"
+        },
+        {
+          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
+          "name": "operator"
+        },
+        {
+          "digest": "sha256:e32ba8261fd22d8324b7cee2cd62a04602e33a11dc12994f629b715ae6983459",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-frontend-1@sha256:e32ba8261fd22d8324b7cee2cd62a04602e33a11dc12994f629b715ae6983459",
+          "name": "frontend_image"
+        },
+        {
+          "digest": "sha256:bf50b30c9e1c09929b0cc70d200638c5947ca20695ded49bc38fc6790cd7f2ef",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-core-1@sha256:bf50b30c9e1c09929b0cc70d200638c5947ca20695ded49bc38fc6790cd7f2ef",
+          "name": "core_image"
+        },
+        {
+          "digest": "sha256:5927fde799ab21ab425db72ddb51d19c1ea7c6fb0b5dbe68cf7637f6d66774d3",
+          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-rygg-1@sha256:5927fde799ab21ab425db72ddb51d19c1ea7c6fb0b5dbe68cf7637f6d66774d3",
+          "name": "rygg_image"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "1.0.21",
+      "version_original": "1.0.21"
+    },
+    {
+      "_id": "604716928985fcd889e788d7",
+      "alm_examples": [
+        {
+          "api_version": "portshift.io/v1",
+          "kind": "PortshiftInstaller",
+          "metadata": {
+            "name": "example-portshiftinstaller"
+          },
+          "spec": {
+            "managementUrl": "console.portshift.io",
+            "portshiftClusterId": "CLUSTER_ID"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/portshift/operator-bundle@sha256:315706e1ed51c3543b44c0524ee717b36324d128d8dafac2388adf94107c4c48",
+      "bundle_path_digest": "sha256:315706e1ed51c3543b44c0524ee717b36324d128d8dafac2388adf94107c4c48",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-03-09T06:32:50.831000+00:00",
+      "csv_description": "### Contents\n * About\n * Requirements\n * Documentation\n * Issues and feedback\n\n### About\nThe portshift-operator is a controller that runs within a Kubernetes or Openshift cluster that provides a means to deploy and manage Portshift's runtime controller, which is a single pod (agentless admission controller) that provide comperhensive runtime security.\n\n## Use the portshift-operator to:\n\n * Deploy Portshfit controler on Kubernetes or Openshift cluster\n * Automate the registration/authentication process prior to the deployment.\n\n## Deployment Requirements\nThe Operator deploys on Kubernetes and Openshift clusters.\n\n * Kubernetes: 1.15 +\n * Openshift: 4.0 +\n\n## Documentation\nThe following documentation is provided:\n\n * [Installation](http://portshift.readme.io/)\n\n## Issues and feedback\nIf you encounter any problems or would like to give us feedback on deployments, we encourage you to raise issues here on GitHub.\n",
+      "csv_display_name": "Portshift Operator",
+      "csv_metadata_description": "The operator will deploy portshift agent on the cluster",
+      "csv_name": "portshift-operator.v0.1.6",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:49:47.883000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "portshift-controller-operator",
+      "provided_apis": [
+        {
+          "group": "portshift.io",
+          "kind": "PortshiftInstaller",
+          "plural": "portshiftinstallers",
+          "version": "v1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
+          "image": "registry.connect.redhat.com/portshift/operator@sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
+          "name": "operator-7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e-annotation"
+        },
+        {
+          "digest": "sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
+          "image": "registry.connect.redhat.com/portshift/operator@sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
+          "name": "portshift-operator"
+        },
+        {
+          "digest": "sha256:f52b3097d049ac86920bd6cdd4dac3def7411dcd1757438b92f0d7d36fa4852e",
+          "image": "registry.connect.redhat.com/portshift/portshift-k8s-agent@sha256:f52b3097d049ac86920bd6cdd4dac3def7411dcd1757438b92f0d7d36fa4852e",
+          "name": "agent"
+        },
+        {
+          "digest": "sha256:19a49c31102b8f4afa2ad8980d3037c78167da089f4c62023da059bbf2c77c87",
+          "image": "registry.connect.redhat.com/portshift/k8s-upgrader@sha256:19a49c31102b8f4afa2ad8980d3037c78167da089f4c62023da059bbf2c77c87",
+          "name": "agent_upgrader"
+        },
+        {
+          "digest": "sha256:5569481578b0049f2bdc10158c50e8c76947d0b053ed4ed9add6838c52f5ddb7",
+          "image": "registry.connect.redhat.com/portshift/gopassivedns@sha256:5569481578b0049f2bdc10158c50e8c76947d0b053ed4ed9add6838c52f5ddb7",
+          "name": "agent_passive_dns_detector"
+        },
+        {
+          "digest": "sha256:3c1567790f045dd646f65cdcd3287d5ed8a01ca3212db8f48bd5586675261e74",
+          "image": "registry.connect.redhat.com/portshift/clair@sha256:3c1567790f045dd646f65cdcd3287d5ed8a01ca3212db8f48bd5586675261e74",
+          "name": "clair"
+        },
+        {
+          "digest": "sha256:b27d47eb7a66968d34dc8d8e9374b74cec1bcb20345926c3ef56b1c1e46d5f15",
+          "image": "registry.connect.redhat.com/portshift/clair-db@sha256:b27d47eb7a66968d34dc8d8e9374b74cec1bcb20345926c3ef56b1c1e46d5f15",
+          "name": "clair_db"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "0.1.6",
+      "version_original": "0.1.6"
     }
   ],
   "page": 4,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

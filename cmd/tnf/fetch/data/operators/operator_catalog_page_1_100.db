@@ -1,133 +1,6 @@
 {
   "data": [
     {
-      "_id": "5f8f29c9316c15a2726ac8ac",
-      "alm_examples": [
-        {
-          "api_version": "apm.fp-predict-plus.findabilityplatform.com/v1",
-          "kind": "FPpredictplus",
-          "metadata": {
-            "name": "fppredictplus-deployment"
-          },
-          "spec": {
-            "deploymentConfig": {
-              "appSelector": "fp-predict-plus-app",
-              "container": {
-                "env": {
-                  "dtvEngineUrl": "http://169.61.73.205/predictionv9"
-                },
-                "name": "fp-predict-plus",
-                "repoURL": "registry.connect.redhat.com/findability-sciences/fp-predict-plus"
-              },
-              "name": "platform-deployment",
-              "replicaCount": 1
-            },
-            "imagePullConfig": {
-              "secretName": "fp-predict-plus-key"
-            },
-            "pvcConfig": {
-              "fsGroup": 0,
-              "name": "fp-predict-plus-pvc",
-              "pvcSpec": {
-                "accessMode": "ReadWriteMany",
-                "storage": "50Gi"
-              },
-              "storageClassName": "",
-              "useExisting": false,
-              "volumeName": "fp-predict-plus-pv"
-            },
-            "routeConfig": {
-              "enabled": true,
-              "host": "",
-              "name": "fp-predict-plus-route",
-              "routerCanonicalHostname": "openshift-platform-5fc468809245cf1363c9989f10ab9bfc-0000.us-east.containers.appdomain.cloud",
-              "tlsEnabled": true
-            },
-            "serviceConfig": {
-              "name": "fp-predict-plus-service",
-              "portName": "http",
-              "sourcePort": 8080,
-              "targetPort": 8080,
-              "type": "ClusterIP"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/findability-sciences/fp-predict-plus-operator-bundle@sha256:e4bb2a292033e4eb6de2eee46395465a20f8b067b59fde597eed009be5e93161",
-      "bundle_path_digest": "sha256:e4bb2a292033e4eb6de2eee46395465a20f8b067b59fde597eed009be5e93161",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2020-10-20T18:17:45.410000+00:00",
-      "csv_description": "This operator will deploy FP-Predict-Plus in the cluster.For details on Usage refer to \n* [Configuration Guide](https://docs.findabilityplatform.com/Configuration-Guide.pdf)\n* [User Manual](https://docs.findabilityplatform.com/FPPredict-User-Manual.pdf)\n* [API Document](https://docs.findabilityplatform.com/FPPredict-API-Document.pdf)",
-      "csv_display_name": "Fp Predict Plus Operator",
-      "csv_metadata_description": "This operator will deploy FP-Predict-Plus in the cluster.",
-      "csv_name": "fp-predict-plus-operator.v0.0.4",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:29:03.260000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "fp-predict-plus-operator-certified",
-      "provided_apis": [
-        {
-          "group": "apm.fp-predict-plus.findabilityplatform.com",
-          "kind": "FPpredictplus",
-          "plural": "fppredictplus",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:962cfd0d70de0ef7ea26546e65d28975134780406339c4000953540d41564b49",
-          "image": "registry.connect.redhat.com/findability-sciences/fp-predict-plus-operator@sha256:962cfd0d70de0ef7ea26546e65d28975134780406339c4000953540d41564b49",
-          "name": "fp-predict-plus-operator-962cfd0d70de0ef7ea26546e65d28975134780406339c4000953540d41564b49-annotation"
-        },
-        {
-          "digest": "sha256:962cfd0d70de0ef7ea26546e65d28975134780406339c4000953540d41564b49",
-          "image": "registry.connect.redhat.com/findability-sciences/fp-predict-plus-operator@sha256:962cfd0d70de0ef7ea26546e65d28975134780406339c4000953540d41564b49",
-          "name": "fp-predict-plus-operator"
-        },
-        {
-          "digest": "sha256:c7b1520a8e85d676e546c8da5ddd4debd66de6d4ec1f984447a986e4f11c02b6",
-          "image": "registry.connect.redhat.com/findability-sciences/fp-predict-plus@sha256:c7b1520a8e85d676e546c8da5ddd4debd66de6d4ec1f984447a986e4f11c02b6",
-          "name": "fppredictplus"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "0.0.4",
-      "version_original": "0.0.4"
-    },
-    {
       "_id": "5f8f29cb3b6621a763342f79",
       "alm_examples": [],
       "annotations": {
@@ -14675,9 +14548,183 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
       "version": "1.5.0",
       "version_original": "1.5.0"
+    },
+    {
+      "_id": "5fc93a901aee7c1e72238dfd",
+      "alm_examples": [
+        {
+          "api_version": "machinelearning.seldon.io/v1",
+          "kind": "SeldonDeployment",
+          "metadata": {
+            "labels": {
+              "app": "seldon",
+              "app.kubernetes.io/instance": "seldon1",
+              "app.kubernetes.io/name": "seldon",
+              "app.kubernetes.io/version": "v0.5"
+            },
+            "name": "seldon-model"
+          },
+          "spec": {
+            "name": "test-deployment",
+            "predictors": [
+              {
+                "componentSpecs": [
+                  {
+                    "spec": {
+                      "containers": [
+                        {
+                          "image": "seldonio/mock_classifier:1.5.0",
+                          "name": "classifier"
+                        }
+                      ]
+                    }
+                  }
+                ],
+                "graph": {
+                  "children": [],
+                  "name": "classifier",
+                  "type": "MODEL"
+                },
+                "name": "example",
+                "replicas": 1
+              }
+            ]
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/seldonio/seldon-core-operator-bundle@sha256:64b7bbd99fa305eee77225a1d19c351817eff13bd018a95caf13c06749ff0491",
+      "bundle_path_digest": "sha256:64b7bbd99fa305eee77225a1d19c351817eff13bd018a95caf13c06749ff0491",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2020-12-03T19:20:48.336000+00:00",
+      "csv_description": "The Seldon operator enables for native operation of production machine learning workloads, including monitoring and operations of language-agnostic models with the benefits of real-time metrics and log analysis.\n   \n## Overview\nSeldon Core is an open source platform for deploying machine learning models on a Kubernetes cluster.\n\n* Deploy machine learning models in the cloud or on-premise.\n* Get metrics and ensure proper governance and compliance for your running machine learning models.\n* Create powerful inference graphs made up of multiple components.\n* Provide a consistent serving layer for models built using heterogeneous ML toolkits.\n\nYou can get started by following the guides in our documentation at https://docs.seldon.io/projects/seldon-core/en/latest/workflow/README.html\n",
+      "csv_display_name": "Seldon Operator",
+      "csv_metadata_description": "The Seldon operator for management, monitoring and operations of machine learning systems through the Seldon Engine. Once installed, the Seldon Operator provides multiple functions which facilitate the productisation, monitoring and maintenance of machine learning systems at scale.",
+      "csv_name": "seldon-operator.v1.5.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:25:23.169000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "seldon-operator-certified",
+      "provided_apis": [
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1"
+        },
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1alpha2"
+        },
+        {
+          "group": "machinelearning.seldon.io",
+          "kind": "SeldonDeployment",
+          "plural": "seldondeployments",
+          "version": "v1alpha3"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
+          "image": "registry.connect.redhat.com/seldonio/seldon-core-operator@sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
+          "name": "seldon-core-operator-371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70-annotation"
+        },
+        {
+          "digest": "sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
+          "image": "registry.connect.redhat.com/seldonio/seldon-core-operator@sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:5005003f0c88bdf192f79613a90396dbc59b55d7b78c459a0e08535f6129039a",
+          "image": "registry.connect.redhat.com/seldonio/seldon-core-executor@sha256:5005003f0c88bdf192f79613a90396dbc59b55d7b78c459a0e08535f6129039a",
+          "name": "executor"
+        },
+        {
+          "digest": "sha256:00b4bfaee81bb8cf3e23ebd65730ebca383e68541a72ac7b2daf1f8953f0aa7b",
+          "image": "registry.connect.redhat.com/seldonio/seldon-engine@sha256:00b4bfaee81bb8cf3e23ebd65730ebca383e68541a72ac7b2daf1f8953f0aa7b",
+          "name": "engine"
+        },
+        {
+          "digest": "sha256:2ae9edbacb42d78728cfd6048d1ecabda7621652422a3a3a9b6fd15026c7b97e",
+          "image": "registry.connect.redhat.com/seldonio/storage-initializer@sha256:2ae9edbacb42d78728cfd6048d1ecabda7621652422a3a3a9b6fd15026c7b97e",
+          "name": "storage_initializer"
+        },
+        {
+          "digest": "sha256:9081f0aa35d4dff393c38a86db2b34d1058c0bbef819c1094ae288f856818eb1",
+          "image": "registry.connect.redhat.com/seldonio/sklearnserver@sha256:9081f0aa35d4dff393c38a86db2b34d1058c0bbef819c1094ae288f856818eb1",
+          "name": "sklearnserver"
+        },
+        {
+          "digest": "sha256:2bd58fa4399c4b0c9b3f78cc1f620552aac7b3f37ad92f691e649a17be8d3947",
+          "image": "registry.connect.redhat.com/seldonio/xgboostserver@sha256:2bd58fa4399c4b0c9b3f78cc1f620552aac7b3f37ad92f691e649a17be8d3947",
+          "name": "xgboostserver"
+        },
+        {
+          "digest": "sha256:4f114581fa108f8ae77a99eaa368fca09257548cd314d69a34f8dd56592158ce",
+          "image": "registry.connect.redhat.com/seldonio/mlflowserver@sha256:4f114581fa108f8ae77a99eaa368fca09257548cd314d69a34f8dd56592158ce",
+          "name": "mlflowserver"
+        },
+        {
+          "digest": "sha256:dd64bf3f825ce31594c66c3c6e315629711393777f27f795626c0862d8caf058",
+          "image": "registry.connect.redhat.com/seldonio/tfproxy@sha256:dd64bf3f825ce31594c66c3c6e315629711393777f27f795626c0862d8caf058",
+          "name": "tfproxy"
+        },
+        {
+          "digest": "sha256:1dc53edc5c8d1b151782f8386c0770d0358c6397eaf42ec55ebd18f331c5ef9e",
+          "image": "registry.connect.redhat.com/seldonio/tensorflow-serving@sha256:1dc53edc5c8d1b151782f8386c0770d0358c6397eaf42ec55ebd18f331c5ef9e",
+          "name": "tensorflow"
+        },
+        {
+          "digest": "sha256:d4471a2ebaf2227c2a12aba41ab5d3a319c28533b3221a7e8e23c5d5ff99b5be",
+          "image": "registry.connect.redhat.com/seldonio/alibiexplainer@sha256:d4471a2ebaf2227c2a12aba41ab5d3a319c28533b3221a7e8e23c5d5ff99b5be",
+          "name": "explainer"
+        },
+        {
+          "digest": "sha256:d6c3f2aca49b5cbb7860264ccd87979122c014be6dd1fce9db3b1a4b312f1960",
+          "image": "registry.connect.redhat.com/seldonio/mock-classifier@sha256:d6c3f2aca49b5cbb7860264ccd87979122c014be6dd1fce9db3b1a4b312f1960",
+          "name": "mock_classifier"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "1.5.0",
+      "version_original": "1.5.0"
     }
   ],
   "page": 1,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

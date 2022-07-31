@@ -1,897 +1,6 @@
 {
   "data": [
     {
-      "_id": "60dc80c14f8f52ae12028765",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "example-neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-                "schedule": "0 0 * * *"
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "exporter": {
-              "CTRL_PASSWORD": "admin",
-              "CTRL_USERNAME": "admin",
-              "enabled": false,
-              "scrapping": true
-            },
-            "imagePullSecrets": "regsecret",
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "route": {
-                  "enabled": true,
-                  "termination": "passthrough"
-                },
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "resources": {}
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "bundle_path_digest": "sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2021-06-30T14:33:37.030000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [NeuVector Helm Chart](https://github.com/neuvector/neuvector-helm) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart. \n\n**Complete below steps to create secret for accessing Docker or similar registry and Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nConfigure OpenShift to pull images from the private NeuVector registry on Docker Hub\n\n         oc create secret docker-registry regsecret -n neuvector --docker-server=https://index.docker.io/v1/ --docker-username=your-name --docker-password=your-pword --docker-email=your-email\n\t\t\t\t \n\nWhere \u2019your-name\u2019 is your Docker username, \u2019your-pword\u2019 is your Docker password, \u2019your-email\u2019 is your Docker email.\n\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "Neuvector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.2.7",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:01:34.368000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "plural": "neuvectors",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator-c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3-annotation"
-        },
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager-0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d-annotation"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer-5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1-annotation"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner-2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544-annotation"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "ubi8-2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5-annotation"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller-063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "1.2.7",
-      "version_original": "1.2.7"
-    },
-    {
-      "_id": "60dc81822d9a1be0419f8a8c",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "example-neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-                "schedule": "0 0 * * *"
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "exporter": {
-              "CTRL_PASSWORD": "admin",
-              "CTRL_USERNAME": "admin",
-              "enabled": false,
-              "scrapping": true
-            },
-            "imagePullSecrets": "regsecret",
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "route": {
-                  "enabled": true,
-                  "termination": "passthrough"
-                },
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "resources": {}
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "bundle_path_digest": "sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2021-06-30T14:36:50.716000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [NeuVector Helm Chart](https://github.com/neuvector/neuvector-helm) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart. \n\n**Complete below steps to create secret for accessing Docker or similar registry and Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nConfigure OpenShift to pull images from the private NeuVector registry on Docker Hub\n\n         oc create secret docker-registry regsecret -n neuvector --docker-server=https://index.docker.io/v1/ --docker-username=your-name --docker-password=your-pword --docker-email=your-email\n\t\t\t\t \n\nWhere \u2019your-name\u2019 is your Docker username, \u2019your-pword\u2019 is your Docker password, \u2019your-email\u2019 is your Docker email.\n\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "Neuvector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.2.7",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:04:03.636000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "plural": "neuvectors",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator-c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3-annotation"
-        },
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager-0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d-annotation"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer-5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1-annotation"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner-2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544-annotation"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "ubi8-2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5-annotation"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller-063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "1.2.7",
-      "version_original": "1.2.7"
-    },
-    {
-      "_id": "60dc87cc2d9a1be0419f8a90",
-      "alm_examples": [
-        {
-          "api_version": "apm.neuvector.com/v1alpha1",
-          "kind": "Neuvector",
-          "metadata": {
-            "name": "example-neuvector"
-          },
-          "spec": {
-            "admissionwebhook": {
-              "type": "ClusterIP"
-            },
-            "bottlerocket": {
-              "enabled": false,
-              "runtimePath": "/run/dockershim.sock"
-            },
-            "containerd": {
-              "enabled": false,
-              "path": "/var/run/containerd/containerd.sock"
-            },
-            "controller": {
-              "apisvc": {
-                "annotations": {},
-                "route": {
-                  "enabled": false,
-                  "termination": "passthrough"
-                },
-                "type": ""
-              },
-              "azureFileShare": {
-                "enabled": false,
-                "secretName": "",
-                "shareName": ""
-              },
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "configmap": {
-                "data": "",
-                "enabled": false
-              },
-              "enabled": true,
-              "federation": {
-                "managedsvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                },
-                "mastersvc": {
-                  "route": {
-                    "enabled": false,
-                    "termination": "passthrough"
-                  },
-                  "type": ""
-                }
-              },
-              "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-              "ingress": {
-                "annotations": {
-                  "ingress.kubernetes.io/protocol": "https"
-                },
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "pvc": {
-                "accessModes": [
-                  "ReadWriteMany"
-                ],
-                "capacity": "",
-                "enabled": false,
-                "storageClass": ""
-              },
-              "replicas": 3,
-              "resources": {},
-              "strategy": {
-                "rollingUpdate": {
-                  "maxSurge": 1,
-                  "maxUnavailable": 0
-                },
-                "type": "RollingUpdate"
-              }
-            },
-            "crdwebhook": {
-              "type": "ClusterIP"
-            },
-            "crio": {
-              "enabled": true,
-              "path": "/var/run/crio/crio.sock"
-            },
-            "cve": {
-              "scanner": {
-                "dockerPath": "",
-                "enabled": true,
-                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-                "replicas": 3,
-                "resources": {},
-                "strategy": {
-                  "rollingUpdate": {
-                    "maxSurge": 1,
-                    "maxUnavailable": 0
-                  },
-                  "type": "RollingUpdate"
-                }
-              },
-              "updater": {
-                "enabled": true,
-                "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-                "schedule": "0 0 * * *"
-              }
-            },
-            "docker": {
-              "enabled": false,
-              "path": "/var/run/docker.sock"
-            },
-            "enforcer": {
-              "enabled": true,
-              "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-              "resources": {},
-              "tolerations": [
-                {
-                  "effect": "NoSchedule",
-                  "key": "node-role.kubernetes.io/master"
-                }
-              ]
-            },
-            "exporter": {
-              "CTRL_PASSWORD": "admin",
-              "CTRL_USERNAME": "admin",
-              "enabled": false,
-              "scrapping": true
-            },
-            "imagePullSecrets": "regsecret",
-            "k3s": {
-              "enabled": false,
-              "runtimePath": "/run/k3s/containerd/containerd.sock"
-            },
-            "manager": {
-              "certificate": {
-                "keyFile": "tls.key",
-                "pemFile": "tls.pem",
-                "secret": ""
-              },
-              "enabled": true,
-              "env": {
-                "ssl": true
-              },
-              "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-              "ingress": {
-                "annotations": {},
-                "enabled": false,
-                "host": "",
-                "path": "/",
-                "secretName": "",
-                "tls": false
-              },
-              "svc": {
-                "annotations": {},
-                "loadBalancerIP": "",
-                "route": {
-                  "enabled": true,
-                  "termination": "passthrough"
-                },
-                "type": "NodePort"
-              }
-            },
-            "openshift": true,
-            "resources": {}
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "bundle_path_digest": "sha256:a8c0bb66bd911a2720df2cf08391b768e719c2e23344d58913e681066fbbb556",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2021-06-30T15:03:40.026000+00:00",
-      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [NeuVector Helm Chart](https://github.com/neuvector/neuvector-helm) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart. \n\n**Complete below steps to create secret for accessing Docker or similar registry and Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nConfigure OpenShift to pull images from the private NeuVector registry on Docker Hub\n\n         oc create secret docker-registry regsecret -n neuvector --docker-server=https://index.docker.io/v1/ --docker-username=your-name --docker-password=your-pword --docker-email=your-email\n\t\t\t\t \n\nWhere \u2019your-name\u2019 is your Docker username, \u2019your-pword\u2019 is your Docker password, \u2019your-email\u2019 is your Docker email.\n\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
-      "csv_display_name": "Neuvector Operator",
-      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
-      "csv_name": "neuvector-operator.v1.2.7",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:15:13.593000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "neuvector-certified-operator",
-      "provided_apis": [
-        {
-          "group": "apm.neuvector.com",
-          "kind": "Neuvector",
-          "plural": "neuvectors",
-          "version": "v1alpha1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator-c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3-annotation"
-        },
-        {
-          "digest": "sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:c81a77c533a3461137859060cadde4672599b0c886102128f5ebc43f47cc24a3",
-          "name": "neuvector-operator"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "updater"
-        },
-        {
-          "digest": "sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "image": "registry.connect.redhat.com/neuvector/manager@sha256:0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d",
-          "name": "manager-0c825c3c3724a2cf6f0826febc275280c3163c23c6d0f9c007b195849a80a57d-annotation"
-        },
-        {
-          "digest": "sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1",
-          "name": "enforcer-5944774f3ccc6a0db0a26c520cb86f87bee0a80c61fac2c8ae4e2beca9ecb4e1-annotation"
-        },
-        {
-          "digest": "sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544",
-          "name": "scanner-2b6d5c012e43ae0599603128d0f8a585596b319b6de0e337158066649d8e9544-annotation"
-        },
-        {
-          "digest": "sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "image": "registry.access.redhat.com/ubi8@sha256:2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5",
-          "name": "ubi8-2349c135a60dea58776c48a78af490b97f0eb52c501b396fcd65e717c0be3cf5-annotation"
-        },
-        {
-          "digest": "sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "image": "registry.connect.redhat.com/neuvector/controller@sha256:063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083",
-          "name": "controller-063f753d6a07bf5b6e69b11f65e99920fa5921d9ab1f9317c91dbc4a8fd2f083-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "1.2.7",
-      "version_original": "1.2.7"
-    },
-    {
       "_id": "60dc885d4eeb9bde82ff5a63",
       "alm_examples": [
         {
@@ -21268,9 +20377,1640 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
       "version": "2.1.0",
       "version_original": "2.1.0"
+    },
+    {
+      "_id": "611fbd4f9f14588c41ebe8f5",
+      "alm_examples": [
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixAgent",
+          "metadata": {
+            "labels": {
+              "app": "agent",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-agent"
+          },
+          "spec": {
+            "active_allow": true,
+            "activeservers": "",
+            "allow_key": "",
+            "allow_privileged": true,
+            "buffer#": 100,
+            "buffer_send": 5,
+            "debug_level": 3,
+            "deny_key": "system.run[*]",
+            "host_interface": "",
+            "host_interface_item": "",
+            "hostname": "",
+            "hostname_item": "system.hostname",
+            "load_module": "",
+            "log_remote_commands": true,
+            "max_lines_per_second": 20,
+            "metadata": "",
+            "metadata_item": "",
+            "passive_allow": true,
+            "passive_servers": "",
+            "refresh_active_checks": 120,
+            "server_host": "zabbix-server",
+            "start_agents": 3,
+            "timeout": 3,
+            "tls_accept": "unencrypted",
+            "tls_ca_file_name": "",
+            "tls_cert_file_name": "",
+            "tls_cipher_all": "",
+            "tls_cipher_cert_13": "",
+            "tls_cipher_psk": "",
+            "tls_cipherall_13": "",
+            "tls_connect": "unencrypted",
+            "tls_crl_file_name": "",
+            "tls_key_file_name": "",
+            "tls_psk_file_name": "",
+            "tls_psk_identity": "",
+            "tls_server_cert_issuer": "",
+            "tls_server_cert_subject": "",
+            "tlsciphercert": "",
+            "tlscipherpsk13": "",
+            "unsafe_user_parameters": false
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixAppliance",
+          "metadata": {
+            "labels": {
+              "app": "appliance",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-appliance"
+          },
+          "spec": {
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher13": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_double_ieee754": true,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web_enable_route": true,
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "zabbix-mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixFull",
+          "metadata": {
+            "labels": {
+              "app": "server",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-full"
+          },
+          "spec": {
+            "history_storage_url": "",
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlsciphercert": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_cipher_list": "",
+              "db_double_ieee754": true,
+              "db_encryption": false,
+              "db_verify_host": false,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web#": 2,
+            "web_enable_route": true,
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "zabbix-mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixProxyMysql",
+          "metadata": {
+            "labels": {
+              "app": "proxy",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-proxy-mysql"
+          },
+          "spec": {
+            "db_server_port": 3306,
+            "internal_db": true,
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "mysql_database": "zabbix_proxy",
+            "proxy": {
+              "cache#": "8M",
+              "config_frequency": 3600,
+              "data_sender_frequency": 1,
+              "db_tls_cipher": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "enable_remote_commands": false,
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "hostname": "",
+              "hostname_item": "system.hostname",
+              "housekeeping_frequency": 1,
+              "log_remote_commands": true,
+              "log_slow_queries": 0,
+              "proxy_heartbeat_frequency": 60,
+              "proxy_local_buffer": 0,
+              "proxy_mode": 0,
+              "proxy_offline_buffer": 1,
+              "server_host": "zabbix-server",
+              "server_port": 10051,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "timeout": 4,
+              "tls_accept": "unencrypted",
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_connect": "unencrypted",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tls_psk_file_name": "",
+              "tls_psk_identity": "",
+              "tls_server_cert_issuer": "",
+              "tls_server_cert_subject": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "zabbix-mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixProxySqlite",
+          "metadata": {
+            "labels": {
+              "app": "proxy",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-proxy-sqlite"
+          },
+          "spec": {
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "proxy": {
+              "cache#": "8M",
+              "config_frequency": 3600,
+              "data_sender_frequency": 1,
+              "debug_level": 3,
+              "enable_remote_commands": false,
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "hostname": "",
+              "hostname_item": "system.hostname",
+              "housekeeping_frequency": 1,
+              "log_remote_commands": true,
+              "log_slow_queries": 0,
+              "proxy_heartbeat_frequency": 60,
+              "proxy_local_buffer": 0,
+              "proxy_mode": 0,
+              "proxy_offline_buffer": 1,
+              "server_host": "zabbix-server",
+              "server_port": 10051,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "timeout": 4,
+              "tls_accept": "unencrypted",
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_connect": "unencrypted",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tls_psk_file_name": "",
+              "tls_psk_identity": "",
+              "tls_server_cert_issuer": "",
+              "tls_server_cert_subject": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "proxy#": 1
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixServer",
+          "metadata": {
+            "labels": {
+              "app": "server",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-server"
+          },
+          "spec": {
+            "db_server_host": "mysql-server",
+            "db_server_port": 3306,
+            "history_storage_url": "",
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "mysql_database": "zabbix",
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher13": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_cipher_list": "",
+              "db_double_ieee754": true,
+              "db_encryption": false,
+              "db_verify_host": false,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web#": 2,
+            "web_enable_route": true,
+            "zabbix_mysqlsecret": "zabbix-mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixAgent",
+          "metadata": {
+            "labels": {
+              "app": "agent",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-agent"
+          },
+          "spec": {
+            "active_allow": true,
+            "activeservers": "",
+            "allow_key": "",
+            "allow_privileged": true,
+            "buffer#": 100,
+            "buffer_send": 5,
+            "debug_level": 3,
+            "deny_key": "system.run[*]",
+            "host_interface": "",
+            "host_interface_item": "",
+            "hostname": "",
+            "hostname_item": "system.hostname",
+            "load_module": "",
+            "log_remote_commands": true,
+            "max_lines_per_second": 20,
+            "metadata": "",
+            "metadata_item": "",
+            "passive_allow": true,
+            "passive_servers": "",
+            "refresh_active_checks": 120,
+            "server_host": "zabbix-server",
+            "start_agents": 3,
+            "timeout": 3,
+            "tls_accept": "unencrypted",
+            "tls_ca_file_name": "",
+            "tls_cert_file_name": "",
+            "tls_cipher_all": "",
+            "tls_cipher_cert_13": "",
+            "tls_cipher_psk": "",
+            "tls_cipherall_13": "",
+            "tls_connect": "unencrypted",
+            "tls_crl_file_name": "",
+            "tls_key_file_name": "",
+            "tls_psk_file_name": "",
+            "tls_psk_identity": "",
+            "tls_server_cert_issuer": "",
+            "tls_server_cert_subject": "",
+            "tlsciphercert": "",
+            "tlscipherpsk13": "",
+            "unsafe_user_parameters": false
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixServer",
+          "metadata": {
+            "labels": {
+              "app": "server",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-server"
+          },
+          "spec": {
+            "db_server_host": "mysql-server",
+            "db_server_port": 3306,
+            "history_storage_url": "",
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "mysql_database": "zabbix",
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher13": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_cipher_list": "",
+              "db_double_ieee754": true,
+              "db_encryption": false,
+              "db_verify_host": false,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web#": 2,
+            "web_enable_route": true,
+            "zabbix_mysqlsecret": "mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixProxySqlite",
+          "metadata": {
+            "labels": {
+              "app": "proxy",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-proxy-sqlite"
+          },
+          "spec": {
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "proxy": {
+              "cache#": "8M",
+              "config_frequency": 3600,
+              "data_sender_frequency": 1,
+              "debug_level": 3,
+              "enable_remote_commands": false,
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "hostname": "",
+              "hostname_item": "system.hostname",
+              "housekeeping_frequency": 1,
+              "log_remote_commands": true,
+              "log_slow_queries": 0,
+              "proxy_heartbeat_frequency": 60,
+              "proxy_local_buffer": 0,
+              "proxy_mode": 0,
+              "proxy_offline_buffer": 1,
+              "server_host": "zabbix-server",
+              "server_port": 10051,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "timeout": 4,
+              "tls_accept": "unencrypted",
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_connect": "unencrypted",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tls_psk_file_name": "",
+              "tls_psk_identity": "",
+              "tls_server_cert_issuer": "",
+              "tls_server_cert_subject": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "proxy#": 1
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixProxyMysql",
+          "metadata": {
+            "labels": {
+              "app": "proxy",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-proxy-mysql"
+          },
+          "spec": {
+            "db_server_port": 3306,
+            "internal_db": true,
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "mysql_database": "zabbix_proxy",
+            "proxy": {
+              "cache#": "8M",
+              "config_frequency": 3600,
+              "data_sender_frequency": 1,
+              "db_tls_cipher": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "enable_remote_commands": false,
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "hostname": "",
+              "hostname_item": "system.hostname",
+              "housekeeping_frequency": 1,
+              "log_remote_commands": true,
+              "log_slow_queries": 0,
+              "proxy_heartbeat_frequency": 60,
+              "proxy_local_buffer": 0,
+              "proxy_mode": 0,
+              "proxy_offline_buffer": 1,
+              "server_host": "zabbix-server",
+              "server_port": 10051,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "timeout": 4,
+              "tls_accept": "unencrypted",
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_connect": "unencrypted",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tls_psk_file_name": "",
+              "tls_psk_identity": "",
+              "tls_server_cert_issuer": "",
+              "tls_server_cert_subject": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "zabbix-mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixFull",
+          "metadata": {
+            "labels": {
+              "app": "server",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-full"
+          },
+          "spec": {
+            "history_storage_url": "",
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "java_gateway#": 1,
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_cipher_all": "",
+              "tls_cipher_cert_13": "",
+              "tls_cipher_psk": "",
+              "tls_cipherall_13": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlsciphercert": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_cipher_list": "",
+              "db_double_ieee754": true,
+              "db_encryption": false,
+              "db_verify_host": false,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web#": 2,
+            "web_enable_route": true,
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "mysql-secrets"
+          }
+        },
+        {
+          "api_version": "kubernetes.zabbix.com/v1alpha1",
+          "kind": "ZabbixAppliance",
+          "metadata": {
+            "labels": {
+              "app": "appliance",
+              "vendor": "zabbix"
+            },
+            "name": "zabbix-appliance"
+          },
+          "spec": {
+            "java_gateway": {
+              "debug_level": "info",
+              "start_pollers": 5,
+              "timeout": 3
+            },
+            "server": {
+              "cache#": "8M",
+              "cache_update_frequency": 60,
+              "db_tls_cipher": "",
+              "db_tls_cipher13": "",
+              "db_tls_cipher_13": "",
+              "db_tls_connect": "",
+              "debug_level": 3,
+              "export_file#": "",
+              "history_cache#": "16M",
+              "history_index_cache#": "4M",
+              "history_storage_date_index": true,
+              "history_storage_types": "",
+              "housekeeping_frequency": 1,
+              "load_module": "",
+              "log_slow_queries": 0,
+              "max_housekeeper_delete": 5000,
+              "proxy_config_frequency": 3600,
+              "proxy_data_frequency": 1,
+              "start_alerters": 3,
+              "start_db_syncers": 4,
+              "start_discoverers": 1,
+              "start_escalators": 1,
+              "start_http_pollers": 1,
+              "start_ipmi_pollers": 0,
+              "start_java_pollers": 5,
+              "start_lld_processors": 2,
+              "start_pingers": 1,
+              "start_pollers": 5,
+              "start_pollers_unreachable": 1,
+              "start_preprocessors": 3,
+              "start_proxy_pollers": 0,
+              "start_timers": 1,
+              "start_trappers": 5,
+              "start_vmware_collectors": 0,
+              "stats_allowed_ip": "",
+              "timeout": 4,
+              "tls_ca_file_name": "",
+              "tls_cert_file_name": "",
+              "tls_crl_file_name": "",
+              "tls_key_file_name": "",
+              "tlscipherall": "",
+              "tlscipherall13": "",
+              "tlsciphercert": "",
+              "tlsciphercert13": "",
+              "tlscipherpsk": "",
+              "tlscipherpsk13": "",
+              "trapper_timeout": 300,
+              "trend_cache#": "4M",
+              "unavailable_delay": 60,
+              "unreachable_delay": 15,
+              "unreachable_period": 45,
+              "value_cache#": "8M",
+              "vmware_cache#": "8M",
+              "vmware_frequency": 60,
+              "vmware_perf_frequency": 60,
+              "vmware_timeout": 10
+            },
+            "web": {
+              "db_double_ieee754": true,
+              "deny_gui_access": false,
+              "enable_web_access_log": true,
+              "gui_access_ip_range": "",
+              "gui_warning_msg": "Zabbix is under maintenance.",
+              "history_storage_types": "",
+              "max_execution_time": 300,
+              "max_input_time": 300,
+              "memory_limit": "128M",
+              "post_max#": "16M",
+              "server_name": "Kubernetes installation",
+              "session_name": "zbx_sessionid",
+              "sso_settings": "",
+              "timezone": "Europe/Riga",
+              "upload_max_filesize": "2M"
+            },
+            "web_enable_route": true,
+            "zabbix_mysql_volumeclaim": "mysql-volume-claim",
+            "zabbix_mysqlsecret": "mysql-secrets"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/zabbix/zabbixoperator-certified-bundle@sha256:236d7cc772634f20540dc153f9a7fc66357d7d4852962c5c7b5daff61c99e5c8",
+      "bundle_path_digest": "sha256:236d7cc772634f20540dc153f9a7fc66357d7d4852962c5c7b5daff61c99e5c8",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "lts",
+      "creation_date": "2021-08-20T14:33:51.487000+00:00",
+      "csv_description": "## About this Operator\n\nZabbix helps you to real-time monitoring of millions of metrics collected from tens of thousands of servers, virtual machines and network devices.\nThe Zabbix Operator allows users to easily deploy, manage, and maintain Zabbix deployments on OpenShift. By installing this integration you will be able to deploy Zabbix server / proxies and other components with a single command.\n## Supported Features\n* **Zabbix Server** - Simple Zabbix installation with included Zabbix server, Zabbix web-interface and Zabbix Java Gateway with MySQL database support. The feature does not provide MySQL service and requires an external MySQL database. \n* **Zabbix Server (Full)** - Zabbix installation with included Zabbix server, Zabbix web-interface, Zabbix Java Gateway and MySQL server instance.\n* **Zabbix proxy (SQLite3)** - Very simple way to gain power of Zabbix proxy. The feature has  SQLite3 support for Zabbix proxies and allow to specify amount of proxies. \n* **Zabbix proxy (MySQL)** - Another option of Zabbix proxy. The option support and deliver MySQL database.\n* **Zabbix agent** - Zabbix agent can be deployed on each available node for stability and performance monitoring on remote nodes. It allows to gather metrics with full automation!\n* **Zabbix Appliance** - Zabbix appliance very simple way to test and check Zabbix features. The option provides all core components in one solution. It includes Zabbix server, Zabbix Java Gateway, Zabbix web-interface and MySQL server in deployment. It is very useful for testing Zabbix features!\n## Prerequisites\nAll deployment options are require additional information during deployment. Please, check the following instructions and provide required configuration:\n* **Zabbix Server** - MySQL database host information and MySQL database credentials in specially formatted *Secret*. Additionally it is possible to specify SSL certificates for HTTPS support in *Secret*.\n* **Zabbix Server (Full)** - MySQL database credentials in specially formatted *Secret*. MySQL database volume name information. Additionally it is possible to specify SSL certificates for HTTPS support in *Secret*.\n* **Zabbix proxy (SQLite3)** - Zabbix server host information only.\n* **Zabbix proxy (MySQL)** - MySQL database credentials in specially formatted *Secrets* and Zabbix server host information.\n* **Zabbix agent** - Zabbix server host information only for outgoing and incoming connections. Zabbix agent uses \"privileged\" mode to monitor node resources! For example, running processes.\n* **Zabbix Appliance** - MySQL database credentials in specially formatted *Secret*. MySQL database volume name information. Additionally it is possible to specify SSL certificates for HTTPS support in *Secret*.\n### MySQL credentials\n```\nkind: Secret\napiVersion: v1\nmetadata:\n  name: zabbix-full-secrets\ndata:\n  mysql_root_password: emFiYml4X3N1cGVyX3Jvb3Q= [1]\n  mysql_zabbix_password: emFiYml4X3VzZXJfcGFzc3dvcmQ= [2]\n  mysql_zabbix_username: emFiYml4 [3]\ntype: Opaque\n```\nUsing MySQL root password (*mysqlrootpassword* [1]) Zabbix server / proxy will try to create MySQL database schema with grant permissions to *mysqlzabbixusername* [2] and *mysqlzabbixpassword* [3].\n### SSL certificates for HTTPS\n```\nkind: Secret\napiVersion: v1\nmetadata:\n  name: zabbix-web-sslsecret\ndata:\n  ssl.crt: >-\n   < ssl.crt data>\n  ssl.key: >-\n\t < ssl.key data >\n  dhparam.pem: >-\n   <  dhparam.pem data >\n```\nFiles *ssl.crt*, *ssl.key* and *dhparam.perm* are required for Zabbix web-interface for SSL support.\n",
+      "csv_display_name": "Zabbix Operator",
+      "csv_metadata_description": "Zabbix operator with multiple deployment variants and different components",
+      "csv_name": "zabbix-operator-certified.v0.0.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:02:47.213000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "zabbix-operator-certified",
+      "provided_apis": [
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixProxyMysql",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixProxySqlite",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixServer",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixAgent",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixAppliance",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "kubernetes.zabbix.com",
+          "kind": "ZabbixFull",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "image": "registry.connect.redhat.com/zabbix/zabbixoperator-certified@sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "name": "zabbixoperator-certified-c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66-annotation"
+        },
+        {
+          "digest": "sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "image": "registry.connect.redhat.com/zabbix/zabbixoperator-certified@sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "name": "ansible"
+        },
+        {
+          "digest": "sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "image": "registry.connect.redhat.com/zabbix/zabbixoperator-certified@sha256:c2dee633a667191d3272bf1652412ac1077455f18b90168ddcaa2ac8882f0c66",
+          "name": "operator"
+        },
+        {
+          "digest": "sha256:2f76e7cbece9d9366b613bcb1079b030ddbcc5e97b2f133b73bd0131f0869725",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-server-mysql-50@sha256:2f76e7cbece9d9366b613bcb1079b030ddbcc5e97b2f133b73bd0131f0869725",
+          "name": "zbx_server_mysql"
+        },
+        {
+          "digest": "sha256:9f3ba82445ea3d9754f016e21b2ea1c99c1958da928f49aee1b18377af78d365",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-web-mysql-50@sha256:9f3ba82445ea3d9754f016e21b2ea1c99c1958da928f49aee1b18377af78d365",
+          "name": "zbx_web_mysql"
+        },
+        {
+          "digest": "sha256:a216de448dc10b2797a70f4fc6664c2bd611840b7b6c26f066635d48c606bf06",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-java-gateway-50@sha256:a216de448dc10b2797a70f4fc6664c2bd611840b7b6c26f066635d48c606bf06",
+          "name": "zbx_java_gateway"
+        },
+        {
+          "digest": "sha256:054ad28ade616642fb50fd38a48df2d00a9c0c6a57df1e367caeceb6469f6c42",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-proxy-mysql-50@sha256:054ad28ade616642fb50fd38a48df2d00a9c0c6a57df1e367caeceb6469f6c42",
+          "name": "zbx_proxy_mysql"
+        },
+        {
+          "digest": "sha256:713a6223a01ee57efb719d6f491ef779d74104a1bc1b8599eade8b3f4a3318ed",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-proxy-sqlite-50@sha256:713a6223a01ee57efb719d6f491ef779d74104a1bc1b8599eade8b3f4a3318ed",
+          "name": "zbx_proxy_sqlite"
+        },
+        {
+          "digest": "sha256:229562a27ed45319ef17397fe81cac81129c84eccd2c14f6085531a86ef9b87d",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-agent-50@sha256:229562a27ed45319ef17397fe81cac81129c84eccd2c14f6085531a86ef9b87d",
+          "name": "zbx_agent"
+        },
+        {
+          "digest": "sha256:7236c68c494f572edf64ced85c3a083b7eafff1c6562e95bdc50e50c37e3e3bf",
+          "image": "registry.connect.redhat.com/zabbix/zabbix-appliance-50@sha256:7236c68c494f572edf64ced85c3a083b7eafff1c6562e95bdc50e50c37e3e3bf",
+          "name": "zbx_appliance"
+        },
+        {
+          "digest": "sha256:e7541d9fbcb7a71ac8a68cc4efc1806bab74023961c7d3fb562ded320df90c43",
+          "image": "registry.redhat.io/rhel8/mysql-80@sha256:e7541d9fbcb7a71ac8a68cc4efc1806bab74023961c7d3fb562ded320df90c43",
+          "name": "db_mysql"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "0.0.2",
+      "version_original": "0.0.2"
+    },
+    {
+      "_id": "611fbd53eb34b73652492dc9",
+      "alm_examples": [
+        {
+          "api_version": "apm.neuvector.com/v1alpha1",
+          "kind": "Neuvector",
+          "metadata": {
+            "name": "neuvector"
+          },
+          "spec": {
+            "admissionwebhook": {
+              "type": "ClusterIP"
+            },
+            "bottlerocket": {
+              "enabled": false,
+              "runtimePath": "/run/dockershim.sock"
+            },
+            "containerd": {
+              "enabled": false,
+              "path": "/var/run/containerd/containerd.sock"
+            },
+            "controller": {
+              "apisvc": {
+                "annotations": {},
+                "route": {
+                  "enabled": false,
+                  "host": "",
+                  "termination": "passthrough"
+                },
+                "type": ""
+              },
+              "azureFileShare": {
+                "enabled": false,
+                "secretName": "",
+                "shareName": ""
+              },
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "configmap": {
+                "data": "",
+                "enabled": false
+              },
+              "disruptionbudget": 0,
+              "enabled": true,
+              "federation": {
+                "managedsvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                },
+                "mastersvc": {
+                  "ingress": {
+                    "annotations": {
+                      "ingress.kubernetes.io/protocol": "https"
+                    },
+                    "enabled": false,
+                    "host": "",
+                    "path": "/",
+                    "secretName": "",
+                    "tls": false
+                  },
+                  "route": {
+                    "enabled": false,
+                    "host": "",
+                    "termination": "passthrough"
+                  },
+                  "type": ""
+                }
+              },
+              "image": "registry.connect.redhat.com/neuvector/controller",
+              "ingress": {
+                "annotations": {
+                  "ingress.kubernetes.io/protocol": "https"
+                },
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "pvc": {
+                "accessModes": [
+                  "ReadWriteMany"
+                ],
+                "capacity": "",
+                "enabled": false,
+                "storageClass": ""
+              },
+              "replicas": 3,
+              "resources": {},
+              "strategy": {
+                "rollingUpdate": {
+                  "maxSurge": 1,
+                  "maxUnavailable": 0
+                },
+                "type": "RollingUpdate"
+              }
+            },
+            "crdwebhook": {
+              "enabled": true,
+              "type": "ClusterIP"
+            },
+            "crio": {
+              "enabled": true,
+              "path": "/var/run/crio/crio.sock"
+            },
+            "cve": {
+              "scanner": {
+                "dockerPath": "",
+                "enabled": true,
+                "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+                "priorityClassName": "",
+                "replicas": 3,
+                "resources": {},
+                "strategy": {
+                  "rollingUpdate": {
+                    "maxSurge": 1,
+                    "maxUnavailable": 0
+                  },
+                  "type": "RollingUpdate"
+                }
+              },
+              "updater": {
+                "enabled": true,
+                "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+                "priorityClassName": "",
+                "schedule": "0 0 * * *"
+              }
+            },
+            "docker": {
+              "enabled": false,
+              "path": "/var/run/docker.sock"
+            },
+            "enforcer": {
+              "enabled": true,
+              "image": "registry.connect.redhat.com/neuvector/enforcer",
+              "priorityClassName": "",
+              "resources": {},
+              "tolerations": [
+                {
+                  "effect": "NoSchedule",
+                  "key": "node-role.kubernetes.io/master"
+                }
+              ]
+            },
+            "k3s": {
+              "enabled": false,
+              "runtimePath": "/run/k3s/containerd/containerd.sock"
+            },
+            "manager": {
+              "certificate": {
+                "keyFile": "tls.key",
+                "pemFile": "tls.pem",
+                "secret": ""
+              },
+              "enabled": true,
+              "env": {
+                "ssl": true
+              },
+              "image": "registry.connect.redhat.com/neuvector/manager",
+              "ingress": {
+                "annotations": {},
+                "enabled": false,
+                "host": "",
+                "path": "/",
+                "secretName": "",
+                "tls": false
+              },
+              "priorityClassName": "",
+              "resources": {},
+              "route": {
+                "enabled": true,
+                "host": "",
+                "termination": "passthrough"
+              },
+              "svc": {
+                "annotations": {},
+                "loadBalancerIP": "",
+                "type": "NodePort"
+              }
+            },
+            "openshift": true,
+            "psp": false,
+            "resources": {},
+            "serviceAccount": "default"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/neuvector/neuvector-operator-bundle@sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
+      "bundle_path_digest": "sha256:6f4ff463c67af42c1c3603e36e512a60dedb95775380a1a6b26c4cded86de5e1",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "beta",
+      "creation_date": "2021-08-20T14:33:55.567000+00:00",
+      "csv_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.\n\nThe NeuVector Operator runs  in the openshift container platform to deploy and manage the NeuVector Security cluster components. The NeuVector operator contains all necessary information to deploy NeuVector using helm charts. You simply need to install the NeuVector operator from the OpenShift embeded operator hub and create NeuVector instance. You can modify the NeuVector installation configuration by modifying yaml while creating the NeuVector instance such as imagePullSecrets, tag version, etc. Please refer to [github link](https://github.com/neuvector/neuvector-helm/tree/master/charts/core) for the values that can be modifed during installation. To upgrade to a newer version of NeuVector, just reapply the NeuVector instance with desired tag , which in turn pulls the specified NeuVector image tags and upgrades as per upgrade plan configured on the helm chart.  NeuVector Operator versions are tied to NeuVector product versions. Version 1.2.8 of the NeuVector Certified Operator deploys version 4.3.1 of NeuVector.\n\n**Complete below steps to Grant Service Account Access to the Privileged SCC before installation.**\n\nCreate the NeuVector namespace\n\n         oc new-project  neuvector\nLogin as system:admin account\n\n         oc login -u system:admin\n\nGrant Service Account Access to the Privileged SCC\n\n         oc -n neuvector adm policy add-scc-to-user privileged -z default\n\nThe following info will be added in the Privileged SCC users:\n\n         - system:serviceaccount:neuvector:default\n\nIn OpenShift 4.6+ use the following to check:\n\n         oc get rolebinding system:openshift:scc:privileged -n neuvector -o wide\n         NAME                              ROLE                                          AGE     USERS   GROUPS   SERVICEACCOUNTS\n         system:openshift:scc:privileged   ClusterRole/system:openshift:scc:privileged   9m22s                    neuvector/default\n\n\n**Add NeuVector license from NeuVector WebUI->setting**\n\n\n#Deploying the NeuVector Operator#\n\n\nPlease refer to the instructions [here](https://github.com/neuvector/neuvector-operator/blob/master/README.md)\n\n\n",
+      "csv_display_name": "NeuVector Operator",
+      "csv_metadata_description": "NeuVector delivers the only cloud-native Kubernetes security platform with uncompromising end-to-end protection from DevOps vulnerability protection to automated run-time security, and featuring a true Layer 7 container firewall.",
+      "csv_name": "neuvector-operator.v1.2.8",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:55:57.999000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "neuvector-certified-operator",
+      "provided_apis": [
+        {
+          "group": "apm.neuvector.com",
+          "kind": "Neuvector",
+          "plural": "neuvectors",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "name": "neuvector-operator-9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72-annotation"
+        },
+        {
+          "digest": "sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "image": "registry.connect.redhat.com/neuvector/neuvector-operator@sha256:9d8ab5fc5e3122fe1332ccf624e6897277e2e935690f4b07ca1c491599daec72",
+          "name": "neuvector-operator"
+        },
+        {
+          "digest": "sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "image": "registry.connect.redhat.com/neuvector/controller@sha256:55b3d9873846d0a8670b58e8a8a76c426d3aba74d4e5c4fca43d05c1dd296f10",
+          "name": "controller"
+        },
+        {
+          "digest": "sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "image": "registry.connect.redhat.com/neuvector/enforcer@sha256:fdd66288454dd01f4f618c8cf04c7da501d4362773266ec6f448d63e26e3a35c",
+          "name": "enforcer"
+        },
+        {
+          "digest": "sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "image": "registry.connect.redhat.com/neuvector/manager@sha256:73445c18ea18f131b6fa630a97623a3043d05758205ef93fc02fa920abbedaa6",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner"
+        },
+        {
+          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "name": "updater"
+        },
+        {
+          "digest": "sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "image": "registry.connect.redhat.com/neuvector/scanner@sha256:a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06",
+          "name": "scanner-a802c012eee80444d9deea8c4402a1d977cf57d7b2b2044f90c9acc0e7ca3e06-annotation"
+        },
+        {
+          "digest": "sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "image": "registry.access.redhat.com/ubi8@sha256:091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49",
+          "name": "ubi8-091ad37a5a638af2c21d01c2d3f4d489c2368070a6c43371e897013fb0987e49-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "1.2.8",
+      "version_original": "1.2.8"
+    },
+    {
+      "_id": "611fbd60eb34b73652492dd1",
+      "alm_examples": [
+        {
+          "api_version": "charts.helm.k8s.io/v1alpha1",
+          "kind": "OpenshiftArtifactoryHa",
+          "metadata": {
+            "name": "openshiftartifactoryha"
+          },
+          "spec": {
+            "artifactory-ha": {
+              "artifactory": {
+                "image": {
+                  "repository": "registry.connect.redhat.com/jfrog/artifactory-pro",
+                  "version": "7.4.3"
+                },
+                "joinKey": "EEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE",
+                "masterKey": "FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF",
+                "node": {
+                  "replicaCount": 2,
+                  "waitForPrimaryStartup": {
+                    "enabled": false
+                  }
+                }
+              },
+              "database": {
+                "driver": "OVERRIDE",
+                "password": "OVERRIDE",
+                "type": "OVERRIDE",
+                "url": "OVERRIDE",
+                "user": "OVERRIDE"
+              },
+              "initContainerImage": "registry.redhat.io/ubi8-minimal",
+              "nginx": {
+                "http": {
+                  "externalPort": 80,
+                  "internalPort": 8080
+                },
+                "https": {
+                  "externalPort": 443,
+                  "internalPort": 8443
+                },
+                "image": {
+                  "repository": "registry.redhat.io/rhel8/nginx-116",
+                  "version": "latest"
+                },
+                "service": {
+                  "ssloffload": false
+                },
+                "tlsSecretName": "OVERRIDE"
+              },
+              "postgresql": {
+                "enabled": false
+              },
+              "waitForDatabase": false
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/jfrog/artifactory-operator-bundle@sha256:5526e86dd60790139a6620e2464cb3450091dd0e6941600e9dab66a6fc79012e",
+      "bundle_path_digest": "sha256:5526e86dd60790139a6620e2464cb3450091dd0e6941600e9dab66a6fc79012e",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-08-20T14:34:08.391000+00:00",
+      "csv_description": "Openshift 4 Operator to deploy JFrog Artifactory Enterprise",
+      "csv_display_name": "JFrog Artifactory Enterprise Operator",
+      "csv_metadata_description": "JFrog Artifactory Enterprise deploys Artifactory in a high availability environment across multiple pods",
+      "csv_name": "artifactory-ha-operator.v1.0.0",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T00:45:59.917000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.9",
+      "organization": "certified-operators",
+      "package": "openshiftartifactoryha-operator",
+      "provided_apis": [
+        {
+          "group": "charts.helm.k8s.io",
+          "kind": "OpenshiftArtifactoryHa",
+          "plural": "openshiftartifactoryhas",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:a5e9e99889cbe2c4ee96c80d908e80987371b66f9d99c6c6c6155583a9ef505a",
+          "image": "registry.connect.redhat.com/jfrog/artifactory-operator@sha256:a5e9e99889cbe2c4ee96c80d908e80987371b66f9d99c6c6c6155583a9ef505a",
+          "name": "artifactory-operator-a5e9e99889cbe2c4ee96c80d908e80987371b66f9d99c6c6c6155583a9ef505a-annotation"
+        },
+        {
+          "digest": "sha256:a5e9e99889cbe2c4ee96c80d908e80987371b66f9d99c6c6c6155583a9ef505a",
+          "image": "registry.connect.redhat.com/jfrog/artifactory-operator@sha256:a5e9e99889cbe2c4ee96c80d908e80987371b66f9d99c6c6c6155583a9ef505a",
+          "name": "artifactory-ha-operator"
+        },
+        {
+          "digest": "sha256:97eb6bd2639523ec5f8f7d7e87953ceda515244ef2e7ee4bef08f7eb19faa7ca",
+          "image": "registry.connect.redhat.com/jfrog/artifactory-pro@sha256:97eb6bd2639523ec5f8f7d7e87953ceda515244ef2e7ee4bef08f7eb19faa7ca",
+          "name": "artifactory_image_repository"
+        },
+        {
+          "digest": "sha256:0ba76a7b26e5ffb95b4354243337ac2b3ff84ae8637c0782631084d1b2f99a33",
+          "image": "registry.redhat.io/rhel8/nginx-116@sha256:0ba76a7b26e5ffb95b4354243337ac2b3ff84ae8637c0782631084d1b2f99a33",
+          "name": "nginx_image_repository"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.9",
+      "version": "1.0.0",
+      "version_original": "1.0.0"
     }
   ],
   "page": 13,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

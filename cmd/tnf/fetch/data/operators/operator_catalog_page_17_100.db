@@ -1,561 +1,6 @@
 {
   "data": [
     {
-      "_id": "6170611ddae3848b03bf3a06",
-      "alm_examples": [
-        {
-          "api_version": "charts.helm.k8s.io/v1",
-          "kind": "OpenshiftXray",
-          "metadata": {
-            "name": "openshiftxray"
-          },
-          "spec": {
-            "xray": {
-              "analysis": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-analysis"
-                },
-                "name": "xray-analysis",
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "common": {
-                "xrayGroupId": "1000721035",
-                "xrayUserId": "1000721035",
-                "xrayVersion": "3.33.3-1"
-              },
-              "database": {
-                "password": "OVERRIDE",
-                "url": "OVERRIDE",
-                "user": "OVERRIDE"
-              },
-              "global": {},
-              "indexer": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-indexer"
-                },
-                "name": "xray-indexer",
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "initContainerImage": "registry.connect.redhat.com/jfrog/init@sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-              "persist": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-persist"
-                },
-                "name": "xray-persist",
-                "persistence": {
-                  "size": "10Gi"
-                },
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "postgresql": {
-                "enabled": false
-              },
-              "rabbitmq": {
-                "auth": {
-                  "erlangCookie": "XRAYRABBITMQCLUSTER",
-                  "password": "xray",
-                  "tls": {
-                    "caCertificate": "",
-                    "enabled": false,
-                    "failIfNoPeerCert": true,
-                    "serverCertificate": "",
-                    "serverKey": "",
-                    "sslOptionsVerify": "verify_peer"
-                  },
-                  "username": "xray"
-                },
-                "enabled": true,
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-rabbitmq",
-                  "tag": "3.33.3-1"
-                },
-                "podSecurityContext": {
-                  "fsGroup": 1000721001,
-                  "runAsUser": 1000721001
-                },
-                "rbac": {
-                  "create": true
-                },
-                "replicaCount": 1
-              },
-              "rabbitmq-ha": {
-                "enabled": false,
-                "image": {
-                  "repository": "registry.connect.redhat.com/jfrog/xray-rabbitmq",
-                  "tag": "3.33.3-1"
-                },
-                "initContainer": {
-                  "enabled": false
-                },
-                "managementPassword": "guest",
-                "managementUsername": "guest",
-                "rabbitmqPassword": "guest",
-                "rabbitmqUsername": "guest",
-                "replicaCount": 1,
-                "securityContext": {
-                  "fsGroup": 1000721035,
-                  "runAsGroup": 1000721035,
-                  "runAsUser": 1000721035
-                }
-              },
-              "replicaCount": 1,
-              "router": {
-                "image": {
-                  "imagePullPolicy": "IfNotPresent",
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-router",
-                  "tag": "3.33.3-1"
-                },
-                "name": "router"
-              },
-              "server": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-server"
-                },
-                "name": "xray-server",
-                "podManagementPolicy": "Parallel",
-                "replicaCount": 1,
-                "updateStrategy": "RollingUpdate"
-              },
-              "unifiedUpgradeAllowed": "true",
-              "xray": {
-                "consoleLog": false,
-                "jfrogUrl": "OVERRIDE",
-                "joinKey": "OVERRIDE",
-                "masterKey": "OVERRIDE"
-              }
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/jfrog/xray-operator-bundle@sha256:57874a477ec87a6f1b54d45c821f42cde38291c7f8a412263a6a8a40832cbb16",
-      "bundle_path_digest": "sha256:57874a477ec87a6f1b54d45c821f42cde38291c7f8a412263a6a8a40832cbb16",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-10-20T18:34:05.484000+00:00",
-      "csv_description": "## Overview\nOpenshift Operator to deploy JFrog Xray Continuous Security scanner into your Openshift cluster.\nNOTE: Artifactory is required for JFrog Xray to connect with and scan artifacts against.\n### Major version v2.0.4 Breaking change notification !!!\nThis release has major bug fix for Rabbitmq Pod.\nPlease update to version 2.0.4 of the operator.\n### Major version v2.0.0 Breaking change notification !!!\nXray is dependent upon Rabbitmq. The version of Rabbitmq that this chart uses has significantly changed from version 1.1.8 of the operator.\nFor full details on how to migrate please visit:\n`https://github.com/jfrog/charts/blob/master/stable/xray/RABBITMQ_MIGRATION_NOTES.md`\n### Security Context Constraints\nTo deploy this helm chart you will need to be a cluster admin w/ access to the anyuid scc and add the operator service account to the anyuid scc.\n\n```\noc adm policy add-scc-to-user anyuid -z xray-operator\n```\n```\noc adm policy add-scc-to-user anyuid -z openshiftxray\n```\n```\noc adm policy add-scc-to-user anyuid -z openshiftxray-rabbitmq-ha\n```\n\n## Usage\n\nAn external DB is required. The operator will not deploy a DB but will require you to specify the configuration values to connect to it.\n\nSearch for JFrog and click JFrog Xray Operator to install.\n\nGo to the Installed Operators.\n\nWait for the JFrog Xray Operator to complete the installation.\n\nOpen the Operator and click on the provided API: Xray\n\nClick Create New Instance and provide the following parameters for your DB configuration:\n\n```\nJFROG_URL\nDATABASE_URL\nDATABASE_USER\nDATABASE_PASSWORD\n```\n\nJFROG_URL is the external ip or DNS of your Artifactory to connect Xray to. Artifactory is required to use this operator.\nYou can set your JFROG_URL to the service name of your Artifactory Nginx:\n``` oc get svc -n my_namespace | grep nginx ```\nDATABASE_URL must be a Postgresql URL in the format:\n``\npostgres://postgres-postgresql:5432/xraydb?sslmode=disable\n``\nDATABASE_USER and DATABASE_PASSWORD must supply a valid user on Postgresql.\n\nClick Create for Xray to deploy into OpenShift.\n\nOpen Artifactory in a web browser to complete the onboarding wizard for Xray!\n\n### Air gap environments\n\nTo use Xray Operator in an air gap environment you will need to download the images as image streams into your Openshift air gap cluster manually.\n\nUse the image overrides to then specify the image stream locations that are local to your cluster.\n\nNext you will need to setup the database of index data for xray to use when scanning artifacts.\n\nFollow the link below for instructions on setup:\n\nhttps://www.jfrog.com/confluence/display/JFROG/Configuring+Xray#ConfiguringXray-SynchronizingtheDatabase\n\n",
-      "csv_display_name": "JFrog Xray Continuous Security Operator",
-      "csv_metadata_description": "JFrog Xray Enterprise deploys Xray continuous security scanner into Openshift (Requires Jfrog Artifactory)",
-      "csv_name": "xray-operator.v2.0.9",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:00:46.020000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.5",
-      "organization": "certified-operators",
-      "package": "openshiftxray-operator",
-      "provided_apis": [],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "image": "registry.connect.redhat.com/jfrog/xray-operator@sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "name": "xray-operator-79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c-annotation"
-        },
-        {
-          "digest": "sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "image": "registry.connect.redhat.com/jfrog/xray-operator@sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "name": "xray-operator"
-        },
-        {
-          "digest": "sha256:8321f4971e7f65f8eb39cda6b6fde2e504cbdbce2139849593d8d8431484cba0",
-          "image": "registry.connect.redhat.com/jfrog/xray-server@sha256:8321f4971e7f65f8eb39cda6b6fde2e504cbdbce2139849593d8d8431484cba0",
-          "name": "xray_server_image_repository"
-        },
-        {
-          "digest": "sha256:c96159770e67caa4004444361549292732d7a080d3ffe44900c148e387ae5f85",
-          "image": "registry.connect.redhat.com/jfrog/xray-analysis@sha256:c96159770e67caa4004444361549292732d7a080d3ffe44900c148e387ae5f85",
-          "name": "xray_analysis_image_repository"
-        },
-        {
-          "digest": "sha256:ddf1b7980fcc690947c5385141725b20af250cf0e332ededc50babb217840265",
-          "image": "registry.connect.redhat.com/jfrog/xray-persist@sha256:ddf1b7980fcc690947c5385141725b20af250cf0e332ededc50babb217840265",
-          "name": "xray_persist_image_repository"
-        },
-        {
-          "digest": "sha256:68f5d645dcdfeeb8d3364e176012518faaa995e5a585113fe7904fdf04f9adfc",
-          "image": "registry.connect.redhat.com/jfrog/xray-indexer@sha256:68f5d645dcdfeeb8d3364e176012518faaa995e5a585113fe7904fdf04f9adfc",
-          "name": "xray_indexer_image_repository"
-        },
-        {
-          "digest": "sha256:1bf671848a06330b350ffeb0c2e90c1591cce5930d1398126377c01c70841319",
-          "image": "registry.connect.redhat.com/jfrog/xray-router@sha256:1bf671848a06330b350ffeb0c2e90c1591cce5930d1398126377c01c70841319",
-          "name": "xray_router_image_repository"
-        },
-        {
-          "digest": "sha256:65a95da372693c96bdf9b7bcf21e757dc09569cf2eb66afd9bca4c552ad78f01",
-          "image": "registry.connect.redhat.com/jfrog/xray-rabbitmq@sha256:65a95da372693c96bdf9b7bcf21e757dc09569cf2eb66afd9bca4c552ad78f01",
-          "name": "xray_rabbitmq_image_repository"
-        },
-        {
-          "digest": "sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-          "image": "registry.connect.redhat.com/jfrog/init@sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-          "name": "init-164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
-      "version": "2.0.9",
-      "version_original": "2.0.9"
-    },
-    {
-      "_id": "617067cddae3848b03bf3a08",
-      "alm_examples": [
-        {
-          "api_version": "charts.helm.k8s.io/v1",
-          "kind": "OpenshiftXray",
-          "metadata": {
-            "name": "openshiftxray"
-          },
-          "spec": {
-            "xray": {
-              "analysis": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-analysis"
-                },
-                "name": "xray-analysis",
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "common": {
-                "xrayGroupId": "1000721035",
-                "xrayUserId": "1000721035",
-                "xrayVersion": "3.33.3-1"
-              },
-              "database": {
-                "password": "OVERRIDE",
-                "url": "OVERRIDE",
-                "user": "OVERRIDE"
-              },
-              "global": {},
-              "indexer": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-indexer"
-                },
-                "name": "xray-indexer",
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "initContainerImage": "registry.connect.redhat.com/jfrog/init@sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-              "persist": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-persist"
-                },
-                "name": "xray-persist",
-                "persistence": {
-                  "size": "10Gi"
-                },
-                "podManagementPolicy": "Parallel",
-                "updateStrategy": "RollingUpdate"
-              },
-              "postgresql": {
-                "enabled": false
-              },
-              "rabbitmq": {
-                "auth": {
-                  "erlangCookie": "XRAYRABBITMQCLUSTER",
-                  "password": "xray",
-                  "tls": {
-                    "caCertificate": "",
-                    "enabled": false,
-                    "failIfNoPeerCert": true,
-                    "serverCertificate": "",
-                    "serverKey": "",
-                    "sslOptionsVerify": "verify_peer"
-                  },
-                  "username": "xray"
-                },
-                "enabled": true,
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-rabbitmq",
-                  "tag": "3.33.3-1"
-                },
-                "podSecurityContext": {
-                  "fsGroup": 1000721001,
-                  "runAsUser": 1000721001
-                },
-                "rbac": {
-                  "create": true
-                },
-                "replicaCount": 1
-              },
-              "rabbitmq-ha": {
-                "enabled": false,
-                "image": {
-                  "repository": "registry.connect.redhat.com/jfrog/xray-rabbitmq",
-                  "tag": "3.33.3-1"
-                },
-                "initContainer": {
-                  "enabled": false
-                },
-                "managementPassword": "guest",
-                "managementUsername": "guest",
-                "rabbitmqPassword": "guest",
-                "rabbitmqUsername": "guest",
-                "replicaCount": 1,
-                "securityContext": {
-                  "fsGroup": 1000721035,
-                  "runAsGroup": 1000721035,
-                  "runAsUser": 1000721035
-                }
-              },
-              "replicaCount": 1,
-              "router": {
-                "image": {
-                  "imagePullPolicy": "IfNotPresent",
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-router",
-                  "tag": "3.33.3-1"
-                },
-                "name": "router"
-              },
-              "server": {
-                "image": {
-                  "registry": "registry.connect.redhat.com",
-                  "repository": "jfrog/xray-server"
-                },
-                "name": "xray-server",
-                "podManagementPolicy": "Parallel",
-                "replicaCount": 1,
-                "updateStrategy": "RollingUpdate"
-              },
-              "unifiedUpgradeAllowed": "true",
-              "xray": {
-                "consoleLog": false,
-                "jfrogUrl": "OVERRIDE",
-                "joinKey": "OVERRIDE",
-                "masterKey": "OVERRIDE"
-              }
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/jfrog/xray-operator-bundle@sha256:57874a477ec87a6f1b54d45c821f42cde38291c7f8a412263a6a8a40832cbb16",
-      "bundle_path_digest": "sha256:57874a477ec87a6f1b54d45c821f42cde38291c7f8a412263a6a8a40832cbb16",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-10-20T19:02:37.670000+00:00",
-      "csv_description": "## Overview\nOpenshift Operator to deploy JFrog Xray Continuous Security scanner into your Openshift cluster.\nNOTE: Artifactory is required for JFrog Xray to connect with and scan artifacts against.\n### Major version v2.0.4 Breaking change notification !!!\nThis release has major bug fix for Rabbitmq Pod.\nPlease update to version 2.0.4 of the operator.\n### Major version v2.0.0 Breaking change notification !!!\nXray is dependent upon Rabbitmq. The version of Rabbitmq that this chart uses has significantly changed from version 1.1.8 of the operator.\nFor full details on how to migrate please visit:\n`https://github.com/jfrog/charts/blob/master/stable/xray/RABBITMQ_MIGRATION_NOTES.md`\n### Security Context Constraints\nTo deploy this helm chart you will need to be a cluster admin w/ access to the anyuid scc and add the operator service account to the anyuid scc.\n\n```\noc adm policy add-scc-to-user anyuid -z xray-operator\n```\n```\noc adm policy add-scc-to-user anyuid -z openshiftxray\n```\n```\noc adm policy add-scc-to-user anyuid -z openshiftxray-rabbitmq-ha\n```\n\n## Usage\n\nAn external DB is required. The operator will not deploy a DB but will require you to specify the configuration values to connect to it.\n\nSearch for JFrog and click JFrog Xray Operator to install.\n\nGo to the Installed Operators.\n\nWait for the JFrog Xray Operator to complete the installation.\n\nOpen the Operator and click on the provided API: Xray\n\nClick Create New Instance and provide the following parameters for your DB configuration:\n\n```\nJFROG_URL\nDATABASE_URL\nDATABASE_USER\nDATABASE_PASSWORD\n```\n\nJFROG_URL is the external ip or DNS of your Artifactory to connect Xray to. Artifactory is required to use this operator.\nYou can set your JFROG_URL to the service name of your Artifactory Nginx:\n``` oc get svc -n my_namespace | grep nginx ```\nDATABASE_URL must be a Postgresql URL in the format:\n``\npostgres://postgres-postgresql:5432/xraydb?sslmode=disable\n``\nDATABASE_USER and DATABASE_PASSWORD must supply a valid user on Postgresql.\n\nClick Create for Xray to deploy into OpenShift.\n\nOpen Artifactory in a web browser to complete the onboarding wizard for Xray!\n\n### Air gap environments\n\nTo use Xray Operator in an air gap environment you will need to download the images as image streams into your Openshift air gap cluster manually.\n\nUse the image overrides to then specify the image stream locations that are local to your cluster.\n\nNext you will need to setup the database of index data for xray to use when scanning artifacts.\n\nFollow the link below for instructions on setup:\n\nhttps://www.jfrog.com/confluence/display/JFROG/Configuring+Xray#ConfiguringXray-SynchronizingtheDatabase\n\n",
-      "csv_display_name": "JFrog Xray Continuous Security Operator",
-      "csv_metadata_description": "JFrog Xray Enterprise deploys Xray continuous security scanner into Openshift (Requires Jfrog Artifactory)",
-      "csv_name": "xray-operator.v2.0.9",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:54:00.496000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "openshiftxray-operator",
-      "provided_apis": [
-        {
-          "group": "charts.helm.k8s.io",
-          "kind": "OpenshiftXray",
-          "plural": "openshiftxrays",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "image": "registry.connect.redhat.com/jfrog/xray-operator@sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "name": "xray-operator-79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c-annotation"
-        },
-        {
-          "digest": "sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "image": "registry.connect.redhat.com/jfrog/xray-operator@sha256:79fcd178d5f5f0d69daf714edd9fbf8f1bebb784513cf5d45ccbd7fd8c3a3a2c",
-          "name": "xray-operator"
-        },
-        {
-          "digest": "sha256:8321f4971e7f65f8eb39cda6b6fde2e504cbdbce2139849593d8d8431484cba0",
-          "image": "registry.connect.redhat.com/jfrog/xray-server@sha256:8321f4971e7f65f8eb39cda6b6fde2e504cbdbce2139849593d8d8431484cba0",
-          "name": "xray_server_image_repository"
-        },
-        {
-          "digest": "sha256:c96159770e67caa4004444361549292732d7a080d3ffe44900c148e387ae5f85",
-          "image": "registry.connect.redhat.com/jfrog/xray-analysis@sha256:c96159770e67caa4004444361549292732d7a080d3ffe44900c148e387ae5f85",
-          "name": "xray_analysis_image_repository"
-        },
-        {
-          "digest": "sha256:ddf1b7980fcc690947c5385141725b20af250cf0e332ededc50babb217840265",
-          "image": "registry.connect.redhat.com/jfrog/xray-persist@sha256:ddf1b7980fcc690947c5385141725b20af250cf0e332ededc50babb217840265",
-          "name": "xray_persist_image_repository"
-        },
-        {
-          "digest": "sha256:68f5d645dcdfeeb8d3364e176012518faaa995e5a585113fe7904fdf04f9adfc",
-          "image": "registry.connect.redhat.com/jfrog/xray-indexer@sha256:68f5d645dcdfeeb8d3364e176012518faaa995e5a585113fe7904fdf04f9adfc",
-          "name": "xray_indexer_image_repository"
-        },
-        {
-          "digest": "sha256:1bf671848a06330b350ffeb0c2e90c1591cce5930d1398126377c01c70841319",
-          "image": "registry.connect.redhat.com/jfrog/xray-router@sha256:1bf671848a06330b350ffeb0c2e90c1591cce5930d1398126377c01c70841319",
-          "name": "xray_router_image_repository"
-        },
-        {
-          "digest": "sha256:65a95da372693c96bdf9b7bcf21e757dc09569cf2eb66afd9bca4c552ad78f01",
-          "image": "registry.connect.redhat.com/jfrog/xray-rabbitmq@sha256:65a95da372693c96bdf9b7bcf21e757dc09569cf2eb66afd9bca4c552ad78f01",
-          "name": "xray_rabbitmq_image_repository"
-        },
-        {
-          "digest": "sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-          "image": "registry.connect.redhat.com/jfrog/init@sha256:164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8",
-          "name": "init-164b41720a37f75c6129c8a28d05cc56f821022313d44ff918cce4a2146d93e8-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "2.0.9",
-      "version_original": "2.0.9"
-    },
-    {
-      "_id": "61782942dd607bfc82e64f7b",
-      "alm_examples": [
-        {
-          "api_version": "tools.opdev.io/v1",
-          "kind": "DemoResource",
-          "metadata": {
-            "name": "demoresource-sample"
-          },
-          "spec": {
-            "message": "Hello, World!"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/opdev/simple-demo-operator@sha256:55bbff6eba8a74a9deb2f5a63a2d1e6f2b570cdf36e7f38f7d72cfd748554494",
-      "bundle_path_digest": "sha256:55bbff6eba8a74a9deb2f5a63a2d1e6f2b570cdf36e7f38f7d72cfd748554494",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2021-10-26T16:13:54.202000+00:00",
-      "csv_description": "A simple demo operator with a minimal reconciliation function, for testing basic operator installation and validation workflows.",
-      "csv_display_name": "Simple Demo Operator",
-      "csv_metadata_description": "",
-      "csv_name": "simple-demo-operator.v0.0.4",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": false,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:08:45.578000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "simple-demo-operator",
-      "provided_apis": [
-        {
-          "group": "tools.opdev.io",
-          "kind": "DemoResource",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:db06cc4c084dd0253134f156dddaaf53ef1c3fb3cc809e5d81711baa4029ea4c",
-          "image": "gcr.io/kubebuilder/kube-rbac-proxy@sha256:db06cc4c084dd0253134f156dddaaf53ef1c3fb3cc809e5d81711baa4029ea4c",
-          "name": "kube-rbac-proxy"
-        },
-        {
-          "digest": "sha256:25ca9cb1f3dc7b8ce0aba4d3383cac20f5f5a1298fbbfde4a6adab7b1000cb0e",
-          "image": "quay.io/opdev/simple-demo-operator@sha256:25ca9cb1f3dc7b8ce0aba4d3383cac20f5f5a1298fbbfde4a6adab7b1000cb0e",
-          "name": "manager"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "0.0.4",
-      "version_original": "0.0.4"
-    },
-    {
       "_id": "6178381d40a2d8e95c82d9de",
       "alm_examples": [
         {
@@ -14640,9 +14085,255 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
       "version": "0.2.0",
       "version_original": "0.2.0"
+    },
+    {
+      "_id": "619ffae327e166330707d776",
+      "alm_examples": [],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
+      "bundle_path_digest": "sha256:9ea442914977e8d29dc1f50a8d87d51363f729e2962a91ae993038b358916996",
+      "capabilities": [
+        ""
+      ],
+      "channel_name": "6.2.8",
+      "creation_date": "2021-11-25T21:06:43.724000+00:00",
+      "csv_description": "",
+      "csv_display_name": "",
+      "csv_metadata_description": "",
+      "csv_name": "redis-enterprise-operator.v6.0.6-6",
+      "in_index_img": true,
+      "install_modes": [],
+      "is_default_channel": false,
+      "last_update_date": "2022-04-16T16:58:46.004000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "redis-enterprise-operator-cert",
+      "provided_apis": [
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1"
+        },
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [],
+      "replaces": null,
+      "skip_range": null,
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "6.0.6-6",
+      "version_original": "6.0.6-6"
+    },
+    {
+      "_id": "619ffbd63e9240fca360f337",
+      "alm_examples": [
+        {
+          "kind": "RedisEnterpriseCluster",
+          "metadata": {
+            "name": "rec"
+          },
+          "spec": {
+            "nodes": 3,
+            "persistentSpec": {
+              "enabled": true
+            },
+            "redisEnterpriseImageSpec": {
+              "imagePullPolicy": "IfNotPresent",
+              "repository": "redislabs/redis",
+              "versionTag": "6.0.20-69.rhel7-openshift"
+            },
+            "redisEnterpriseNodeResources": {
+              "limits": {
+                "cpu": "4000m",
+                "memory": "4Gi"
+              },
+              "requests": {
+                "cpu": "4000m",
+                "memory": "4Gi"
+              }
+            },
+            "uiServiceType": "ClusterIP",
+            "username": "demo@redislabs.com"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/redislabs/redis-enterprise-operator-bundle@sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
+      "bundle_path_digest": "sha256:6eba0d4cdc724698aa1d42dd74ae6b19e9446f601f337d5752531a14f10e41ef",
+      "capabilities": [
+        "Deep Insights"
+      ],
+      "channel_name": "6.2.8",
+      "creation_date": "2021-11-25T21:10:46.121000+00:00",
+      "csv_description": "Redis Enterprise Software is enterprise grade, distributed, in-memory NoSQL database server, fully compatible with open source Redis by Redis Labs. Redis Enterprise Software extends open source Redis and delivers stable high performance, zero-downtime linear scaling and high availability, with significant operational savings.\nRedis Enterprise provides a flexible and cost-effective data platform so developers can focus on rapid, high-quality development for sophisticated use cases that meet the needs of a modern digital enterprise. With Redis Enterprise, you can:\n* Enjoy high performance and record-setting low latencies with minimal operational overhead\n* Develop highly scalable microservices-based and Kubernetes-orchestrated applications\n* Use versatile data structures for a variety of use cases, such as high-speed transactions, user session management, real-time analytics, caching and many more\n* Leverage enterprise-grade operational controls for high availability, security and seamless scale\n* Automate operational best practices for deploying and managing the Redis Enterprise data platform with built-in Kubernetes Operator support\n* Deploy, manage and move applications to and from any cloud for seamless portability\n\n### Core capabilities\n* **Speed application development and time to market** - Unburden developers from the complexity of infrastructure operations and empower them to manage data with maximum flexibility. This helps them build modern applications quickly, make changes rapidly and support a variety of different data structures, models, relationships and use cases.\n* **Ensure business continuity with always-on data service** - Maintain service uptime and ensure failsafe high availability, instant failover and automatic recovery to protect your applications against unplanned downtime, outages and data loss.\n* **Design for performance and unmatched user experience** - Deliver the highest level of responsiveness and interactive customer experiences with best-in-class exceptional linear scaling high performance through a shared-nothing architecture and in-memory processing.\n* **Simplify operations with automated lifecycle management and layered orchestration** - Automate database provisioning, management and maintenance, and abstract away the complexities of high availability, seamless scale and zero-downtime upgrades with built-in support for Kubernetes and Operators.\n* **Enjoy multi-level robust security** - Provide granular control to meet self-imposed and regulatory compliance regulations and standards with built-in finegrained security controls and data encryption.\n* **Gain platform independence with flexible deployment options** - Ensure portability with multiple deployment options across any cloud of choice for multicloud and hybrid deployments and on-premises.\n* **Ensure success** - Leverage 24x7 enterprise-grade support backed by expertise in managing and scaling hundreds of thousands of Redis databases for thousands of enterprise customers worldwide.\n* **Future proof investments** - Use the most popular database amongst developers, built on open source innovation and entrenched firmly in the application landscape with over 1B downloads on Docker. Redis preserves your investment for years with easy extensibility and versatility through its Modules and support for over 50 different programming languages\n\n#### Prerequisites\nA minimum of 3 nodes which support the following requirements:\n* RAM - At least 3GB with 4GB recommended\n* Persistent Storage - At least 10GB of free space with 20GB recommended.\n* A kubernetes version of 1.9 or higher\n\n#### Recommendations/known issues\n\nChanging the name of the Redis Enterprise Cluster in the spec from the\ndefault requires running a command to grant permissions to the pods:\n\n\n> *oc adm policy add-scc-to-group redis-enterprise-scc\nsystem:serviceaccounts:my-project*\n\n\nReplace my-project with the actual name of the project/namespace.",
+      "csv_display_name": "Redis Enterprise Operator",
+      "csv_metadata_description": "",
+      "csv_name": "redis-enterprise-operator.v6.0.20-4",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-04-05T11:11:46.882000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "redis-enterprise-operator-cert",
+      "provided_apis": [
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1"
+        },
+        {
+          "group": "app.redislabs.com",
+          "kind": "RedisEnterpriseCluster",
+          "plural": "redisenterpriseclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
+          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
+          "name": "redis-enterprise-operator-3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f-annotation"
+        },
+        {
+          "digest": "sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
+          "image": "registry.connect.redhat.com/redislabs/redis-enterprise-operator@sha256:3a86275c1bebed1e756e0ddf44adf2892e3039104c9c0675e60be029faed3c9f",
+          "name": "redis-enterprise-operator"
+        }
+      ],
+      "replaces": null,
+      "skip_range": null,
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "6.0.20-4",
+      "version_original": "6.0.20-4"
+    },
+    {
+      "_id": "619ffc0b27e166330707d779",
+      "alm_examples": [
+        {
+          "api_version": "app.joget.com/v1alpha1",
+          "kind": "JogetDX",
+          "metadata": {
+            "name": "example-joget"
+          },
+          "spec": {
+            "size": 1
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/joget/joget-dx-operator-bundle@sha256:d778e1d70bee8e4a17cac2ea9b04c82c747fd1d1f3859e846626f581f58f1ae3",
+      "bundle_path_digest": "sha256:d778e1d70bee8e4a17cac2ea9b04c82c747fd1d1f3859e846626f581f58f1ae3",
+      "capabilities": [
+        "Seamless Upgrades"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-11-25T21:11:39.626000+00:00",
+      "csv_description": "Joget DX is the next generation open source no-code / low-code application platform that combines the best of Rapid Application Development, Business Process Automation and Workflow Management. \nJoget DX empowers business users, non-coders or coders with a single platform to easily build, deliver, monitor and maintain enterprise applications.\n\nThis operator installs a Joget DX cluster running on JBoss EAP 7.\n\n### Features\n* Build full-fledged apps e.g. CRM, HR, Healthcare, etc\n* Drag and drop forms, lists, UI\n* Add workflow to automate processes\n* Extend via plugins\n* Apps are mobile optimized and cloud ready\n* Download ready-made apps from the Joget Marketplace\n\n### Before You Start\nDeploy a [MySQL](https://docs.openshift.com/online/pro/using_images/db_images/mysql.html) or [MariaDB](https://docs.openshift.com/online/pro/using_images/db_images/mariadb.html) database.\n\n### Post Deployment\nAccess the service URL and complete the one-time [Database Setup](https://dev.joget.org/community/display/DX7/Setting+Up+Database)\n\n### More Information\nMore information about Joget DX on JBoss EAP 7 is available in the [Joget Knowledge Base](https://dev.joget.org/community/display/DX7/Automated+Deployment+on+Red+Hat+OpenShift+with+the+Joget+Operator)\n",
+      "csv_display_name": "Joget DX Operator",
+      "csv_metadata_description": "No-code/low-code application platform to visually build, run and maintain apps",
+      "csv_name": "joget-dx-openshift-operator.v0.0.22",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:21:13.980000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.6",
+      "organization": "certified-operators",
+      "package": "joget-dx-operator",
+      "provided_apis": [
+        {
+          "group": "app.joget.com",
+          "kind": "JogetDX",
+          "plural": "jogetdx",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
+          "image": "registry.connect.redhat.com/joget/joget-dx-operator@sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
+          "name": "joget-dx-operator-79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749-annotation"
+        },
+        {
+          "digest": "sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
+          "image": "registry.connect.redhat.com/joget/joget-dx-operator@sha256:79856e88008da33fc0323e197819fec39fbd6b6bf2b03a0bf799b517bcf8e749",
+          "name": "operator"
+        },
+        {
+          "digest": "sha256:f839152251e021fe0ae1d4bd9e5374c2a2fb3c01da4381ba4c01afcbaadbf8bd",
+          "image": "registry.connect.redhat.com/joget/joget-dx7-eap7@sha256:f839152251e021fe0ae1d4bd9e5374c2a2fb3c01da4381ba4c01afcbaadbf8bd",
+          "name": "joget"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
+      "version": "0.0.22",
+      "version_original": "0.0.22"
     }
   ],
   "page": 17,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

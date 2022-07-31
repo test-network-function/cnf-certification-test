@@ -1,355 +1,6 @@
 {
   "data": [
     {
-      "_id": "6047168edbb14c0b8248bae5",
-      "alm_examples": [
-        {
-          "api_version": "tufin.io/v1alpha1",
-          "kind": "Orca",
-          "metadata": {
-            "name": "orca"
-          },
-          "spec": {
-            "components": {
-              "conntrack": true,
-              "dns": false,
-              "istio": false,
-              "kube-network-policy": true,
-              "pusher": true,
-              "syslog": false,
-              "watcher": true
-            },
-            "domain": "generic-bank",
-            "endpoints": {
-              "guru": "guru.tufin.io:443",
-              "orca": "https://securecloud.tufin.io",
-              "registry": "registry.tufin.io"
-            },
-            "ignored_config_maps": [
-              "kube-system/ingress-gce-lock",
-              "istio-system/istio-ingress-controller-leader-istio"
-            ],
-            "images": {
-              "kite": "registry.connect.redhat.com/tufin/kite",
-              "monitor": "registry.connect.redhat.com/tufin/monitor"
-            },
-            "kube_platform": "Openshift",
-            "namespace": "tufin-system",
-            "project": "openshift4"
-          }
-        },
-        {
-          "api_version": "networking.tufin.io/v1",
-          "kind": "Policy",
-          "metadata": {
-            "name": "orca",
-            "namespace": "placeholder"
-          },
-          "spec": {
-            "mode": "learning",
-            "networkPolicyAllowAll": true,
-            "rules": []
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/tufin/orca-operator-bundle@sha256:3ea67ab24efcb9b693d57ba2624de6c9dd5745c788d669dff0562c4b283d447b",
-      "bundle_path_digest": "sha256:3ea67ab24efcb9b693d57ba2624de6c9dd5745c788d669dff0562c4b283d447b",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "beta",
-      "creation_date": "2021-03-09T06:32:46.951000+00:00",
-      "csv_description": "Tufin SecureCloud is a cloud-based security monitoring and enforcement platform for Kubernetes clusters, containers and microservices.\nThe SecureCloud Operator installs SecureCloud resources into your cluster. These work with the SecureCloud cloud application to give the following functionality:\n* Monitor the cluster configuration: namespaces, containers, pods, services, network policies etc.\n* Learn and visualize the cluster connectivity\n* Build a connectivity policy (whitelist)\n* Generate audit reports\n* Alert on unauthorized connections\n* Enforce the connectivity policy in the cluster and on enterprise firewalls surrounding the cluster\n* Integrate into the CI/CD pipeline to learn and update the policy continuously\n* Scan images for vulnerabilities\n## Deploying the agent\n* Sign up to SecureCloud [here] (https://www.tufin.com/tufin-orchestration-suite/securecloud)\n* You will be sent an email containing your deployment parameters\n* Complete the deployment following the instructions for generating the agent's secret [here] (https://github.com/Tufin/orca-operator/blob/master/docs/install_securecloud_operator.md)",
-      "csv_display_name": "Tufin SecureCloud Operator",
-      "csv_metadata_description": "Installs the SecureCloud Agent on the cluster. SecureCloud is a cloud-based security monitoring and enforcement platform for Kubernetes.",
-      "csv_name": "orca-operator.v1.0.197",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": false,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:13:36.634000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "orca",
-      "provided_apis": [
-        {
-          "group": "tufin.io",
-          "kind": "Orca",
-          "plural": "orcas",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "networking.tufin.io",
-          "kind": "Policy",
-          "plural": "policies",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
-          "image": "registry.connect.redhat.com/tufin/orca-operator@sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
-          "name": "orca-operator-dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f-annotation"
-        },
-        {
-          "digest": "sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
-          "image": "registry.connect.redhat.com/tufin/orca-operator@sha256:dfe69f95b629f1380879eee8e09dc1d51ebecf2a9cae18b254a3da6fd0f2951f",
-          "name": "orca-operator"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "1.0.197",
-      "version_original": "1.0.197"
-    },
-    {
-      "_id": "6047168f5a00810ecaf7c442",
-      "alm_examples": [
-        {
-          "api_version": "perceptilabs.com/v1",
-          "kind": "PerceptiLabs",
-          "metadata": {
-            "name": "example-perceptilabs"
-          },
-          "spec": {
-            "coreGpus": 0,
-            "corePvc": "perceptilabs-pvc",
-            "license_name": "demo",
-            "license_value": "demo",
-            "ryggPvc": "perceptilabs-pvc"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator-bundle@sha256:ac9d7ca9b4ca142bd5c983e541cc687fea3143446b79d7d853f7dd654a3001ef",
-      "bundle_path_digest": "sha256:ac9d7ca9b4ca142bd5c983e541cc687fea3143446b79d7d853f7dd654a3001ef",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2021-03-09T06:32:47.953000+00:00",
-      "csv_description": "The PerceptiLabs operator creates and maintains PerceptiLabs, a visual tool for machine learning at warp speed.\n\nPerceptiLabs visual modeling tool provides a GUI for building,\ntraining, and assessing your models, while also enabling deeper\ndevelopment with code. You get faster iterations and better\nexplainability of your results.\n\nFor more information visit [http://perceptilabs.com](http://perceptilabs.com).\n\n# Features\n\n**Fast modeling**  \nMake changes, debug, and tune your model through the GUI of custom code\neditor where every component/layer is reprogrammable. Choose from\nmultiple neural network models as well as classical AI methods.\n\n\n**Transparency of Model Performance and Results**  \nGet instant feedback about your model's performance through the\nvisualization of the architecture, to better review and understand the\nresults. See real-time analytics in every operation and variable, and\ngranular previews of output from each model component.\n\n\n**Flexibility**  \nCustomize your environment and statistics dashboard. Use high-level\nabstractions or low-level code. Execute any custom Python code or export\na fully trained TensorFlow model to perform inference in your projects.\n\n\n\n# Installation Instructions  \nFor your convenience, we've included an example quickstart for running PerceptiLabs in demo mode.\n\n## Prepare your namespace  \nChoose or create the namespace into which you'd like install PerceptiLabs. For example:  \n```\noc create namespace REPLACE_NAMESPACE\n```\n\n## Prepare storage for your data\n\nYou'll need to have a place on your cluster for storing training data and models.\n\nHere's an example configuration for creating storage on a cluster hosted on AWS that you can tailor to your needs:\n\n```\nkind: StorageClass\napiVersion: storage.k8s.io/v1\nmetadata:\n  name: perceptilabs-example-sc\n  annotations:\n    description: Example Storage for PerceptiLabs\nprovisioner: kubernetes.io/aws-ebs\nparameters:\n  fsType: ext4\n  type: gp2\nreclaimPolicy: Delete\nvolumeBindingMode: Immediate\n---\nkind: PersistentVolumeClaim\napiVersion: v1\nmetadata:\n  name: REPLACE_PVC_NAME\n  namespace: REPLACE_NAMESPACE\nspec:\n  storageClassName: perceptilabs-example-sc\n  volumeMode: Filesystem\n  accessModes:\n    - ReadWriteOnce\n  resources:\n    requests:\n      storage: 50Gi\n```\n\n## Subscribe to the PerceptiLabs operator in your namespace\n\nIf you're using the OpenShift console webpage, just click the Install button on this operator. If not, you can customize and apply this configuration:\n\n```\napiVersion: operators.coreos.com/v1\nkind: OperatorGroup\nmetadata:\n  name: REPLACE_NAMESPACE-operatorgroup\n  namespace: REPLACE_NAMESPACE\nspec:\n  targetNamespaces:\n  - REPLACE_NAMESPACE\n---\napiVersion: operators.coreos.com/v1alpha1\nkind: Subscription\nmetadata:\n  name: perceptilabs-operator\n  namespace: REPLACE_NAMESPACE\nspec:\n  channel: stable\n  name: perceptilabs-operator-package\n  source: perceptilabs-operators\n  sourceNamespace: openshift-marketplace\n  namespace: REPLACE_NAMESPACE\n```\n\nAfter this, you should see a `perceptilabs-operator` pod start up in your namespace. In that pod, the log for the `operator` container should eventually say \"starting to serve\".\n\n## Start a copy of PerceptiLabs\n\nThis is where you connect your storage and service account to a PerceptiLabs instance and run it. You can customize and apply the following configuration:\n\n```\napiVersion: perceptilabs.com/v1\nkind: PerceptiLabs\nmetadata:\n  name: example-perceptilabs\n  namespace: REPLACE_NAMESPACE\nspec:\n  corePvc: REPLACE_PVC_NAME\n  ryggPvc: REPLACE_PVC_NAME\n```\n\nAt this point two pods named 'perceptilabs-core-...' and 'perceptilabs-frontend-...` will start up in your namespace.\n\n## Copy data files to your cluster\n\nIf you've used the persistent storage configuration from above, then you have a read-write volume mounted in the pod at `/mnt/plabs`. Copy your files there:\n\n```\noc cp REPLACE_FILENAME --namespace=REPLACE_NAMESPACE REPLACE_CORE_POD_NAME:/mnt/plabs --container=core\n```\n\n## Get the URL of your PerceptiLabs\n\nOnce everything is up and running, you'll have two new routes in your namespace. Go to the routes for your namespace and follow the link named `perceptilabs-frontend`. Your browser will be connected to your instance of PerceptiLabs! Alternatively, you can get the URL from the command line:\n\n```\noc get routes --namespace REPLACE_NAMESPACE perceptilabs-frontend\n```",
-      "csv_display_name": "PerceptiLabs Operator",
-      "csv_metadata_description": "AI platform which lets you Build, Train and Analyze",
-      "csv_name": "perceptilabs-operator.v1.0.21",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:50:23.586000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "perceptilabs-operator-package",
-      "provided_apis": [
-        {
-          "group": "perceptilabs.com",
-          "kind": "PerceptiLabs",
-          "plural": "perceptilabs",
-          "version": "v1alpha1"
-        },
-        {
-          "group": "perceptilabs.com",
-          "kind": "PerceptiLabs",
-          "plural": "perceptilabs",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "name": "perceptilabs-operator-520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8-annotation"
-        },
-        {
-          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "name": "ansible"
-        },
-        {
-          "digest": "sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-operator@sha256:520d0b84a205a00653493bd88ee570b46ee010da51c00aefb44e16a483ef46a8",
-          "name": "operator"
-        },
-        {
-          "digest": "sha256:e32ba8261fd22d8324b7cee2cd62a04602e33a11dc12994f629b715ae6983459",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-frontend-1@sha256:e32ba8261fd22d8324b7cee2cd62a04602e33a11dc12994f629b715ae6983459",
-          "name": "frontend_image"
-        },
-        {
-          "digest": "sha256:bf50b30c9e1c09929b0cc70d200638c5947ca20695ded49bc38fc6790cd7f2ef",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-core-1@sha256:bf50b30c9e1c09929b0cc70d200638c5947ca20695ded49bc38fc6790cd7f2ef",
-          "name": "core_image"
-        },
-        {
-          "digest": "sha256:5927fde799ab21ab425db72ddb51d19c1ea7c6fb0b5dbe68cf7637f6d66774d3",
-          "image": "registry.connect.redhat.com/perceptilabs/perceptilabs-rygg-1@sha256:5927fde799ab21ab425db72ddb51d19c1ea7c6fb0b5dbe68cf7637f6d66774d3",
-          "name": "rygg_image"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "1.0.21",
-      "version_original": "1.0.21"
-    },
-    {
-      "_id": "604716928985fcd889e788d7",
-      "alm_examples": [
-        {
-          "api_version": "portshift.io/v1",
-          "kind": "PortshiftInstaller",
-          "metadata": {
-            "name": "example-portshiftinstaller"
-          },
-          "spec": {
-            "managementUrl": "console.portshift.io",
-            "portshiftClusterId": "CLUSTER_ID"
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/portshift/operator-bundle@sha256:315706e1ed51c3543b44c0524ee717b36324d128d8dafac2388adf94107c4c48",
-      "bundle_path_digest": "sha256:315706e1ed51c3543b44c0524ee717b36324d128d8dafac2388adf94107c4c48",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2021-03-09T06:32:50.831000+00:00",
-      "csv_description": "### Contents\n * About\n * Requirements\n * Documentation\n * Issues and feedback\n\n### About\nThe portshift-operator is a controller that runs within a Kubernetes or Openshift cluster that provides a means to deploy and manage Portshift's runtime controller, which is a single pod (agentless admission controller) that provide comperhensive runtime security.\n\n## Use the portshift-operator to:\n\n * Deploy Portshfit controler on Kubernetes or Openshift cluster\n * Automate the registration/authentication process prior to the deployment.\n\n## Deployment Requirements\nThe Operator deploys on Kubernetes and Openshift clusters.\n\n * Kubernetes: 1.15 +\n * Openshift: 4.0 +\n\n## Documentation\nThe following documentation is provided:\n\n * [Installation](http://portshift.readme.io/)\n\n## Issues and feedback\nIf you encounter any problems or would like to give us feedback on deployments, we encourage you to raise issues here on GitHub.\n",
-      "csv_display_name": "Portshift Operator",
-      "csv_metadata_description": "The operator will deploy portshift agent on the cluster",
-      "csv_name": "portshift-operator.v0.1.6",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:49:47.883000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.8",
-      "organization": "certified-operators",
-      "package": "portshift-controller-operator",
-      "provided_apis": [
-        {
-          "group": "portshift.io",
-          "kind": "PortshiftInstaller",
-          "plural": "portshiftinstallers",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
-          "image": "registry.connect.redhat.com/portshift/operator@sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
-          "name": "operator-7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e-annotation"
-        },
-        {
-          "digest": "sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
-          "image": "registry.connect.redhat.com/portshift/operator@sha256:7676180f5fcd495ed9d3bf232e5ffc426767c7f8e9914637a3505da84ddcfc4e",
-          "name": "portshift-operator"
-        },
-        {
-          "digest": "sha256:f52b3097d049ac86920bd6cdd4dac3def7411dcd1757438b92f0d7d36fa4852e",
-          "image": "registry.connect.redhat.com/portshift/portshift-k8s-agent@sha256:f52b3097d049ac86920bd6cdd4dac3def7411dcd1757438b92f0d7d36fa4852e",
-          "name": "agent"
-        },
-        {
-          "digest": "sha256:19a49c31102b8f4afa2ad8980d3037c78167da089f4c62023da059bbf2c77c87",
-          "image": "registry.connect.redhat.com/portshift/k8s-upgrader@sha256:19a49c31102b8f4afa2ad8980d3037c78167da089f4c62023da059bbf2c77c87",
-          "name": "agent_upgrader"
-        },
-        {
-          "digest": "sha256:5569481578b0049f2bdc10158c50e8c76947d0b053ed4ed9add6838c52f5ddb7",
-          "image": "registry.connect.redhat.com/portshift/gopassivedns@sha256:5569481578b0049f2bdc10158c50e8c76947d0b053ed4ed9add6838c52f5ddb7",
-          "name": "agent_passive_dns_detector"
-        },
-        {
-          "digest": "sha256:3c1567790f045dd646f65cdcd3287d5ed8a01ca3212db8f48bd5586675261e74",
-          "image": "registry.connect.redhat.com/portshift/clair@sha256:3c1567790f045dd646f65cdcd3287d5ed8a01ca3212db8f48bd5586675261e74",
-          "name": "clair"
-        },
-        {
-          "digest": "sha256:b27d47eb7a66968d34dc8d8e9374b74cec1bcb20345926c3ef56b1c1e46d5f15",
-          "image": "registry.connect.redhat.com/portshift/clair-db@sha256:b27d47eb7a66968d34dc8d8e9374b74cec1bcb20345926c3ef56b1c1e46d5f15",
-          "name": "clair_db"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
-      "version": "0.1.6",
-      "version_original": "0.1.6"
-    },
-    {
       "_id": "604716978985fcd889e788da",
       "alm_examples": [
         {
@@ -21153,9 +20804,472 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
       "version": "1.3.10",
       "version_original": "1.3.10"
+    },
+    {
+      "_id": "606fd5c06920d86efa1125e1",
+      "alm_examples": [
+        {
+          "api_version": "cortex.cognitivescale.com/v1",
+          "kind": "Certifai",
+          "metadata": {
+            "name": "default-certifai"
+          },
+          "spec": {
+            "console": {
+              "authorization-type": "none",
+              "azure": {
+                "account-key": "your account key",
+                "account-name": "your account name",
+                "sas-token": "your SAS token"
+              },
+              "create-ingress": true,
+              "gcs": {
+                "application-credentials": "{\n  \"type\": \"\",\n  \"project_id\": \"\",\n  \"private_key_id\": \"\",\n  \"private_key\": \"\",\n  \"client_email\": \"\",\n  \"client_id\": \"\",\n  \"auth_uri\": \"\",\n  \"token_uri\": \"\",\n  \"auth_provider_x509_cert_url\": \"\",\n  \"client_x509_cert_url\": \"\"\n}\n"
+              },
+              "replicas": 1,
+              "route-type": "none",
+              "s3": {
+                "access-key": "your access key",
+                "endpoint": "https://s3.amazonaws.com",
+                "secret-key": "your secret key",
+                "verify-cert": false
+              },
+              "scan-dir": ""
+            },
+            "deployment-type": "openshift",
+            "dex": {
+              "connector": {
+                "add-config": "orgs:\n- name: my-org\n",
+                "client-id": "clientid",
+                "client-secret": "clientsecret",
+                "name": "Github",
+                "type": "github"
+              },
+              "create-ingress": true,
+              "enabled": false,
+              "replicas": 1
+            },
+            "policy": {
+              "authorization-type": "none",
+              "azure": {
+                "account-key": "your account key",
+                "account-name": "your account name",
+                "sas-token": "your SAS token"
+              },
+              "create-ingress": true,
+              "enabled": false,
+              "gcs": {
+                "application-credentials": "{\n  \"type\": \"\",\n  \"project_id\": \"\",\n  \"private_key_id\": \"\",\n  \"private_key\": \"\",\n  \"client_email\": \"\",\n  \"client_id\": \"\",\n  \"auth_uri\": \"\",\n  \"token_uri\": \"\",\n  \"auth_provider_x509_cert_url\": \"\",\n  \"client_x509_cert_url\": \"\"\n}\n"
+              },
+              "questionnaire-dir": "",
+              "replicas": 1,
+              "route-type": "none",
+              "s3": {
+                "access-key": "your access key",
+                "endpoint": "https://s3.amazonaws.com",
+                "secret-key": "your secret key",
+                "verify-cert": false
+              }
+            },
+            "reference-model": {
+              "enabled": true
+            },
+            "reporting": {
+              "db-conn-str": "postgresql://user:password@service:port/db",
+              "enabled": true,
+              "period": "*/15 * * * *"
+            }
+          }
+        },
+        {
+          "api_version": "cortex.cognitivescale.com/v1",
+          "kind": "CertifaiScan",
+          "metadata": {
+            "name": "example-certifai-scan",
+            "namespace": "certifai"
+          },
+          "spec": {
+            "scanconfig": {
+              "concurrency": 4,
+              "requests": {
+                "cpu": "800m",
+                "memory": "800Mi"
+              },
+              "scanargs": "command line args here",
+              "scandef": "definition file text here"
+            }
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/c12e/cortex-certifai-operator-bundle@sha256:7beaacb9261b0ab823443b4f7c3f3c3bff8250caee7f1ca68887e2457e8f963b",
+      "bundle_path_digest": "sha256:7beaacb9261b0ab823443b4f7c3f3c3bff8250caee7f1ca68887e2457e8f963b",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2021-04-09T04:19:12.961000+00:00",
+      "csv_description": "Cortex Certifai empowers enterprises to identify and mitigate risk and vulnerabilities within AI and deploy trusted AI systems into production. It evaluates AI models and allows users to compare different models or model versions for the following qualities.\n* **Robustness:** measures how well models retain an outcome given changes to the data feature values. The more robust a model is, the greater the changes required to alter the outcome.\n* **Fairness by group:** measures the difference required to change the outcome for different groups implicit in a feature given the same model and dataset. For example, implicit groups male, female, and nonbinary belong to the feature, \u201cgender\u201d. A fair model shows that all 3 groups require a similar amount of change to alter the results.\n* **Explainability:** measures the average simplicity of counterfactual explanations provided for each model. An explanation that requires a single changed feature will score 100%. Explanations that require more changed features will score lower.\n* **Explanations:** display the prediction provided through the generation of counterfactuals for the change that must occur in a dataset with given restrictions to obtain a different outcome. Users can explore the entire dataset one observation at a time to understand what features changed and by how much to obtain a different result.\nSee our [documentation](https://cognitivescale.github.io/cortex-certifai/) for information about how to deploy the Certifai Operator and how to get started using our toolkit.\n## License Copyright 2020 Cognitive Scale, Inc. All Rights Reserved.\nBy downloading you agree to the terms of CognitiveScale's [End User License Agreement](https://www.cognitivescale.com/legal-information/).\n",
+      "csv_display_name": "Cortex Certifai Operator",
+      "csv_metadata_description": "Cortex Certifai empowers enterprises to identify and mitigate risk and vulnerabilities within AI and deploy trusted AI systems into production.",
+      "csv_name": "cortex-certifai-operator.v1.3.10",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:27:43.986000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "cortex-certifai-operator",
+      "provided_apis": [],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-operator@sha256:4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879",
+          "name": "cortex-certifai-operator-4ac0c60eaa087209a7944212a29b5b23bdb946b6139d28ae4f999c3440709879-annotation"
+        },
+        {
+          "digest": "sha256:082cf0c8e1289a7e08bb324b512a737e0ea3f618ea5b6fd8cecbb415ff07a230",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-operator@sha256:082cf0c8e1289a7e08bb324b512a737e0ea3f618ea5b6fd8cecbb415ff07a230",
+          "name": "cortex-certifai-operator"
+        },
+        {
+          "digest": "sha256:e0b34632bffe7d9ea186e7412030e404d081adb4216145f676cddda46a8746fa",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-reference-model-server@sha256:e0b34632bffe7d9ea186e7412030e404d081adb4216145f676cddda46a8746fa",
+          "name": "refmodel"
+        },
+        {
+          "digest": "sha256:97209356148d10f8e1621ac5246c13ef7f4a6ccb62479e8bbfa3151a768f4f90",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-console@sha256:97209356148d10f8e1621ac5246c13ef7f4a6ccb62479e8bbfa3151a768f4f90",
+          "name": "console"
+        },
+        {
+          "digest": "sha256:f54857468f12e918d3b31144d9e63e3c497a408cd4b545c5ef2d60cd74c9a3ba",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-policy-chooser@sha256:f54857468f12e918d3b31144d9e63e3c497a408cd4b545c5ef2d60cd74c9a3ba",
+          "name": "policy_chooser"
+        },
+        {
+          "digest": "sha256:3e554f5baf161ec2297a452316045d20e628fd935c4a6584ba05043be574bf37",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-scanner@sha256:3e554f5baf161ec2297a452316045d20e628fd935c4a6584ba05043be574bf37",
+          "name": "scanner"
+        },
+        {
+          "digest": "sha256:88d0caeac7265cc1553c7f443cd7f8afddd8cfbb01c916381f8c1e8447a17497",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-reporting-etl@sha256:88d0caeac7265cc1553c7f443cd7f8afddd8cfbb01c916381f8c1e8447a17497",
+          "name": "reporting_etl"
+        },
+        {
+          "digest": "sha256:a6e75a40feea7b838071c4fcb7933eec29955bf5fe7d874400d6a00e2709031f",
+          "image": "registry.redhat.io/openshift4/ose-oauth-proxy@sha256:a6e75a40feea7b838071c4fcb7933eec29955bf5fe7d874400d6a00e2709031f",
+          "name": "oauth_proxy"
+        },
+        {
+          "digest": "sha256:091e3df91531223aac50435fabc384b1d900aaaf2c5ce639a3e141e2fcb3eb8d",
+          "image": "registry.connect.redhat.com/c12e/cortex-certifai-scan-manager@sha256:091e3df91531223aac50435fabc384b1d900aaaf2c5ce639a3e141e2fcb3eb8d",
+          "name": "scan_manager"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "1.3.10",
+      "version_original": "1.3.10"
+    },
+    {
+      "_id": "60708cae14979904df57ba97",
+      "alm_examples": [
+        {
+          "api_version": "example.com/v1alpha1",
+          "kind": "jtrac",
+          "metadata": {
+            "name": "jtrac-sample"
+          },
+          "spec": {
+            "affinity": {},
+            "autoscaling": {
+              "enabled": false,
+              "maxReplicas": 100,
+              "minReplicas": 1,
+              "targetCPUUtilizationPercentage": 80
+            },
+            "fullnameOverride": "",
+            "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+            "imagePullSecrets": [],
+            "ingress": {
+              "annotations": {},
+              "enabled": false,
+              "hosts": [
+                {
+                  "host": "chart-example.local",
+                  "paths": []
+                }
+              ],
+              "tls": []
+            },
+            "nameOverride": "",
+            "nodeSelector": {},
+            "podAnnotations": {},
+            "podSecurityContext": {},
+            "replicaCount": 1,
+            "resources": {},
+            "securityContext": {},
+            "service": {
+              "port": 8080,
+              "type": "LoadBalancer"
+            },
+            "serviceAccount": {
+              "annotations": {},
+              "create": false,
+              "name": ""
+            },
+            "tolerations": []
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/corentrepo/corent-operator-bundle@sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
+      "bundle_path_digest": "sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-04-09T17:19:42.245000+00:00",
+      "csv_description": "This Operator will deploy the Jtrac Application",
+      "csv_display_name": "Jtrac-APP Operator",
+      "csv_metadata_description": "This is a Operator bundle image that can be used to deploy Jtrac application for testing",
+      "csv_name": "jtrac-app-operator.v0.0.1",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:16:30.023000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.8",
+      "organization": "certified-operators",
+      "package": "jtrac-app-operator",
+      "provided_apis": [
+        {
+          "group": "example.com",
+          "kind": "jtrac",
+          "plural": "jtracs",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "name": "corent-jtrac-operator-938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535-annotation"
+        },
+        {
+          "digest": "sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
+          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
+          "name": "kube-rbac-proxy"
+        },
+        {
+          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "name": "app"
+        },
+        {
+          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "name": "corent-jtrac-application-8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.8",
+      "version": "0.0.1",
+      "version_original": "0.0.1"
+    },
+    {
+      "_id": "6070b3440833afe1fb722e4e",
+      "alm_examples": [
+        {
+          "api_version": "example.com/v1alpha1",
+          "kind": "jtrac",
+          "metadata": {
+            "name": "jtrac-sample"
+          },
+          "spec": {
+            "affinity": {},
+            "autoscaling": {
+              "enabled": false,
+              "maxReplicas": 100,
+              "minReplicas": 1,
+              "targetCPUUtilizationPercentage": 80
+            },
+            "fullnameOverride": "",
+            "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+            "imagePullSecrets": [],
+            "ingress": {
+              "annotations": {},
+              "enabled": false,
+              "hosts": [
+                {
+                  "host": "chart-example.local",
+                  "paths": []
+                }
+              ],
+              "tls": []
+            },
+            "nameOverride": "",
+            "nodeSelector": {},
+            "podAnnotations": {},
+            "podSecurityContext": {},
+            "replicaCount": 1,
+            "resources": {},
+            "securityContext": {},
+            "service": {
+              "port": 8080,
+              "type": "LoadBalancer"
+            },
+            "serviceAccount": {
+              "annotations": {},
+              "create": false,
+              "name": ""
+            },
+            "tolerations": []
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/corentrepo/corent-operator-bundle@sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
+      "bundle_path_digest": "sha256:7f59b09438a61b79ef78872c6e7e169e4ef3164a6c5d04729fe45e0890e7bb36",
+      "capabilities": [
+        "Basic Install"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-04-09T20:04:20.199000+00:00",
+      "csv_description": "This Operator will deploy the Jtrac Application",
+      "csv_display_name": "Jtrac-APP Operator",
+      "csv_metadata_description": "This is a Operator bundle image that can be used to deploy Jtrac application for testing",
+      "csv_name": "jtrac-app-operator.v0.0.1",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": false,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": false,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T02:09:13.282000+00:00",
+      "latest_in_channel": true,
+      "ocp_version": "4.7",
+      "organization": "certified-operators",
+      "package": "jtrac-app-operator",
+      "provided_apis": [
+        {
+          "group": "example.com",
+          "kind": "jtrac",
+          "plural": "jtracs",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "name": "corent-jtrac-operator-938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535-annotation"
+        },
+        {
+          "digest": "sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
+          "image": "registry.redhat.io/openshift4/ose-kube-rbac-proxy@sha256:e1c4c942e8249683f9861d78a4e3f301bbf612b3d01b01371ac66decc3a8bc66",
+          "name": "kube-rbac-proxy"
+        },
+        {
+          "digest": "sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-operator@sha256:938df218f6eac19ff97a1be2f9288b1a206568bc0b331b9d6d84632a9c054535",
+          "name": "manager"
+        },
+        {
+          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "name": "app"
+        },
+        {
+          "digest": "sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "image": "registry.connect.redhat.com/corentrepo/corent-jtrac-application@sha256:8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0",
+          "name": "corent-jtrac-application-8c7214e45669d73d9d4eec88220797b18b975d78d3786d9b715af39bffee85d0-annotation"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
+      "version": "0.0.1",
+      "version_original": "0.0.1"
     }
   ],
   "page": 5,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }

@@ -1,180 +1,6 @@
 {
   "data": [
     {
-      "_id": "5fc93a901aee7c1e72238dfd",
-      "alm_examples": [
-        {
-          "api_version": "machinelearning.seldon.io/v1",
-          "kind": "SeldonDeployment",
-          "metadata": {
-            "labels": {
-              "app": "seldon",
-              "app.kubernetes.io/instance": "seldon1",
-              "app.kubernetes.io/name": "seldon",
-              "app.kubernetes.io/version": "v0.5"
-            },
-            "name": "seldon-model"
-          },
-          "spec": {
-            "name": "test-deployment",
-            "predictors": [
-              {
-                "componentSpecs": [
-                  {
-                    "spec": {
-                      "containers": [
-                        {
-                          "image": "seldonio/mock_classifier:1.5.0",
-                          "name": "classifier"
-                        }
-                      ]
-                    }
-                  }
-                ],
-                "graph": {
-                  "children": [],
-                  "name": "classifier",
-                  "type": "MODEL"
-                },
-                "name": "example",
-                "replicas": 1
-              }
-            ]
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/seldonio/seldon-core-operator-bundle@sha256:64b7bbd99fa305eee77225a1d19c351817eff13bd018a95caf13c06749ff0491",
-      "bundle_path_digest": "sha256:64b7bbd99fa305eee77225a1d19c351817eff13bd018a95caf13c06749ff0491",
-      "capabilities": [
-        "Seamless Upgrades"
-      ],
-      "channel_name": "stable",
-      "creation_date": "2020-12-03T19:20:48.336000+00:00",
-      "csv_description": "The Seldon operator enables for native operation of production machine learning workloads, including monitoring and operations of language-agnostic models with the benefits of real-time metrics and log analysis.\n   \n## Overview\nSeldon Core is an open source platform for deploying machine learning models on a Kubernetes cluster.\n\n* Deploy machine learning models in the cloud or on-premise.\n* Get metrics and ensure proper governance and compliance for your running machine learning models.\n* Create powerful inference graphs made up of multiple components.\n* Provide a consistent serving layer for models built using heterogeneous ML toolkits.\n\nYou can get started by following the guides in our documentation at https://docs.seldon.io/projects/seldon-core/en/latest/workflow/README.html\n",
-      "csv_display_name": "Seldon Operator",
-      "csv_metadata_description": "The Seldon operator for management, monitoring and operations of machine learning systems through the Seldon Engine. Once installed, the Seldon Operator provides multiple functions which facilitate the productisation, monitoring and maintenance of machine learning systems at scale.",
-      "csv_name": "seldon-operator.v1.5.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T01:25:23.169000+00:00",
-      "latest_in_channel": false,
-      "ocp_version": "4.6",
-      "organization": "certified-operators",
-      "package": "seldon-operator-certified",
-      "provided_apis": [
-        {
-          "group": "machinelearning.seldon.io",
-          "kind": "SeldonDeployment",
-          "plural": "seldondeployments",
-          "version": "v1"
-        },
-        {
-          "group": "machinelearning.seldon.io",
-          "kind": "SeldonDeployment",
-          "plural": "seldondeployments",
-          "version": "v1alpha2"
-        },
-        {
-          "group": "machinelearning.seldon.io",
-          "kind": "SeldonDeployment",
-          "plural": "seldondeployments",
-          "version": "v1alpha3"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
-          "image": "registry.connect.redhat.com/seldonio/seldon-core-operator@sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
-          "name": "seldon-core-operator-371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70-annotation"
-        },
-        {
-          "digest": "sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
-          "image": "registry.connect.redhat.com/seldonio/seldon-core-operator@sha256:371cbca7869a8cd44a03a6c65d302cf4987e86311b73bebfd36dfcf95cd02e70",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:5005003f0c88bdf192f79613a90396dbc59b55d7b78c459a0e08535f6129039a",
-          "image": "registry.connect.redhat.com/seldonio/seldon-core-executor@sha256:5005003f0c88bdf192f79613a90396dbc59b55d7b78c459a0e08535f6129039a",
-          "name": "executor"
-        },
-        {
-          "digest": "sha256:00b4bfaee81bb8cf3e23ebd65730ebca383e68541a72ac7b2daf1f8953f0aa7b",
-          "image": "registry.connect.redhat.com/seldonio/seldon-engine@sha256:00b4bfaee81bb8cf3e23ebd65730ebca383e68541a72ac7b2daf1f8953f0aa7b",
-          "name": "engine"
-        },
-        {
-          "digest": "sha256:2ae9edbacb42d78728cfd6048d1ecabda7621652422a3a3a9b6fd15026c7b97e",
-          "image": "registry.connect.redhat.com/seldonio/storage-initializer@sha256:2ae9edbacb42d78728cfd6048d1ecabda7621652422a3a3a9b6fd15026c7b97e",
-          "name": "storage_initializer"
-        },
-        {
-          "digest": "sha256:9081f0aa35d4dff393c38a86db2b34d1058c0bbef819c1094ae288f856818eb1",
-          "image": "registry.connect.redhat.com/seldonio/sklearnserver@sha256:9081f0aa35d4dff393c38a86db2b34d1058c0bbef819c1094ae288f856818eb1",
-          "name": "sklearnserver"
-        },
-        {
-          "digest": "sha256:2bd58fa4399c4b0c9b3f78cc1f620552aac7b3f37ad92f691e649a17be8d3947",
-          "image": "registry.connect.redhat.com/seldonio/xgboostserver@sha256:2bd58fa4399c4b0c9b3f78cc1f620552aac7b3f37ad92f691e649a17be8d3947",
-          "name": "xgboostserver"
-        },
-        {
-          "digest": "sha256:4f114581fa108f8ae77a99eaa368fca09257548cd314d69a34f8dd56592158ce",
-          "image": "registry.connect.redhat.com/seldonio/mlflowserver@sha256:4f114581fa108f8ae77a99eaa368fca09257548cd314d69a34f8dd56592158ce",
-          "name": "mlflowserver"
-        },
-        {
-          "digest": "sha256:dd64bf3f825ce31594c66c3c6e315629711393777f27f795626c0862d8caf058",
-          "image": "registry.connect.redhat.com/seldonio/tfproxy@sha256:dd64bf3f825ce31594c66c3c6e315629711393777f27f795626c0862d8caf058",
-          "name": "tfproxy"
-        },
-        {
-          "digest": "sha256:1dc53edc5c8d1b151782f8386c0770d0358c6397eaf42ec55ebd18f331c5ef9e",
-          "image": "registry.connect.redhat.com/seldonio/tensorflow-serving@sha256:1dc53edc5c8d1b151782f8386c0770d0358c6397eaf42ec55ebd18f331c5ef9e",
-          "name": "tensorflow"
-        },
-        {
-          "digest": "sha256:d4471a2ebaf2227c2a12aba41ab5d3a319c28533b3221a7e8e23c5d5ff99b5be",
-          "image": "registry.connect.redhat.com/seldonio/alibiexplainer@sha256:d4471a2ebaf2227c2a12aba41ab5d3a319c28533b3221a7e8e23c5d5ff99b5be",
-          "name": "explainer"
-        },
-        {
-          "digest": "sha256:d6c3f2aca49b5cbb7860264ccd87979122c014be6dd1fce9db3b1a4b312f1960",
-          "image": "registry.connect.redhat.com/seldonio/mock-classifier@sha256:d6c3f2aca49b5cbb7860264ccd87979122c014be6dd1fce9db3b1a4b312f1960",
-          "name": "mock_classifier"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.6",
-      "version": "1.5.0",
-      "version_original": "1.5.0"
-    },
-    {
       "_id": "5fcf52abfa8a5971b4238dfa",
       "alm_examples": [
         {
@@ -1728,181 +1554,6 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
       "version": "0.15.2",
       "version_original": "0.15.2"
-    },
-    {
-      "_id": "5fcf52c98c8643c889cb6ee7",
-      "alm_examples": [
-        {
-          "api_version": "mlops.cnvrg.io/v1",
-          "kind": "CnvrgApp",
-          "metadata": {
-            "name": "cnvrg-app"
-          },
-          "spec": {
-            "clusterDomain": "change.me.to.your.ocp.domain",
-            "cnvrgApp": {
-              "customAgentTag": "coreoc",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-              "port": "3000"
-            },
-            "es": {
-              "enabled": "true",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-              "patchEsNodes": "false"
-            },
-            "fluentd": {
-              "enabled": "false"
-            },
-            "ingressType": "openshift",
-            "istio": {
-              "enabled": "false"
-            },
-            "kibana": {
-              "enabled": "false"
-            },
-            "minio": {
-              "enabled": "true",
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d"
-            },
-            "nvidiadp": {
-              "enabled": "false"
-            },
-            "pg": {
-              "enabled": "true",
-              "image": "registry.redhat.io/rhscl/postgresql-12-rhel7@sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c"
-            },
-            "prometheus": {
-              "enabled": "false"
-            },
-            "redis": {
-              "enabled": "true",
-              "image": "registry.redhat.io/rhscl/redis-32-rhel7@sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0"
-            },
-            "securityMode": "ocp",
-            "seeder": {
-              "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b"
-            }
-          }
-        }
-      ],
-      "annotations": {
-        "infrastructure_features": [],
-        "valid_subscription": []
-      },
-      "architectures": [],
-      "bundle_path": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator-bundle@sha256:56f6c78611a26e4ed42e8228067ae4851799224f80d965bb034d7fe36f32b65f",
-      "bundle_path_digest": "sha256:56f6c78611a26e4ed42e8228067ae4851799224f80d965bb034d7fe36f32b65f",
-      "capabilities": [
-        "Basic Install"
-      ],
-      "channel_name": "alpha",
-      "creation_date": "2020-12-08T10:17:45.746000+00:00",
-      "csv_description": "#### cnvrg.io is an AI OS for machine learning, transforming the way enterprises manage, scale and accelerate AI and data science development from research to production.\n#### The cnvrg Operator runs within a Kubernetes cluster, and provides a means to deploy and manage the cnvrg cluster components\n* Cnvrg server (webapp + sidekiq)\n* Postgres DB\n* Redis DB\n* Minio Object storage\n* ElasticSearch DB\n\n#### **Before you begin**\n\n#### CnvrgApp have to be deployed into `cnvrg` namespace, thus please create a new project, also make sure you are selecting `cnvrg` project in OCP console when you are deploying CnvrgApp CR.\n```\noc new-project cnvrg\n```\n\n#### Set the `vm.max_map_count` to `262144` on K8S nodes for running [ElasticSearch instace](https://www.elastic.co/guide/en/elasticsearch/reference/current/vm-max-map-count.html) either by updating K8S workers nodes\n```\nsysctl -w vm.max_map_count=262144\n```\nor allow `cnvrg-operator` to do it for you\n```\noc adm policy add-scc-to-user privileged system:serviceaccount:cnvrg:cnvrg-privileged\n```\n#### **Installation**\n#### Update `CnvrgApp` CR (use OpenShift Operators YAML View) and set clusterDomain for your deployment. Usually `clusterDomain` should be set to the default OpenShift Route host. For example: `apps.your.openshift.cluster.com`\n```\napiVersion: mlops.cnvrg.io/v1\nkind: CnvrgApp\nmetadata:\n  name: cnvrg-app\nspec:\n  clusterDomain: \"apps.your.openshift.cluster.com\"\n...\n```",
-      "csv_display_name": "cnvrg-operator",
-      "csv_metadata_description": "Operator for deploying Cnvrg AI OS",
-      "csv_name": "cnvrg-operator.v0.352.0",
-      "in_index_img": true,
-      "install_modes": [
-        {
-          "supported": true,
-          "type": "OwnNamespace"
-        },
-        {
-          "supported": true,
-          "type": "SingleNamespace"
-        },
-        {
-          "supported": false,
-          "type": "MultiNamespace"
-        },
-        {
-          "supported": true,
-          "type": "AllNamespaces"
-        }
-      ],
-      "is_default_channel": true,
-      "last_update_date": "2022-06-17T02:12:41.632000+00:00",
-      "latest_in_channel": true,
-      "ocp_version": "4.7",
-      "organization": "certified-operators",
-      "package": "cnvrg-operator-marketplace",
-      "provided_apis": [
-        {
-          "group": "mlops.cnvrg.io",
-          "kind": "CnvrgApp",
-          "plural": "cnvrgapps",
-          "version": "v1"
-        }
-      ],
-      "provider": null,
-      "related_images": [
-        {
-          "digest": "sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator@sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "name": "cnvrgio-operator-24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a-annotation"
-        },
-        {
-          "digest": "sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-operator@sha256:24c16ffc392a1af0149610495a824cc45eaafae3f57cfd4eec5de25ce4583e8a",
-          "name": "manager"
-        },
-        {
-          "digest": "sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "name": "cnvrg_app"
-        },
-        {
-          "digest": "sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "name": "cnvrgio_seeder"
-        },
-        {
-          "digest": "sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "name": "cnvrg_es"
-        },
-        {
-          "digest": "sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "name": "cnvrg_minios"
-        },
-        {
-          "digest": "sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-minios@sha256:c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d",
-          "name": "cnvrg-minios-c412738964a8a2478f50d5aa39a3d898d8b44403605e93181eddc11f3ab3282d-annotation"
-        },
-        {
-          "digest": "sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-es@sha256:06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943",
-          "name": "cnvrg-es-06b9e348764555f963b5c07a6d4729318598515898df7860ecd497385d2c4943-annotation"
-        },
-        {
-          "digest": "sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c",
-          "image": "registry.redhat.io/rhscl/postgresql-12-rhel7@sha256:1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c",
-          "name": "postgresql-12-rhel7-1884af5eead48d1073f407455fa6e96701dc10ed3b4c023a85ace91d85471f9c-annotation"
-        },
-        {
-          "digest": "sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0",
-          "image": "registry.redhat.io/rhscl/redis-32-rhel7@sha256:2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0",
-          "name": "redis-32-rhel7-2bbe69f76a61f0ce099c58d052aae606401dd10f2fb4a4be7d01c85bfa8d57f0-annotation"
-        },
-        {
-          "digest": "sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrgio-seeder@sha256:998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b",
-          "name": "cnvrgio-seeder-998263af21be5a675c99d3db3d292a268d0d8efb47fc54318ff0c7b57bef040b-annotation"
-        },
-        {
-          "digest": "sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "image": "registry.connect.redhat.com/cnvrg-core/cnvrg-app@sha256:1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a",
-          "name": "cnvrg-app-1a9eaafe401ae598eec8677a0d1f6d3ff7fc7fabe0194d05b1a852155c96fc5a-annotation"
-        }
-      ],
-      "replaces": "",
-      "skip_range": "",
-      "skips": [],
-      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.7",
-      "version": "0.352.0",
-      "version_original": "0.352.0"
     },
     {
       "_id": "5fcf52cd6667346792627ca6",
@@ -15300,9 +14951,239 @@
       "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
       "version": "1.0.21",
       "version_original": "1.0.21"
+    },
+    {
+      "_id": "5ff5f0bf8634b82517526305",
+      "alm_examples": [
+        {
+          "api_version": "core.libopenstorage.org/v1",
+          "kind": "StorageCluster",
+          "metadata": {
+            "annotations": {
+              "portworx.io/is-openshift": "true"
+            },
+            "name": "portworx",
+            "namespace": "test-operator"
+          },
+          "spec": {
+            "autopilot": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "api_version": "core.libopenstorage.org/v1",
+          "kind": "StorageNode",
+          "metadata": {
+            "name": "example",
+            "namespace": "test-operator"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/portworx/portworx-certified-bundle@sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
+      "bundle_path_digest": "sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
+      "capabilities": [
+        "Auto Pilot"
+      ],
+      "channel_name": "alpha",
+      "creation_date": "2021-01-06T17:17:51.529000+00:00",
+      "csv_description": "Portworx-Enterprise is the most widely-used and reliable cloud-native\nstorage solution for production workloads and provides high-availability,\ndata protection and security for containerized applications.\n\nPortworx Enterprise enables you to migrate entire applications, including\ndata, between clusters in a single data center or cloud, or between clouds,\nwith a single kubectl command.\n\nThe cloud native storage and data management platform that enterprises trust\nto manage data in containers now has an operator which simplifies the install,\nconfiguration, upgrades and manages the Portworx Enterprise cluster lifecycle.\n\nLearn more about the Portworx Enterprise\n[the data platform for Kubernetes](https://portworx.com/products/introduction)\n\nTo learn more about the platform features, please visit our\n[product features page](https://portworx.com/products/features)\n\n### About Portworx\n\nPortworx is the solution for running stateful containers in production,\ndesigned with DevOps in mind. With Portworx, users can manage any database\nor stateful service on any infrastructure using any container scheduler,\nincluding Kubernetes, Mesosphere DC/OS, and Docker Swarm. Portworx solves\nthe five most common problems DevOps teams encounter when running stateful\nservices in production: persistence, high availability, data automation,\nsecurity, and support for multiple data stores and infrastructure.\n\n### How to install StorageCluster\n\nTo customize your cluster's configuration (specification), use the\n[Spec Generator](https://central.portworx.com/) from PX-Central.\n\n### Prerequisite\n\nEnsure ports 17001-17020 on worker nodes are reachable from master and other worker nodes.\n\n### Tutorials\n\n* [Portworx Enterprise on Openshift](https://portworx.com/openshift)\n\n* [Stateful applications on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes/application-install-with-kubernetes)\n\n* [Portworx Enterprise on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes)\n\n* [Kafka on Kubernetes](https://portworx.com/kafka-kubernetes)\n\n* [Elastisearch on Kubernetes](https://portworx.com/elasticsearch-kubernetes)\n\n* [PostgreSQL on Kubernetes](https://portworx.com/postgres-kubernetes/)\n\n* [MongoDB on Kubernetes](https://portworx.com/mongodb-kubernetes/)\n\n* [Cassandra on Kubernetes](https://portworx.com/cassandra-kubernetes/)\n\n* [Kubernetes backup and recovery](https://portworx.com/kubernetes-backup/)\n\n* [Disaster Recovery for Kubernetes](https://portworx.com/kubernetes-disaster-recovery/)\n\n### Uninstall\n\nDeleting the StorageCluster object for Portworx cluster does not stop Portworx\nservice running on the nodes, to avoid application downtime.\n\nTo uninstall Portworx completely without wiping the data, you should add the\nfollowing delete strategy to the StorageCluster spec:\n```\nspec:\n  deleteStrategy:\n    type: Uninstall\n```\n**Caution:** To uninstall Portworx and **wipe all the data**, you should use the following\ndelete strategy:\n```\nspec:\n  deleteStrategy:\n    type: UninstallAndWipe\n```\n",
+      "csv_display_name": "Portworx Enterprise",
+      "csv_metadata_description": "Cloud native storage solution for production workloads",
+      "csv_name": "portworx-operator.v1.4.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": true,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": false,
+      "last_update_date": "2022-06-17T01:26:03.014000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "portworx-certified",
+      "provided_apis": [
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageNode",
+          "plural": "storagenodes",
+          "version": "v1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageNode",
+          "plural": "storagenodes",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageCluster",
+          "plural": "storageclusters",
+          "version": "v1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageCluster",
+          "plural": "storageclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "name": "openstorage-operator-1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd-annotation"
+        },
+        {
+          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "name": "portworx-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "1.4.2",
+      "version_original": "1.4.2"
+    },
+    {
+      "_id": "5ff5f0c08634b82517526306",
+      "alm_examples": [
+        {
+          "api_version": "core.libopenstorage.org/v1",
+          "kind": "StorageCluster",
+          "metadata": {
+            "annotations": {
+              "portworx.io/is-openshift": "true"
+            },
+            "name": "portworx",
+            "namespace": "test-operator"
+          },
+          "spec": {
+            "autopilot": {
+              "enabled": false
+            }
+          }
+        },
+        {
+          "api_version": "core.libopenstorage.org/v1",
+          "kind": "StorageNode",
+          "metadata": {
+            "name": "example",
+            "namespace": "test-operator"
+          }
+        }
+      ],
+      "annotations": {
+        "infrastructure_features": [],
+        "valid_subscription": []
+      },
+      "architectures": [],
+      "bundle_path": "registry.connect.redhat.com/portworx/portworx-certified-bundle@sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
+      "bundle_path_digest": "sha256:c2bc0d28a5c322d55ad45a82fb1845cf4346b387afc3076e0f891b3d4e6656d3",
+      "capabilities": [
+        "Auto Pilot"
+      ],
+      "channel_name": "stable",
+      "creation_date": "2021-01-06T17:17:52.402000+00:00",
+      "csv_description": "Portworx-Enterprise is the most widely-used and reliable cloud-native\nstorage solution for production workloads and provides high-availability,\ndata protection and security for containerized applications.\n\nPortworx Enterprise enables you to migrate entire applications, including\ndata, between clusters in a single data center or cloud, or between clouds,\nwith a single kubectl command.\n\nThe cloud native storage and data management platform that enterprises trust\nto manage data in containers now has an operator which simplifies the install,\nconfiguration, upgrades and manages the Portworx Enterprise cluster lifecycle.\n\nLearn more about the Portworx Enterprise\n[the data platform for Kubernetes](https://portworx.com/products/introduction)\n\nTo learn more about the platform features, please visit our\n[product features page](https://portworx.com/products/features)\n\n### About Portworx\n\nPortworx is the solution for running stateful containers in production,\ndesigned with DevOps in mind. With Portworx, users can manage any database\nor stateful service on any infrastructure using any container scheduler,\nincluding Kubernetes, Mesosphere DC/OS, and Docker Swarm. Portworx solves\nthe five most common problems DevOps teams encounter when running stateful\nservices in production: persistence, high availability, data automation,\nsecurity, and support for multiple data stores and infrastructure.\n\n### How to install StorageCluster\n\nTo customize your cluster's configuration (specification), use the\n[Spec Generator](https://central.portworx.com/) from PX-Central.\n\n### Prerequisite\n\nEnsure ports 17001-17020 on worker nodes are reachable from master and other worker nodes.\n\n### Tutorials\n\n* [Portworx Enterprise on Openshift](https://portworx.com/openshift)\n\n* [Stateful applications on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes/application-install-with-kubernetes)\n\n* [Portworx Enterprise on Kubernetes](https://docs.portworx.com/portworx-install-with-kubernetes)\n\n* [Kafka on Kubernetes](https://portworx.com/kafka-kubernetes)\n\n* [Elastisearch on Kubernetes](https://portworx.com/elasticsearch-kubernetes)\n\n* [PostgreSQL on Kubernetes](https://portworx.com/postgres-kubernetes/)\n\n* [MongoDB on Kubernetes](https://portworx.com/mongodb-kubernetes/)\n\n* [Cassandra on Kubernetes](https://portworx.com/cassandra-kubernetes/)\n\n* [Kubernetes backup and recovery](https://portworx.com/kubernetes-backup/)\n\n* [Disaster Recovery for Kubernetes](https://portworx.com/kubernetes-disaster-recovery/)\n\n### Uninstall\n\nDeleting the StorageCluster object for Portworx cluster does not stop Portworx\nservice running on the nodes, to avoid application downtime.\n\nTo uninstall Portworx completely without wiping the data, you should add the\nfollowing delete strategy to the StorageCluster spec:\n```\nspec:\n  deleteStrategy:\n    type: Uninstall\n```\n**Caution:** To uninstall Portworx and **wipe all the data**, you should use the following\ndelete strategy:\n```\nspec:\n  deleteStrategy:\n    type: UninstallAndWipe\n```\n",
+      "csv_display_name": "Portworx Enterprise",
+      "csv_metadata_description": "Cloud native storage solution for production workloads",
+      "csv_name": "portworx-operator.v1.4.2",
+      "in_index_img": true,
+      "install_modes": [
+        {
+          "supported": true,
+          "type": "OwnNamespace"
+        },
+        {
+          "supported": true,
+          "type": "SingleNamespace"
+        },
+        {
+          "supported": true,
+          "type": "MultiNamespace"
+        },
+        {
+          "supported": true,
+          "type": "AllNamespaces"
+        }
+      ],
+      "is_default_channel": true,
+      "last_update_date": "2022-06-17T01:24:02.242000+00:00",
+      "latest_in_channel": false,
+      "ocp_version": "4.5",
+      "organization": "certified-operators",
+      "package": "portworx-certified",
+      "provided_apis": [
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageNode",
+          "plural": "storagenodes",
+          "version": "v1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageNode",
+          "plural": "storagenodes",
+          "version": "v1alpha1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageCluster",
+          "plural": "storageclusters",
+          "version": "v1"
+        },
+        {
+          "group": "core.libopenstorage.org",
+          "kind": "StorageCluster",
+          "plural": "storageclusters",
+          "version": "v1alpha1"
+        }
+      ],
+      "provider": null,
+      "related_images": [
+        {
+          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "name": "openstorage-operator-1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd-annotation"
+        },
+        {
+          "digest": "sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "image": "registry.connect.redhat.com/portworx/openstorage-operator@sha256:1692041ab0b0920e9f4b6096e23b2b56a8ec8f077deb3d797755646b56ddb5bd",
+          "name": "portworx-operator"
+        }
+      ],
+      "replaces": "",
+      "skip_range": "",
+      "skips": [],
+      "source_index_container_path": "registry.redhat.io/redhat/certified-operator-index:v4.5",
+      "version": "1.4.2",
+      "version_original": "1.4.2"
     }
   ],
   "page": 2,
   "page_size": 100,
-  "total": 4010
+  "total": 4079
 }
