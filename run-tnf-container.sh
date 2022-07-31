@@ -188,24 +188,32 @@ while [[ $1 == -* ]]; do
             exit 1
           fi
           echo "-d $DNS_ARGS"
-          ;;	  
-      -s)        
-        TNF_SKIP_SUITES=""
+          ;;
+      -s)
+        ONCE=true
         while (( "$#" >= 2 )) && ! [[ $2 = --* ]] && ! [[ $2 = -* ]] ; do
-          TNF_SKIP_SUITES="$2 $TNF_SKIP_SUITES"
+          if [ $ONCE = true ]; then
+            TNF_SKIP_SUITES="$2"
+            ONCE=false
+          fi
+          TNF_SKIP_SUITES="$TNF_SKIP_SUITES $2"
           shift
         done
         export TNF_SKIP_SUITES
-        echo "-s $TNF_SKIP_SUITES"        
+        echo "-s $TNF_SKIP_SUITES"
         ;;
-		  -f)
-        TNF_FOCUS_SUITES=""
+      -f)
+        ONCE=true
         while (( "$#" >= 2 )) && ! [[ $2 = --* ]]  && ! [[ $2 = -* ]] ; do
-          TNF_FOCUS_SUITES="$2 $TNF_FOCUS_SUITES"
+          if [ $ONCE = true ]; then
+            TNF_FOCUS_SUITES="$2"
+            ONCE=false
+          fi
+          TNF_FOCUS_SUITES="$TNF_FOCUS_SUITES $2"
           shift
         done
         export TNF_FOCUS_SUITES
-        echo "-f $TNF_FOCUS_SUITES"        
+        echo "-f $TNF_FOCUS_SUITES"
         ;;
       --) shift; break;;
       -*) echo "invalid option: $1" 1>&2; usage_error;;
