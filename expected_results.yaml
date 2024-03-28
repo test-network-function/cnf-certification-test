@@ -45,6 +45,7 @@ testCases:
     - access-control-ipc-lock-capability-check
     - access-control-pod-host-network
     - operator-install-status-succeeded
+    - operator-installed-operator-semantic-versioning
     - access-control-bpf-capability-check
     - access-control-net-raw-capability-check
     - access-control-pod-host-ipc

@@ -26,6 +26,7 @@ import (
 	"sort"
 	"strings"
 
+	"github.com/Masterminds/semver/v3"
 	"github.com/go-logr/logr"
 	"github.com/go-logr/stdr"
 	olmv1Alpha "github.com/operator-framework/api/pkg/operators/v1alpha1"
@@ -317,4 +318,9 @@ func getOperatorTargetNamespaces(namespace string) ([]string, error) {
 	}
 
 	return list.Items[0].Spec.TargetNamespaces, nil
+}
+
+func IsValidSemanticVersion(version string) bool {
+	_, err := semver.NewVersion(version)
+	return err == nil
 }

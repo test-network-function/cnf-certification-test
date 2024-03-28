@@ -79,6 +79,8 @@ const (
 
 	OperatorIsInstalledViaOLMRemediation = `Ensure that your Operator is installed via OLM.`
 
+	OperatorHasSemanticVersioningRemediation = `Ensure that the installed Operator has semantic versioning.`
+
 	PodNodeSelectorAndAffinityBestPracticesRemediation = `In most cases, Pod's should not specify their host Nodes through nodeSelector or nodeAffinity. However, there are cases in which CNFs require specialized hardware specific to a particular class of Node.`
 
 	PodHighAvailabilityBestPracticesRemediation = `In high availability cases, Pod podAntiAffinity rule should be specified for pod scheduling and pod replica value is set to more than 1 .`

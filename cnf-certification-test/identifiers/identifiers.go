@@ -121,6 +121,7 @@ var (
 	TestOperatorIsCertifiedIdentifier                 claim.Identifier
 	TestHelmIsCertifiedIdentifier                     claim.Identifier
 	TestOperatorIsInstalledViaOLMIdentifier           claim.Identifier
+	TestOperatorHasSemanticVersioningIdentifier       claim.Identifier
 	TestPodNodeSelectorAndAffinityBestPractices       claim.Identifier
 	TestPodHighAvailabilityBestPractices              claim.Identifier
 	TestPodClusterRoleBindingsBestPracticesIdentifier claim.Identifier
@@ -899,6 +900,22 @@ tag. (2) It does not have any of the following prefixes: default, openshift-, is
 		OperatorIsInstalledViaOLMRemediation,
 		NoExceptions,
 		TestOperatorIsInstalledViaOLMIdentifierDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Mandatory,
+			Telco:    Mandatory,
+			NonTelco: Mandatory,
+			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestOperatorHasSemanticVersioningIdentifier = AddCatalogEntry(
+		"installed-operator-semantic-versioning",
+		common.OperatorTestKey,
+		`Tests whether an application Operator has semantic versioning.`,
+		OperatorHasSemanticVersioningRemediation,
+		NoExceptions,
+		TestOperatorHasSemanticVersioningIdentifierDocLink,
 		true,
 		map[string]string{
 			FarEdge:  Mandatory,
