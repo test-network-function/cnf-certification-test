@@ -302,6 +302,9 @@ jobs:
       PFLT_DOCKERCONFIG: '/home/runner/.docker/config'
 
     steps:
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
       - name: Write temporary docker file
         run: |
           mkdir -p /home/runner/.docker
@@ -464,6 +467,9 @@ jobs:
 
       - name: Remove tarball(s) to save disk space.
         run: rm -f ${{ env.TNF_OUTPUT_DIR }}/*.tar.gz
+
+      - name: start tmate session
+        uses: mxschmitt/action-tmate@v3
 
       - name: (if on main and upstream) Send chat msg to dev team if failed to create container image.
         if: ${{ failure() && github.ref == 'refs/heads/main' && github.repository_owner == 'test-network-function' }}
