@@ -110,6 +110,10 @@ const (
 	TestOperatorCrdSchemaIdentifierDocLink              = DocOperatorRequirement
 	TestOperatorCrdVersioningIdentifierDocLink          = DocOperatorRequirement
 	TestOperatorSingleCrdOwnerIdentifierDocLink         = DocOperatorRequirement
+	TestOperatorRunAsUserIDDocLink                      = DocOperatorRequirement
+	TestOperatorRunAsNonRootDocLink                     = DocOperatorRequirement
+	TestOperatorAutomountTokensDocLink                  = DocOperatorRequirement
+	TestOperatorReadOnlyFilesystemDocLink               = DocOperatorRequirement
 
 	// Observability Test Suite
 	TestLoggingIdentifierDocLink                  = "https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-logging"

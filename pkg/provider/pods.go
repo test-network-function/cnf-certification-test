@@ -26,6 +26,7 @@ import (
 	"github.com/test-network-function/cnf-certification-test/internal/clientsholder"
 	"github.com/test-network-function/cnf-certification-test/internal/log"
 	"github.com/test-network-function/cnf-certification-test/pkg/podhelper"
+
 	corev1 "k8s.io/api/core/v1"
 	rbacv1 "k8s.io/api/rbac/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
@@ -402,6 +403,16 @@ func (p *Pod) IsRunAsUserID(uid int64) bool {
 		return false
 	}
 	return *p.Pod.Spec.SecurityContext.RunAsUser == uid
+}
+
+func (p *Pod) IsRunAsNonRoot() bool {
+	// Check pod-level security context
+	if p.Pod.Spec.SecurityContext != nil && p.Pod.Spec.SecurityContext.RunAsNonRoot != nil {
+		return *p.Pod.Spec.SecurityContext.RunAsNonRoot
+	}
+
+	// If neither container-level nor pod-level security context is set, fail
+	return false
 }
 
 // Get the list of top owners of pods
