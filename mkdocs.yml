@@ -17,14 +17,14 @@ theme:
     - content.code.annotate
   palette:
     - scheme: default
-      primary: indigo
-      accent: indigo
+      primary: red
+      accent: red
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
     - scheme: slate
-      primary: indigo
-      accent: indigo
+      primary: red
+      accent: red
       toggle:
         icon: material/brightness-4
         name: Switch to light mode
@@ -63,17 +63,22 @@ plugins:
 
 nav:
   - "index.md"
-  - Setup:
+  - Getting started:
+    - Setup:
       - Test Configuration: "configuration.md"
       - Runtime environment variables: "runtime-env.md"
-  - Build | Execute:
-      - Prebuilt container: "test-container.md"
-      - Standalone test executable: "test-standalone.md"
-  - Available Test Specs: "test-spec.md"
-  - Test Output: "test-output.md"
-  - Exception Process: "exception.md"
-  - Developers' Guide:
-      - Developers: "developers.md"
-      - CNF Developers: "cnf-developers.md"
+    - Build | Execute:
+        - Prebuilt container: "test-container.md"
+        - Standalone test executable: "test-standalone.md"
+    - Test:
+        - Test Specifications: "test-spec.md"
+        - Test Result: "test-output.md"
+    - Exception Process: "exception.md"
+  - QuickStart:
+      - Users Guide: "users.md"
+      - Developers' Guide:
+          - Developers: "developers.md"
+          - CNF Developers: "cnf-developers.md"
+
   - Reference:
       - reference.md
