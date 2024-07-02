@@ -122,6 +122,10 @@ var (
 	TestHelmIsCertifiedIdentifier                     claim.Identifier
 	TestOperatorIsInstalledViaOLMIdentifier           claim.Identifier
 	TestOperatorHasSemanticVersioningIdentifier       claim.Identifier
+	TestOperatorReadOnlyFilesystem                    claim.Identifier
+	TestOperatorAutomountTokens                       claim.Identifier
+	TestOperatorRunAsNonRoot                          claim.Identifier
+	TestOperatorRunAsUserID                           claim.Identifier
 	TestOperatorCrdVersioningIdentifier               claim.Identifier
 	TestOperatorCrdSchemaIdentifier                   claim.Identifier
 	TestOperatorSingleCrdOwnerIdentifier              claim.Identifier
@@ -921,6 +925,70 @@ that Node's kernel may not have the same hacks.'`,
 		OperatorHasSemanticVersioningRemediation,
 		NoExceptions,
 		TestOperatorHasSemanticVersioningIdentifierDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Mandatory,
+			Telco:    Mandatory,
+			NonTelco: Mandatory,
+			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestOperatorRunAsUserID = AddCatalogEntry(
+		"run-as-user-id",
+		common.OperatorTestKey,
+		`Tests that checks the user id of the pods created by the operator is not 0`,
+		OperatorRunAsUserID,
+		NoExceptions,
+		TestOperatorRunAsUserIDDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Mandatory,
+			Telco:    Mandatory,
+			NonTelco: Mandatory,
+			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestOperatorRunAsNonRoot = AddCatalogEntry(
+		"run-as-non-root",
+		common.OperatorTestKey,
+		`Tests that checks the pods created by the operator is run as non root.`,
+		OperatorRunAsNonRoot,
+		NoExceptions,
+		TestOperatorRunAsNonRootDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Mandatory,
+			Telco:    Mandatory,
+			NonTelco: Mandatory,
+			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestOperatorAutomountTokens = AddCatalogEntry(
+		"automount-tokens",
+		common.OperatorTestKey,
+		`Tests that check the pods created by the operator ensure that the automount service account token is disabled.`,
+		OperatorAutomountTokens,
+		NoExceptions,
+		TestOperatorAutomountTokensDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Mandatory,
+			Telco:    Mandatory,
+			NonTelco: Mandatory,
+			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestOperatorReadOnlyFilesystem = AddCatalogEntry(
+		"read-only-file-system",
+		common.OperatorTestKey,
+		`Tests that check the pods created by the operator ensure that the read-only root filesystem setting is enabled.`,
+		OperatorReadOnlyFilesystem,
+		NoExceptions,
+		TestOperatorReadOnlyFilesystemDocLink,
 		true,
 		map[string]string{
 			FarEdge:  Mandatory,

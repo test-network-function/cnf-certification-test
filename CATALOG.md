@@ -7,7 +7,7 @@ Depending on the workload type, not all tests are required to pass to satisfy be
 
 ## Test cases summary
 
-### Total test cases: 109
+### Total test cases: 113
 
 ### Total suites: 10
 
@@ -19,7 +19,7 @@ Depending on the workload type, not all tests are required to pass to satisfy be
 |manageability|2|
 |networking|11|
 |observability|4|
-|operator|7|
+|operator|11|
 |performance|6|
 |platform-alteration|13|
 |preflight|17|
@@ -36,11 +36,11 @@ Depending on the workload type, not all tests are required to pass to satisfy be
 |---|---|
 |7|1|
 
-### Non-Telco specific tests only: 62
+### Non-Telco specific tests only: 66
 
 |Mandatory|Optional|
 |---|---|
-|42|20|
+|46|20|
 
 ### Telco specific tests only: 27
 
@@ -1122,6 +1122,22 @@ Tags|telco,observability
 
 ### operator
 
+#### operator-automount-tokens
+
+Property|Description
+---|---
+Unique ID|operator-automount-tokens
+Description|Tests that check the pods created by the operator ensure that the automount service account token is disabled.
+Suggested Remediation|Ensure that the pods created by the operator have the automount service account token disabled.
+Best Practice Reference|https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-cnf-operator-requirements
+Exception Process|No exceptions
+Tags|common,operator
+|**Scenario**|**Optional/Mandatory**|
+|Extended|Mandatory|
+|Far-Edge|Mandatory|
+|Non-Telco|Mandatory|
+|Telco|Mandatory|
+
 #### operator-crd-openapi-schema
 
 Property|Description
@@ -1193,6 +1209,54 @@ Property|Description
 Unique ID|operator-install-status-succeeded
 Description|Ensures that the target workload operators report "Succeeded" as their installation status.
 Suggested Remediation|Ensure all the workload's operators have been successfully installed by OLM.
+Best Practice Reference|https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-cnf-operator-requirements
+Exception Process|No exceptions
+Tags|common,operator
+|**Scenario**|**Optional/Mandatory**|
+|Extended|Mandatory|
+|Far-Edge|Mandatory|
+|Non-Telco|Mandatory|
+|Telco|Mandatory|
+
+#### operator-read-only-file-system
+
+Property|Description
+---|---
+Unique ID|operator-read-only-file-system
+Description|Tests that check the pods created by the operator ensure that the read-only root filesystem setting is enabled.
+Suggested Remediation|Ensure that the pods created by the operator have the read-only root filesystem setting enabled.
+Best Practice Reference|https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-cnf-operator-requirements
+Exception Process|No exceptions
+Tags|common,operator
+|**Scenario**|**Optional/Mandatory**|
+|Extended|Mandatory|
+|Far-Edge|Mandatory|
+|Non-Telco|Mandatory|
+|Telco|Mandatory|
+
+#### operator-run-as-non-root
+
+Property|Description
+---|---
+Unique ID|operator-run-as-non-root
+Description|Tests that checks the pods created by the operator is run as non root.
+Suggested Remediation|Ensure that the pods created by the operator are run as non-root.
+Best Practice Reference|https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-cnf-operator-requirements
+Exception Process|No exceptions
+Tags|common,operator
+|**Scenario**|**Optional/Mandatory**|
+|Extended|Mandatory|
+|Far-Edge|Mandatory|
+|Non-Telco|Mandatory|
+|Telco|Mandatory|
+
+#### operator-run-as-user-id
+
+Property|Description
+---|---
+Unique ID|operator-run-as-user-id
+Description|Tests that checks the user id of the pods created by the operator is not 0
+Suggested Remediation|Ensure that the user ID of the pods created by the operator is not 0.
 Best Practice Reference|https://test-network-function.github.io/cnf-best-practices-guide/#cnf-best-practices-cnf-operator-requirements
 Exception Process|No exceptions
 Tags|common,operator

@@ -83,6 +83,14 @@ const (
 
 	OperatorCrdSchemaIdentifierRemediation = `Ensure that the Operator CRD is defined with OpenAPI spec.`
 
+	OperatorRunAsUserID = `Ensure that the user ID of the pods created by the operator is not 0.`
+
+	OperatorRunAsNonRoot = `Ensure that the pods created by the operator are run as non-root.`
+
+	OperatorAutomountTokens = `Ensure that the pods created by the operator have the automount service account token disabled.`
+
+	OperatorReadOnlyFilesystem = `Ensure that the pods created by the operator have the read-only root filesystem setting enabled.`
+
 	OperatorCrdVersioningRemediation = `Ensure that the Operator CRD has a valid version.`
 
 	OperatorSingleCrdOwnerRemediation = `Ensure that a CRD is owned by only one Operator`
