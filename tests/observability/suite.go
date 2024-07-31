@@ -21,6 +21,8 @@ import (
 	"context"
 	"fmt"
 	"io"
+	"strconv"
+	"strings"
 
 	"github.com/redhat-best-practices-for-k8s/certsuite/tests/common"
 	"github.com/redhat-best-practices-for-k8s/certsuite/tests/identifiers"
@@ -77,6 +79,12 @@ func LoadChecks() {
 		WithSkipModeAll().
 		WithCheckFn(func(c *checksdb.Check) error {
 			testPodDisruptionBudgets(c, &env)
+			return nil
+		}))
+
+	checksGroup.Add(checksdb.NewCheck(identifiers.GetTestIDAndLabels(identifiers.TestAPICompatibilityWithNextOCPReleaseIdentifier)).
+		WithCheckFn(func(c *checksdb.Check) error {
+			testAPICompatibilityWithNextOCPRelease(c, &env)
 			return nil
 		}))
 }
@@ -270,4 +278,105 @@ func testPodDisruptionBudgets(check *checksdb.Check, env *provider.TestEnvironme
 	}
 
 	check.SetResult(compliantObjects, nonCompliantObjects)
+}
+
+// Convert the list of APIRequestCount into a list of ToBeRemovedWorkloadAPI
+// using the following filters:
+// - status.removedInRelease is not nil
+// - service accounts in status.last24.byNode.ByUser.username do not contain the 'openshift' or 'kube' regex
+func buildToBeRemovedWorkloadAPIList(apiRequestCounts []provider.APIRequestCount) []provider.ToBeRemovedWorkloadAPI {
+	var toBeRemovedWorkloadAPIs []provider.ToBeRemovedWorkloadAPI
+
+	for _, obj := range apiRequestCounts {
+		if obj.Status.RemovedInRelease != "" {
+			workloadAPI := provider.ToBeRemovedWorkloadAPI{
+				APIName:          obj.Metadata.Name,
+				RemovedInRelease: obj.Status.RemovedInRelease,
+				UserInfo:         make(map[string]struct{}),
+			}
+
+			for _, last24h := range obj.Status.Last24h {
+				for _, byNode := range last24h.ByNode {
+					if byNode.ByUser != nil {
+						for _, byUser := range byNode.ByUser {
+							if !strings.Contains(byUser.UserName, "openshift") && !strings.Contains(byUser.UserName, "kube") {
+								userInfo := fmt.Sprintf("UserName: %s, UserAgent: %s", byUser.UserName, byUser.UserAgent)
+								workloadAPI.UserInfo[userInfo] = struct{}{}
+							}
+						}
+					}
+				}
+			}
+
+			if len(workloadAPI.UserInfo) > 0 {
+				toBeRemovedWorkloadAPIs = append(toBeRemovedWorkloadAPIs, workloadAPI)
+			}
+		}
+	}
+
+	return toBeRemovedWorkloadAPIs
+}
+
+// Evaluate workload API compliance with the next Kubernetes version
+func evaluateAPICompliance(toBeRemovedWorkloadAPIs []provider.ToBeRemovedWorkloadAPI, kubernetesVersion string) (compliantObjects []*testhelper.ReportObject, nonCompliantObjects []*testhelper.ReportObject) {
+	// Extract the major version from the current Kubernetes version
+	minorVersion, err := strconv.Atoi(strings.Split(kubernetesVersion, ".")[1])
+	if err != nil {
+		fmt.Printf("Error parsing minor version from Kubernetes version: %s\n", err)
+		return nil, nil
+	}
+
+	for _, api := range toBeRemovedWorkloadAPIs {
+		removedMinorVersion, err := strconv.Atoi(strings.Split(api.RemovedInRelease, ".")[1])
+		if err != nil {
+			fmt.Printf("Error parsing minor version from APIRequestCount.status.removedInRelease: %s\n", err)
+			// Skip this API if the version parsing fails
+			continue
+		}
+
+		isCompliantWithNextK8sVersion := removedMinorVersion > minorVersion+1
+		reportObject := testhelper.NewReportObject("API", "StubType", isCompliantWithNextK8sVersion)
+		reportObject.AddField("APIName", api.APIName)
+		reportObject.AddField("RemovedInRelease", api.RemovedInRelease)
+		for userInfo := range api.UserInfo {
+			reportObject.AddField("UserInfo", userInfo)
+		}
+
+		if isCompliantWithNextK8sVersion {
+			compliantObjects = append(compliantObjects, reportObject)
+		} else {
+			nonCompliantObjects = append(nonCompliantObjects, reportObject)
+		}
+	}
+
+	return compliantObjects, nonCompliantObjects
+}
+
+// Function to test API compatibility with the next OCP release
+func testAPICompatibilityWithNextOCPRelease(check *checksdb.Check, env *provider.TestEnvironment) {
+	check.LogInfo("Running testAPICompatibilityWithNextOCPRelease")
+
+	isOCP := provider.IsOCPCluster()
+	check.LogInfo("Is OCP: %v", isOCP)
+
+	if isOCP {
+		// Retrieve APIRequestCount objects with ocpClient
+		ocpClient := clientsholder.GetClientsHolder().OcpClient.RESTClient()
+		apiRequestCounts, err := provider.RetrieveAPIRequestCounts(ocpClient)
+		if err != nil {
+			check.LogError("Error retrieving APIRequestCount objects: %s", err)
+			return
+		}
+
+		// Build the list of ToBeRemovedWorkloadAPI
+		toBeRemovedWorkloadAPIs := buildToBeRemovedWorkloadAPIList(apiRequestCounts)
+
+		// Evaluate API compliance with the next Kubernetes version
+		compliantObjects, nonCompliantObjects := evaluateAPICompliance(toBeRemovedWorkloadAPIs, env.K8sVersion)
+
+		// Add test results
+		check.SetResult(compliantObjects, nonCompliantObjects)
+	} else {
+		check.LogInfo("The Kubernetes distribution is not OpenShift. Skipping API compatibility test.")
+	}
 }

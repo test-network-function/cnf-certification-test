@@ -44,6 +44,7 @@ import (
 	apiextv1 "k8s.io/apiextensions-apiserver/pkg/apis/apiextensions/v1"
 	metav1 "k8s.io/apimachinery/pkg/apis/meta/v1"
 	"k8s.io/apimachinery/pkg/runtime/schema"
+	"k8s.io/client-go/rest"
 )
 
 // CentOS Stream CoreOS starts being used instead of rhcos from OCP 4.13 latest.
@@ -168,6 +169,29 @@ type PreflightResultsDB struct {
 	Passed []PreflightTest
 	Failed []PreflightTest
 	Errors []PreflightTest
+}
+
+type APIRequestCount struct {
+	Metadata struct {
+		Name string `json:"name"`
+	} `json:"metadata"`
+	Status struct {
+		RemovedInRelease string `json:"removedInRelease"`
+		Last24h          []struct {
+			ByNode []struct {
+				ByUser []struct {
+					UserName  string `json:"username"`
+					UserAgent string `json:"userAgent"`
+				} `json:"byUser"`
+			} `json:"byNode"`
+		} `json:"last24h"`
+	} `json:"status"`
+}
+
+type ToBeRemovedWorkloadAPI struct {
+	APIName          string
+	RemovedInRelease string
+	UserInfo         map[string]struct{} // Using a map to store unique tuples of username/useragent
 }
 
 var (
@@ -622,4 +646,24 @@ func GetPreflightResultsDB(results *plibRuntime.Results) PreflightResultsDB {
 	}
 
 	return resultsDB
+}
+
+// Retrieve APIRequestCounts for the last 24 hours and unmarshal them
+func RetrieveAPIRequestCounts(ocpClient rest.Interface) ([]APIRequestCount, error) {
+	apiRequestCountURL := "/apis/apiserver.openshift.io/v1/apirequestcounts"
+	req := ocpClient.Get().RequestURI(apiRequestCountURL)
+	resp, err := req.DoRaw(context.TODO())
+	if err != nil {
+		return nil, fmt.Errorf("failed to retrieve APIRequestCount objects: %w", err)
+	}
+
+	var result struct {
+		Items []APIRequestCount `json:"items"`
+	}
+
+	if err := json.Unmarshal(resp, &result); err != nil {
+		return nil, fmt.Errorf("failed to decode response body: %w", err)
+	}
+
+	return result.Items, nil
 }
