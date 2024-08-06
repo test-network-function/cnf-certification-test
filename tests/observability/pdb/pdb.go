@@ -12,7 +12,7 @@ const (
 	percentageDivisor = 100
 )
 
-// percentageToFloat converts a percentage string to a float
+// percentageToFloat converts a percentage string to a float.
 func percentageToFloat(percentage string) (float64, error) {
 	var percentageFloat float64
 	_, err := fmt.Sscanf(percentage, "%f%%", &percentageFloat)
@@ -40,7 +40,7 @@ func CheckPDBIsValid(pdb *policyv1.PodDisruptionBudget, replicas *int32) (bool, 
 			return false, err
 		}
 
-		// Tests for the minAvailable spec
+		// Tests for the minAvailable spec.
 		if minAvailableValue == 0 {
 			return false, fmt.Errorf("field .spec.minAvailable cannot be zero. Currently set to: %d. Replicas set to: %d", minAvailableValue, replicaCount)
 		}
@@ -57,7 +57,7 @@ func CheckPDBIsValid(pdb *policyv1.PodDisruptionBudget, replicas *int32) (bool, 
 			return false, err
 		}
 
-		// Tests for the maxUnavailable spec
+		// Tests for the maxUnavailable spec.
 		if maxUnavailableValue >= int(replicaCount) {
 			return false, fmt.Errorf("field .spec.maxUnavailable cannot be greater than or equal to the number of pods in the replica. Currently set to: %d. Replicas set to: %d", maxUnavailableValue, replicaCount)
 		}

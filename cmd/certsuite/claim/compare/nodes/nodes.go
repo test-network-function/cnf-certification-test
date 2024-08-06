@@ -17,7 +17,7 @@ type DiffReport struct {
 
 // Stringer method to show in a table the the differences found on each node
 // appearing on both claim files. If a node only appears in one claim file, it
-// will be flagged as "not found in claim[1|2]"
+// will be flagged as "not found in claim[1|2]".
 func (d DiffReport) String() string {
 	str := "CLUSTER NODES DIFFERENCES\n"
 	str += "-------------------------\n\n"

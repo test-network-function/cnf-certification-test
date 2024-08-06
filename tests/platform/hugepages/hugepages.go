@@ -293,7 +293,7 @@ func logMcKernelArgumentsHugepages(hugepagesPerSize map[int]int, defhugepagesz i
 	log.Info(sb.String())
 }
 
-// getMcHugepagesFromMcKernelArguments gets the hugepages params from machineconfig's kernelArguments
+// getMcHugepagesFromMcKernelArguments gets the hugepages params from machineconfig's kernelArguments.
 func getMcHugepagesFromMcKernelArguments(mc *provider.MachineConfig) (hugepagesPerSize map[int]int, defhugepagesz int) {
 	defhugepagesz = RhelDefaultHugepagesz
 	hugepagesPerSize = map[int]int{}

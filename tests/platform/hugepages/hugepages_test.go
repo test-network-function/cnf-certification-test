@@ -14,16 +14,16 @@ import (
 )
 
 var (
-	// No hugepages params
+	// No hugepages params.
 	testKernelArgsHpNoParams = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "nmi_watchdog=0"}
 
-	// Single param
+	// Single param.
 	testKernelArgsHpSingleParam1 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "hugepages=16", "nmi_watchdog=0"}
 	testKernelArgsHpSingleParam2 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=1G", "nmi_watchdog=0"}
 	testKernelArgsHpSingleParam3 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=2M", "nmi_watchdog=0"}
 	testKernelArgsHpSingleParam4 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "hugepagesz=1G", "nmi_watchdog=0"}
 
-	// Default size + size only
+	// Default size + size only.
 	testKernelArgsHpDefParamsOnly = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=1G", "hugepagesz=1G", "nmi_watchdog=0"}
 
 	// size + count pairs.
@@ -31,7 +31,7 @@ var (
 	testKernelArgsHpPair2 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "hugepagesz=2M", "hugepages=256", "nmi_watchdog=0"}
 	testKernelArgsHpPair3 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "hugepagesz=1G", "hugepages=16", "hugepagesz=2M", "hugepages=256", "nmi_watchdog=0"}
 
-	// default size + (size+count) pairs
+	// default size + (size+count) pairs.
 	testKernelArgsHpDefSizePlusPairs1 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=2M", "hugepagesz=1G", "hugepages=16", "nmi_watchdog=0"}
 	testKernelArgsHpDefSizePlusPairs2 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=1G", "hugepagesz=2M", "hugepages=256", "nmi_watchdog=0"}
 	testKernelArgsHpDefSizePlusPairs3 = []string{"systemd.cpu_affinity=0,1,40,41,20,21,60,61", "default_hugepagesz=1G", "hugepagesz=1G", "hugepages=16", "hugepagesz=2M", "hugepages=256", "nmi_watchdog=0"}
@@ -49,7 +49,7 @@ func Test_hugepagesFromKernelArgsFunc(t *testing.T) {
 		expectedHugepagesPerSize map[int]int
 		kernelArgs               []string
 	}{
-		// No params
+		// No params.
 		{
 			expectedHugepagesDefSize: twoMB,
 			expectedHugepagesPerSize: map[int]int{twoMB: 0},
@@ -83,14 +83,14 @@ func Test_hugepagesFromKernelArgsFunc(t *testing.T) {
 			kernelArgs:               testKernelArgsHpPair1,
 		},
 
-		// Default sizes Tc:
+		// Default sizes Tc.
 		{
 			expectedHugepagesDefSize: oneGB,
 			expectedHugepagesPerSize: map[int]int{oneGB: 0},
 			kernelArgs:               testKernelArgsHpDefParamsOnly,
 		},
 
-		// size+count pairs
+		// size+count pairs.
 		{
 			expectedHugepagesDefSize: twoMB,
 			expectedHugepagesPerSize: map[int]int{oneGB: 16},
@@ -107,7 +107,7 @@ func Test_hugepagesFromKernelArgsFunc(t *testing.T) {
 			kernelArgs:               testKernelArgsHpPair3,
 		},
 
-		// default size + (size+count) pairs
+		// default size + (size+count) pairs.
 		{
 			expectedHugepagesDefSize: twoMB,
 			expectedHugepagesPerSize: map[int]int{twoMB: 0, oneGB: 16},

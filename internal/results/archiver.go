@@ -13,7 +13,7 @@ import (
 )
 
 const (
-	// tarGz file prefix layout format: YearMonthDay-HourMinSec
+	// tarGz file prefix layout format: YearMonthDay-HourMinSec.
 	tarGzFileNamePrefixLayout = "20060102-150405"
 	tarGzFileNameSuffix       = "cnf-test-results.tar.gz"
 )

@@ -23,34 +23,34 @@ const (
 )
 
 type SkipHelmChartList struct {
-	// Name is the name of the `operator bundle package name` or `image-version` that you want to check if exists in the RedHat catalog
+	// Name is the name of the `operator bundle package name` or `image-version` that you want to check if exists in the RedHat catalog.
 	Name string `yaml:"name" json:"name"`
 }
 
-// AcceptedKernelTaintsInfo contains all certified operator request info
+// AcceptedKernelTaintsInfo contains all certified operator request info.
 type AcceptedKernelTaintsInfo struct {
 
-	// Accepted modules that cause taints that we want to supply to the test suite
+	// Accepted modules that cause taints that we want to supply to the test suite.
 	Module string `yaml:"module" json:"module"`
 }
 
-// SkipScalingTestDeploymentsInfo contains a list of names of deployments that should be skipped by the scaling tests to prevent issues
+// SkipScalingTestDeploymentsInfo contains a list of names of deployments that should be skipped by the scaling tests to prevent issues.
 type SkipScalingTestDeploymentsInfo struct {
 
-	// Deployment name and namespace that can be skipped by the scaling tests
+	// Deployment name and namespace that can be skipped by the scaling tests.
 	Name      string `yaml:"name" json:"name"`
 	Namespace string `yaml:"namespace" json:"namespace"`
 }
 
-// SkipScalingTestStatefulSetsInfo contains a list of names of statefulsets that should be skipped by the scaling tests to prevent issues
+// SkipScalingTestStatefulSetsInfo contains a list of names of statefulsets that should be skipped by the scaling tests to prevent issues.
 type SkipScalingTestStatefulSetsInfo struct {
 
-	// StatefulSet name and namespace that can be skipped by the scaling tests
+	// StatefulSet name and namespace that can be skipped by the scaling tests.
 	Name      string `yaml:"name" json:"name"`
 	Namespace string `yaml:"namespace" json:"namespace"`
 }
 
-// Namespace struct defines namespace properties
+// Namespace struct defines namespace properties.
 type Namespace struct {
 	Name string `yaml:"name" json:"name"`
 }
@@ -64,7 +64,7 @@ type ManagedDeploymentsStatefulsets struct {
 	Name string `yaml:"name" json:"name"`
 }
 
-// TestConfiguration provides test related configuration
+// TestConfiguration provides test related configuration.
 type TestConfiguration struct {
 	// targetNameSpaces to be used in
 	TargetNameSpaces []Namespace `yaml:"targetNameSpaces,omitempty" json:"targetNameSpaces,omitempty"`

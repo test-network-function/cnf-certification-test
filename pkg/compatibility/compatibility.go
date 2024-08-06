@@ -32,7 +32,7 @@ import (
  */
 
 const (
-	// OCP Lifecycle Statuses
+	// OCP Lifecycle Statuses.
 	OCPStatusGA      = "generally-available"
 	OCPStatusMS      = "maintenance-support"
 	OCPStatusEOL     = "end-of-life"

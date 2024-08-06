@@ -62,7 +62,7 @@ func BuildNetTestContext(pods []*provider.Pod, aIPVersion netcommons.IPVersion, 
 				continue
 			}
 			for netKey, multusNetworkInterface := range put.MultusNetworkInterfaces {
-				// The first container is used to get the network namespace
+				// The first container is used to get the network namespace.
 				processContainerIpsPerNet(put.Containers[0], netKey, multusNetworkInterface.IPs, multusNetworkInterface.Interface, netsUnderTest, aIPVersion, logger)
 			}
 			continue
@@ -70,14 +70,14 @@ func BuildNetTestContext(pods []*provider.Pod, aIPVersion netcommons.IPVersion, 
 
 		const defaultNetKey = "default"
 		defaultIPAddress := put.Status.PodIPs
-		// The first container is used to get the network namespace
+		// The first container is used to get the network namespace.
 		processContainerIpsPerNet(put.Containers[0], defaultNetKey, netcommons.PodIPsToStringList(defaultIPAddress), "", netsUnderTest, aIPVersion, logger)
 	}
 	return netsUnderTest
 }
 
 // processContainerIpsPerNet takes a container ip addresses for a given network attachment's and uses it as a test target.
-// The first container in the loop is selected as the test initiator. the Oc context of the container is used to initiate the pings
+// The first container in the loop is selected as the test initiator. the Oc context of the container is used to initiate the pings.
 func processContainerIpsPerNet(containerID *provider.Container,
 	netKey string,
 	ipAddresses []string,
@@ -87,27 +87,27 @@ func processContainerIpsPerNet(containerID *provider.Container,
 	logger *log.Logger) {
 	ipAddressesFiltered := netcommons.FilterIPListByIPVersion(ipAddresses, aIPVersion)
 	if len(ipAddressesFiltered) == 0 {
-		// if no multus addresses found, skip this container
+		// if no multus addresses found, skip this container.
 		logger.Debug("Skipping %q, Network %q because no multus IPs are present", containerID, netKey)
 		return
 	}
-	// Create an entry at "key" if it is not present
+	// Create an entry at "key" if it is not present.
 	if _, ok := netsUnderTest[netKey]; !ok {
 		netsUnderTest[netKey] = netcommons.NetTestContext{}
 	}
-	// get a copy of the content
+	// get a copy of the content.
 	entry := netsUnderTest[netKey]
-	// Then modify the copy
+	// Then modify the copy.
 	firstIPIndex := 0
 	if entry.TesterSource.ContainerIdentifier == nil {
 		logger.Debug("%q selected to initiate ping tests", containerID)
 		entry.TesterSource.ContainerIdentifier = containerID
-		// if multiple interfaces are present for this network on this container/pod, pick the first one as the tester source ip
+		// if multiple interfaces are present for this network on this container/pod, pick the first one as the tester source ip.
 		entry.TesterSource.IP = ipAddressesFiltered[firstIPIndex]
 		if ifName != "" {
 			entry.TesterSource.InterfaceName = ifName
 		}
-		// do no include tester's IP in the list of destination IPs to ping
+		// do no include tester's IP in the list of destination IPs to ping.
 		firstIPIndex++
 	}
 
@@ -115,14 +115,14 @@ func processContainerIpsPerNet(containerID *provider.Container,
 		ipDestEntry := netcommons.ContainerIP{}
 		ipDestEntry.ContainerIdentifier = containerID
 		ipDestEntry.IP = aIP
-		// if the interface name is not empty, then add it to the destination entry
+		// if the interface name is not empty, then add it to the destination entry.
 		if ifName != "" {
 			ipDestEntry.InterfaceName = ifName
 		}
 		entry.DestTargets = append(entry.DestTargets, ipDestEntry)
 	}
 
-	// Then reassign map entry
+	// Then reassign map entry.
 	netsUnderTest[netKey] = entry
 }
 
@@ -141,7 +141,7 @@ func RunNetworkingTests( //nolint:funlen
 		return report, skip
 	}
 	// if no network can be tested, then we need to skip the test entirely.
-	// If at least one network can be tested (e.g. > 2 IPs/ interfaces present), then we do not skip the test
+	// If at least one network can be tested (e.g. > 2 IPs/ interfaces present), then we do not skip the test.
 	atLeastOneNetworkTested := false
 	compliantNets := map[string]int{}
 	nonCompliantNets := map[string]int{}
@@ -226,9 +226,9 @@ func RunNetworkingTests( //nolint:funlen
 	return report, skip
 }
 
-// TestPing Initiates a ping test between a source container and network (1 ip) and a destination container and network (1 ip)
+// TestPing Initiates a ping test between a source container and network (1 ip) and a destination container and network (1 ip).
 var TestPing = func(sourceContainerID *provider.Container, targetContainerIP netcommons.ContainerIP, count int) (results PingResults, err error) {
-	// Specify the interface to use for the ping test (if any)
+	// Specify the interface to use for the ping test (if any).
 	interfaceFlag := fmt.Sprintf("-I %s", targetContainerIP.InterfaceName)
 	if targetContainerIP.InterfaceName == "" {
 		interfaceFlag = ""

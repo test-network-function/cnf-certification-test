@@ -36,7 +36,7 @@ func StringInSlice[T ~string](s []T, str T, contains bool) bool {
 	return false
 }
 
-// SubSlice checks if a slice's elements all exist within a slice
+// SubSlice checks if a slice's elements all exist within a slice.
 func SubSlice(s, sub []string) bool {
 	for _, v := range sub {
 		if !StringInSlice(s, v, false) {
@@ -46,7 +46,7 @@ func SubSlice(s, sub []string) bool {
 	return true
 }
 
-// checks that at least one element is common to both slices
+// checks that at least one element is common to both slices.
 func HasAtLeastOneCommonElement(s1, s2 []string) bool {
 	for _, v := range s2 {
 		if StringInSlice(s1, v, false) {

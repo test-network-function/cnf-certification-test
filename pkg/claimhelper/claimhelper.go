@@ -45,7 +45,7 @@ const (
 	// dateTimeFormatDirective is the directive used to format date/time according to ISO 8601.
 	DateTimeFormatDirective = "2006-01-02 15:04:05 -0700 MST"
 
-	// States for test cases
+	// States for test cases.
 	TestStateFailed  = "failed"
 	TestStateSkipped = "skipped"
 )
@@ -296,7 +296,7 @@ func UnmarshalConfigurations(configurations []byte, claimConfigurations map[stri
 	}
 }
 
-// UnmarshalClaim unmarshals the claim file
+// UnmarshalClaim unmarshals the claim file.
 func UnmarshalClaim(claimFile []byte, claimRoot *claim.Root) {
 	err := j.Unmarshal(claimFile, &claimRoot)
 	if err != nil {
@@ -314,7 +314,7 @@ func ReadClaimFile(claimFileName string) (data []byte, err error) {
 	return data, nil
 }
 
-// GetConfigurationFromClaimFile retrieves configuration details from claim file
+// GetConfigurationFromClaimFile retrieves configuration details from claim file.
 func GetConfigurationFromClaimFile(claimFileName string) (env *provider.TestEnvironment, err error) {
 	data, err := ReadClaimFile(claimFileName)
 	if err != nil {

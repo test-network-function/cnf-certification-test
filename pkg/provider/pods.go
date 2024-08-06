@@ -124,7 +124,7 @@ func (p *Pod) AffinityRequired() bool {
 	return false
 }
 
-// returns true if at least one container in the pod has a resource name containing "hugepage", return false otherwise
+// returns true if at least one container in the pod has a resource name containing "hugepage", return false otherwise.
 func (p *Pod) HasHugepages() bool {
 	for _, cut := range p.Containers {
 		for name := range cut.Resources.Requests {
@@ -406,16 +406,16 @@ func (p *Pod) IsRunAsUserID(uid int64) bool {
 }
 
 func (p *Pod) IsRunAsNonRoot() bool {
-	// Check pod-level security context
+	// Check pod-level security context.
 	if p.Pod.Spec.SecurityContext != nil && p.Pod.Spec.SecurityContext.RunAsNonRoot != nil {
 		return *p.Pod.Spec.SecurityContext.RunAsNonRoot
 	}
 
-	// If neither container-level nor pod-level security context is set, fail
+	// If neither container-level nor pod-level security context is set, fail.
 	return false
 }
 
-// Get the list of top owners of pods
+// Get the list of top owners of pods.
 func (p *Pod) GetTopOwner() (topOwners map[string]podhelper.TopOwner, err error) {
 	return podhelper.GetPodTopOwner(p.Namespace, p.OwnerReferences)
 }

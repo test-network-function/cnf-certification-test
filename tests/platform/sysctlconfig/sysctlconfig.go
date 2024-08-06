@@ -25,7 +25,7 @@ import (
 	"github.com/test-network-function/cnf-certification-test/pkg/provider"
 )
 
-// Creates a map describing the final sysctl key-value pair out of the results of "sysctl --system"
+// Creates a map describing the final sysctl key-value pair out of the results of "sysctl --system".
 func parseSysctlSystemOutput(sysctlSystemOutput string) map[string]string {
 	retval := make(map[string]string)
 	splitConfig := strings.Split(sysctlSystemOutput, "\n")

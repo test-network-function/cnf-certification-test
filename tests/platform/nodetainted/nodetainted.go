@@ -47,7 +47,7 @@ var runCommand = func(ctx *clientsholder.Context, cmd string) (string, error) {
 	return output, nil
 }
 
-// NewNodeTainted creates a new NodeTainted tester
+// NewNodeTainted creates a new NodeTainted tester.
 func NewNodeTaintedTester(context *clientsholder.Context, node string) *NodeTainted {
 	return &NodeTainted{
 		ctx:  context,

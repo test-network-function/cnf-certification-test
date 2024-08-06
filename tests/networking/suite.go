@@ -249,7 +249,7 @@ func testUndeclaredContainerPortsUsage(check *checksdb.Check, env *provider.Test
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testDefaultNetworkConnectivity test the connectivity between the default interfaces of containers under test
+// testDefaultNetworkConnectivity test the connectivity between the default interfaces of containers under test.
 func testNetworkConnectivity(env *provider.TestEnvironment, aIPVersion netcommons.IPVersion, aType netcommons.IFType, check *checksdb.Check) {
 	netsUnderTest := icmp.BuildNetTestContext(env.Pods, aIPVersion, aType, check.GetLogger())
 	report, skip := icmp.RunNetworkingTests(netsUnderTest, defaultNumPings, aIPVersion, check.GetLogger())
@@ -260,7 +260,7 @@ func testNetworkConnectivity(env *provider.TestEnvironment, aIPVersion netcommon
 }
 
 func testOCPReservedPortsUsage(check *checksdb.Check, env *provider.TestEnvironment) {
-	// List of all ports reserved by OpenShift
+	// List of all ports reserved by OpenShift.
 	OCPReservedPorts := map[int32]bool{
 		22623: true,
 		22624: true}
@@ -269,7 +269,7 @@ func testOCPReservedPortsUsage(check *checksdb.Check, env *provider.TestEnvironm
 }
 
 func testPartnerSpecificTCPPorts(check *checksdb.Check, env *provider.TestEnvironment) {
-	// List of all of the ports reserved by partner
+	// List of all of the ports reserved by partner.
 	ReservedPorts := map[int32]bool{
 		15443: true,
 		15090: true,

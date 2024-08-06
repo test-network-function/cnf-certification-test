@@ -213,7 +213,7 @@ func testServiceMesh(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testContainersFsDiff test that all CUT did not install new packages are starting
+// testContainersFsDiff test that all CUT did not install new packages are starting.
 func testContainersFsDiff(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject

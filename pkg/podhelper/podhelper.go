@@ -11,14 +11,14 @@ import (
 	"k8s.io/client-go/dynamic"
 )
 
-// Structure to describe a top owner of a pod
+// Structure to describe a top owner of a pod.
 type TopOwner struct {
 	Kind      string
 	Name      string
 	Namespace string
 }
 
-// Get the list of top owners of pods
+// Get the list of top owners of pods.
 func GetPodTopOwner(podNamespace string, podOwnerReferences []metav1.OwnerReference) (topOwners map[string]TopOwner, err error) {
 	topOwners = make(map[string]TopOwner)
 	err = followOwnerReferences(clientsholder.GetClientsHolder().GroupResources, clientsholder.GetClientsHolder().DynamicClient, topOwners, podNamespace, podOwnerReferences)
@@ -28,26 +28,26 @@ func GetPodTopOwner(podNamespace string, podOwnerReferences []metav1.OwnerRefere
 	return topOwners, nil
 }
 
-// Recursively follow the ownership tree to find the top owners
+// Recursively follow the ownership tree to find the top owners.
 func followOwnerReferences(resourceList []*metav1.APIResourceList, dynamicClient dynamic.Interface, topOwners map[string]TopOwner, namespace string, ownerRefs []metav1.OwnerReference) (err error) {
 	for _, ownerRef := range ownerRefs {
-		// Get group resource version
+		// Get group resource version.
 		gvr := getResourceSchema(resourceList, ownerRef.APIVersion, ownerRef.Kind)
-		// Get the owner resources
+		// Get the owner resources.
 		resource, err := dynamicClient.Resource(gvr).Namespace(namespace).Get(context.Background(), ownerRef.Name, metav1.GetOptions{})
 		if err != nil {
 			return fmt.Errorf("could not get object indicated by owner references")
 		}
-		// Get owner references of the unstructured object
+		// Get owner references of the unstructured object.
 		ownerReferences := resource.GetOwnerReferences()
 		if err != nil {
 			return fmt.Errorf("error getting owner references. err= %s", err)
 		}
-		// if no owner references, we have reached the top record it
+		// if no owner references, we have reached the top record it.
 		if len(ownerReferences) == 0 {
 			topOwners[ownerRef.Name] = TopOwner{Kind: ownerRef.Kind, Name: ownerRef.Name, Namespace: namespace}
 		}
-		// if not continue following other branches
+		// if not continue following other branches.
 		err = followOwnerReferences(resourceList, dynamicClient, topOwners, namespace, ownerReferences)
 		if err != nil {
 			return fmt.Errorf("error following owners")
@@ -56,7 +56,7 @@ func followOwnerReferences(resourceList []*metav1.APIResourceList, dynamicClient
 	return nil
 }
 
-// Get the Group Version Resource based on APIVersion and kind
+// Get the Group Version Resource based on APIVersion and kind.
 func getResourceSchema(resourceList []*metav1.APIResourceList, apiVersion, kind string) (gvr schema.GroupVersionResource) {
 	const groupVersionComponentsNumber = 2
 	for _, gr := range resourceList {

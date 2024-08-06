@@ -35,7 +35,7 @@ import (
 )
 
 const (
-	// timeout for eventually call
+	// timeout for eventually call.
 	CertifiedOperator = "certified-operators"
 	Online            = "online"
 )

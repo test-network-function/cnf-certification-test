@@ -23,7 +23,7 @@ import (
 	"github.com/test-network-function/test-network-function-claim/pkg/claim"
 )
 
-// shared description text
+// shared description text.
 const (
 	iptablesNftablesImplicitCheck = `Note: this test also ensures iptables and nftables are not configured by workload pods:
 - NET_ADMIN and NET_RAW are required to modify nftables (namespaced) which is not desired inside pods.
@@ -57,7 +57,7 @@ func init() {
 }
 
 func AddCatalogEntry(testID, suiteName, description, remediation, exception, reference string, qe bool, categoryclassification map[string]string, tags ...string) (aID claim.Identifier) {
-	// Default Values (if missing)
+	// Default Values (if missing).
 	if strings.TrimSpace(exception) == "" {
 		exception = NoDocumentedProcess
 	}
@@ -172,8 +172,8 @@ var (
 	TestCrdScalingIdentifier                          claim.Identifier
 	TestCrdRoleIdentifier                             claim.Identifier
 	TestLimitedUseOfExecProbesIdentifier              claim.Identifier
-	// Chaos Testing
-	// TestPodDeleteIdentifier claim.Identifier
+	// Chaos Testing.
+	// TestPodDeleteIdentifier claim.Identifier.
 )
 
 //nolint:funlen
@@ -1740,12 +1740,12 @@ that Node's kernel may not have the same hacks.'`,
 }
 
 var (
-	// TestIdToClaimId converts the testcase short ID to the claim identifier
+	// TestIdToClaimId converts the testcase short ID to the claim identifier.
 	TestIDToClaimID = map[string]claim.Identifier{}
 )
 
 // GetTestIDAndLabels transform the claim.Identifier into a test Id that can be used to skip
-// specific tests
+// specific tests.
 func GetTestIDAndLabels(identifier claim.Identifier) (testID string, tags []string) {
 	tags = strings.Split(identifier.Tags, ",")
 	tags = append(tags, identifier.Id, identifier.Suite)

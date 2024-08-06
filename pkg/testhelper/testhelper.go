@@ -153,7 +153,7 @@ const (
 	OSImage                         = "OS Image"
 	DebugPodName                    = "Debug Pod Name"
 
-	// ICMP tests
+	// ICMP tests.
 	NetworkName              = "Network Name"
 	DestinationNamespace     = "Destination Namespace"
 	DestinationPodName       = "Destination Pod Name"
@@ -161,27 +161,26 @@ const (
 	DestinationIP            = "Destination IP"
 	SourceIP                 = "Source IP"
 
-	// Rbac roles
+	// Rbac roles.
 	RoleName     = "Role Name"
 	Group        = "Group"
 	ResourceName = "Resource Name"
 	Verb         = "Verb"
 
-	// Listening ports
+	// Listening ports.
 	PortNumber   = "Port Number"
 	PortProtocol = "Port Protocol"
 
-	// OLM
+	// OLM.
 	SubscriptionName = "Subscription Name"
 	OperatorPhase    = "Operator Phase"
 	OperatorName     = "Operator Name"
 
-	// Lists
+	// Lists.
 	OperatorList = "Operator List"
 )
 
-// When adding new object types, please update the following:
-
+// When adding new object types, please update the following.
 const (
 	UndefinedType                = "Undefined Type"
 	CnfType                      = "Cnf"

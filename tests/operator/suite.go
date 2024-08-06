@@ -125,7 +125,7 @@ func LoadChecks() {
 		}))
 }
 
-// This function check if the Operator CRD version follows K8s versioning
+// This function check if the Operator CRD version follows K8s versioning.
 func testOperatorCrdVersioning(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.LogInfo("Starting testOperatorCrdVersioning")
 	var compliantObjects []*testhelper.ReportObject
@@ -159,7 +159,7 @@ func testOperatorCrdVersioning(check *checksdb.Check, env *provider.TestEnvironm
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// This function checks if the operator CRD is defined with OpenAPI 3 specification
+// This function checks if the operator CRD is defined with OpenAPI 3 specification.
 func testOperatorCrdOpenAPISpec(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.LogInfo("Starting testOperatorCrdOpenAPISpec")
 	var compliantObjects []*testhelper.ReportObject
@@ -194,7 +194,7 @@ func testOperatorCrdOpenAPISpec(check *checksdb.Check, env *provider.TestEnviron
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// This function checks for semantic versioning of the installed operators
+// This function checks for semantic versioning of the installed operators.
 func testOperatorSemanticVersioning(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.LogInfo("Starting testOperatorSemanticVersioning")
 	var compliantObjects []*testhelper.ReportObject

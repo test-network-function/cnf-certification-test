@@ -138,7 +138,7 @@ func testContainersLogging(check *checksdb.Check, env *provider.TestEnvironment)
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testCrds testing if crds have a status sub resource set
+// testCrds testing if crds have a status sub resource set.
 func testCrds(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -164,7 +164,7 @@ func testCrds(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testTerminationMessagePolicy tests to make sure that pods
+// testTerminationMessagePolicy tests to make sure that pods.
 func testTerminationMessagePolicy(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject

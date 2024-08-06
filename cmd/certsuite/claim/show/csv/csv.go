@@ -92,40 +92,40 @@ func dumpCsv(_ *cobra.Command, _ []string) error {
 		return fmt.Errorf("failed to parse claim file %s: %v", claimFilePathFlag, err)
 	}
 
-	// Check claim format version
+	// Check claim format version.
 	err = claim.CheckVersion(claimScheme.Claim.Versions.ClaimFormat)
 	if err != nil {
 		return err
 	}
 
-	// loads the mapping between CNF name and type
+	// loads the mapping between CNF name and type.
 	CNFTypeMap, err := loadCNFTypeMap(CNFListFilePathFlag)
 	if err != nil {
 		log.Fatalf("Failed to load CNF type map (%s): %v", CNFListFilePathFlag, err)
 		return nil
 	}
 
-	// builds a catalog map indexed by test ID
+	// builds a catalog map indexed by test ID.
 	catalogMap := buildCatalogByID()
 
-	// get CNF type
+	// get CNF type.
 	cnfType := CNFTypeMap[CNFNameFlag]
 
-	// builds CSV file
+	// builds CSV file.
 	resultsCsv := buildCSV(claimScheme, cnfType, catalogMap)
 
-	// initializes CSV writer
+	// initializes CSV writer.
 	writer := csv.NewWriter(os.Stdout)
 
-	// writes all CSV records
+	// writes all CSV records.
 	err = writer.WriteAll(resultsCsv)
 	if err != nil {
 		log.Fatalf("Failed to write results CSV to screen, err: %s", err)
 		return nil
 	}
-	// flushes buffer to screen
+	// flushes buffer to screen.
 	writer.Flush()
-	// Check for any writing errors
+	// Check for any writing errors.
 	if err := writer.Error(); err != nil {
 		panic(err)
 	}
@@ -134,13 +134,13 @@ func dumpCsv(_ *cobra.Command, _ []string) error {
 }
 
 // dumps claim file in CSV format.
-// adds remediation, mandatory/optional, CNFType to the claim data
+// adds remediation, mandatory/optional, CNFType to the claim data.
 func buildCSV(claimScheme *claim.Schema, cnfType string, catalogMap map[string]claimschema.TestCaseDescription) (resultsCSVRecords [][]string) {
 	if cnfType == "" {
 		cnfType = identifiers.NonTelco
 	}
 
-	// add header if flag is present (defaults to no header)
+	// add header if flag is present (defaults to no header).
 	if addHeaderFlag {
 		resultsCSVRecords = append(resultsCSVRecords, []string{
 			"CNFName", "OperatorVersion", "testID", "Suite",
@@ -187,18 +187,18 @@ func buildCSV(claimScheme *claim.Schema, cnfType string, catalogMap map[string]c
 	return resultsCSVRecords
 }
 
-// loads records from a CSV
+// loads records from a CSV.
 func loadCNFTypeMap(path string) (CNFTypeMap map[string]string, err error) { //nolint:gocritic // CNF is a valid acronym
-	// Open the CSV file
+	// Open the CSV file.
 	file, err := os.Open(path)
 	if err != nil {
 		return CNFTypeMap, fmt.Errorf("error opening text file: %s, err:%s", path, err)
 	}
 	defer file.Close()
-	// initialize map
+	// initialize map.
 	CNFTypeMap = make(map[string]string)
 
-	// read the file
+	// read the file.
 	data, err := io.ReadAll(file)
 	if err != nil {
 		return CNFTypeMap, fmt.Errorf("error reading JSON file: %s, err:%s", path, err)
@@ -213,7 +213,7 @@ func loadCNFTypeMap(path string) (CNFTypeMap map[string]string, err error) { //n
 	return CNFTypeMap, nil
 }
 
-// builds a catalog map indexed by test case ID
+// builds a catalog map indexed by test case ID.
 func buildCatalogByID() (catalogMap map[string]claimschema.TestCaseDescription) {
 	catalogMap = make(map[string]claimschema.TestCaseDescription)
 

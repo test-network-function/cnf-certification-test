@@ -62,29 +62,29 @@ func (version IPVersion) String() string {
 	return UndefinedString
 }
 
-// netTestContext this is a data structure describing a network test context for a given subnet (e.g. network attachment)
-// The test context defines a tester or test initiator, that is initiating the pings. It is selected randomly (first container in the list)
-// It also defines a list of destination ping targets corresponding to the other containers IPs on this subnet
+// netTestContext this is a data structure describing a network test context for a given subnet (e.g. network attachment).
+// The test context defines a tester or test initiator, that is initiating the pings. It is selected randomly (first container in the list).
+// It also defines a list of destination ping targets corresponding to the other containers IPs on this subnet.
 type NetTestContext struct {
-	// testerContainerNodeOc session context to access the node running the container selected to initiate tests
+	// testerContainerNodeOc session context to access the node running the container selected to initiate tests.
 	TesterContainerNodeName string
-	// testerSource is the container select to initiate the ping tests on this given network
+	// testerSource is the container select to initiate the ping tests on this given network.
 	TesterSource ContainerIP
-	// ipDestTargets List of containers to be pinged by the testerSource on this given network
+	// ipDestTargets List of containers to be pinged by the testerSource on this given network.
 	DestTargets []ContainerIP
 }
 
 // containerIP holds a container identification and its IP for networking tests.
 type ContainerIP struct {
-	// ip address of the target container
+	// ip address of the target container.
 	IP string
-	// targetContainerIdentifier container identifier including namespace, pod name, container name, node name, and container UID
+	// targetContainerIdentifier container identifier including namespace, pod name, container name, node name, and container UID.
 	ContainerIdentifier *provider.Container
-	// interfaceName is the interface we want to target for the ping test
+	// interfaceName is the interface we want to target for the ping test.
 	InterfaceName string
 }
 
-// String displays the NetTestContext data structure
+// String displays the NetTestContext data structure.
 func (testContext *NetTestContext) String() string {
 	var sb strings.Builder
 	sb.WriteString(fmt.Sprintf("From initiating container: %s\n", testContext.TesterSource.String()))
@@ -97,7 +97,7 @@ func (testContext *NetTestContext) String() string {
 	return sb.String()
 }
 
-// String Displays the ContainerIP data structure
+// String Displays the ContainerIP data structure.
 func (cip *ContainerIP) String() string {
 	return fmt.Sprintf("%s ( %s )",
 		cip.IP,
@@ -105,7 +105,7 @@ func (cip *ContainerIP) String() string {
 	)
 }
 
-// PrintNetTestContextMap displays the NetTestContext full map
+// PrintNetTestContextMap displays the NetTestContext full map.
 func PrintNetTestContextMap(netsUnderTest map[string]NetTestContext) string {
 	var sb strings.Builder
 	if len(netsUnderTest) == 0 {
@@ -118,7 +118,7 @@ func PrintNetTestContextMap(netsUnderTest map[string]NetTestContext) string {
 	return sb.String()
 }
 
-// PodIPsToStringList converts a list of corev1.PodIP objects into a list of strings
+// PodIPsToStringList converts a list of corev1.PodIP objects into a list of strings.
 func PodIPsToStringList(ips []corev1.PodIP) (ipList []string) {
 	for _, ip := range ips {
 		ipList = append(ipList, ip.IP)
@@ -126,7 +126,7 @@ func PodIPsToStringList(ips []corev1.PodIP) (ipList []string) {
 	return ipList
 }
 
-// GetIPVersion parses a ip address from a string and returns its version
+// GetIPVersion parses a ip address from a string and returns its version.
 func GetIPVersion(aIP string) (IPVersion, error) {
 	ip := net.ParseIP(aIP)
 	if ip == nil {
@@ -140,7 +140,7 @@ func GetIPVersion(aIP string) (IPVersion, error) {
 
 // FilterIPListByIPVersion filters a list of ip strings by the provided version
 // e.g. a list of mixed ipv4 and ipv6 when filtered with ipv6 version will return a list with
-// the ipv6 addresses
+// the ipv6 addresses.
 func FilterIPListByIPVersion(ipList []string, aIPVersion IPVersion) []string {
 	var filteredIPList []string
 	for _, aIP := range ipList {
@@ -210,7 +210,7 @@ func findRoguePodsListeningToPorts(pods []*provider.Pod, portsToTest map[int32]b
 		for port := range listeningPorts {
 			if ok := portsToTest[port.PortNumber]; ok {
 				// If pod contains an "istio-proxy" container, we need to make sure that the ports returned
-				// overlap with the known istio ports
+				// overlap with the known istio ports.
 				if put.ContainsIstioProxy() && ReservedIstioPorts[port.PortNumber] {
 					logger.Info("%q was found to be listening to port %d due to istio-proxy being present. Ignoring.", put, port.PortNumber)
 					continue

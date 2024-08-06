@@ -39,19 +39,19 @@ var (
 	ignoredContainerNames = []string{"istio-proxy"}
 )
 
-// Tag and Digest should not be populated at the same time. Digest takes precedence if both are populated
+// Tag and Digest should not be populated at the same time. Digest takes precedence if both are populated.
 type ContainerImageIdentifier struct {
-	// Repository is the name of the image that you want to check if exists in the RedHat catalog
+	// Repository is the name of the image that you want to check if exists in the RedHat catalog.
 	Repository string `yaml:"repository" json:"repository"`
 
-	// Registry is the name of the registry `docker.io` of the container
-	// This is valid for container only and required field
+	// Registry is the name of the registry `docker.io` of the container.
+	// This is valid for container only and required field.
 	Registry string `yaml:"registry" json:"registry"`
 
-	// Tag is the optional image tag. "latest" is implied if not specified
+	// Tag is the optional image tag. "latest" is implied if not specified.
 	Tag string `yaml:"tag" json:"tag"`
 
-	// Digest is the image digest following the "@" in a URL, e.g. image@sha256:45b23dee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2
+	// Digest is the image digest following the "@" in a URL, e.g. image@sha256:45b23dee08af5e43a7fea6c4cf9c25ccf269ee113168c19722f87876677c5cb2.
 	Digest string `yaml:"digest" json:"digest"`
 }
 

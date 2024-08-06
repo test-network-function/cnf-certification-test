@@ -82,9 +82,9 @@ func GetPidFromContainer(cut *provider.Container, ctx clientsholder.Context) (in
 	return strconv.Atoi(strings.TrimSuffix(outStr, "\n"))
 }
 
-// To get the pid namespace of the container
+// To get the pid namespace of the container.
 func GetContainerPidNamespace(testContainer *provider.Container, env *provider.TestEnvironment) (string, error) {
-	// Get the container pid
+	// Get the container pid.
 	ocpContext, err := GetNodeDebugPodContext(testContainer.NodeName, env)
 	if err != nil {
 		return "", fmt.Errorf("failed to get debug pod's context for container %s: %v", testContainer, err)
@@ -114,7 +114,7 @@ func GetContainerProcesses(container *provider.Container, env *provider.TestEnvi
 	return GetPidsFromPidNamespace(pidNs, container)
 }
 
-// ExecCommandContainerNSEnter executes a command in the specified container namespace using nsenter
+// ExecCommandContainerNSEnter executes a command in the specified container namespace using nsenter.
 func ExecCommandContainerNSEnter(command string,
 	aContainer *provider.Container) (outStr, errStr string, err error) {
 	env := provider.GetTestEnvironment()
@@ -125,16 +125,16 @@ func ExecCommandContainerNSEnter(command string,
 
 	ch := clientsholder.GetClientsHolder()
 
-	// Get the container PID to build the nsenter command
+	// Get the container PID to build the nsenter command.
 	containerPid, err := GetPidFromContainer(aContainer, ctx)
 	if err != nil {
 		return "", "", fmt.Errorf("cannot get PID from: %s, err: %v", aContainer, err)
 	}
 
-	// Add the container PID and the specific command to run with nsenter
+	// Add the container PID and the specific command to run with nsenter.
 	nsenterCommand := "nsenter -t " + strconv.Itoa(containerPid) + " -n " + command
 
-	// Run the nsenter command on the debug pod
+	// Run the nsenter command on the debug pod.
 	outStr, errStr, err = ch.ExecCommandContainer(ctx, nsenterCommand)
 	if err != nil {
 		return "", "", fmt.Errorf("cannot execute command: \" %s \"  on %s err:%s", command, aContainer, err)
@@ -158,9 +158,9 @@ func GetPidsFromPidNamespace(pidNamespace string, container *provider.Container)
 
 	re := regexp.MustCompile(PsRegex)
 	matches := re.FindAllStringSubmatch(stdout, -1)
-	// If we do not find a successful log, we fail
+	// If we do not find a successful log, we fail.
 	for _, v := range matches {
-		// Matching only the right PidNs
+		// Matching only the right PidNs.
 		if pidNamespace != v[1] {
 			continue
 		}

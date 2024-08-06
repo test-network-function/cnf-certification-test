@@ -54,7 +54,7 @@ type TestCaseResult struct {
 	} `json:"testID"`
 }
 
-// Maps a test suite name to a list of TestCaseResult
+// Maps a test suite name to a list of TestCaseResult.
 type TestSuiteResults map[string]TestCaseResult
 
 type Nodes struct {

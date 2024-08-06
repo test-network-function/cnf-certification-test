@@ -315,7 +315,7 @@ func testBpfCapability(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testSecConRootUser verifies that the container is not running as root
+// testSecConRootUser verifies that the container is not running as root.
 func testSecConRootUser(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -332,7 +332,7 @@ func testSecConRootUser(check *checksdb.Check, env *provider.TestEnvironment) {
 		for idx := range put.Spec.Containers {
 			cut := &(put.Spec.Containers[idx])
 			check.LogInfo("Testing Container %q", cut)
-			// Check the container level RunAsUser parameter
+			// Check the container level RunAsUser parameter.
 			if cut.SecurityContext != nil && cut.SecurityContext.RunAsUser != nil {
 				if *(cut.SecurityContext.RunAsUser) == 0 {
 					check.LogError("Root user detected (RunAsUser uid=0) in Container %q (%q)", cut.Name, put)
@@ -348,7 +348,7 @@ func testSecConRootUser(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testSecConPrivilegeEscalation verifies that the container is not allowed privilege escalation
+// testSecConPrivilegeEscalation verifies that the container is not allowed privilege escalation.
 func testSecConPrivilegeEscalation(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -372,7 +372,7 @@ func testSecConPrivilegeEscalation(check *checksdb.Check, env *provider.TestEnvi
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testContainerHostPort tests that containers are not configured with host port privileges
+// testContainerHostPort tests that containers are not configured with host port privileges.
 func testContainerHostPort(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -398,7 +398,7 @@ func testContainerHostPort(check *checksdb.Check, env *provider.TestEnvironment)
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodHostNetwork verifies that the pod hostNetwork parameter is not set to true
+// testPodHostNetwork verifies that the pod hostNetwork parameter is not set to true.
 func testPodHostNetwork(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -416,7 +416,7 @@ func testPodHostNetwork(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodHostPath verifies that the pod hostpath parameter is not set to true
+// testPodHostPath verifies that the pod hostpath parameter is not set to true.
 func testPodHostPath(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -442,7 +442,7 @@ func testPodHostPath(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodHostIPC verifies that the pod hostIpc parameter is not set to true
+// testPodHostIPC verifies that the pod hostIpc parameter is not set to true.
 func testPodHostIPC(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -460,7 +460,7 @@ func testPodHostIPC(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodHostPID verifies that the pod hostPid parameter is not set to true
+// testPodHostPID verifies that the pod hostPid parameter is not set to true.
 func testPodHostPID(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -517,7 +517,7 @@ func testNamespace(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodServiceAccount verifies that the pod utilizes a valid service account
+// testPodServiceAccount verifies that the pod utilizes a valid service account.
 func testPodServiceAccount(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -535,7 +535,7 @@ func testPodServiceAccount(check *checksdb.Check, env *provider.TestEnvironment)
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodRoleBindings verifies that the pod utilizes a valid role binding that does not cross non-CNF namespaces
+// testPodRoleBindings verifies that the pod utilizes a valid role binding that does not cross non-CNF namespaces.
 //
 //nolint:funlen
 func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
@@ -547,14 +547,14 @@ func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
 		podIsCompliant := true
 		if put.Pod.Spec.ServiceAccountName == defaultServiceAccount {
 			check.LogError("Pod %q has an empty or default serviceAccountName", put)
-			// Add the pod to the non-compliant list
+			// Add the pod to the non-compliant list.
 			nonCompliantObjects = append(nonCompliantObjects,
 				testhelper.NewPodReportObject(put.Namespace, put.Name,
 					"The serviceAccountName is either empty or default", false))
 			podIsCompliant = false
 		} else {
 			check.LogInfo("Pod %q has a serviceAccountName %q, checking role bindings.", put, put.Spec.ServiceAccountName)
-			// Loop through the rolebindings and check if they are from another namespace
+			// Loop through the rolebindings and check if they are from another namespace.
 			for rbIndex := range env.RoleBindings {
 				// Short circuit if the role binding and the pod are in the same namespace.
 				if env.RoleBindings[rbIndex].Namespace == put.Namespace {
@@ -565,7 +565,7 @@ func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
 				// We must check if the pod's service account is in the role binding's subjects.
 				found := false
 				for _, subject := range env.RoleBindings[rbIndex].Subjects {
-					// If the subject is a service account and the service account is in the same namespace as one of the CNF's namespaces, then continue, this is allowed
+					// If the subject is a service account and the service account is in the same namespace as one of the CNF's namespaces, then continue, this is allowed.
 					if subject.Kind == rbacv1.ServiceAccountKind &&
 						subject.Namespace == put.Namespace &&
 						subject.Name == put.Spec.ServiceAccountName &&
@@ -573,13 +573,13 @@ func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
 						continue
 					}
 
-					// Finally, if the subject is a service account and the service account is in the same namespace as the pod, then we have a failure
+					// Finally, if the subject is a service account and the service account is in the same namespace as the pod, then we have a failure.
 					if subject.Kind == rbacv1.ServiceAccountKind &&
 						subject.Namespace == put.Namespace &&
 						subject.Name == put.Spec.ServiceAccountName {
 						check.LogError("Pod %q has the following role bindings that do not live in one of the CNF namespaces: %q", put, env.RoleBindings[rbIndex].Name)
 
-						// Add the pod to the non-compliant list
+						// Add the pod to the non-compliant list.
 						nonCompliantObjects = append(nonCompliantObjects,
 							testhelper.NewPodReportObject(put.Namespace, put.Name,
 								"The role bindings used by this pod do not live in one of the CNF namespaces", false).
@@ -592,13 +592,13 @@ func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
 						break
 					}
 				}
-				// Break of out the loop if we found a role binding that is out of namespace
+				// Break of out the loop if we found a role binding that is out of namespace.
 				if found {
 					break
 				}
 			}
 		}
-		// Add pod to the compliant object list
+		// Add pod to the compliant object list.
 		if podIsCompliant {
 			check.LogInfo("All the role bindings used by Pod %q (applied by the service accounts) live in one of the CNF namespaces", put)
 			compliantObjects = append(compliantObjects,
@@ -608,7 +608,7 @@ func testPodRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodClusterRoleBindings verifies that the pod does not use a cluster role binding
+// testPodClusterRoleBindings verifies that the pod does not use a cluster role binding.
 //
 //nolint:dupl
 func testPodClusterRoleBindings(check *checksdb.Check, env *provider.TestEnvironment) {
@@ -634,7 +634,7 @@ func testPodClusterRoleBindings(check *checksdb.Check, env *provider.TestEnviron
 		}
 
 		csvNamespace, csvName, isOwnedByClusterWideOperator := ownedByClusterWideOperator(topOwners, env)
-		// Pod is using a cluster role binding but is owned by a cluster wide operator, so it is ok
+		// Pod is using a cluster role binding but is owned by a cluster wide operator, so it is ok.
 		if isOwnedByClusterWideOperator && result {
 			check.LogInfo("Pod %q is using a cluster role binding but is owned by a cluster-wide operator (Csv %q, namespace %q)", put, csvName, csvNamespace)
 			compliantObjects = append(compliantObjects, testhelper.NewPodReportObject(put.Namespace, put.Name, "Pod is using a cluster role binding but owned by a cluster-wide operator", true))
@@ -654,9 +654,9 @@ func testPodClusterRoleBindings(check *checksdb.Check, env *provider.TestEnviron
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// isCSVAndClusterWide checks if object identified by namespace and name is a CSV created by a cluster-wide operator
+// isCSVAndClusterWide checks if object identified by namespace and name is a CSV created by a cluster-wide operator.
 // Return:
-//   - bool : true if object identified by namespace and name is a CSV created by a cluster-wide operator, otherwise return false
+//   - bool : true if object identified by namespace and name is a CSV created by a cluster-wide operator, otherwise return false.
 func isCSVAndClusterWide(aNamespace, name string, env *provider.TestEnvironment) bool {
 	for _, op := range env.Operators {
 		if op.Csv != nil &&

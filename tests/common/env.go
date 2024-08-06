@@ -32,5 +32,5 @@ var (
 	schemaPath = path.Join("schemas", "generic-test.schema.json")
 )
 
-// DefaultTimeout for creating new interactive sessions (oc, ssh, tty)
+// DefaultTimeout for creating new interactive sessions (oc, ssh, tty).
 var DefaultTimeout = time.Duration(defaultTimeoutSeconds) * time.Second

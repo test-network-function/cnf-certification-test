@@ -114,7 +114,7 @@ func isStatefulSetReady(name, namespace string) (bool, error) {
 }
 
 // Helper function to get a slice of namespace:name strings from a slice of *provider.Deployments.
-// E.g: [tnf:test tnf:hazelcast-platform-controller-manager]
+// E.g: [tnf:test tnf:hazelcast-platform-controller-manager].
 func getDeploymentsInfo(deployments []*provider.Deployment) []string {
 	deps := []string{}
 	for _, dep := range deployments {

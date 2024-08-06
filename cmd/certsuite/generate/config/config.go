@@ -25,7 +25,7 @@ func NewCommand() *cobra.Command {
 }
 
 var (
-	// generateConfiCmd is a helper tool to generate a CNF config YAML file
+	// generateConfiCmd is a helper tool to generate a CNF config YAML file.
 	generateConfigCmd = &cobra.Command{
 		Use:   "config",
 		Short: "Generates a CNF config YAML file with user input.",

@@ -16,7 +16,7 @@ const (
 	LogFilePermissions = 0o644
 )
 
-// Log levels
+// Log levels.
 const (
 	LevelDebug = "debug"
 	LevelInfo  = "info"
@@ -126,7 +126,7 @@ func GetMultiLogger(writers ...io.Writer) *Logger {
 	return &Logger{l: slog.New(NewMultiHandler(handlers...))}
 }
 
-// Top-level log functions
+// Top-level log functions.
 func Debug(msg string, args ...any) {
 	Logf(globalLogger, LevelDebug, msg, args...)
 }
@@ -149,7 +149,7 @@ func Fatal(msg string, args ...any) {
 	os.Exit(1)
 }
 
-// Log methods for a logger instance
+// Log methods for a logger instance.
 func (logger *Logger) Debug(msg string, args ...any) {
 	Logf(logger, LevelDebug, msg, args...)
 }

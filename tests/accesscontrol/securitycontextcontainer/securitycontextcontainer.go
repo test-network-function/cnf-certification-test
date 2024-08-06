@@ -27,7 +27,7 @@ const (
 	NOKString = "false"
 )
 
-// print the strings
+// print the strings.
 func (okNok OkNok) String() string {
 	switch okNok {
 	case OK:
@@ -148,7 +148,7 @@ var (
 		OK}          // AllVolumeAllowed
 )
 
-// print the strings
+// print the strings.
 func (category PodListCategory) String() string {
 	returnString := fmt.Sprintf("Containername: %s Podname: %s NameSpace: %s Category: %s \n ",
 		category.Containername, category.Podname, category.NameSpace, category.Category)

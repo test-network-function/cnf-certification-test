@@ -30,7 +30,7 @@ var (
 )
 
 // LoadConfiguration return a function that loads
-// the configuration from a file once
+// the configuration from a file once.
 func LoadConfiguration(filePath string) (TestConfiguration, error) {
 	if confLoaded {
 		log.Debug("config file already loaded, return previous element")

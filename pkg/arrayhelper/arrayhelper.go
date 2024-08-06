@@ -21,7 +21,7 @@ import (
 )
 
 // ArgListToMap takes a list of strings of the form "key=value" and translate it into a map
-// of the form {key: value}
+// of the form {key: value}.
 func ArgListToMap(lst []string) map[string]string {
 	retval := make(map[string]string)
 	for _, arg := range lst {
@@ -36,7 +36,7 @@ func ArgListToMap(lst []string) map[string]string {
 	return retval
 }
 
-// FilterArray takes a list and a predicate and returns a list of all elements for whom the predicate returns true
+// FilterArray takes a list and a predicate and returns a list of all elements for whom the predicate returns true.
 func FilterArray(vs []string, f func(string) bool) []string {
 	vsf := make([]string, 0)
 	for _, v := range vs {
@@ -48,13 +48,13 @@ func FilterArray(vs []string, f func(string) bool) []string {
 }
 
 func Unique(slice []string) []string {
-	// create a map with all the values as key
+	// create a map with all the values as key.
 	uniqMap := make(map[string]struct{})
 	for _, v := range slice {
 		uniqMap[v] = struct{}{}
 	}
 
-	// turn the map keys into a slice
+	// turn the map keys into a slice.
 	uniqSlice := make([]string, 0, len(uniqMap))
 	for v := range uniqMap {
 		uniqSlice = append(uniqSlice, v)

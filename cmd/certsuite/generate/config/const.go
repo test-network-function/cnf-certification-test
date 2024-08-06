@@ -1,52 +1,52 @@
 package config
 
-// Menu names
+// Menu names.
 //
 //nolint:unused
 const (
-	// Main menu
+	// Main menu.
 	create = "Create"
 	show   = "Show"
 	save   = "Save"
 	quit   = "Exit"
-	// Create
+	// Create.
 	cnfResources = "CNF resources"
 	exceptions   = "Exceptions"
 	collector    = "Collector"
 	settings     = "Settings"
 	previousMenu = "\U0001F878"
-	// CNF resources
+	// CNF resources.
 	namespaces          = "Namespaces"
 	pods                = "Pods"
 	operators           = "Operators"
 	crdFilters          = "CRD filters"
 	managedDeployments  = "Managed Deployments"
 	managedStatefulSets = "Managed StatefulSets"
-	// Exceptions
+	// Exceptions.
 	kernelTaints            = "Kernel taints"
 	helmCharts              = "Helm charts"
 	protocolNames           = "Protocol names"
 	services                = "Services"
 	nonScalableDeployments  = "Non-scalable Deployments"
 	nonScalableStatefulSets = "Non-scalable StatefulSets"
-	// Collector
+	// Collector.
 	appEndPoint = "Application end point"
 	executedBy  = "Certification executor"
 	partnerName = "Partner name"
 	appPassword = "Application password"
-	// Settings
+	// Settings.
 	debugDaemonSet = "Debug DaemonSet namespace"
 )
 
-// Menu help
+// Menu help.
 const (
-	// Main menu
+	// Main menu.
 	createConfigHelp = "Create a configuration for the CNF Certification Suite"
 	showConfigHelp   = "Show the current configuration in YAML format"
 	saveConfigHelp   = `Save the current configuration to a YAML file (default "tnf_config.yaml")`
 	exitHelp         = "Exit the tool (changes not saved will be lost)"
 	backHelp         = "Move to previous menu"
-	// Create
+	// Create.
 	cnfResourcesHelp = `Configure the workload resources of the CNF to be verified.
 Only the resources that the CNF uses are required to be configured. The rest can be left empty.
 Usually a basic configuration includes "Namespaces" and "Pods" at least.`
@@ -56,7 +56,7 @@ regarding the exceptions configured can be provided in an HTML page after loadin
 the claim.json file with the results.`
 	collectordHelp = `Parameters required to send the CNF Certification Suite results to a data collector.`
 	settingsHelp   = `Configure various settings for the CNF Certification Suite.`
-	// CNF resources
+	// CNF resources.
 	namespacesHelp = `The namespaces in which the CNF under test will be deployed.`
 
 	podLabelsHelp = `The labels that each Pod of the CNF under test must have to be verified
@@ -84,7 +84,7 @@ the "scale" subresource of the CR.
 The CRD defining that CR should be included in the CRD filters with the scalable
 property set to true. If so, the test case "lifecycle-statefulset-scaling" will be
 skipped, otherwise it will fail.`
-	// Exceptions
+	// Exceptions.
 	kernelTaintsHelp = `The list of kernel modules loaded by the CNF that make the Linux kernel mark itself
 as "tainted" but that should skip verification.
 Test cases affected: platform-alteration-tainted-node-kernel.`
@@ -107,8 +107,8 @@ Test cases affected: lifecycle-deployment-scaling`
 	nonScalableStatefulSetsHelp = `The list of StatefulSets that do not support scale in/out operations.
 StatefulSets included in this list will skip any scaling operation check.
 Test cases affected: lifecycle-statefulset-scaling`
-	// Collector (TODO)
-	// Settings
+	// Collector (TODO).
+	// Settings.
 	debugDaemonSetHelp = `Set the namespace where the debug DaemonSet will be deployed.
 The namespace will be created in case it does not exist. If not set, the default namespace
 is "cnf-suite".
@@ -117,9 +117,9 @@ to issue some shell commands that are needed in certain test cases. Some of thes
 fail or be skipped in case it is not deployed correctly.`
 )
 
-// Prompts, syxtax, examples
+// Prompts, syxtax, examples.
 const (
-	// CNF resources
+	// CNF resources.
 	namespacePrompt  = "Enter a comma-separated list of the namespaces in which the CNF is deploying its workload."
 	namespaceSyntax  = "ns1[, ns2]..."
 	namespaceExample = "cnf, cnf-workload"
@@ -139,7 +139,7 @@ const (
 	managedStatefulSetsPrompt  = "Enter a comma-separated list of StatefulSets that are managed by a Custom Resource."
 	managedStatefulSetsSyntax  = "managed-statefulset1[, managed-statefulset2]..."
 	managedStatefulSetsExample = "group1-statefulset"
-	// Exceptions
+	// Exceptions.
 	kernelTaintsPrompt             = "Enter a comma-separated list of kernel taints (modules)"
 	kernelTaintsSyntax             = "mod1[,mod2]..."
 	kernelTaintsExample            = "vboxsf, vboxguest"
@@ -158,14 +158,14 @@ const (
 	nonScalableStatefulSetsPrompt  = "Enter a comma-separated list of StatefulSets that do not support scaling operations."
 	nonScalableStatefulSetsSyxtax  = "statefulset1-name/statefulset1-namespace[,statefulset2-name/statefulset2-namespace]..."
 	nonScalableStatefulSetsExample = "statefulset-test-test/cnf-test"
-	// Collector (TODO)
-	// Settings
+	// Collector (TODO).
+	// Settings.
 	debugDaemonSetPrompt  = "Enter the namespace in which de debug DaemonSet will be deployed."
 	debugDaemonSetSyntax  = "ds-namespace"
 	debugDaemonSetExample = "cnf-cert"
 )
 
-// Internal constants
+// Internal constants.
 const (
 	defaultConfigFileName        = "tnf_config.yml"
 	defaultConfigFilePermissions = 0o644

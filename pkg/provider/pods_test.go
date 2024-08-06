@@ -569,7 +569,7 @@ func TestIsRunAsNonRoot(t *testing.T) {
 	}
 }
 
-// Helper function to get a pointer to a bool value
+// Helper function to get a pointer to a bool value.
 func boolPtr(b bool) *bool {
 	return &b
 }

@@ -24,29 +24,29 @@ package identifiers
 
 const (
 
-	// Tests with exception processes
-	// TODO: Add more exception processes if/when we encounter more opportunities with partners
+	// Tests with exception processes.
+	// TODO: Add more exception processes if/when we encounter more opportunities with partners.
 	IsRedHatReleaseExceptionProcess = `Document which containers are not able to meet the RHEL-based container requirement and if/when the base image can be updated.`
 
 	SecConNonRootUserExceptionProcess = `No exceptions - will only be considered under special circumstances. Must identify which container needs access and document why with details.`
 
 	SecConCapabilitiesExceptionProcess = `Identify the pod that is needing special capabilities and document why`
 
-	// Tests that do not have an exception process but have additional insight
+	// Tests that do not have an exception process but have additional insight.
 	UnalteredBaseImageExceptionProcess = `Images should not be changed during runtime. There is no exception process for this.`
 
-	// Generic Exception Process Message
+	// Generic Exception Process Message.
 	NoDocumentedProcess = `There is no documented exception process for this.`
 
-	// Generic provide info message
+	// Generic provide info message.
 	ElaborateOnWhyItIsNeeded = `Please elaborate why it's needed and explain how it's used.`
 
-	// No exception process for extended tests
+	// No exception process for extended tests.
 	NoExceptionProcessForExtendedTests = `No exception needed for optional/extended tests.`
 
-	// No exception process
+	// No exception process.
 	NoExceptions = `No exceptions`
 
-	// affiliated certification exception process
+	// affiliated certification exception process.
 	AffiliatedCert = NoDocumentedProcess + " " + `A partner can run the Red Hat Best Practices Test Suite before passing other certifications (Container/Operator/HelmChart) but the affiliated certification test cases in the Red Hat Best Practices Test Suite must be re-run once the other certifications have been granted.` //nolint:lll
 )

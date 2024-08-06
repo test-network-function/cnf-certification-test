@@ -54,7 +54,7 @@ var (
 		return nil
 	}
 
-	// podset = deployment or statefulset
+	// podset = deployment or statefulset.
 	skipIfNoPodSetsetsUnderTest = func() (bool, string) {
 		if len(env.Deployments) == 0 && len(env.StatefulSets) == 0 {
 			return true, "no deployments nor statefulsets to check found"
@@ -520,7 +520,7 @@ func testStatefulSetScaling(env *provider.TestEnvironment, timeout time.Duration
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testHighAvailability
+// testHighAvailability.
 func testHighAvailability(check *checksdb.Check, env *provider.TestEnvironment) {
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject
@@ -574,7 +574,7 @@ func testHighAvailability(check *checksdb.Check, env *provider.TestEnvironment) 
 	check.SetResult(compliantObjects, nonCompliantObjects)
 }
 
-// testPodsRecreation tests that pods belonging to deployments and statefulsets are re-created and ready in case a node is lost
+// testPodsRecreation tests that pods belonging to deployments and statefulsets are re-created and ready in case a node is lost.
 func testPodsRecreation(check *checksdb.Check, env *provider.TestEnvironment) { //nolint:funlen,gocyclo
 	var compliantObjects []*testhelper.ReportObject
 	var nonCompliantObjects []*testhelper.ReportObject

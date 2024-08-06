@@ -23,9 +23,9 @@ import (
 )
 
 const (
-	// statefulSet variable
+	// statefulSet variable.
 	statefulSet = "StatefulSet"
-	// replicaSet variable
+	// replicaSet variable.
 	replicaSet = "ReplicaSet"
 )
 
@@ -43,7 +43,7 @@ func NewOwnerReference(put *corev1.Pod) *OwnerReference {
 }
 
 // func (o *OwnerReference)  run the tests and store results in
-// o.result
+// o.result.
 func (o *OwnerReference) RunTest(logger *log.Logger) {
 	for _, k := range o.put.OwnerReferences {
 		if k.Kind == statefulSet || k.Kind == replicaSet {
@@ -57,7 +57,7 @@ func (o *OwnerReference) RunTest(logger *log.Logger) {
 	}
 }
 
-// GetResults return result of the OwnerReference type
+// GetResults return result of the OwnerReference type.
 func (o *OwnerReference) GetResults() int {
 	return o.result
 }

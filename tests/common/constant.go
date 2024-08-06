@@ -16,7 +16,7 @@
 
 package common
 
-// Constants shared by multiple test suite packages
+// Constants shared by multiple test suite packages.
 const (
 	defaultTimeoutSeconds     = 10
 	AccessControlTestKey      = "access-control"

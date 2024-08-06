@@ -11,7 +11,7 @@ import (
 	"time"
 )
 
-// Custom log levels
+// Custom log levels.
 const CustomLevelFatal = slog.Level(12)
 
 var CustomLevelNames = map[slog.Leveler]string{

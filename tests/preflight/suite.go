@@ -125,7 +125,7 @@ func testPreflightContainers(checksGroup *checksdb.ChecksGroup, env *provider.Te
 
 	log.Info("Completed running Preflight container tests for %d containers", len(env.Containers))
 
-	// Handle Container-based preflight tests
+	// Handle Container-based preflight tests.
 	// Note: We only care about the `testEntry` variable below because we need its 'Description' and 'Suggestion' variables.
 	for testName, testEntry := range getUniqueTestEntriesFromContainerResults(env.Containers) {
 		log.Info("Setting Preflight container test results for %q", testName)
@@ -133,7 +133,7 @@ func testPreflightContainers(checksGroup *checksdb.ChecksGroup, env *provider.Te
 	}
 }
 
-// func generatePreflightContainerCnfCertTest(testName, testID string, tags []string, containers []*provider.Container) {
+// func generatePreflightContainerCnfCertTest(testName, testID string, tags []string, containers []*provider.Container) {.
 func generatePreflightContainerCnfCertTest(checksGroup *checksdb.ChecksGroup, testName, description, remediation string, containers []*provider.Container) {
 	// Based on a single test "name", we will be passing/failing in our test framework.
 	// Brute force-ish type of method.

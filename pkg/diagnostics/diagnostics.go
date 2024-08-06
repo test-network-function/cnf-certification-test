@@ -42,10 +42,10 @@ const (
 	cniPluginsCommand = `cat /host/etc/cni/net.d/[0-999]* | jq -s`
 )
 
-// CniPlugin holds info about a CNI plugin
-// The JSON fields come from the jq output
+// CniPlugin holds info about a CNI plugin.
+// The JSON fields come from the jq output.
 
-// NodeHwInfo node HW info
+// NodeHwInfo node HW info.
 type NodeHwInfo struct {
 	Lscpu    interface{}
 	IPconfig interface{}
@@ -53,7 +53,7 @@ type NodeHwInfo struct {
 	Lspci    []string
 }
 
-// GetCniPlugins gets a json representation of the CNI plugins installed in each nodes
+// GetCniPlugins gets a json representation of the CNI plugins installed in each nodes.
 func GetCniPlugins() (out map[string][]interface{}) {
 	env := provider.GetTestEnvironment()
 	o := clientsholder.GetClientsHolder()
@@ -76,7 +76,7 @@ func GetCniPlugins() (out map[string][]interface{}) {
 	return out
 }
 
-// GetHwInfoAllNodes gets the Hardware information for each nodes
+// GetHwInfoAllNodes gets the Hardware information for each nodes.
 func GetHwInfoAllNodes() (out map[string]NodeHwInfo) {
 	env := provider.GetTestEnvironment()
 	o := clientsholder.GetClientsHolder()
@@ -112,7 +112,7 @@ func GetHwInfoAllNodes() (out map[string]NodeHwInfo) {
 	return out
 }
 
-// getHWJsonOutput performs a query via debug pod and returns the JSON blob
+// getHWJsonOutput performs a query via debug pod and returns the JSON blob.
 func getHWJsonOutput(debugPod *corev1.Pod, o clientsholder.Command, cmd string) (out interface{}, err error) {
 	ctx := clientsholder.NewContext(debugPod.Namespace, debugPod.Name, debugPod.Spec.Containers[0].Name)
 	outStr, errStr, err := o.ExecCommandContainer(ctx, cmd)
@@ -126,7 +126,7 @@ func getHWJsonOutput(debugPod *corev1.Pod, o clientsholder.Command, cmd string) 
 	return out, nil
 }
 
-// getHWTextOutput performs a query via debug and returns plaintext lines
+// getHWTextOutput performs a query via debug and returns plaintext lines.
 func getHWTextOutput(debugPod *corev1.Pod, o clientsholder.Command, cmd string) (out []string, err error) {
 	ctx := clientsholder.NewContext(debugPod.Namespace, debugPod.Name, debugPod.Spec.Containers[0].Name)
 	outStr, errStr, err := o.ExecCommandContainer(ctx, cmd)
@@ -137,7 +137,7 @@ func getHWTextOutput(debugPod *corev1.Pod, o clientsholder.Command, cmd string) 
 	return strings.Split(outStr, "\n"), nil
 }
 
-// GetNodeJSON gets the nodes summary in JSON (similar to: oc get nodes -json)
+// GetNodeJSON gets the nodes summary in JSON (similar to: oc get nodes -json).
 func GetNodeJSON() (out map[string]interface{}) {
 	env := provider.GetTestEnvironment()
 
@@ -154,7 +154,7 @@ func GetNodeJSON() (out map[string]interface{}) {
 	return out
 }
 
-// GetCsiDriver Gets the CSI driver list
+// GetCsiDriver Gets the CSI driver list.
 func GetCsiDriver() (out map[string]interface{}) {
 	o := clientsholder.GetClientsHolder()
 	csiDriver, err := o.K8sClient.StorageV1().CSIDrivers().List(context.TODO(), apimachineryv1.ListOptions{})

@@ -262,7 +262,7 @@ func getClusterRestConfig(filenames ...string) (*rest.Config, error) {
 	return restConfig, nil
 }
 
-// GetClientsHolder instantiate an ocp client
+// GetClientsHolder instantiate an ocp client.
 func newClientsHolder(filenames ...string) (*ClientsHolder, error) { //nolint:funlen // this is a special function with lots of assignments
 	log.Info("Creating k8s go-clients holder.")
 
