@@ -163,6 +163,7 @@ var (
 	TestPodRequestsAndLimitsIdentifier                claim.Identifier
 	TestNamespaceResourceQuotaIdentifier              claim.Identifier
 	TestPodDisruptionBudgetIdentifier                 claim.Identifier
+	TestAPICompatibilityWithNextOCPReleaseIdentifier  claim.Identifier
 	TestPodTolerationBypassIdentifier                 claim.Identifier
 	TestPersistentVolumeReclaimPolicyIdentifier       claim.Identifier
 	TestContainersImageTag                            claim.Identifier
@@ -1587,6 +1588,22 @@ that Node's kernel may not have the same hacks.'`,
 			Telco:    Mandatory,
 			NonTelco: Mandatory,
 			Extended: Mandatory,
+		},
+		TagCommon)
+
+	TestAPICompatibilityWithNextOCPReleaseIdentifier = AddCatalogEntry(
+		"compatibility-with-next-ocp-release",
+		common.ObservabilityTestKey,
+		`Checks to ensure if the APIs the workload uses are compatible with the next OCP version`,
+		APICompatibilityWithNextOCPReleaseRemediation,
+		NoExceptions,
+		TestAPICompatibilityWithNextOCPReleaseIdentifierDocLink,
+		true,
+		map[string]string{
+			FarEdge:  Optional,
+			Telco:    Optional,
+			NonTelco: Optional,
+			Extended: Optional,
 		},
 		TagCommon)
 

@@ -116,10 +116,11 @@ const (
 	TestOperatorReadOnlyFilesystemDocLink               = DocOperatorRequirement
 
 	// Observability Test Suite
-	TestLoggingIdentifierDocLink                  = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-logging"
-	TestTerminationMessagePolicyIdentifierDocLink = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-pod-exit-status"
-	TestCrdsStatusSubresourceIdentifierDocLink    = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-cnf-operator-requirements"
-	TestPodDisruptionBudgetIdentifierDocLink      = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-upgrade-expectations"
+	TestLoggingIdentifierDocLink                            = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-logging"
+	TestTerminationMessagePolicyIdentifierDocLink           = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-pod-exit-status"
+	TestCrdsStatusSubresourceIdentifierDocLink              = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-cnf-operator-requirements"
+	TestPodDisruptionBudgetIdentifierDocLink                = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-upgrade-expectations"
+	TestAPICompatibilityWithNextOCPReleaseIdentifierDocLink = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-to-be-removed-apis"
 
 	// Manageability Test Suite
 	TestContainersImageTagDocLink      = "https://redhat-best-practices-for-k8s.github.io/guide/#redhat-best-practices-for-k8s-image-tagging"

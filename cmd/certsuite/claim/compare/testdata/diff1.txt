@@ -50,6 +50,7 @@ observability-container-logging                             passed    skipped
 observability-crd-status                                    passed    skipped
 observability-pod-disruption-budget                         passed    skipped
 observability-termination-policy                            failed    skipped
+observability-compatibility-with-next-ocp-release           passed    skipped
 
 CONFIGURATIONS
 --------------
